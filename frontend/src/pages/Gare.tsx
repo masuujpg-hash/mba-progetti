@@ -66,16 +66,12 @@ export default function Gare() {
   ];
 
   const plates = [
-    { img: "/media/portfolio/p01_v.webp", title: "Tavola 1 - Progetto di Integrazione e Cantiere" },
-    { img: "/media/portfolio/p02_v.webp", title: "Tavola 2 - Dettagli Costruttivi e Materiali CAM" },
-    { img: "/media/portfolio/p03_v.webp", title: "Tavola 3 - Modellazione Informativa BIM" },
-    { img: "/media/portfolio/p05_v.webp", title: "Tavola 4 - Schemi e Dettagli Tecnologici" },
-    { img: "/media/portfolio/tavole-02.webp", title: "Tavola 5 - Analisi di Dettaglio" },
-    { img: "/media/portfolio/tavole-03.webp", title: "Tavola 6 - Relazioni Tecniche" },
-    { img: "/media/portfolio/tavole-04.webp", title: "Tavola 7 - Elaborati Grafici" },
-    { img: "/media/portfolio/tavole-05.webp", title: "Tavola 8 - Planimetrie e Sezioni" },
-    { img: "/media/portfolio/tavole-06.webp", title: "Tavola 9 - Sviluppo del Progetto" },
-    { img: "/media/portfolio/tavole_Tavola disegno 1.webp", title: "Tavola 10 - Visione d'Insieme" }
+    { img: "/media/portfolio/tavole-02.webp", title: "Tavola 1" },
+    { img: "/media/portfolio/tavole-03.webp", title: "Tavola 2" },
+    { img: "/media/portfolio/tavole-04.webp", title: "Tavola 3" },
+    { img: "/media/portfolio/tavole-05.webp", title: "Tavola 4" },
+    { img: "/media/portfolio/tavole-06.webp", title: "Tavola 5" },
+    { img: "/media/portfolio/tavole_Tavola disegno 1.webp", title: "Tavola 6" }
   ];
 
   const handlePrev = () => {
@@ -270,13 +266,6 @@ export default function Gare() {
                   >
                      <CaretRight size={24} weight="bold" />
                   </button>
-
-                  {/* Bottom Title Bar */}
-                  <div className="absolute bottom-4 left-6 right-6 z-10 flex items-center justify-between">
-                     <h5 className="text-white text-sm sm:text-base font-bold uppercase tracking-wide drop-shadow-md">
-                        {plates[currentIndex].title}
-                     </h5>
-                  </div>
                </div>
 
                {/* Horizontal Thumbnail Strip */}
@@ -311,7 +300,7 @@ export default function Gare() {
             {/* Header Modal */}
             <div className="flex items-center justify-between border-b border-white/10 pb-4">
                <span className="text-gold font-mono font-bold text-xs uppercase tracking-widest">
-                  {plates[currentIndex].title} ({currentIndex + 1}/{plates.length})
+                  Tavola {currentIndex + 1} di {plates.length}
                </span>
                <button 
                   onClick={() => setIsFullscreenModalOpen(false)}
