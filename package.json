@@ -2,6 +2,7 @@
   "name": "mba-studio",
   "private": true,
   "scripts": {
+    "dev": "npm run dev --prefix frontend",
     "build": "cd frontend && npm install && npm run build",
     "vercel-build": "cd frontend && npm install && npm run build"
   },

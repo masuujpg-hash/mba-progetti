@@ -472,8 +472,8 @@ function ProjectCard({ id, title, img, pos, rank, amount }: any) {
          className="w-full h-full object-cover group-hover:scale-105 transition-all duration-1000" 
          alt={title} 
        />
-       {rank && (
-         <div className="absolute top-6 right-6 bg-gold text-white text-[11px] font-bold uppercase tracking-wider px-4 py-1.5 z-10 shadow-lg">
+       {rank && (rank.includes('1') || rank.includes('2') || rank.toLowerCase().includes('primo') || rank.toLowerCase().includes('secondo')) && (
+         <div className={`absolute top-6 right-6 ${rank.includes('2') || rank.toLowerCase().includes('secondo') ? 'bg-slate-500' : 'bg-gold'} text-white text-[11px] font-bold uppercase tracking-wider px-4 py-1.5 z-10 shadow-lg`}>
            {rank}
          </div>
        )}

@@ -144,15 +144,23 @@ export default function ProjectDetail() {
                 </div>
                 )}
 
-                <div className="flex items-start gap-5 group">
-                  <div className="text-gold p-3 bg-navy/5 rounded-sm transition-transform group-hover:rotate-12 duration-500 flex items-center justify-center">
-                    <Trophy size={20} weight="light" />
+                {/* Posizione ottenuta solo se 1° o 2° */}
+                {project.rank && (
+                  project.rank.includes('1') || 
+                  project.rank.includes('2') || 
+                  project.rank.toLowerCase().includes('primo') || 
+                  project.rank.toLowerCase().includes('secondo')
+                ) && (
+                  <div className="flex items-start gap-5 group">
+                    <div className="text-gold p-3 bg-navy/5 rounded-sm transition-transform group-hover:rotate-12 duration-500 flex items-center justify-center">
+                      <Trophy size={20} weight="light" />
+                    </div>
+                    <div>
+                      <span className="text-navy/40 text-[9px] font-bold uppercase tracking-[0.2em] block mb-1">Posizione Ottenuta</span>
+                      <span className="text-navy text-xs font-bold uppercase tracking-wide block leading-snug">{project.rank}</span>
+                    </div>
                   </div>
-                  <div>
-                    <span className="text-navy/40 text-[9px] font-bold uppercase tracking-[0.2em] block mb-1">Posizione Ottenuta</span>
-                    <span className="text-navy text-xs font-bold uppercase tracking-wide block leading-snug">{project.rank || 'In Graduatoria'}</span>
-                  </div>
-                </div>
+                )}
               </div>
             </div>
 
