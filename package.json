@@ -1,0 +1,5 @@
+{
+  "devDependencies": {
+    "vite-plugin-webp-compress": "^1.1.4"
+  }
+}

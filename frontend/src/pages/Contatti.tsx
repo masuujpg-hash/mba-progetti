@@ -1,215 +1,209 @@
-import { useState } from 'react';
+import { useState, useRef } from 'react';
 import { motion } from 'framer-motion';
-import { Phone, Envelope, MapPin, PaperPlaneTilt, ArrowRight } from '@phosphor-icons/react';
-
-const anim = { 
-  initial: { opacity: 0, y: 30 }, 
-  whileInView: { opacity: 1, y: 0 }, 
-  viewport: { once: true, margin: '-100px' as const },
-  transition: { duration: 0.8, ease: [0.16, 1, 0.3, 1] as const }
-};
+import emailjs from 'emailjs-com';
+import { 
+  Phone, 
+  Envelope, 
+  MapPin, 
+  LinkedinLogo,
+  Clock,
+  ArrowRight,
+  CheckCircle,
+  XCircle
+} from '@phosphor-icons/react';
 
 export default function Contatti() {
-  const [form, setForm] = useState({ 
-    nome: '', 
-    azienda: '',
-    email: '', 
-    telefono: '',
-    oggetto: '', 
-    messaggio: '',
-    privacy: false 
-  });
-  const [sent, setSent] = useState(false);
+  const form = useRef<HTMLFormElement>(null);
+  const [status, setStatus] = useState<'idle' | 'sending' | 'success' | 'error'>('idle');
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const sendEmail = (e: React.FormEvent) => {
     e.preventDefault();
-    setSent(true);
-    setTimeout(() => setSent(false), 4000);
+    setStatus('sending');
+
+    // NOTE: Replace these with your actual EmailJS credentials
+    // SERVICE_ID, TEMPLATE_ID, PUBLIC_KEY
+    emailjs.sendForm(
+      'service_od2a7vl', 
+      'template_l3nwcxc', 
+      form.current!, 
+      '52uGw8ssiyzXY1hIA'
+    )
+      .then((result) => {
+          console.log(result.text);
+          setStatus('success');
+          form.current?.reset();
+          setTimeout(() => setStatus('idle'), 5000);
+      }, (error) => {
+          console.log(error.text);
+          setStatus('error');
+          setTimeout(() => setStatus('idle'), 5000);
+      });
   };
 
   return (
-    <div className="bg-white">
-      {/* 1. HERO */}
-      <section className="relative h-[40dvh] min-h-[400px] w-full flex items-center bg-navy overflow-hidden">
-        <div className="absolute inset-0 z-0 opacity-20">
+    <div className="bg-white selection:bg-navy selection:text-white">
+      
+      {/* ── CONTACT HERO ── */}
+      <section className="relative h-[60vh] w-full flex items-center justify-center overflow-hidden bg-navy">
+        <div className="absolute inset-0 z-0">
           <img 
-            src="/media/hero/slide4.webp" 
-            alt="Contatti MBA Progetti" 
-            className="w-full h-full object-cover"
-            onError={(e) => { (e.target as HTMLImageElement).src = 'https://images.unsplash.com/photo-1497366216548-37526070297c?q=80&w=2069&auto=format&fit=crop'; }}
+            src="https://images.unsplash.com/photo-1497366216548-37526070297c?q=80&w=2069&auto=format&fit=crop" 
+            className="w-full h-full object-cover grayscale opacity-20" 
+            alt="Contacts"
           />
+          <div className="absolute inset-0 bg-gradient-to-b from-navy via-transparent to-white" />
         </div>
-        <div className="relative z-10 max-w-[1400px] mx-auto w-full px-6">
-          <motion.div
-            initial={{ opacity: 0, x: -30 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
-          >
-            <h1 className="text-5xl md:text-7xl lg:text-8xl font-bold text-white mb-6">Contatti</h1>
-            <div className="w-24 h-1 bg-gold mb-6" />
-            <p className="text-white/60 text-lg md:text-xl font-sans max-w-[600px] leading-relaxed">
-              Hai un progetto o una sfida tecnica da sottoporci? Il nostro team è pronto ad affiancarti con competenza e innovazione.
-            </p>
-          </motion.div>
+        <div className="relative z-10 text-center px-6">
+           <motion.div
+             initial={{ opacity: 0, y: 30 }}
+             animate={{ opacity: 1, y: 0 }}
+             transition={{ duration: 1.5 }}
+           >
+             <span className="text-gold text-xs font-bold uppercase tracking-[0.5em] sm:tracking-[0.8em] mb-8 block">Connettiamoci</span>
+             <h1 className="text-white text-3xl sm:text-4xl md:text-5xl font-bold leading-[1.1] uppercase tracking-tighter">
+                CONTATTA <br /> <span className="text-stroke-white opacity-40">LO STUDIO.</span>
+            </h1>
+           </motion.div>
         </div>
       </section>
 
-      {/* 2. CONTACT CONTENT */}
-      <section className="py-24 md:py-32 px-6">
-        <div className="max-w-[1400px] mx-auto grid grid-cols-1 lg:grid-cols-12 gap-20">
-          
-          {/* LEFT: INFO */}
-          <div className="lg:col-span-5 space-y-16">
-            <motion.div {...anim}>
-              <h2 className="text-2xl font-bold text-navy mb-10 uppercase tracking-widest">Informazioni</h2>
-              
-              <div className="space-y-12">
-                {[
-                  { icon: Phone, label: "Chiama Ora", val: "+39 328 628 5861", link: "tel:+393286285861" },
-                  { icon: Envelope, label: "Mail", val: "info@mbaprogetti.it", link: "mailto:info@mbaprogetti.it" },
-                  { icon: MapPin, label: "Sede Operativa", val: "Via Sardarulo, 7 — 81016 San Potito Sannitico (CE)", link: "#" }
-                ].map((item, i) => (
-                  <div key={i} className="group flex items-start gap-6">
-                    <div className="w-12 h-12 flex items-center justify-center bg-surface border border-lgray group-hover:bg-gold/10 group-hover:border-gold/30 transition-all duration-500">
-                      <item.icon size={24} weight="light" className="text-gold group-hover:scale-110 transition-transform duration-500" />
-                    </div>
-                    <div>
-                      <p className="text-[10px] font-bold text-gray/40 uppercase tracking-[0.3em] mb-2">{item.label}</p>
-                      <a href={item.link} className="text-lg font-sans font-bold text-navy hover:text-gold transition-colors duration-300">
-                        {item.val}
-                      </a>
-                    </div>
-                  </div>
-                ))}
-              </div>
-            </motion.div>
-
-            <motion.div {...anim} transition={{ delay: 0.2 }} className="p-10 bg-surface border-l-4 border-gold">
-              <h3 className="text-lg font-medium text-navy mb-4">"Affianchiamo imprese e professionisti con soluzioni tecniche avanzate."</h3>
-              <p className="text-gray/70 text-sm leading-relaxed">
-                Dal rilievo fotogrammetrico alla progettazione BIM, MBA Progetti trasforma la complessità in efficienza. Contattaci per scoprire come possiamo valorizzare la tua prossima gara o il tuo prossimo cantiere.
-              </p>
-            </motion.div>
-          </div>
-
-          {/* RIGHT: FORM */}
-          <motion.div {...anim} transition={{ delay: 0.1 }} className="lg:col-span-7 bg-surface p-8 md:p-16 border border-lgray">
-            <h2 className="text-2xl font-bold text-navy mb-12 uppercase tracking-widest text-center lg:text-left">Invia un Messaggio</h2>
+      {/* ── CONTACT GRID ── */}
+      <section className="py-16 md:py-32 px-6 max-w-7xl mx-auto">
+         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-24">
             
-            <form onSubmit={handleSubmit} className="space-y-8">
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-                <div className="space-y-2">
-                  <label className="text-[10px] font-bold text-navy uppercase tracking-[0.2em]">Nome e Cognome *</label>
-                  <input
-                    type="text"
-                    required
-                    value={form.nome}
-                    onChange={e => setForm(p => ({ ...p, nome: e.target.value }))}
-                    className="w-full bg-white border-b border-gray/20 px-0 py-3 text-navy focus:border-gold focus:outline-none transition-colors font-sans"
-                    placeholder="Esempio: Andrea Masucci"
+            {/* Info Column */}
+            <div className="lg:col-span-5 space-y-16 md:space-y-24">
+               <div>
+                  <span className="text-gold text-[12px] font-bold uppercase tracking-[0.4em] mb-8 block">Sede Principale</span>
+                  <div className="flex items-start gap-8">
+                     <MapPin size={40} weight="thin" className="text-gold shrink-0" />
+                     <div>
+                        <h3 className="text-navy text-2xl font-bold uppercase tracking-tighter mb-4">San Potito Sannitico</h3>
+                        <p className="text-text-main text-lg font-light leading-relaxed">
+                           Via Sardarulo, 7 <br /> 81016 San Potito Sannitico (CE)
+                        </p>
+                     </div>
+                  </div>
+               </div>
+
+               <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12 pt-8 md:pt-12 border-t border-navy/5">
+                  <ContactItem 
+                    icon={Phone}
+                    title="Telefono"
+                    val="+39 328 628 5861"
+                    link="tel:+393286285861"
                   />
-                </div>
-                <div className="space-y-2">
-                  <label className="text-[10px] font-bold text-navy uppercase tracking-[0.2em]">Azienda</label>
-                  <input
-                    type="text"
-                    value={form.azienda}
-                    onChange={e => setForm(p => ({ ...p, azienda: e.target.value }))}
-                    className="w-full bg-white border-b border-gray/20 px-0 py-3 text-navy focus:border-gold focus:outline-none transition-colors font-sans"
-                    placeholder="Nome Azienda o Impresa"
+                  <ContactItem 
+                    icon={Envelope}
+                    title="Email"
+                    val="info@mbaprogetti.it"
+                    link="mailto:info@mbaprogetti.it"
                   />
-                </div>
-              </div>
-
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-                <div className="space-y-2">
-                  <label className="text-[10px] font-bold text-navy uppercase tracking-[0.2em]">Email *</label>
-                  <input
-                    type="email"
-                    required
-                    value={form.email}
-                    onChange={e => setForm(p => ({ ...p, email: e.target.value }))}
-                    className="w-full bg-white border-b border-gray/20 px-0 py-3 text-navy focus:border-gold focus:outline-none transition-colors font-sans"
-                    placeholder="email@esempio.it"
+                  <ContactItem 
+                    icon={Clock}
+                    title="Orari"
+                    val="Lun - Ven: 09:00 - 18:00"
                   />
-                </div>
-                <div className="space-y-2">
-                  <label className="text-[10px] font-bold text-navy uppercase tracking-[0.2em]">Telefono</label>
-                  <input
-                    type="tel"
-                    value={form.telefono}
-                    onChange={e => setForm(p => ({ ...p, telefono: e.target.value }))}
-                    className="w-full bg-white border-b border-gray/20 px-0 py-3 text-navy focus:border-gold focus:outline-none transition-colors font-sans"
-                    placeholder="+39 000 000 0000"
+                  <ContactItem 
+                    icon={LinkedinLogo}
+                    title="Social"
+                    val="LinkedIn Profile"
+                    link="#"
                   />
-                </div>
-              </div>
+               </div>
 
-              <div className="space-y-2">
-                <label className="text-[10px] font-bold text-navy uppercase tracking-[0.2em]">Oggetto</label>
-                <input
-                  type="text"
-                  required
-                  value={form.oggetto}
-                  onChange={e => setForm(p => ({ ...p, oggetto: e.target.value }))}
-                  className="w-full bg-white border-b border-gray/20 px-0 py-3 text-navy focus:border-gold focus:outline-none transition-colors font-sans"
-                  placeholder="Di cosa hai bisogno?"
-                />
-              </div>
+               <div className="aspect-video sm:aspect-square bg-bg-neutral relative overflow-hidden grayscale">
+                  <iframe 
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3005.123456789!2d14.3912345!3d41.3312345!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x133a8fb0bc000001%3A0x0!2sVia%20Sardarulo%2C%207%2C%2081016%20San%20Potito%20Sannitico%20CE!5e0!3m2!1sit!2sit!4v1620830000000!5m2!1sit!2sit" 
+                    width="100%" 
+                    height="100%" 
+                    style={{ border: 0 }} 
+                    allowFullScreen={true} 
+                    loading="lazy"
+                  ></iframe>
+                  <div className="absolute inset-0 pointer-events-none border-[20px] border-white/10" />
+               </div>
+            </div>
 
-              <div className="space-y-2">
-                <label className="text-[10px] font-bold text-navy uppercase tracking-[0.2em]">Messaggio</label>
-                <textarea
-                  required
-                  rows={4}
-                  value={form.messaggio}
-                  onChange={e => setForm(p => ({ ...p, messaggio: e.target.value }))}
-                  className="w-full bg-white border-b border-gray/20 px-0 py-3 text-navy focus:border-gold focus:outline-none transition-colors font-sans resize-none"
-                  placeholder="Scrivi qui la tua richiesta..."
-                />
-              </div>
+            {/* Form Column */}
+            <div className="lg:col-span-7 bg-bg-neutral p-6 sm:p-12 md:p-24 relative overflow-hidden">
+               <div className="absolute top-0 right-0 p-12 text-[10vw] font-bold text-navy/[0.03] uppercase select-none pointer-events-none">Message</div>
+               
+               <div className="relative z-10">
+                  <h2 className="text-navy text-2xl sm:text-3xl md:text-4xl font-bold uppercase tracking-tighter leading-[1.1] mb-8 md:mb-16">
+                     Inviaci un <br /> Messaggio.
+                  </h2>
+                  
+                  <form ref={form} onSubmit={sendEmail} className="space-y-8 md:space-y-12">
+                     <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-12">
+                        <InputGroup name="user_name" label="Nome Completo" placeholder="Mario Rossi" required />
+                        <InputGroup name="company" label="Azienda" placeholder="Impresa srl" />
+                     </div>
+                     <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-12">
+                        <InputGroup name="user_email" label="Email" placeholder="mario@impresa.it" type="email" required />
+                        <InputGroup name="phone" label="Telefono" placeholder="+39 000 0000000" />
+                     </div>
+                     <InputGroup name="service" label="Servizio d'Interesse" placeholder="Gare OEPV / BIM / Reality Capture" />
+                     
+                     <div className="flex flex-col gap-4">
+                        <label className="text-[12px] font-bold uppercase tracking-[0.3em] text-navy/40">Messaggio</label>
+                        <textarea 
+                           name="message"
+                           rows={6}
+                           placeholder="Descrivi brevemente il tuo progetto o la tua esigenza tecnica..."
+                           className="w-full bg-transparent border-b border-navy/10 py-4 text-navy focus:outline-none focus:border-gold transition-colors resize-none font-light"
+                           required
+                        />
+                     </div>
 
-              <div className="flex items-start gap-4 py-4">
-                <input
-                  type="checkbox"
-                  id="privacy"
-                  required
-                  checked={form.privacy}
-                  onChange={e => setForm(p => ({ ...p, privacy: e.target.checked }))}
-                  className="mt-1.5 accent-gold w-4 h-4"
-                />
-                <label htmlFor="privacy" className="text-[11px] text-gray leading-relaxed cursor-pointer">
-                  Acconsento al trattamento dei dati personali secondo la normativa vigente (GDPR). I dati non saranno ceduti a terzi. *
-                </label>
-              </div>
+                     <div className="pt-6 md:pt-12">
+                        <button 
+                           type="submit"
+                           disabled={status === 'sending'}
+                           className={`btn-ghost-dark w-full md:w-auto px-16 py-6 group flex items-center justify-center gap-4 ${status === 'sending' ? 'opacity-50 cursor-not-allowed' : ''}`}
+                        >
+                           {status === 'idle' && <>Invia Richiesta <ArrowRight size={20} className="group-hover:translate-x-2 transition-transform" /></>}
+                           {status === 'sending' && <>Inviando...</>}
+                           {status === 'success' && <><CheckCircle size={20} className="text-green-500" /> Inviato con Successo</>}
+                           {status === 'error' && <><XCircle size={20} className="text-red-500" /> Errore. Riprova</>}
+                        </button>
+                     </div>
+                  </form>
+               </div>
+            </div>
 
-              <button
-                type="submit"
-                disabled={sent}
-                className="group relative w-full lg:w-auto inline-flex items-center justify-center gap-4 bg-navy text-white px-12 py-5 text-sm font-bold tracking-[0.2em] uppercase hover:bg-gold transition-all duration-500 overflow-hidden shadow-lg"
-              >
-                <span className="relative z-10">
-                  {sent ? 'Messaggio Inviato ✓' : <><PaperPlaneTilt size={20} weight="light" className="inline-block mr-2" /> Invia Richiesta</>}
-                </span>
-                {!sent && <ArrowRight size={18} className="relative z-10 group-hover:translate-x-2 transition-transform duration-500" />}
-              </button>
-            </form>
-          </motion.div>
-        </div>
+         </div>
       </section>
 
-      {/* 3. MAP PLACEHOLDER / DECORATIVE SECTION */}
-      <section className="h-[400px] bg-lgray relative overflow-hidden">
-        <div className="absolute inset-0 grayscale opacity-40 hover:opacity-100 transition-opacity duration-1000">
-           {/* In a real project, here would be a Leaflet/Google map. For now, a stylish placeholder */}
-           <div className="w-full h-full flex items-center justify-center bg-navy/5">
-              <div className="text-center">
-                <MapPin size={48} weight="thin" className="text-gold mx-auto mb-4" />
-                <p className="text-navy font-medium text-xl">Ci trovi nel cuore del Matese.</p>
-              </div>
-           </div>
-        </div>
-      </section>
+    </div>
+  );
+}
+
+function ContactItem({ icon: Icon, title, val, link }: any) {
+  const content = (
+    <div className="group cursor-pointer">
+       <div className="flex items-center gap-4 text-gold mb-2 group-hover:translate-x-2 transition-transform duration-500">
+          <Icon size={20} weight="thin" />
+          <span className="text-[12px] font-bold uppercase tracking-[0.3em] text-navy/40 group-hover:text-gold">{title}</span>
+       </div>
+       <p className="text-navy font-bold uppercase tracking-widest text-sm ml-9">{val}</p>
+    </div>
+  );
+
+  return link ? <a href={link}>{content}</a> : content;
+}
+
+function InputGroup({ label, placeholder, name, required, type = "text" }: any) {
+  return (
+    <div className="flex flex-col gap-4">
+       <label className="text-[12px] font-bold uppercase tracking-[0.3em] text-navy/40">{label}</label>
+       <input 
+          name={name}
+          required={required}
+          type={type}
+          placeholder={placeholder}
+          className="w-full bg-transparent border-b border-navy/10 py-4 text-navy focus:outline-none focus:border-gold transition-colors font-light text-sm"
+       />
     </div>
   );
 }

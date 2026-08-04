@@ -1,22 +1,22 @@
 export default {
   name: 'project',
-  title: 'Progetto',
+  title: 'Progetto Portfolio',
   type: 'document',
   fields: [
     {
       name: 'id',
-      title: 'ID Vecchio Sito',
+      title: 'ID Progetto',
       type: 'string',
-      description: 'L\'ID numerico usato in precedenza (es: 01, 02)',
+      description: 'Identificativo univoco (es: p01-realizzazione-nuovo-edificio)',
     },
     {
       name: 'title',
-      title: 'Titolo',
+      title: 'Titolo dell\'Opera',
       type: 'string',
     },
     {
       name: 'slug',
-      title: 'Slug',
+      title: 'Slug URL',
       type: 'slug',
       options: {
         source: 'title',
@@ -24,13 +24,30 @@ export default {
       },
     },
     {
+      name: 'category',
+      title: 'Categoria',
+      type: 'string',
+      options: {
+        list: [
+          { title: 'Edilizia Scolastica', value: 'Edilizia Scolastica' },
+          { title: 'Infrastrutture', value: 'Infrastrutture' },
+          { title: 'Sport', value: 'Sport' },
+          { title: 'Sanità', value: 'Sanità' },
+          { title: 'Restauro', value: 'Restauro' },
+          { title: 'Cultura', value: 'Cultura' },
+          { title: 'Dissesto Idrogeologico', value: 'Dissesto Idrogeologico' },
+          { title: 'Residenziale', value: 'Residenziale' },
+        ],
+      },
+    },
+    {
       name: 'description',
-      title: 'Descrizione',
+      title: 'Descrizione Dettagliata',
       type: 'text',
     },
     {
       name: 'mainImage',
-      title: 'Immagine Principale',
+      title: 'Immagine Principale (WebP)',
       type: 'image',
       options: {
         hotspot: true,
@@ -42,33 +59,35 @@ export default {
       type: 'string',
     },
     {
-      name: 'category',
-      title: 'Categoria',
-      type: 'string',
-    },
-    {
       name: 'client',
-      title: 'Cliente',
+      title: 'Stazione Appaltante / Cliente',
       type: 'string',
     },
     {
       name: 'amount',
-      title: 'Importo',
+      title: 'Importo Lavori',
       type: 'string',
     },
     {
       name: 'services',
-      title: 'Servizi',
-      type: 'string',
-    },
-    {
-      name: 'credits',
-      title: 'Credits',
+      title: 'Servizi Svolti',
       type: 'string',
     },
     {
       name: 'rank',
-      title: 'Posizionamento (es: 1°)',
+      title: 'Posizione in Graduatoria',
+      type: 'string',
+      options: {
+        list: [
+          { title: '1° Posto', value: '1° Posto' },
+          { title: '2° Posto', value: '2° Posto' },
+          { title: '3° Posto', value: '3° Posto' },
+        ],
+      },
+    },
+    {
+      name: 'credits',
+      title: 'Crediti & Team Esecutivo',
       type: 'string',
     },
     {
