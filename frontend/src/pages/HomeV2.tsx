@@ -175,7 +175,7 @@ export default function HomeV2() {
               <ValueItem 
                 number="03" 
                 title="Dieci anni di esperienza nel settore." 
-                text="Dal 2015 operiamo nel mondo degli appalti pubblici. Un percorso costruito gara dopo gara, su tipologie diverse — edilizia scolastica, restauro, infrastrutture, strutture sportive — in tutta Italia. Un'esperienza che si traduce in capacità di lettura rapida dei disciplinari e soluzioni migliorative sempre più efficaci."
+                text="Dal 2015 operiamo nel mondo degli appalti pubblici. Un percorso costruito gara dopo gara su tipologie diverse di opere in tutta Italia. Un'esperienza che si traduce in capacità di lettura rapida dei disciplinari e soluzioni migliorative sempre più efficaci."
               />
            </div>
         </div>

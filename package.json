@@ -1,4 +1,10 @@
 {
+  "name": "mba-studio",
+  "private": true,
+  "scripts": {
+    "build": "cd frontend && npm install && npm run build",
+    "vercel-build": "cd frontend && npm install && npm run build"
+  },
   "devDependencies": {
     "vite-plugin-webp-compress": "^1.1.4"
   }

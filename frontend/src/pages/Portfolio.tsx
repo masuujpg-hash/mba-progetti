@@ -48,7 +48,7 @@ export default function Portfolio() {
               Esperienza e <br />Risultati sul Campo.
             </h2>
             <p className="text-navy/70 font-light leading-relaxed text-sm md:text-base">
-              Dal 2019, MBA Progetti ha affiancato imprese di costruzione in oltre 200 procedure di gara su tutto il territorio nazionale. I progetti qui raccolti rappresentano alcune delle aggiudicazioni e dei piazzamenti più significativi, in ambiti che spaziano dall'edilizia scolastica al restauro, dalle infrastrutture alle strutture sportive. Ogni scheda riporta la stazione appaltante, l'importo a base di gara, la posizione ottenuta in graduatoria tecnica e i servizi offerti.
+              Dal 2019, MBA Progetti ha affiancato imprese di costruzione in oltre 200 procedure di gara su tutto il territorio nazionale. I progetti qui raccolti rappresentano alcune delle aggiudicazioni e dei piazzamenti più significativi in diversi settori dell'edilizia e delle opere pubbliche. Ogni scheda riporta la stazione appaltante, l'importo a base di gara, la posizione ottenuta in graduatoria tecnica e i servizi offerti.
             </p>
           </div>
 

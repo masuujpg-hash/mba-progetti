@@ -3,16 +3,6 @@ import { useRef, useState, useEffect } from 'react';
 import { 
   CaretRight,
   CaretLeft,
-  Heart,
-  GraduationCap,
-  House,
-  Compass,
-  SquaresFour,
-  Buildings,
-  Trophy,
-  Wrench,
-  Bed,
-  Columns,
   ArrowsOut,
   X
 } from '@phosphor-icons/react';
@@ -143,43 +133,6 @@ export default function Gare() {
          </div>
       </section>
 
-      {/* ── AMBITI DI INTERVENTO ── */}
-      <section className="mt-16 md:mt-32 py-16 md:py-24 bg-bg-neutral border-y border-navy/5">
-         <div className="max-w-7xl mx-auto px-6">
-            <div className="text-center mb-16">
-               <span className="text-gold text-[10px] font-bold uppercase tracking-[0.4em] mb-4 block">Flessibilità & Competenza</span>
-               <h2 className="text-navy text-2xl sm:text-3xl md:text-4xl font-bold uppercase tracking-tighter leading-[1.1] mb-4">
-                  Ambiti di Intervento.
-               </h2>
-            </div>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-5xl mx-auto">
-               {[
-                  { title: "Strutture per servizi assistenziali", icon: Heart },
-                  { title: "Edilizia scolastica", icon: GraduationCap },
-                  { title: "Edilizia residenziale", icon: House },
-                  { title: "Infrastrutture e arredo urbano", icon: Compass },
-                  { title: "Strutture polivalenti", icon: SquaresFour },
-                  { title: "Strutture e amministrazioni pubbliche", icon: Buildings },
-                  { title: "Strutture sportive", icon: Trophy },
-                  { title: "Manutenzione ordinaria e servizi", icon: Wrench },
-                  { title: "Strutture ricettive", icon: Bed },
-                  { title: "Edifici storici", icon: Columns }
-               ].map((ambito, idx) => {
-                  const Icon = ambito.icon;
-                  return (
-                     <div key={idx} className="bg-white flex items-center gap-6 p-6 border border-navy/5 shadow-sm hover:shadow-md transition-shadow group">
-                        <div className="p-4 bg-bg-neutral rounded-full text-gold group-hover:bg-gold group-hover:text-white transition-all duration-300">
-                           <Icon size={24} weight="light" />
-                        </div>
-                        <span className="text-navy font-bold uppercase tracking-wide text-xs sm:text-sm">
-                           {ambito.title}
-                        </span>
-                     </div>
-                  );
-               })}
-            </div>
-         </div>
-      </section>
 
       {/* ── WORKFLOW OPERATIVO ── */}
       <section className="py-12 md:py-32 bg-white overflow-hidden">

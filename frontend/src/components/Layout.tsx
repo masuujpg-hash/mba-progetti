@@ -279,14 +279,14 @@ export default function Layout() {
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-12 gap-12 lg:gap-8 mb-24">
 
             {/* Logo e Descrizione */}
-            <div className="lg:col-span-3">
+            <div className="lg:col-span-4">
               <Link to="/" className="inline-block mb-10">
                 <img src="/logo.svg" alt="MBA Progetti" className="h-[72px] w-auto brightness-0 invert" />
               </Link>
             </div>
 
             {/* Menu */}
-            <div className="lg:col-span-2">
+            <div className="lg:col-span-3">
               <h4 className="text-[#B8972A] text-[13px] font-bold uppercase tracking-[0.5em] mb-8">Menu</h4>
               <ul className="space-y-4">
                 {navLinks.map((link) => (
@@ -296,14 +296,6 @@ export default function Layout() {
                     </Link>
                   </li>
                 ))}
-              </ul>
-            </div>
-
-            {/* Portfolio */}
-            <div className="lg:col-span-2">
-              <h4 className="text-[#B8972A] text-[13px] font-bold uppercase tracking-[0.5em] mb-8">Portfolio</h4>
-              <ul className="space-y-4">
-                <li><Link to="/portfolio" className="text-white/60 hover:text-[#B8972A] text-[13px] uppercase tracking-widest transition-colors font-bold">Tutti i Progetti</Link></li>
               </ul>
             </div>
 
