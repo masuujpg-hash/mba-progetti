@@ -167,9 +167,9 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ── STATS COUNTER ── */}
-      <section className="py-12 md:py-24 px-6 max-w-7xl mx-auto border-b border-navy/5">
-         <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-8 md:gap-12">
+      {/* ── STATS COUNTER (DISPOSTO SU DUE FILE) ── */}
+      <section className="py-12 md:py-20 px-6 max-w-5xl mx-auto border-b border-navy/5">
+         <div className="grid grid-cols-2 md:grid-cols-3 gap-8 md:gap-12">
             <StatItem icon={Calendar} value="10" label="anni di esperienza" />
             <StatItem icon={FileText} value="+200" label="gare redatte" />
             <StatItem icon={Medal} value="63%" label="gare sul podio" />
