@@ -243,7 +243,7 @@ function Barra({ label, value, min, max, coloreText, onChange }: any) {
           onChange={(e) => setTesto(e.target.value)}
           onBlur={applica}
           onKeyDown={(e) => { if (e.key === "Enter") e.currentTarget.blur(); }}
-          className={`w-full py-2 pl-3 pr-6 text-sm font-bold font-mono bg-white border border-current rounded ${coloreText} focus:outline-none`}
+          className={`w-full py-2 pl-3 pr-6 text-base font-bold font-mono bg-white border border-current rounded ${coloreText} focus:outline-none`}
         />
         <span className={`absolute right-2 top-1/2 -translate-y-1/2 text-xs ${coloreText} pointer-events-none`}>%</span>
       </div>
@@ -528,14 +528,14 @@ export default function Simulatore() {
                        <span className={`${x.mine ? 'text-gold font-bold' : 'text-navy'}`}>{etichette[x.id]}</span>
                      </td>
                      <td className="px-6 py-4">
-                       <div className="relative w-[120px]">
-                         <input
-                           type="number" step={0.01} value={x.r}
-                           onChange={(e) => aggiorna(x.id, +e.target.value || 0)}
-                           className={`w-full py-2 pl-3 pr-8 font-mono bg-transparent border-b focus:outline-none transition-colors ${x.mine ? 'border-gold text-gold font-bold' : 'border-navy/10 text-navy focus:border-navy'}`}
-                         />
-                         <span className="absolute right-2 top-1/2 -translate-y-1/2 text-xs text-navy/40 pointer-events-none">%</span>
-                       </div>
+                        <div className="relative w-[120px]">
+                          <input
+                            type="number" step={0.01} value={x.r}
+                            onChange={(e) => aggiorna(x.id, +e.target.value || 0)}
+                            className={`w-full py-2 pl-3 pr-8 font-mono bg-transparent border-b focus:outline-none transition-colors text-base ${x.mine ? 'border-gold text-gold font-bold' : 'border-navy/10 text-navy focus:border-navy'}`}
+                          />
+                          <span className="absolute right-2 top-1/2 -translate-y-1/2 text-xs text-navy/40 pointer-events-none">%</span>
+                        </div>
                      </td>
                      <td className="px-6 py-4 text-right font-mono text-navy/70">
                        {eur.format(x.prezzo)}

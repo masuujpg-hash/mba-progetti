@@ -222,12 +222,16 @@ export default function Layout() {
                             exit={{ opacity: 0, height: 0 }}
                             className="overflow-hidden"
                           >
-                            <div className="flex flex-col items-center gap-3 pt-3 border-t border-white/10">
+                            <div className="flex flex-col items-center gap-2 pt-3 mt-2 border-t border-white/10">
                               {link.subLinks.map((sub) => (
                                 <Link
                                   key={sub.path}
                                   to={sub.path}
-                                  className="text-xs font-bold uppercase tracking-[0.4em] text-[#B8972A]/60 hover:text-[#B8972A] transition-colors py-1"
+                                  onClick={() => {
+                                    setIsMenuOpen(false);
+                                    setServiziOpen(false);
+                                  }}
+                                  className="text-xs font-bold uppercase tracking-[0.3em] text-[#B8972A] hover:text-white transition-colors py-2 px-4 rounded-sm bg-white/5 w-full max-w-xs text-center flex items-center justify-center gap-2"
                                 >
                                   {sub.name}
                                 </Link>
