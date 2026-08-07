@@ -3,7 +3,6 @@ import { useState, useEffect, useRef } from 'react';
 import { Link } from 'react-router-dom';
 import { 
   ArrowRight, 
-  ArrowLeft,
   Buildings,
   Target,
   Cube,
@@ -59,48 +58,12 @@ export default function Home() {
     return () => clearInterval(timer);
   }, [slides.length]);
 
-  // Filter won projects (1° Posto) - avoiding duplicate images/projects
-  const wonProjects = projects.filter(p => 
-    p.rank?.includes('1°') && 
-    !['scuola-marzabotto', 'carabinieri-viterbo', 'scuola-infanzia-fano'].includes(p.id)
-  );
+  // Portfolio Tile Grid State & Filtering
+  const [selectedCategory, setSelectedCategory] = useState('Tutti');
 
-  // Carosello "I Nostri Risultati" (Slider Laterale)
-  const [currentIndex, setCurrentIndex] = useState(0);
-  const [itemsPerView, setItemsPerView] = useState(2);
-
-  useEffect(() => {
-    const handleResize = () => {
-      if (window.innerWidth < 768) {
-        setItemsPerView(1);
-      } else {
-        setItemsPerView(2);
-      }
-    };
-    handleResize();
-    window.addEventListener('resize', handleResize);
-    return () => window.removeEventListener('resize', handleResize);
-  }, []);
-
-  // Autoplay per carosello progetti
-  useEffect(() => {
-    const timer = setInterval(() => {
-      setCurrentIndex((prev) => (prev >= wonProjects.length - itemsPerView ? 0 : prev + 1));
-    }, 5000);
-    return () => clearInterval(timer);
-  }, [wonProjects.length, itemsPerView]);
-
-  const handleNext = () => {
-    setCurrentIndex((prev) => (prev >= wonProjects.length - itemsPerView ? 0 : prev + 1));
-  };
-
-  const handlePrev = () => {
-    setCurrentIndex((prev) => (prev === 0 ? wonProjects.length - itemsPerView : prev - 1));
-  };
-
-  const translateX = itemsPerView === 1 
-    ? `calc(-${currentIndex * 100}% - ${currentIndex * 24}px)`
-    : `calc(-${currentIndex * 50}% - ${currentIndex * 12}px)`;
+  const filteredProjects = selectedCategory === 'Tutti'
+    ? projects
+    : projects.filter(p => p.category.toLowerCase().includes(selectedCategory.toLowerCase()));
 
   // Varianti Framer Motion per "Il Nostro Metodo"
   const methodContainerVariants = {
@@ -287,63 +250,72 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ── I NOSTRI RISULTATI (SLIDER LATERALE) ── */}
-      <section className="py-16 md:py-32 bg-white overflow-hidden">
-        <div className="px-6 max-w-7xl mx-auto mb-12 md:mb-20 flex flex-col sm:flex-row justify-between items-start sm:items-end gap-6">
-           <div>
-              <span className="text-gold text-xs font-bold uppercase tracking-[0.6em] mb-4 block">I Nostri Risultati</span>
-              <h2 className="text-[#1B2A4A] text-2xl sm:text-3xl md:text-4xl font-bold uppercase tracking-tighter leading-[1.1]">
-                 Progetti Vincenti.
-              </h2>
-           </div>
-           
-           <div className="flex gap-4 items-center shrink-0 w-full sm:w-auto justify-between sm:justify-end">
-              <div className="flex gap-3">
-                 <button 
-                   onClick={handlePrev} 
-                   className="w-12 h-12 rounded-full border border-[#1B2A4A]/20 hover:border-gold text-[#1B2A4A] hover:text-gold flex items-center justify-center transition-all duration-300 group cursor-pointer"
-                   aria-label="Progetto precedente"
-                 >
-                    <ArrowLeft size={20} className="group-hover:-translate-x-1 transition-transform" />
-                 </button>
-                 <button 
-                   onClick={handleNext} 
-                   className="w-12 h-12 rounded-full border border-[#1B2A4A]/20 hover:border-gold text-[#1B2A4A] hover:text-gold flex items-center justify-center transition-all duration-300 group cursor-pointer"
-                   aria-label="Prossimo progetto"
-                 >
-                    <ArrowRight size={20} className="group-hover:translate-x-1 transition-transform" />
-                 </button>
+      {/* ── TUTTI I PROGETTI DEL PORTFOLIO (VISUALIZZAZIONE A MATTONELLE) ── */}
+      <section className="py-16 md:py-32 bg-white overflow-hidden" id="portfolio-home">
+        <div className="px-6 max-w-7xl mx-auto">
+           <div className="mb-12 md:mb-16 flex flex-col md:flex-row justify-between items-start md:items-end gap-6">
+              <div>
+                 <span className="text-gold text-xs font-bold uppercase tracking-[0.6em] mb-4 block">Portfolio Completo</span>
+                 <h2 className="text-[#1B2A4A] text-2xl sm:text-3xl md:text-4xl font-bold uppercase tracking-tighter leading-[1.1]">
+                    I Nostri Progetti & Appalti.
+                 </h2>
+                 <p className="text-text-main text-sm font-light max-w-xl mt-3">
+                    Esplora tutte le opere, le offerte migliorative vincenti ed i progetti di ingegneria ed architettura firmati da MBA Progetti.
+                 </p>
               </div>
-              <Link to="/portfolio" className="text-gold text-[11px] font-bold uppercase tracking-[0.3em] hover:text-[#1B2A4A] transition-colors ml-4 flex items-center gap-2">
-                 Vedi Tutti
+              
+              <Link to="/portfolio" className="text-gold text-[11px] font-bold uppercase tracking-[0.3em] hover:text-[#1B2A4A] transition-colors flex items-center gap-2 shrink-0">
+                 Esplora Pagina Portfolio <ArrowRight size={14} />
               </Link>
            </div>
-        </div>
 
-        <div className="relative overflow-hidden w-full max-w-7xl mx-auto px-6">
-           <div className="overflow-hidden">
-              <motion.div 
-                 className="flex gap-6"
-                 animate={{ x: translateX }}
-                 transition={{ type: "spring", stiffness: 100, damping: 18 }}
-              >
-                 {wonProjects.map((p, i) => (
-                    <div 
-                       key={i} 
-                       className="w-full md:w-[calc(50%-12px)] shrink-0"
-                    >
-                       <ProjectCard 
-                         id={p.id}
-                         title={p.title}
-                         cat={p.category}
-                         img={p.image}
-                         pos={p.location}
-                         rank={p.rank}
-                         amount={p.amount}
-                       />
-                    </div>
-                 ))}
-              </motion.div>
+           {/* Filtri di Categoria a Mattonella */}
+           <div className="flex flex-wrap gap-2 md:gap-3 mb-12 border-b border-[#1B2A4A]/10 pb-6 overflow-x-auto custom-scrollbar">
+              {['Tutti', 'Edilizia Scolastica', 'Restauro', 'Infrastrutture', 'Sport', 'Sanità'].map((cat) => (
+                 <button
+                    key={cat}
+                    onClick={() => setSelectedCategory(cat)}
+                    className={`px-5 py-2.5 text-xs font-bold uppercase tracking-wider rounded-sm transition-all cursor-pointer whitespace-nowrap ${
+                       selectedCategory === cat
+                          ? 'bg-navy text-gold shadow-md'
+                          : 'bg-bg-neutral text-navy/70 hover:bg-navy/5 hover:text-navy'
+                    }`}
+                 >
+                    {cat}
+                 </button>
+              ))}
+           </div>
+
+           {/* Griglia a Mattonelle (Tile Grid) */}
+           <motion.div 
+              layout
+              className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
+           >
+              {filteredProjects.map((p) => (
+                 <motion.div
+                    key={p.id}
+                    layout
+                    initial={{ opacity: 0, scale: 0.95 }}
+                    animate={{ opacity: 1, scale: 1 }}
+                    transition={{ duration: 0.4 }}
+                 >
+                    <ProjectCard 
+                       id={p.id}
+                       title={p.title}
+                       cat={p.category}
+                       img={p.image}
+                       pos={p.location}
+                       rank={p.rank}
+                       amount={p.amount}
+                    />
+                 </motion.div>
+              ))}
+           </motion.div>
+
+           <div className="mt-16 text-center">
+              <Link to="/portfolio" className="btn-ghost-dark px-10 py-5 text-xs uppercase tracking-[0.3em] inline-flex items-center gap-3">
+                 Vedi Tutti i Progetti nel Portfolio <ArrowRight size={16} />
+              </Link>
            </div>
         </div>
       </section>
