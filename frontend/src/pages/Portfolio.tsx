@@ -2,14 +2,11 @@ import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import { 
   ArrowRight, 
-  MapPin,
-  Users
+  MapPin
 } from '@phosphor-icons/react';
 import { projects, type Project } from '../data/projects';
 
 export default function Portfolio() {
-  const filteredProjects = projects;
-
   return (
     <div className="bg-white selection:bg-navy selection:text-white overflow-x-hidden">
       
@@ -48,7 +45,7 @@ export default function Portfolio() {
               Esperienza e <br />Risultati sul Campo.
             </h2>
             <p className="text-navy/70 font-light leading-relaxed text-sm md:text-base">
-              Dal 2019, MBA Progetti ha affiancato imprese di costruzione in oltre 200 procedure di gara su tutto il territorio nazionale. I progetti qui raccolti rappresentano alcune delle aggiudicazioni e dei piazzamenti più significativi in diversi settori dell'edilizia e delle opere pubbliche. Ogni scheda riporta la stazione appaltante, l'importo a base di gara, la posizione ottenuta in graduatoria tecnica ed i legittimi progettisti e collaboratori.
+              Dal 2019, MBA Progetti ha affiancato imprese di costruzione in oltre 200 procedure di gara su tutto il territorio nazionale. I progetti qui raccolti rappresentano alcune delle aggiudicazioni e dei piazzamenti più significativi in diversi settori dell'edilizia e delle opere pubbliche. Ogni scheda tecnica riporta stazione appaltante, importo a base di gara e posizione ottenuta in graduatoria.
             </p>
           </div>
 
@@ -74,10 +71,10 @@ export default function Portfolio() {
         </div>
       </section>
 
-      {/* ── FILTER & GRID ── */}
+      {/* ── GRID PROGETTI ── */}
       <section className="pt-6 md:pt-12 pb-12 md:pb-24 px-6 max-w-7xl mx-auto">
          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {filteredProjects.map((p) => (
+            {projects.map((p) => (
                <ProjectGridItem key={p.id} project={p} />
             ))}
          </div>
@@ -121,14 +118,9 @@ function ProjectGridItem({ project }: { project: Project }) {
 
          <div className="absolute inset-0 bg-gradient-to-t from-navy/95 via-navy/50 to-transparent opacity-85 group-hover:opacity-100 transition-opacity p-6 md:p-8 flex flex-col justify-end">
             <h4 className="text-white text-lg sm:text-xl font-bold uppercase tracking-tight mb-2 line-clamp-2">{project.title}</h4>
-            <div className="flex items-center gap-2 text-white/70 text-[11px] font-bold uppercase tracking-[0.2em] mb-2">
+            <div className="flex items-center gap-2 text-white/70 text-[11px] font-bold uppercase tracking-[0.2em]">
                <MapPin size={14} className="text-gold shrink-0" /> {project.location}
             </div>
-            {project.credits && (
-               <div className="text-white/60 text-[11px] font-light italic truncate flex items-center gap-1.5 border-t border-white/10 pt-2">
-                  <Users size={12} className="text-gold shrink-0" /> {project.credits}
-               </div>
-            )}
          </div>
          <div className="absolute top-6 right-6 w-10 h-10 border border-white/30 flex items-center justify-center text-white opacity-0 group-hover:opacity-100 transition-opacity bg-navy/60 backdrop-blur-sm rounded-sm">
             <ArrowRight size={16} />

@@ -57,8 +57,13 @@ export default function Home() {
     return () => clearInterval(timer);
   }, [slides.length]);
 
-  // PORTFOLIO CAROUSEL STATE (3 Mostrati alla Volta)
-  const [selectedCategory, setSelectedCategory] = useState('Tutti');
+  // PORTFOLIO CAROUSEL STATE - SOLO PROGETTI AL 1° O 2° POSTO
+  const homeProjects = projects.filter((p) => {
+    if (!p.rank) return false;
+    const r = p.rank.toLowerCase();
+    return r.includes('1') || r.includes('2') || r.includes('primo') || r.includes('secondo');
+  });
+
   const [portfolioIndex, setPortfolioIndex] = useState(0);
   const [itemsPerView, setItemsPerView] = useState(3);
 
@@ -77,16 +82,7 @@ export default function Home() {
     return () => window.removeEventListener('resize', handleResize);
   }, []);
 
-  const filteredProjects = selectedCategory === 'Tutti'
-    ? projects
-    : projects.filter(p => p.category.toLowerCase().includes(selectedCategory.toLowerCase()));
-
-  // Reset carousel index on category change
-  useEffect(() => {
-    setPortfolioIndex(0);
-  }, [selectedCategory]);
-
-  const maxIndex = Math.max(0, filteredProjects.length - itemsPerView);
+  const maxIndex = Math.max(0, homeProjects.length - itemsPerView);
 
   const handleNextPortfolio = () => {
     setPortfolioIndex((prev) => (prev >= maxIndex ? 0 : prev + 1));
@@ -119,11 +115,11 @@ export default function Home() {
               />
             </motion.div>
           </AnimatePresence>
-          {/* Sfumatura blu che dal navy in alto sfuma verso il basso mantenendo leggibilità */}
+          {/* Sfumatura blu originale */}
           <div className="absolute inset-0 bg-gradient-to-b from-navy via-navy/60 to-white" />
         </div>
 
-        {/* Text content slider - TUTTO TESTO BIANCO */}
+        {/* Text content slider - TESTO BIANCO */}
         <div className="relative z-10 text-center px-6 max-w-5xl mx-auto pt-16">
           <AnimatePresence mode="wait">
             <motion.div
@@ -213,7 +209,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ── PORTFOLIO CAROUSEL (3 MOSTRATI ALLA VOLTA) ── */}
+      {/* ── PORTFOLIO CAROUSEL ── */}
       <section className="py-16 md:py-32 bg-bg-neutral overflow-hidden" id="portfolio-home">
         <div className="px-6 max-w-7xl mx-auto">
            <div className="mb-12 flex flex-col md:flex-row justify-between items-start md:items-end gap-6">
@@ -223,7 +219,7 @@ export default function Home() {
                     I Nostri Progetti & Appalti.
                  </h2>
                  <p className="text-text-main text-sm font-light max-w-xl mt-3">
-                    Esplora le offerte migliorative vincenti ed i progetti firmati dallo studio (3 per volta).
+                    Esplora le offerte migliorative vincenti ed i progetti firmati dallo studio.
                  </p>
               </div>
               
@@ -246,24 +242,7 @@ export default function Home() {
               </div>
            </div>
 
-           {/* Filtri Categoria */}
-           <div className="flex flex-wrap gap-2 md:gap-3 mb-12 border-b border-navy/10 pb-6">
-              {['Tutti', 'Edilizia Scolastica', 'Restauro', 'Infrastrutture', 'Sport', 'Sanità'].map((cat) => (
-                 <button
-                    key={cat}
-                    onClick={() => setSelectedCategory(cat)}
-                    className={`px-5 py-2.5 text-xs font-bold uppercase tracking-wider rounded-sm transition-all cursor-pointer ${
-                       selectedCategory === cat
-                          ? 'bg-navy text-white shadow-md border border-navy'
-                          : 'bg-white text-navy/70 hover:border-gold hover:text-navy border border-navy/10'
-                    }`}
-                 >
-                    {cat}
-                 </button>
-              ))}
-           </div>
-
-           {/* SLIDER CAROUSEL TRACK (3 CARDS PER VIEW) */}
+           {/* SLIDER CAROUSEL TRACK */}
            <div className="overflow-hidden relative">
               <motion.div 
                  animate={{ 
@@ -272,7 +251,7 @@ export default function Home() {
                  transition={{ ease: [0.16, 1, 0.3, 1], duration: 0.6 }}
                  className="flex gap-6"
               >
-                 {filteredProjects.map((p) => (
+                 {homeProjects.map((p) => (
                     <div 
                        key={p.id} 
                        style={{ width: `calc(${100 / itemsPerView}% - ${(24 * (itemsPerView - 1)) / itemsPerView}px)` }}
@@ -286,7 +265,6 @@ export default function Home() {
                           pos={p.location}
                           rank={p.rank}
                           amount={p.amount}
-                          credits={p.credits}
                        />
                     </div>
                  ))}
@@ -381,7 +359,7 @@ function ValueItem({ number, title, text }: { number: string; title: string; tex
    );
 }
 
-function ProjectCard({ id, title, cat, img, pos, rank, amount, credits }: any) {
+function ProjectCard({ id, title, cat, img, pos, rank, amount }: any) {
    return (
       <Link to={`/portfolio/${id}`} className="block group bg-white border border-navy/10 rounded-sm overflow-hidden shadow-sm hover:shadow-md transition-all h-full">
          <div className="relative aspect-[4/3] bg-navy overflow-hidden">
@@ -399,12 +377,7 @@ function ProjectCard({ id, title, cat, img, pos, rank, amount, credits }: any) {
          <div className="p-6">
             <span className="text-gold text-[10px] font-bold uppercase tracking-wider block mb-1">{cat} • {amount}</span>
             <h3 className="text-navy text-base font-bold uppercase tracking-tight mb-2 group-hover:text-gold transition-colors line-clamp-2">{title}</h3>
-            <p className="text-navy/50 text-xs font-medium block mb-2">{pos}</p>
-            {credits && (
-               <p className="text-navy/60 text-[11px] font-light italic border-t border-navy/5 pt-2 line-clamp-1">
-                  Credits: {credits}
-               </p>
-            )}
+            <p className="text-navy/50 text-xs font-medium block">{pos}</p>
          </div>
       </Link>
    );
