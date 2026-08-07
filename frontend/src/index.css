@@ -112,13 +112,11 @@ h1, h2, h3, h4, .font-display {
 [class*="btn-ghost"],
 .btn-primary,
 .btn-secondary {
-  height: 52px !important;
-  min-height: 52px !important;
-  max-height: 52px !important;
-  width: 240px !important;
-  min-width: 240px !important;
+  min-height: 50px !important;
+  min-width: 200px !important;
+  width: auto !important;
   max-width: 100% !important;
-  padding: 0 20px !important;
+  padding: 14px 28px !important;
   font-size: 11px !important;
   font-weight: 700 !important;
   letter-spacing: 0.2em !important;
@@ -127,7 +125,8 @@ h1, h2, h3, h4, .font-display {
   align-items: center !important;
   justify-content: center !important;
   border-radius: 2px !important;
-  white-space: nowrap !important;
+  white-space: normal !important;
+  text-align: center !important;
   box-sizing: border-box !important;
   transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1) !important;
 }

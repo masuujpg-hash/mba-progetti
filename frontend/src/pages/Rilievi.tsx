@@ -387,7 +387,7 @@ export default function Rilievi() {
             className="w-full h-full object-cover grayscale opacity-20" 
             alt="Rilievi Digitali e Laser Scanner"
           />
-          <div className="absolute inset-0 bg-gradient-to-b from-navy/95 via-navy/90 to-navy" />
+          <div className="absolute inset-0 bg-gradient-to-b from-navy via-navy/60 to-white" />
         </div>
 
         <div className="relative z-10 text-center px-6 max-w-5xl mx-auto py-20">

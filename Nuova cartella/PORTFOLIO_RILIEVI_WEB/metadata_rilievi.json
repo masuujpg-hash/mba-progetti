@@ -1,0 +1,31 @@
+{
+  "title": "MBA Studio - Portfolio Rilievi, Aerofotogrammetria e BIM",
+  "author": "Arch. Mario Biondi",
+  "pages_count": 35,
+  "extracted_images_count": 83,
+  "services": [
+    "Cartografia e Aerofotogrammetria",
+    "Rilievi Laser Scanner 3D",
+    "Aerofotogrammetria con Drone (UAV)",
+    "Rilievi Topografici, GPS, Tracciamenti e Calcolo Volumi",
+    "Banche Dati Metriche, Scansioni 3D e Sezioni Georiferite",
+    "Rilievi Strutturali, Mappatura Degrado e Fessurazioni",
+    "Panoramiche Immersive, Tour Virtuali e Gigapixel",
+    "Ortofoto Digitali ad Alta Risoluzione",
+    "Rilievi Danni su Coperture e Impianti Fotovoltaici",
+    "Rilievi con Drone in Aree Inaccessibili"
+  ],
+  "quality_metrics": {
+    "group_error": "0.008 m",
+    "cloud_to_cloud_error": "0.008 m",
+    "overlap_percentage": "56%",
+    "robustness": "80%"
+  },
+  "paths": {
+    "markdown": "PORTFOLIO_RILIEVI.md",
+    "pdf_pages": "pagine_pdf/",
+    "extracted_images": "immagini_estratte/",
+    "organized_projects": "progetti_organizzati/",
+    "ocr_json": "ocr_rilievi.json"
+  }
+}

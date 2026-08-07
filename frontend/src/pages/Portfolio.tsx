@@ -1,9 +1,9 @@
-
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import { 
   ArrowRight, 
-  MapPin
+  MapPin,
+  Users
 } from '@phosphor-icons/react';
 import { projects, type Project } from '../data/projects';
 
@@ -13,24 +13,24 @@ export default function Portfolio() {
   return (
     <div className="bg-white selection:bg-navy selection:text-white overflow-x-hidden">
       
-      {/* ── PORTFOLIO HERO ── */}
+      {/* ── PORTFOLIO HERO CON SFUMATURA ORIGINALE ── */}
       <section className="relative h-[60vh] w-full flex items-center justify-center overflow-hidden bg-navy">
         <div className="absolute inset-0 z-0">
           <img 
             src="/media/header_3.jpg" 
             alt="Portfolio background"
-            className="w-full h-full object-cover grayscale opacity-20"
+            className="w-full h-full object-cover grayscale opacity-30"
           />
-          <div className="absolute inset-0 bg-gradient-to-b from-navy via-transparent to-white" />
+          <div className="absolute inset-0 bg-gradient-to-b from-navy via-navy/60 to-white" />
         </div>
 
         <div className="relative z-10 text-center px-6">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 1.5 }}
+            transition={{ duration: 1.2 }}
           >
-            <span className="text-gold text-xs font-bold uppercase tracking-[0.3em] md:tracking-[0.8em] mb-6 md:mb-8 block">Progetti Selezionati</span>
+            <span className="text-white text-xs font-bold uppercase tracking-[0.3em] md:tracking-[0.8em] mb-6 md:mb-8 block opacity-90">Progetti Selezionati</span>
             <h1 className="text-white text-3xl sm:text-4xl md:text-5xl font-bold leading-[1.1] uppercase tracking-tighter mb-6 md:mb-8">
                Archivio <br /> Opere.
             </h1>
@@ -48,7 +48,7 @@ export default function Portfolio() {
               Esperienza e <br />Risultati sul Campo.
             </h2>
             <p className="text-navy/70 font-light leading-relaxed text-sm md:text-base">
-              Dal 2019, MBA Progetti ha affiancato imprese di costruzione in oltre 200 procedure di gara su tutto il territorio nazionale. I progetti qui raccolti rappresentano alcune delle aggiudicazioni e dei piazzamenti più significativi in diversi settori dell'edilizia e delle opere pubbliche. Ogni scheda riporta la stazione appaltante, l'importo a base di gara, la posizione ottenuta in graduatoria tecnica e i servizi offerti.
+              Dal 2019, MBA Progetti ha affiancato imprese di costruzione in oltre 200 procedure di gara su tutto il territorio nazionale. I progetti qui raccolti rappresentano alcune delle aggiudicazioni e dei piazzamenti più significativi in diversi settori dell'edilizia e delle opere pubbliche. Ogni scheda riporta la stazione appaltante, l'importo a base di gara, la posizione ottenuta in graduatoria tecnica ed i legittimi progettisti e collaboratori.
             </p>
           </div>
 
@@ -76,8 +76,6 @@ export default function Portfolio() {
 
       {/* ── FILTER & GRID ── */}
       <section className="pt-6 md:pt-12 pb-12 md:pb-24 px-6 max-w-7xl mx-auto">
-
-
          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {filteredProjects.map((p) => (
                <ProjectGridItem key={p.id} project={p} />
@@ -105,29 +103,34 @@ function ProjectGridItem({ project }: { project: Project }) {
          initial={{ opacity: 0, y: 20 }}
          whileInView={{ opacity: 1, y: 0 }}
          viewport={{ once: true }}
-         className="group relative aspect-[4/5] overflow-hidden bg-white cursor-pointer shadow-sm hover:shadow-xl transition-all"
+         className="group relative aspect-[4/5] overflow-hidden bg-white cursor-pointer shadow-sm hover:shadow-xl transition-all border border-navy/10 rounded-sm"
       >
          <img 
            src={project.image} 
            loading="lazy"
-           className="w-full h-full object-cover group-hover:scale-110 transition-all duration-1000" 
+           className="w-full h-full object-cover group-hover:scale-110 transition-all duration-1000 grayscale group-hover:grayscale-0" 
            alt={project.title} 
          />
 
          {/* Badge solo se 1° o 2° classificato */}
          {isTopRank && (
-            <div className={`absolute top-6 left-6 ${isSecond ? 'bg-slate-500' : 'bg-gold'} text-white text-[10px] font-bold uppercase tracking-widest px-3 py-1.5 z-10 shadow-md`}>
+            <div className={`absolute top-6 left-6 ${isSecond ? 'bg-slate-600' : 'bg-gold'} text-white text-[10px] font-bold uppercase tracking-widest px-3 py-1.5 z-10 shadow-md rounded-sm`}>
                {project.rank}
             </div>
          )}
 
-         <div className="absolute inset-0 bg-gradient-to-t from-navy/90 via-navy/30 to-transparent opacity-80 group-hover:opacity-100 transition-opacity p-6 md:p-10 flex flex-col justify-end">
-            <h4 className="text-white text-xl sm:text-2xl font-bold uppercase tracking-tighter mb-2 line-clamp-2">{project.title}</h4>
-            <div className="flex items-center gap-2 text-white/60 text-[11px] font-bold uppercase tracking-[0.2em]">
+         <div className="absolute inset-0 bg-gradient-to-t from-navy/95 via-navy/50 to-transparent opacity-85 group-hover:opacity-100 transition-opacity p-6 md:p-8 flex flex-col justify-end">
+            <h4 className="text-white text-lg sm:text-xl font-bold uppercase tracking-tight mb-2 line-clamp-2">{project.title}</h4>
+            <div className="flex items-center gap-2 text-white/70 text-[11px] font-bold uppercase tracking-[0.2em] mb-2">
                <MapPin size={14} className="text-gold shrink-0" /> {project.location}
             </div>
+            {project.credits && (
+               <div className="text-white/60 text-[11px] font-light italic truncate flex items-center gap-1.5 border-t border-white/10 pt-2">
+                  <Users size={12} className="text-gold shrink-0" /> {project.credits}
+               </div>
+            )}
          </div>
-         <div className="absolute top-6 right-6 w-10 h-10 border border-white/30 flex items-center justify-center text-white opacity-0 group-hover:opacity-100 transition-opacity bg-navy/40 backdrop-blur-sm">
+         <div className="absolute top-6 right-6 w-10 h-10 border border-white/30 flex items-center justify-center text-white opacity-0 group-hover:opacity-100 transition-opacity bg-navy/60 backdrop-blur-sm rounded-sm">
             <ArrowRight size={16} />
          </div>
       </motion.div>
