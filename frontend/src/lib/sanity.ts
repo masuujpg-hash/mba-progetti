@@ -9,10 +9,11 @@ export const client = createClient({
 });
 
 // Client con permessi di scrittura per il pannello Admin
+// Il token viene letto dalla variabile d'ambiente VITE_SANITY_WRITE_TOKEN
 export const writeClient = createClient({
   projectId: 'ws52ogy0',
   dataset: 'production',
-  token: 'skyDqFNAzFFEOPCXLceK4RNTH2FIh8YHXe3b336tpu2tHXwGVr1hsvOQlzuR5RvZnSYgyJvSN3k73G7rCzdv9e6eIR6lEogf2kKOnlsuGOQqd7lHdWrq8T12dXG8coE9EGYluomWXl02DZSSSGDznZLpbMoSjgOqULCRL2CgiaD6SnfConQT',
+  token: import.meta.env.VITE_SANITY_WRITE_TOKEN || '',
   useCdn: false,
   apiVersion: '2024-03-12',
 });

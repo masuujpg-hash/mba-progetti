@@ -35,7 +35,8 @@ interface ConvertedWebP {
   height: number;
 }
 
-const DEFAULT_ADMIN_PASSWORDS = ['mba', 'mbaprogetti', 'mba2026', 'admin'];
+// Password lette dalla variabile d'ambiente (non più hardcoded nel codice)
+const DEFAULT_ADMIN_PASSWORDS = (import.meta.env.VITE_ADMIN_PASSWORDS || '').split(',').map((p: string) => p.trim().toLowerCase()).filter(Boolean);
 
 export default function Admin() {
   // Authentication State
@@ -58,7 +59,7 @@ export default function Admin() {
       setAuthError(null);
       setPasswordInput('');
     } else {
-      setAuthError('Password errata. Riprova (es: mba)');
+      setAuthError('Password errata. Riprova.');
     }
   };
 
@@ -446,9 +447,7 @@ export default function Admin() {
               Accedi al Pannello
             </button>
 
-            <p className="text-navy/40 text-[10px] text-center uppercase tracking-widest font-bold pt-2">
-              Suggerimento: password di default <code className="text-gold bg-navy/5 px-2 py-1">mba</code>
-            </p>
+
           </form>
         </motion.div>
       </div>
