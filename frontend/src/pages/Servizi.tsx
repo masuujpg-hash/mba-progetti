@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
+import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import { 
   Target, 
@@ -8,12 +8,10 @@ import {
   Layers, 
   ArrowRight, 
   CheckCircle2, 
-  FileText, 
   ChevronRight, 
-  ShieldCheck, 
-  Sparkles,
-  Cpu,
-  Compass
+  Compass,
+  Search,
+  CheckSquare
 } from 'lucide-react';
 
 export default function Servizi() {
@@ -23,420 +21,374 @@ export default function Servizi() {
     {
       id: "gare",
       title: "Gare d'Appalto OEPV",
-      subtitle: "Offerte Tecniche Migliorative & Procedura D.Lgs. 36/2023",
+      subtitle: "Redazione di offerte tecniche migliorative per procedure OEPV. Dall'analisi del disciplinare alla consegna dell'offerta.",
       icon: Target,
-      tag: "Core Business • Punteggio Massimo",
+      tag: "Core Business",
       route: "/servizi/gare",
-      desc: "Redazione di offerte tecniche migliorative e relazioni metodologiche ad alto valore premiale per gare d'appalto pubbliche secondo il criterio dell'Offerta Economicamente Più Vantaggiosa (OEPV).",
+      desc: "Dal 2019, MBA Progetti affianca le imprese nella redazione di offerte tecniche migliorative per gare d'appalto pubbliche aggiudicate secondo il criterio dell'offerta economicamente più vantaggiosa (OEPV). Analizziamo i documenti di gara per individuare con precisione i margini di miglioramento tecnico, sviluppando proposte fondate su metodo, chiarezza e coerenza con i criteri di valutazione.",
+      extraDesc: "Ogni procedura è affrontata come un progetto: con un'analisi iniziale, una strategia condivisa con l'impresa e una produzione documentale orientata alla massimizzazione del punteggio tecnico. Lo studio supporta le imprese anche nelle procedure per appalti integrati, garantendo continuità tecnica dall'offerta migliorativa alla progettazione esecutiva.",
       image: "/media/header_2.jpg",
       stats: [
-        { label: "Procedure a Podio", value: "63%" },
         { label: "Gare Redatte", value: "+200" },
-        { label: "Conformità Normativa", value: "D.Lgs 36/23" }
+        { label: "Gare sul Podio", value: "63%" },
+        { label: "Gare Aggiudicate", value: "38%" }
       ],
       features: [
-        "Analisi strategica del disciplinare e dei criteri di valutazione",
-        "Redazione di relazioni metodologiche ed elaborati grafici ad alta risoluzione",
-        "Proposte migliorative tecniche, ambientali (CAM) ed organizzative",
-        "Supporto tecnico per appalti integrati dalla gara all'esecutivo"
+        "Analisi metodologica del disciplinare e dei criteri di valutazione",
+        "Sviluppo di proposte migliorative tecniche, ambientali (CAM) ed organizzative",
+        "Redazione di relazioni tecniche orientate alla massimizzazione del punteggio",
+        "Supporto tecnico per appalti integrati dall'offerta alla progettazione esecutiva"
       ],
-      deliverables: ["Offerta Tecnica Migliorativa", "Relazione Metodologica", "Tavole di Inquadramento Grafico"]
+      steps: [
+        "1. Scelta della gara",
+        "2. Valutazione investimento",
+        "3. Analisi disciplinare",
+        "4. Sopralluogo",
+        "5. Studio progetto",
+        "6. Valutazione migliorie",
+        "7. Redazione offerta",
+        "8. Editing e consegna"
+      ],
+      ambiti: [
+        "Edilizia scolastica", "Strutture assistenziali", "Strutture e PA", 
+        "Strutture sportive", "Edilizia residenziale", "Infrastrutture", 
+        "Manutenzione", "Strutture ricettive", "Strutture polivalenti", "Edifici storici"
+      ]
     },
     {
       id: "progettazione",
       title: "Progettazione Integrale & CAM",
-      subtitle: "Edilizia Civile, Infrastrutture & Restauro Architectonico",
+      subtitle: "Progettazione architettonica, esecutiva e post-aggiudicazione. Dalla gara alla realizzazione.",
       icon: Building2,
       tag: "Architettura & Ingegneria",
       route: "/servizi/progettazione",
-      desc: "Sviluppo simultaneo e coordinato di architettura, strutture ed impianti per edilizia pubblica e privata, infrastrutture, spazi urbani e restauro conservativo con conformità CAM.",
+      desc: "MBA Progetti affianca imprese e committenti in tutte le fasi del processo edilizio, dalla redazione del progetto definitivo alla direzione lavori, con un approccio tecnico fondato sulla qualità costruttiva, la sostenibilità ambientale e il rispetto dei Criteri Ambientali Minimi (CAM).",
+      extraDesc: "La coordinazione simultanea di architettura, struttura ed impianti garantisce l'efficienza esecutiva, il controllo dei costi e la perfetta aderenza tra le proposte di gara e il cantiere.",
       image: "/media/header_3.jpg",
       stats: [
-        { label: "Ambito Intervento", value: "Civile & Pubblico" },
-        { label: "Criteri Ambientali", value: "Conforme CAM" },
-        { label: "Coordinamento", value: "Multidisciplinare" }
+        { label: "Normativa", value: "CAM & D.Lgs 36/23" },
+        { label: "Approccio", value: "Multidisciplinare" },
+        { label: "Controllo", value: "Costi & Tempi" }
       ],
       features: [
-        "Progettazione di fattibilità tecnico-economica ed esecutiva",
-        "Integrazione dei Criteri Ambientali Minimi (CAM) ed efficienza energetica",
-        "Trasformazione delle proposte di gara in progetti esecutivi di cantiere",
-        "Direzione Lavori e contabilità delle opere pubbliche"
+        "Edilizia e architettura: Edifici, spazi e interventi di recupero funzionali e attenti alla qualità costruttiva.",
+        "Infrastrutture e spazi pubblici: Opere sostenibili e durevoli, coerenti con i CAM e l'accessibilità.",
+        "Progetti post-aggiudicazione: Trasformazione delle offerte migliorative in progetti esecutivi di cantiere.",
+        "Direzione lavori: Controllo metodico del cantiere per garantire il rispetto di tempi, costi e qualità esecutiva.",
+        "Interior design: Progettazione degli interni come naturale estensione del progetto architettonico."
       ],
       deliverables: ["Progetto Esecutivo Integrato", "Computo Metrico Estimativo", "Capitolato Speciale d'Appalto"]
     },
     {
       id: "rilievi",
       title: "Rilievi Digitali 3D & Drone",
-      subtitle: "Reality Capture, Laser Scanner & Aerofotogrammetria UAV",
+      subtitle: "Rilievo integrato con laser scanner 3D, drone e GPS. Documentazione as-built per progettazione e recupero.",
       icon: Scan,
       tag: "Precisione Millimetrica",
       route: "/servizi/rilievi",
-      desc: "Acquisizione metrica ad alta precisione del territorio e del costruito mediante laser scanner 3D terricolo, aerofotogrammetria con drone (UAV) e stazioni GPS topografiche GNSS RTK.",
+      quote: "Documentare con precisione è il primo passo per intervenire con qualità.",
+      desc: "Rileviamo edifici, infrastrutture e spazi con tecnologie di precisione, restituendo una documentazione completa e affidabile dello stato di fatto. I dati acquisiti costituiscono la base per progettazione, recupero, modellazione BIM e monitoraggio strutturale.",
       image: "/media/team_rilievi.jpg",
       stats: [
-        { label: "Tolleranza Metrica", value: "< 8 mm" },
-        { label: "Rete Topografica", value: "GNSS RTK" },
-        { label: "Accuratezza Cloud", value: "Millimetrica" }
+        { label: "Laser Scanner 3D", value: "Leica BLK360" },
+        { label: "Drone Aerofotogrammetria", value: "DJI Mavic 3E" },
+        { label: "Topografia Georeferenziata", value: "GPS ProTRACK" }
       ],
       features: [
-        "Rilievi Laser Scanner 3D ad alta densità per fabbricati e complessi storici",
-        "Aerofotogrammetria UAV per coperture, grandi superfici e aree impervie",
-        "Mappatura vettoriale del degrado prospettico e del quadro fessurativo",
-        "Restituzione di ortofoto digitali georeferenziate e modelli DTM/DEM"
+        "Laser Scanner 3D Leica BLK360: Nuvole di punti millimetriche per edifici storici e complessi.",
+        "Drone DJI Mavic 3 Enterprise: Rilievi aerofotogrammetrici georeferenziati per coperture e facciate.",
+        "GPS ProTRACK: Rilievi topografici e tracciamenti planimetrici e altimetrici ad alta precisione.",
+        "Georadar (GPR): Indagini nel sottosuolo per mappare cavidotti e strutture interrate."
       ],
-      deliverables: ["Nuvola di Punti 3D (E57/PTS)", "Tavole CAD 2D As-Built", "Ortofotomappe Georeferenziate"]
+      ambiti: [
+        "Edifici storici e civili", "Infrastrutture", "Spazi pubblici", 
+        "Strutture industriali", "Aree non accessibili", "Rilievi strutturali"
+      ]
     },
     {
       id: "bim",
-      title: "Modellazione BIM & HBIM",
-      subtitle: "Scan-to-BIM, Coordinamento Disciplinare & As-Built",
+      title: "Modellazione BIM & Scan to BIM",
+      subtitle: "Modellazione informativa, coordinamento disciplinare e Scan to BIM. Qualità e precisione in ogni fase.",
       icon: Layers,
-      tag: "Digital Twin & Revit",
+      tag: "Digital Twin",
       route: "/servizi/bim",
-      desc: "Gestione, coordinamento e condivisione delle informazioni di progetto attraverso la modellazione parametrica 3D in ambiente BIM (Autodesk Revit / IFC) per nuove opere e beni culturali (HBIM).",
+      quote: "La qualità di un progetto si misura anche nella precisione delle informazioni che lo descrivono.",
+      desc: "Il Building Information Modeling è il processo con cui gestiamo, coordiniamo e condividiamo le informazioni di un progetto in modo integrato e trasparente. MBA Progetti applica la metodologia BIM nelle fasi di progettazione, rilievo e redazione delle offerte tecniche, garantendo coerenza e controllo lungo tutto il processo.",
       image: "/media/portfolio/p08.png",
       stats: [
-        { label: "Standard BIM", value: "IFC / ISO 19650" },
-        { label: "Modellazione", value: "Scan-to-BIM" },
-        { label: "Ambiente", value: "Autodesk Revit" }
+        { label: "Integrazione", value: "Scan to BIM" },
+        { label: "Coordinamento", value: "Multi-disciplinare" },
+        { label: "Finalità", value: "As-Built BIM" }
       ],
       features: [
-        "Conversione diretta dalla nuvola di punti a modello parametrico Scan-to-BIM",
-        "Coordinamento interdisciplinare (Architettonico, Strutturale, Impiantistico)",
-        "Modellazione HBIM con famiglie adattive custom per complessi monumentali",
-        "Modelli As-Built BIM per l'Asset Management e la gestione manutentiva"
+        "Modellazione e coordinamento: Modelli informatici architettonici, strutturali ed impiantistici integrati senza interferenze.",
+        "BIM per le gare d'appalto: Elaborati grafici precisi e documentazione conforme ai livelli informativi richiesti dai disciplinari OEPV.",
+        "Scan to BIM: Generazione di modelli parametrici BIM (e HBIM per edifici storici) partendo da nuvole di punti.",
+        "As-Built BIM: Aggiornamento del modello digitale al termine dei lavori per la gestione e manutenzione futura dell'edificio."
       ],
-      deliverables: ["Modello Informativo 3D (IFC/RVT)", "Report Clash Detection", "Abachi & Computi Parametrici"]
+      deliverables: ["Modello Informativo 3D (IFC/RVT)", "Report Coordinamento Disciplinare", "Scan to BIM / HBIM"]
     }
   ];
 
-  const attServizioAttivo = services.find(s => s.id === activeTab) || services[0];
-
-  const workflowSteps = [
-    {
-      step: '01',
-      title: 'Acquisizione Reale (Rilievo 3D)',
-      desc: 'Cattura metrica dello stato di fatto con Laser Scanner 3D e Drone UAV.',
-      icon: Scan
-    },
-    {
-      step: '02',
-      title: 'Digitalizzazione (Scan-to-BIM)',
-      desc: 'Conversione dei dati reali in modelli parametrici informativi coordinati.',
-      icon: Cpu
-    },
-    {
-      step: '03',
-      title: 'Strategia Premiale (Gara OEPV)',
-      desc: 'Sviluppo dell\'offerta tecnica migliorativa orientata al punteggio massimo.',
-      icon: Target
-    },
-    {
-      step: '04',
-      title: 'Esecuzione & Cantiere (Progetto)',
-      desc: 'Trasposizione esecutiva in cantiere con Direzione Lavori e controllo qualità.',
-      icon: Compass
-    }
-  ];
+  const currentService = services.find(s => s.id === activeTab) || services[0];
 
   return (
     <div className="bg-white selection:bg-navy selection:text-white">
       
       {/* ── SERVIZI HERO (SFONDO BLU & TESTO TUTTO BIANCO) ── */}
-      <section className="relative min-h-[65vh] w-full flex items-center justify-center overflow-hidden bg-navy">
+      <section className="relative min-h-[60vh] w-full flex items-center justify-center overflow-hidden bg-navy">
         <div className="absolute inset-0 z-0">
           <img 
-            src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=2070&auto=format&fit=crop" 
-            alt="Services background"
-            className="w-full h-full object-cover grayscale opacity-20"
+            src="/media/header_2.jpg" 
+            alt="MBA Progetti Servizi"
+            className="w-full h-full object-cover grayscale opacity-30"
           />
-          <div className="absolute inset-0 bg-gradient-to-b from-navy/95 via-navy/90 to-navy" />
+          {/* Sfumatura blu originale */}
+          <div className="absolute inset-0 bg-gradient-to-b from-navy via-navy/60 to-white" />
         </div>
 
         <div className="relative z-10 text-center px-6 max-w-4xl mx-auto py-20">
           <motion.div
-            initial={{ opacity: 0, y: 30 }}
+            initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 1.0 }}
+            transition={{ duration: 0.8 }}
           >
-            <div className="inline-flex items-center gap-2 bg-white/10 border border-white/20 px-4 py-1.5 rounded-full mb-8 group hover:border-gold transition-colors cursor-default">
-              <Sparkles className="w-4 h-4 text-white group-hover:text-gold transition-colors" />
-              <span className="text-white text-xs font-bold uppercase tracking-[0.3em]">Competenze Multidisciplinari Integrate</span>
-            </div>
-
-            <h1 className="text-white text-3xl sm:text-5xl md:text-6xl font-bold leading-[1.1] uppercase tracking-tighter mb-8">
-              I Nostri <br /> <span className="text-white font-serif italic lowercase tracking-normal text-4xl sm:text-6xl">servizi</span> specialistici.
+            <span className="text-white text-xs font-bold uppercase tracking-[0.4em] md:tracking-[0.8em] mb-4 block opacity-90">
+              Le Competenze di MBA Progetti
+            </span>
+            <h1 className="text-white text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold uppercase tracking-tighter mb-6 leading-tight">
+              I Nostri Servizi.
             </h1>
-
-            <p className="text-white/80 text-base md:text-xl font-light max-w-2xl mx-auto leading-relaxed">
-               Dall'offerta tecnica per le gare d'appalto alla progettazione integrale, dai rilievi laser scanner 3D al coordinamento BIM.
+            <p className="text-white/80 text-sm md:text-base font-light leading-relaxed max-w-2xl mx-auto">
+              Le competenze di MBA Progetti si articolano in quattro ambiti che si integrano e si completano. Al centro c'è la redazione di offerte tecniche migliorative per gare d'appalto pubbliche, affiancata da progettazione, rilievi 3D e BIM.
             </p>
           </motion.div>
         </div>
       </section>
 
-      {/* ── INTRODUZIONE STRATEGICA ── */}
-      <section className="pt-16 md:pt-24 px-6 max-w-7xl mx-auto text-center">
-         <div className="max-w-4xl mx-auto space-y-6">
-            <div className="bg-bg-neutral border-l-4 border-gold p-8 rounded-r-sm text-left shadow-sm">
-               <p className="text-navy text-lg md:text-xl font-light italic leading-relaxed">
-                  "L'integrazione tra la profonda conoscenza dei criteri di gara OEPV, la progettazione esecutiva e le più moderne tecnologie di rilievo 3D e BIM costituisce la nostra identità e la garanzia per i nostri clienti."
-               </p>
-               <span className="text-gold text-xs font-bold uppercase tracking-wider block mt-4">— MBA Studio Tecnico Professionale</span>
+      {/* ── INTERACTIVE SUITE SWITCHER ── */}
+      <section className="py-12 md:py-20 px-6 max-w-7xl mx-auto">
+        <div className="text-center mb-12">
+          <span className="text-gold text-xs font-bold uppercase tracking-[0.4em] mb-3 block">Esplora le Competenze</span>
+          <h2 className="text-navy text-2xl sm:text-3xl font-bold uppercase tracking-tighter">
+            I 4 Pilastri dello Studio
+          </h2>
+        </div>
+
+        {/* Tab Selection Navigation */}
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-3 md:gap-4 mb-12">
+          {services.map((s) => {
+            const IconComp = s.icon;
+            const isActive = activeTab === s.id;
+            return (
+              <button
+                key={s.id}
+                onClick={() => setActiveTab(s.id)}
+                className={`p-5 md:p-6 rounded-sm text-left transition-all duration-300 border flex flex-col justify-between cursor-pointer ${
+                  isActive 
+                    ? 'bg-navy text-white border-navy shadow-md' 
+                    : 'bg-bg-neutral/60 text-navy hover:bg-navy/5 border-navy/10'
+                }`}
+              >
+                <div>
+                  <div className={`p-3 rounded-sm w-fit mb-4 ${
+                    isActive ? 'bg-gold text-navy' : 'bg-navy/10 text-navy'
+                  }`}>
+                    <IconComp size={22} />
+                  </div>
+                  <span className={`text-[10px] font-bold uppercase tracking-wider block mb-1 ${
+                    isActive ? 'text-gold' : 'text-gold'
+                  }`}>
+                    {s.tag}
+                  </span>
+                  <h3 className="text-sm md:text-base font-bold uppercase tracking-tight leading-snug">
+                    {s.title}
+                  </h3>
+                </div>
+                <div className="mt-4 pt-3 border-t border-navy/10 flex items-center justify-between">
+                  <span className={`text-[10px] font-bold uppercase tracking-wider ${isActive ? 'text-white/80' : 'text-navy/50'}`}>
+                    Dettagli
+                  </span>
+                  <ChevronRight size={14} className={isActive ? 'text-gold' : 'text-navy/40'} />
+                </div>
+              </button>
+            );
+          })}
+        </div>
+
+        {/* ACTIVE SERVICE DISPLAY PANEL */}
+        <div className="bg-bg-neutral/40 border border-navy/10 rounded-sm p-6 sm:p-10 md:p-14">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-center">
+            
+            {/* Left Content Column */}
+            <div className="lg:col-span-7">
+              <div className="inline-block bg-gold/15 border border-gold/30 text-navy text-[10px] font-bold uppercase tracking-[0.25em] px-3.5 py-1.5 rounded-sm mb-4">
+                {currentService.tag}
+              </div>
+              <h2 className="text-navy text-2xl sm:text-3xl md:text-4xl font-bold uppercase tracking-tighter leading-tight mb-3">
+                {currentService.title}
+              </h2>
+              <p className="text-gold text-xs sm:text-sm font-bold uppercase tracking-wider mb-6">
+                {currentService.subtitle}
+              </p>
+
+              {currentService.quote && (
+                <div className="bg-white border-l-4 border-gold p-4 mb-6 text-navy/80 italic text-sm font-serif">
+                  "{currentService.quote}"
+                </div>
+              )}
+
+              <p className="text-navy/80 text-sm md:text-base font-light leading-relaxed mb-4">
+                {currentService.desc}
+              </p>
+
+              {currentService.extraDesc && (
+                <p className="text-navy/70 text-xs md:text-sm font-light leading-relaxed mb-8">
+                  {currentService.extraDesc}
+                </p>
+              )}
+
+              {/* Stats Bar */}
+              <div className="grid grid-cols-3 gap-4 border-y border-navy/10 py-6 mb-8">
+                {currentService.stats.map((st, i) => (
+                  <div key={i} className="text-left">
+                    <div className="text-navy text-xl sm:text-2xl font-bold font-mono tracking-tight">{st.value}</div>
+                    <div className="text-navy/50 text-[10px] font-bold uppercase tracking-wider mt-0.5">{st.label}</div>
+                  </div>
+                ))}
+              </div>
+
+              {/* Key Features List */}
+              <div className="space-y-3 mb-8">
+                <h4 className="text-navy text-xs font-bold uppercase tracking-wider mb-2">Caratteristiche & Metodologia:</h4>
+                {currentService.features.map((feat, idx) => (
+                  <div key={idx} className="flex items-start gap-3">
+                    <CheckCircle2 size={16} className="text-gold shrink-0 mt-0.5" />
+                    <span className="text-navy/80 text-xs sm:text-sm font-light leading-snug">{feat}</span>
+                  </div>
+                ))}
+              </div>
+
+              {/* Process Steps (for Gare) */}
+              {currentService.steps && (
+                <div className="mb-8 bg-white p-5 border border-navy/10 rounded-sm">
+                  <h4 className="text-navy text-xs font-bold uppercase tracking-wider mb-3">Processo in 8 Step (Come Lavoriamo):</h4>
+                  <div className="grid grid-cols-2 sm:grid-cols-4 gap-2">
+                    {currentService.steps.map((st, i) => (
+                      <div key={i} className="text-[11px] font-medium text-navy/80 bg-bg-neutral p-2 rounded-sm border border-navy/5">
+                        {st}
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              )}
+
+              {/* Ambiti di intervento (if present) */}
+              {currentService.ambiti && (
+                <div className="mb-8">
+                  <h4 className="text-navy text-xs font-bold uppercase tracking-wider mb-3">Ambiti di Intervento:</h4>
+                  <div className="flex flex-wrap gap-2">
+                    {currentService.ambiti.map((amb, i) => (
+                      <span key={i} className="bg-white text-navy text-[10px] font-bold uppercase tracking-wider px-3 py-1.5 border border-navy/10 rounded-sm">
+                        {amb}
+                      </span>
+                    ))}
+                  </div>
+                </div>
+              )}
+
+              {/* Action Button */}
+              <div className="pt-2">
+                <Link to={currentService.route} className="btn-ghost-dark group">
+                  Approfondisci {currentService.title} <ArrowRight size={16} className="ml-2 group-hover:translate-x-1 transition-transform inline-block" />
+                </Link>
+              </div>
+
             </div>
 
-            <p className="text-text-main text-base md:text-lg font-light leading-relaxed">
-               I nostri servizi sono progettati per operare in sinergia. Che si tratti di massimizzare il punteggio tecnico in una procedura d'appalto, sviluppare un progetto esecutivo conforme ai CAM o digitalizzare uno stato di fatto complesso, forniamo un supporto metodologico rigoroso e multidisciplinare.
+            {/* Right Image Column */}
+            <div className="lg:col-span-5">
+              <div className="relative aspect-[4/5] rounded-sm overflow-hidden border border-navy/10 shadow-md bg-navy">
+                <img 
+                  src={currentService.image} 
+                  alt={currentService.title}
+                  className="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-700"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-navy/90 via-navy/30 to-transparent p-6 flex flex-col justify-end">
+                  <span className="text-gold text-[10px] font-bold uppercase tracking-wider mb-1">MBA Progetti</span>
+                  <h3 className="text-white text-xl font-bold uppercase tracking-tight">{currentService.title}</h3>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </section>
+
+      {/* ── METODO MULTIDISCIPLINARE INTEGRATO ── */}
+      <section className="py-16 md:py-24 bg-bg-neutral/60 border-t border-navy/5">
+        <div className="max-w-7xl mx-auto px-6">
+          <div className="text-center max-w-3xl mx-auto mb-16">
+            <span className="text-gold text-xs font-bold uppercase tracking-[0.4em] mb-3 block">Metodo & Competenze</span>
+            <h2 className="text-navy text-2xl sm:text-4xl font-bold uppercase tracking-tighter">
+              Tre Pilastri Operativi
+            </h2>
+            <p className="text-navy/70 text-sm font-light leading-relaxed mt-3">
+              I tre pilastri del metodo lavorativo adottato dallo studio MBA Progetti in ogni commessa.
             </p>
-            <div className="w-16 h-px bg-gold mx-auto pt-2" />
-         </div>
-      </section>
+          </div>
 
-      {/* ── INTERACTIVE SERVICE SELECTOR SUITE ── */}
-      <section className="py-16 md:py-28 bg-white">
-         <div className="max-w-7xl mx-auto px-6">
-            <div className="text-center mb-12">
-               <span className="text-gold text-xs font-bold uppercase tracking-[0.4em] mb-4 block">Esplora la Suite Servizi</span>
-               <h2 className="text-navy text-2xl sm:text-4xl font-bold uppercase tracking-tighter leading-[1.1]">
-                  Soluzioni su Misura per Imprese e PA.
-               </h2>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div className="bg-white p-8 border border-navy/10 rounded-sm space-y-4 shadow-sm">
+              <div className="p-3 bg-navy text-gold w-fit rounded-sm">
+                <Search size={24} />
+              </div>
+              <span className="text-gold font-mono font-bold text-sm block">01</span>
+              <h3 className="text-navy text-lg font-bold uppercase tracking-tight">ANALIZZIAMO.</h3>
+              <p className="text-navy/70 text-xs leading-relaxed font-light">
+                Ogni disciplinare e progetto posto a base di gara vengono esaminati con metodo per individuare criteri premianti, vincoli tecnici e margini di miglioramento. L'analisi è la base su cui si costruisce un'offerta fondata, coerente e competitiva.
+              </p>
             </div>
 
-            {/* TAB SELECTORS */}
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-3 mb-12">
-               {services.map((s) => {
-                  const IconComp = s.icon;
-                  const isActive = activeTab === s.id;
-                  return (
-                     <button
-                        key={s.id}
-                        onClick={() => setActiveTab(s.id)}
-                        className={`p-5 text-left border rounded-sm transition-all duration-300 flex flex-col justify-between group ${
-                           isActive 
-                              ? 'bg-navy border-navy text-white shadow-md' 
-                              : 'bg-bg-neutral border-navy/10 text-navy hover:border-gold hover:bg-white'
-                        }`}
-                     >
-                        <div className="flex items-center justify-between mb-4">
-                           <div className={`p-2.5 rounded-sm transition-colors ${
-                              isActive ? 'bg-gold text-navy' : 'bg-white border border-gold/20 text-gold group-hover:bg-gold group-hover:text-navy'
-                           }`}>
-                              <IconComp size={20} />
-                           </div>
-                           <span className={`font-mono text-xs font-bold ${isActive ? 'text-gold' : 'text-navy/40'}`}>
-                              0{services.indexOf(s) + 1}
-                           </span>
-                        </div>
-                        <div>
-                           <h3 className={`text-sm font-bold uppercase tracking-tight ${isActive ? 'text-white' : 'text-navy'}`}>
-                              {s.title}
-                           </h3>
-                           <span className={`text-[10px] block mt-1 font-mono ${isActive ? 'text-white/70' : 'text-navy/50'}`}>
-                              {s.tag}
-                           </span>
-                        </div>
-                     </button>
-                  );
-               })}
+            <div className="bg-white p-8 border border-navy/10 rounded-sm space-y-4 shadow-sm">
+              <div className="p-3 bg-navy text-gold w-fit rounded-sm">
+                <Compass size={24} />
+              </div>
+              <span className="text-gold font-mono font-bold text-sm block">02</span>
+              <h3 className="text-navy text-lg font-bold uppercase tracking-tight">PROGETTIAMO.</h3>
+              <p className="text-navy/70 text-xs leading-relaxed font-light">
+                Elaboriamo soluzioni migliorative basate su coerenza tecnica e fattibilità operativa. Ogni proposta integra aspetti architettonici, impiantistici, strutturali e di cantiere, per assicurare qualità esecutiva e piena aderenza ai criteri di valutazione.
+              </p>
             </div>
 
-            {/* ACTIVE TAB DISPLAY PANEL */}
-            <AnimatePresence mode="wait">
-               <motion.div
-                  key={attServizioAttivo.id}
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  exit={{ opacity: 0, y: -20 }}
-                  transition={{ duration: 0.4 }}
-                  className="bg-bg-neutral border border-navy/10 rounded-sm overflow-hidden shadow-sm grid grid-cols-1 lg:grid-cols-12"
-               >
-                  <div className="lg:col-span-7 p-8 md:p-12 flex flex-col justify-between space-y-8">
-                     <div>
-                        <div className="inline-flex items-center gap-2 bg-white border border-navy/10 px-3 py-1 rounded-full mb-6">
-                           <ShieldCheck size={14} className="text-gold" />
-                           <span className="text-navy text-[11px] font-bold uppercase tracking-wider">{attServizioAttivo.tag}</span>
-                        </div>
-
-                        <h3 className="text-navy text-2xl sm:text-3xl font-bold uppercase tracking-tight mb-2">
-                           {attServizioAttivo.title}
-                        </h3>
-                        <p className="text-gold font-semibold text-xs uppercase tracking-wider mb-4">
-                           {attServizioAttivo.subtitle}
-                        </p>
-                        
-                        <p className="text-text-main text-sm md:text-base font-light leading-relaxed mb-8">
-                           {attServizioAttivo.desc}
-                        </p>
-
-                        {/* STATS HIGHLIGHT */}
-                        <div className="grid grid-cols-3 gap-4 border-y border-navy/10 py-6 mb-8 bg-white/60 p-4 rounded-sm">
-                           {attServizioAttivo.stats.map((st, i) => (
-                              <div key={i}>
-                                 <span className="text-gold font-mono font-bold text-lg block">{st.value}</span>
-                                 <span className="text-navy/60 text-[10px] font-medium uppercase block">{st.label}</span>
-                              </div>
-                           ))}
-                        </div>
-
-                        {/* FEATURES LIST */}
-                        <div className="space-y-3 mb-8">
-                           <h4 className="text-navy text-xs font-bold uppercase tracking-wider">Attività Chiave e Vantaggi:</h4>
-                           {attServizioAttivo.features.map((f, i) => (
-                              <div key={i} className="flex items-start gap-3 text-xs text-navy/80">
-                                 <CheckCircle2 size={16} className="text-gold shrink-0 mt-0.5" />
-                                 <span>{f}</span>
-                              </div>
-                           ))}
-                        </div>
-                     </div>
-
-                     <div className="pt-4 border-t border-navy/10 flex flex-col sm:flex-row items-center gap-4">
-                        <Link to={attServizioAttivo.route} className="btn-ghost-dark w-full sm:w-auto inline-flex items-center gap-3">
-                           Approfondisci {attServizioAttivo.title} <ArrowRight size={16} />
-                        </Link>
-                        <Link to="/contatti" className="btn-ghost-gold w-full sm:w-auto text-center">
-                           Richiedi Preventivo
-                        </Link>
-                     </div>
-                  </div>
-
-                  <div className="lg:col-span-5 relative min-h-[350px] bg-navy overflow-hidden">
-                     <img 
-                        src={attServizioAttivo.image} 
-                        alt={attServizioAttivo.title}
-                        className="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-700 opacity-85"
-                     />
-                     <div className="absolute inset-0 bg-gradient-to-t from-navy via-transparent to-transparent" />
-                     
-                     <div className="absolute bottom-6 left-6 right-6 p-6 bg-navy/90 backdrop-blur-sm border border-white/10 rounded-sm text-white space-y-3">
-                        <span className="text-gold text-[10px] font-bold uppercase tracking-widest block">Output & Elaborati Consegnati</span>
-                        <div className="space-y-1.5">
-                           {attServizioAttivo.deliverables.map((d, i) => (
-                              <div key={i} className="flex items-center gap-2 text-xs text-white/90">
-                                 <FileText size={14} className="text-gold" /> {d}
-                              </div>
-                           ))}
-                        </div>
-                     </div>
-                  </div>
-               </motion.div>
-            </AnimatePresence>
-         </div>
-      </section>
-
-      {/* ── WORKFLOW MULTIDISCIPLINARE INTEGRATO ── */}
-      <section className="py-16 md:py-28 bg-navy text-white relative overflow-hidden">
-         <div className="max-w-7xl mx-auto px-6 relative z-10">
-            <div className="text-center mb-16">
-               <span className="text-gold text-xs font-bold uppercase tracking-[0.4em] mb-4 block">Sinergia dei Servizi</span>
-               <h2 className="text-white text-2xl sm:text-4xl font-bold uppercase tracking-tighter leading-[1.1]">
-                  Il Nostro Processo Multidisciplinare.
-               </h2>
-               <p className="text-white/70 text-sm font-light max-w-2xl mx-auto mt-4">
-                  Come colleghiamo il rilievo sul campo alla modellazione informatica ed alla vittoria nelle gare d'appalto.
-               </p>
+            <div className="bg-white p-8 border border-navy/10 rounded-sm space-y-4 shadow-sm">
+              <div className="p-3 bg-navy text-gold w-fit rounded-sm">
+                <CheckSquare size={24} />
+              </div>
+              <span className="text-gold font-mono font-bold text-sm block">03</span>
+              <h3 className="text-navy text-lg font-bold uppercase tracking-tight">VALORIZZIAMO.</h3>
+              <p className="text-navy/70 text-xs leading-relaxed font-light">
+                Trasformiamo i contenuti tecnici in documentazione chiara e immediatamente valutabile. Ogni offerta è organizzata per mettere in evidenza il merito progettuale e agevolare il lavoro della commissione giudicatrice.
+              </p>
             </div>
-
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
-               {workflowSteps.map((ws) => {
-                  const IconC = ws.icon;
-                  return (
-                     <div key={ws.step} className="bg-white/5 border border-white/10 p-8 rounded-sm hover:border-gold/60 transition-all space-y-4 group">
-                        <div className="flex items-center justify-between">
-                           <span className="text-gold font-mono font-bold text-2xl">{ws.step}</span>
-                           <div className="p-3 bg-white/10 text-gold rounded-sm group-hover:bg-gold group-hover:text-navy transition-colors">
-                              <IconC size={22} />
-                           </div>
-                        </div>
-                        <h3 className="text-white text-base font-bold uppercase tracking-tight">{ws.title}</h3>
-                        <p className="text-white/60 text-xs font-light leading-relaxed">{ws.desc}</p>
-                     </div>
-                  );
-               })}
-            </div>
-         </div>
-      </section>
-
-      {/* ── LISTA SERVIZI CON CARTE DETTAGLIATE ── */}
-      <section className="py-16 md:py-28 bg-bg-neutral">
-         <div className="max-w-7xl mx-auto px-6">
-            <div className="text-center mb-16">
-               <span className="text-gold text-xs font-bold uppercase tracking-[0.4em] mb-4 block">Dettaglio Servizi</span>
-               <h2 className="text-navy text-2xl sm:text-4xl font-bold uppercase tracking-tighter leading-[1.1]">
-                  Schede di Approfondimento.
-               </h2>
-            </div>
-
-            <div className="space-y-12">
-               {services.map((s, index) => {
-                  const IconComponent = s.icon;
-                  return (
-                     <div key={s.id} className="bg-white border border-navy/10 rounded-sm overflow-hidden shadow-sm hover:shadow-md transition-all grid grid-cols-1 lg:grid-cols-12">
-                        <div className="lg:col-span-8 p-8 md:p-12 flex flex-col justify-between">
-                           <div>
-                              <div className="flex items-center justify-between mb-6">
-                                 <span className="text-gold font-mono font-bold text-sm">SERVIZIO 0{index + 1}</span>
-                                 <span className="text-[10px] uppercase font-bold tracking-wider px-3 py-1 bg-bg-neutral rounded-full text-navy border border-navy/5">
-                                    {s.tag}
-                                 </span>
-                              </div>
-                              <h3 className="text-navy text-2xl font-bold uppercase tracking-tight mb-2">{s.title}</h3>
-                              <p className="text-gold text-xs font-semibold uppercase tracking-wider mb-4">{s.subtitle}</p>
-                              <p className="text-text-main text-sm font-light leading-relaxed mb-6">{s.desc}</p>
-                              
-                              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 mb-8 border-t border-navy/5 pt-6">
-                                 {s.features.map((f, i) => (
-                                    <div key={i} className="flex items-start gap-2 text-xs text-navy/80">
-                                       <ChevronRight size={14} className="text-gold shrink-0 mt-0.5" />
-                                       <span>{f}</span>
-                                    </div>
-                                 ))}
-                              </div>
-                           </div>
-
-                           <div className="flex flex-col sm:flex-row items-center gap-4 border-t border-navy/10 pt-6">
-                              <Link to={s.route} className="btn-ghost-dark w-full sm:w-auto inline-flex items-center gap-2">
-                                 Scopri di Più <ArrowRight size={16} />
-                              </Link>
-                           </div>
-                        </div>
-
-                        <div className="lg:col-span-4 bg-navy relative min-h-[250px] overflow-hidden">
-                           <img 
-                              src={s.image} 
-                              alt={s.title}
-                              className="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-700 opacity-80"
-                           />
-                           <div className="absolute inset-0 bg-navy/30" />
-                           <div className="absolute top-6 right-6 p-3 bg-navy text-gold rounded-sm border border-gold/30">
-                              <IconComponent size={24} />
-                           </div>
-                        </div>
-                     </div>
-                  );
-               })}
-            </div>
-         </div>
+          </div>
+        </div>
       </section>
 
       {/* ── FINAL CTA ── */}
-      <section className="py-16 md:py-32 bg-white text-center px-6 border-t border-navy/5">
-         <div className="max-w-3xl mx-auto">
-            <h2 className="text-navy text-2xl sm:text-4xl font-bold uppercase tracking-tighter leading-[1.1] mb-6">
-               Richiedi una Consulenza <br /> o un Preventivo.
-            </h2>
-            <p className="text-text-main text-sm md:text-base font-light mb-12">
-               Il nostro team è a disposizione per analizzare i disciplinari di gara, pianificare campagne di rilievo 3D o sviluppare modelli BIM.
-            </p>
-            <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-               <Link to="/contatti" className="btn-ghost-dark px-10 py-5 w-full sm:w-auto justify-center inline-flex items-center gap-3">
-                  Contatta lo Studio <ArrowRight size={18} />
-               </Link>
-               <Link to="/portfolio" className="btn-ghost-gold px-10 py-5 w-full sm:w-auto justify-center text-center">
-                  Vedi i Nostri Progetti
-               </Link>
-            </div>
-         </div>
+      <section className="py-16 md:py-24 bg-navy text-white text-center">
+        <div className="max-w-3xl mx-auto px-6">
+          <span className="text-gold text-xs font-bold uppercase tracking-[0.4em] mb-4 block">Contattaci</span>
+          <h2 className="text-white text-2xl sm:text-4xl font-bold uppercase tracking-tighter leading-tight mb-6">
+            Hai Bisogno di Supporto per una Gara o un Progetto?
+          </h2>
+          <p className="text-white/80 text-sm md:text-base font-light mb-10">
+            Richiedi una consulenza tecnica o uno studio di fattibilità direttamente con il team di MBA Progetti.
+          </p>
+          <Link to="/contatti" className="btn-ghost-white group">
+            Richiedi una Consulenza <ArrowRight size={16} className="ml-2 group-hover:translate-x-1 transition-transform inline-block" />
+          </Link>
+        </div>
       </section>
 
     </div>
