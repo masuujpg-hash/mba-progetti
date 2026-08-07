@@ -167,9 +167,9 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ── STATS COUNTER (DISPOSTO SU DUE FILE) ── */}
-      <section className="py-12 md:py-20 px-6 max-w-5xl mx-auto border-b border-navy/5">
-         <div className="grid grid-cols-2 md:grid-cols-3 gap-8 md:gap-12">
+      {/* ── STATS COUNTER (DISPOSTO SU DUE FILE E INGRANDITO) ── */}
+      <section className="py-16 md:py-24 px-6 max-w-6xl mx-auto border-b border-navy/5">
+         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 md:gap-8">
             <StatItem icon={Calendar} value="10" label="anni di esperienza" />
             <StatItem icon={FileText} value="+200" label="gare redatte" />
             <StatItem icon={Medal} value="63%" label="gare sul podio" />
@@ -341,10 +341,12 @@ export default function Home() {
 
 function StatItem({ icon: Icon, value, label }: { icon: any; value: string; label: string }) {
    return (
-      <div className="text-center p-4">
-         <Icon size={20} className="mx-auto mb-2 text-gold opacity-80" />
-         <div className="text-navy text-3xl font-bold font-mono tracking-tight mb-1">{value}</div>
-         <div className="text-gold text-[10px] font-bold uppercase tracking-wider">{label}</div>
+      <div className="bg-bg-neutral/60 border border-navy/10 p-8 md:p-10 rounded-sm text-center shadow-xs hover:shadow-md hover:border-gold/50 transition-all duration-300 group flex flex-col items-center justify-center">
+         <div className="p-3.5 bg-white text-gold rounded-sm mb-4 shadow-xs group-hover:bg-navy group-hover:text-gold transition-colors duration-300">
+            <Icon size={32} />
+         </div>
+         <div className="text-navy text-4xl sm:text-5xl md:text-6xl font-bold font-mono tracking-tight mb-2 group-hover:scale-105 transition-transform duration-300">{value}</div>
+         <div className="text-gold text-xs md:text-sm font-bold uppercase tracking-[0.25em]">{label}</div>
       </div>
    );
 }
