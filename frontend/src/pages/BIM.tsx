@@ -53,7 +53,7 @@ export default function BIM() {
             className="w-full h-full object-cover grayscale opacity-20" 
             alt="BIM Strategy"
           />
-          <div className="absolute inset-0 bg-gradient-to-b from-navy via-transparent to-white" />
+          <div className="absolute inset-0 bg-gradient-to-b from-navy/95 via-navy/90 to-navy" />
         </div>
         <div className="relative z-10 text-center px-6 max-w-4xl mx-auto">
            <motion.div
@@ -61,11 +61,11 @@ export default function BIM() {
              animate={{ opacity: 1, y: 0 }}
              transition={{ duration: 1.2 }}
            >
-             <span className="text-gold text-xs font-bold uppercase tracking-[0.4em] md:tracking-[0.8em] mb-6 block">Building Information Modeling</span>
+             <span className="text-white text-xs font-bold uppercase tracking-[0.4em] md:tracking-[0.8em] mb-6 block opacity-90">Building Information Modeling</span>
              <h1 className="text-white text-3xl sm:text-4xl md:text-6xl font-bold leading-[1.1] uppercase tracking-tighter mb-6">
                 BIM <br className="sm:hidden" /> Strategy.
              </h1>
-             <p className="text-white/70 text-base md:text-xl font-light max-w-2xl mx-auto leading-relaxed">
+             <p className="text-white/80 text-base md:text-xl font-light max-w-2xl mx-auto leading-relaxed">
                 Gestione, coordinamento e condivisione delle informazioni di progetto per un controllo totale del ciclo edilizio.
              </p>
            </motion.div>

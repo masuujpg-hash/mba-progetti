@@ -113,14 +113,14 @@ export default function Gare() {
     <div className="bg-white selection:bg-navy selection:text-white">
       
       {/* ── HERO ── */}
-      <section className="relative h-[70vh] w-full flex items-center justify-center overflow-hidden bg-bg-neutral">
+      <section className="relative h-[70vh] w-full flex items-center justify-center overflow-hidden bg-navy">
         <div className="absolute inset-0 z-0">
           <img 
-            src="/media/header_1.jpg" 
-            className="w-full h-full object-cover grayscale opacity-18" 
+            src="/media/header_2.jpg" 
+            className="w-full h-full object-cover grayscale opacity-20" 
             alt="Gare OEPV background"
           />
-          <div className="absolute inset-0 bg-gradient-to-b from-white/80 via-transparent to-white" />
+          <div className="absolute inset-0 bg-gradient-to-b from-navy/95 via-navy/90 to-navy" />
         </div>
         <div className="relative z-10 text-center px-6 max-w-4xl mx-auto">
            <motion.div
@@ -128,11 +128,11 @@ export default function Gare() {
              animate={{ opacity: 1, y: 0 }}
              transition={{ duration: 1.2 }}
            >
-             <span className="text-gold text-xs font-bold uppercase tracking-[0.4em] md:tracking-[0.8em] mb-8 block">Eccellenza negli Appalti Pubblici</span>
-             <h1 className="text-navy text-3xl sm:text-4xl md:text-6xl font-bold leading-[1.1] uppercase tracking-tighter mb-6">
+             <span className="text-white text-xs font-bold uppercase tracking-[0.4em] md:tracking-[0.8em] mb-8 block opacity-90">Eccellenza negli Appalti Pubblici</span>
+             <h1 className="text-white text-3xl sm:text-4xl md:text-6xl font-bold leading-[1.1] uppercase tracking-tighter mb-6">
                 Gare <br className="sm:hidden" /> OEPV.
              </h1>
-             <p className="text-navy/70 text-base md:text-xl font-light max-w-2xl mx-auto leading-relaxed">
+             <p className="text-white/80 text-base md:text-xl font-light max-w-2xl mx-auto leading-relaxed">
                 Metodo, precisione, dedizione. Specialisti nella redazione di offerte tecniche migliorative per gare d'appalto pubbliche.
              </p>
            </motion.div>

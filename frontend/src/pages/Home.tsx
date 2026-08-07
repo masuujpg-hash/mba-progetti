@@ -79,14 +79,14 @@ export default function Home() {
     <div className="bg-white selection:bg-navy selection:text-white overflow-x-hidden">
       
       {/* ── CINEMATIC HERO SLIDER ── */}
-      <section className="relative h-screen w-full flex items-center justify-center overflow-hidden bg-bg-neutral">
+      <section className="relative h-screen w-full flex items-center justify-center overflow-hidden bg-navy">
         {/* Background images slider */}
         <div className="absolute inset-0 z-0">
           <AnimatePresence mode="wait">
             <motion.div
               key={currentSlide}
               initial={{ opacity: 0, scale: 1.1 }}
-              animate={{ opacity: 0.18, scale: 1 }}
+              animate={{ opacity: 0.25, scale: 1 }}
               exit={{ opacity: 0, scale: 0.95 }}
               transition={{ duration: 1.2, ease: [0.16, 1, 0.3, 1] }}
               className="absolute inset-0 w-full h-full"
@@ -98,7 +98,7 @@ export default function Home() {
               />
             </motion.div>
           </AnimatePresence>
-          <div className="absolute inset-0 bg-gradient-to-b from-white/80 via-transparent to-white" />
+          <div className="absolute inset-0 bg-gradient-to-b from-navy/95 via-navy/90 to-navy" />
         </div>
 
         {/* Text content slider */}
@@ -112,22 +112,22 @@ export default function Home() {
               transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
               className="flex flex-col items-center"
             >
-              <span className="text-gold text-xs font-bold uppercase tracking-[0.4em] md:tracking-[0.8em] mb-6 block">
+              <span className="text-white text-xs font-bold uppercase tracking-[0.4em] md:tracking-[0.8em] mb-6 block opacity-90">
                 {slides[currentSlide].pre}
               </span>
-              <h1 className="text-navy text-3xl sm:text-4xl md:text-5xl font-bold leading-[1.25] uppercase tracking-tighter mb-6">
+              <h1 className="text-white text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold leading-[1.2] uppercase tracking-tighter mb-6">
                 {slides[currentSlide].title}{' '}
-                <span className="text-gold">{slides[currentSlide].highlight}</span>
+                <span className="text-white font-serif italic lowercase tracking-normal">{slides[currentSlide].highlight}</span>
               </h1>
-              <p className="text-navy/60 text-sm md:text-base font-light max-w-2xl leading-relaxed mb-12">
+              <p className="text-white/80 text-sm md:text-base font-light max-w-2xl leading-relaxed mb-12">
                 {slides[currentSlide].desc}
               </p>
-              <div className="flex flex-col sm:flex-row items-center justify-center gap-6 w-full">
-                <Link to={slides[currentSlide].link} className="btn-ghost-dark px-12 py-5 group min-w-[220px]">
-                  {slides[currentSlide].btnText} <ArrowRight className="ml-3 group-hover:translate-x-2 transition-transform inline-block" />
+              <div className="flex flex-col sm:flex-row items-center justify-center gap-4 w-full">
+                <Link to={slides[currentSlide].link} className="btn-ghost-white group">
+                  {slides[currentSlide].btnText} <ArrowRight className="ml-2 group-hover:translate-x-1 transition-transform inline-block" />
                 </Link>
-                <Link to="/studio" className="btn-ghost-dark px-12 py-5 group min-w-[220px]">
-                  Scopri lo Studio <ArrowRight className="ml-3 group-hover:translate-x-2 transition-transform inline-block" />
+                <Link to="/studio" className="btn-ghost-white group">
+                  Scopri lo Studio <ArrowRight className="ml-2 group-hover:translate-x-1 transition-transform inline-block" />
                 </Link>
               </div>
             </motion.div>

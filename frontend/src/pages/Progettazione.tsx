@@ -90,14 +90,14 @@ export default function Progettazione() {
     <div className="bg-white selection:bg-navy selection:text-white">
       
       {/* ── HERO ── */}
-      <section className="relative h-[70vh] w-full flex items-center justify-center overflow-hidden bg-bg-neutral">
+      <section className="relative h-[70vh] w-full flex items-center justify-center overflow-hidden bg-navy">
         <div className="absolute inset-0 z-0">
           <img 
             src="/media/header_3.jpg" 
-            className="w-full h-full object-cover grayscale opacity-18" 
+            className="w-full h-full object-cover grayscale opacity-20" 
             alt="Progettazione background"
           />
-          <div className="absolute inset-0 bg-gradient-to-b from-white/80 via-transparent to-white" />
+          <div className="absolute inset-0 bg-gradient-to-b from-navy/95 via-navy/90 to-navy" />
         </div>
         <div className="relative z-10 text-center px-6 max-w-4xl mx-auto">
            <motion.div
@@ -105,12 +105,12 @@ export default function Progettazione() {
              animate={{ opacity: 1, y: 0 }}
              transition={{ duration: 1.2 }}
            >
-             <span className="text-gold text-xs font-bold uppercase tracking-[0.4em] md:tracking-[0.8em] mb-8 block">Ingegneria & Architettura</span>
-             <h1 className="text-navy text-3xl sm:text-4xl md:text-6xl font-bold leading-[1.1] uppercase tracking-tighter mb-6">
+             <span className="text-white text-xs font-bold uppercase tracking-[0.4em] md:tracking-[0.8em] mb-8 block opacity-90">Ingegneria & Architettura</span>
+             <h1 className="text-white text-3xl sm:text-4xl md:text-6xl font-bold leading-[1.1] uppercase tracking-tighter mb-6">
                 Progettazione <br className="sm:hidden" /> Integrale.
              </h1>
-             <p className="text-navy/70 text-base md:text-xl font-light max-w-2xl mx-auto leading-relaxed">
-                Dalla visione al cantiere. Soluzioni tecniche attente al contesto, alla qualità costruttiva e alla sostenibilità ambientale.
+             <p className="text-white/80 text-base md:text-xl font-light max-w-2xl mx-auto leading-relaxed">
+                Dal concept iniziale all'esecuzione in cantiere. Sviluppiamo progetti completi, sostenibili e conformi ai requisiti CAM ed OEPV.
              </p>
            </motion.div>
         </div>

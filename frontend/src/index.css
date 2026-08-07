@@ -104,23 +104,62 @@ h1, h2, h3, h4, .font-display {
   @apply absolute left-0 h-px w-full bg-gold/10 z-0;
 }
 
-/* ── Components ── */
+/* ── Components & Uniform Button Sizing ── */
+.btn-ghost-gold,
+.btn-ghost-dark,
+.btn-ghost-white,
+.btn-site,
+[class*="btn-ghost"],
+.btn-primary,
+.btn-secondary {
+  height: 52px !important;
+  min-height: 52px !important;
+  max-height: 52px !important;
+  width: 240px !important;
+  min-width: 240px !important;
+  max-width: 100% !important;
+  padding: 0 20px !important;
+  font-size: 11px !important;
+  font-weight: 700 !important;
+  letter-spacing: 0.2em !important;
+  text-transform: uppercase !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  border-radius: 2px !important;
+  white-space: nowrap !important;
+  box-sizing: border-box !important;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1) !important;
+}
+
 .btn-ghost-gold {
-  @apply relative inline-flex items-center justify-center border border-gold text-gold px-10 py-4 
-         text-[11px] font-bold uppercase tracking-[0.3em] overflow-hidden transition-all duration-500
-         hover:bg-gold hover:text-white;
+  border: 1px solid var(--color-gold) !important;
+  color: var(--color-gold) !important;
+  background: transparent !important;
+}
+.btn-ghost-gold:hover {
+  background: var(--color-gold) !important;
+  color: var(--color-navy) !important;
 }
 
 .btn-ghost-dark {
-  @apply relative inline-flex items-center justify-center border border-navy text-navy px-10 py-4 
-         text-[11px] font-bold uppercase tracking-[0.3em] overflow-hidden transition-all duration-500
-         hover:bg-navy hover:text-white;
+  border: 1px solid var(--color-navy) !important;
+  color: var(--color-navy) !important;
+  background: transparent !important;
+}
+.btn-ghost-dark:hover {
+  background: var(--color-navy) !important;
+  color: #ffffff !important;
 }
 
 .btn-ghost-white {
-  @apply relative inline-flex items-center justify-center border border-white text-white px-10 py-4 
-         text-[11px] font-bold uppercase tracking-[0.3em] overflow-hidden transition-all duration-500
-         hover:bg-white hover:text-navy;
+  border: 1px solid #ffffff !important;
+  color: #ffffff !important;
+  background: transparent !important;
+}
+.btn-ghost-white:hover {
+  background: #ffffff !important;
+  color: var(--color-navy) !important;
 }
 
 /* Glassmorphism */
