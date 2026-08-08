@@ -12,7 +12,10 @@ import {
   FileText,
   Medal,
   Trophy,
-  Users
+  Users,
+  MagnifyingGlass,
+  Compass,
+  CheckSquare
 } from '@phosphor-icons/react';
 import { projects } from '../data/projects';
 
@@ -167,9 +170,9 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ── STATS COUNTER (DISPOSTO SU DUE FILE E INGRANDITO) ── */}
-      <section className="py-16 md:py-24 px-6 max-w-6xl mx-auto border-b border-navy/5">
-         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 md:gap-8">
+      {/* ── STATS COUNTER (ICONE PICCOLE SENZA RIQUADRO) ── */}
+      <section className="py-12 md:py-20 px-6 max-w-5xl mx-auto border-b border-navy/5">
+         <div className="grid grid-cols-2 md:grid-cols-3 gap-8 md:gap-12">
             <StatItem icon={Calendar} value="10" label="anni di esperienza" />
             <StatItem icon={FileText} value="+200" label="gare redatte" />
             <StatItem icon={Medal} value="63%" label="gare sul podio" />
@@ -179,38 +182,8 @@ export default function Home() {
          </div>
       </section>
 
-      {/* ── IL NOSTRO METODO ── */}
-      <section className="py-16 md:py-32 bg-white">
-        <div className="max-w-7xl mx-auto px-6">
-           <div className="text-center max-w-3xl mx-auto mb-16">
-              <span className="text-gold text-xs font-bold uppercase tracking-[0.4em] mb-4 block">Il Nostro Metodo</span>
-              <h2 className="text-navy text-2xl sm:text-4xl font-bold uppercase tracking-tighter leading-[1.1]">
-                 Metodo & Competenza.
-              </h2>
-           </div>
-
-           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-              <ValueItem 
-                number="01" 
-                title="Approccio selettivo orientato alla qualità." 
-                text="Ogni disciplinare e progetto esecutivo vengono esaminati con metodo per individuare criteri premianti, vincoli e margini di miglioramento tecnico."
-              />
-              <ValueItem 
-                number="02" 
-                title="Un team completo per ogni procedura." 
-                text="Architetti, specialisti BIM, esperti di contabilità dei lavori, restauratori e consulenti strutturali e impiantistici attivati in sinergia."
-              />
-              <ValueItem 
-                number="03" 
-                title="Dieci anni di esperienza nel settore." 
-                text="Dal 2015 operiamo nel mondo degli appalti pubblici in tutta Italia. Un'esperienza che si traduce in soluzioni migliorative vincenti."
-              />
-           </div>
-        </div>
-      </section>
-
-      {/* ── PORTFOLIO CAROUSEL ── */}
-      <section className="py-16 md:py-32 bg-bg-neutral overflow-hidden" id="portfolio-home">
+      {/* ── PORTFOLIO CAROUSEL (SPOSTATO PIÙ SOPRA) ── */}
+      <section className="py-16 md:py-28 bg-bg-neutral/40 overflow-hidden" id="portfolio-home">
         <div className="px-6 max-w-7xl mx-auto">
            <div className="mb-12 flex flex-col md:flex-row justify-between items-start md:items-end gap-6">
               <div>
@@ -279,8 +252,41 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ── SERVIZI SECONDARI ── */}
-      <section className="py-16 md:py-32 bg-white">
+      {/* ── I TRE PILASTRI OPERATIVI IN HOME ── */}
+      <section className="py-16 md:py-28 bg-white border-y border-navy/5">
+        <div className="max-w-7xl mx-auto px-6">
+           <div className="text-center max-w-3xl mx-auto mb-16">
+              <span className="text-gold text-xs font-bold uppercase tracking-[0.4em] mb-4 block">Il Nostro Metodo</span>
+              <h2 className="text-navy text-2xl sm:text-4xl font-bold uppercase tracking-tighter leading-[1.1]">
+                 I Tre Pilastri Operativi.
+              </h2>
+           </div>
+
+           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+              <PilastroItem 
+                icon={MagnifyingGlass}
+                number="01" 
+                title="ANALIZZIAMO." 
+                text="Ogni disciplinare e progetto esecutivo vengono esaminati con metodo per individuare criteri premianti, vincoli tecnici e margini di miglioramento."
+              />
+              <PilastroItem 
+                icon={Compass}
+                number="02" 
+                title="PROGETTIAMO." 
+                text="Elaboriamo soluzioni migliorative basate su coerenza tecnica e fattibilità operativa, integrando architettura, strutture ed impianti."
+              />
+              <PilastroItem 
+                icon={CheckSquare}
+                number="03" 
+                title="VALORIZZIAMO." 
+                text="Trasformiamo i contenuti tecnici in documentazione chiara e immediatamente valutabile per agevolare la commissione giudicatrice."
+              />
+           </div>
+        </div>
+      </section>
+
+      {/* ── SERVIZI INTEGRATI ── */}
+      <section className="py-16 md:py-28 bg-white">
         <div className="max-w-7xl mx-auto px-6">
           <div className="flex flex-col md:flex-row justify-between items-start md:items-center mb-12 gap-6">
              <div className="max-w-2xl">
@@ -320,16 +326,16 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ── FINAL CTA ── */}
-      <section className="py-16 md:py-32 bg-navy text-white text-center">
+      {/* ── FINAL CTA (SENZA BLOCCO BLU) ── */}
+      <section className="py-16 md:py-28 bg-bg-neutral border-t border-navy/10 text-navy text-center">
         <div className="max-w-3xl mx-auto px-6">
-           <h2 className="text-white text-2xl sm:text-4xl font-bold uppercase tracking-tighter leading-[1.1] mb-6">
+           <h2 className="text-navy text-2xl sm:text-4xl font-bold uppercase tracking-tighter leading-[1.1] mb-6">
               Il Prossimo Cantiere <br /> Inizia Qui.
            </h2>
-           <p className="text-white/80 text-sm md:text-base font-light mb-10">
+           <p className="text-navy/70 text-sm md:text-base font-light mb-10">
               Richiedi una consulenza tecnica per la tua prossima gara d'appalto o progetto esecutivo.
            </p>
-           <Link to="/contatti" className="btn-ghost-white group">
+           <Link to="/contatti" className="btn-ghost-dark group">
               Richiedi una Consulenza <ArrowRight className="ml-2 group-hover:translate-x-1 transition-transform inline-block" />
            </Link>
         </div>
@@ -339,22 +345,24 @@ export default function Home() {
   );
 }
 
+// StatItem con icone piccole SENZA riquadro
 function StatItem({ icon: Icon, value, label }: { icon: any; value: string; label: string }) {
    return (
-      <div className="bg-bg-neutral/60 border border-navy/10 p-8 md:p-10 rounded-sm text-center shadow-xs hover:shadow-md hover:border-gold/50 transition-all duration-300 group flex flex-col items-center justify-center">
-         <div className="p-3.5 bg-white text-gold rounded-sm mb-4 shadow-xs group-hover:bg-navy group-hover:text-gold transition-colors duration-300">
-            <Icon size={32} />
-         </div>
-         <div className="text-navy text-4xl sm:text-5xl md:text-6xl font-bold font-mono tracking-tight mb-2 group-hover:scale-105 transition-transform duration-300">{value}</div>
-         <div className="text-gold text-xs md:text-sm font-bold uppercase tracking-[0.25em]">{label}</div>
+      <div className="text-center p-4">
+         <Icon size={22} className="mx-auto mb-3 text-gold" />
+         <div className="text-navy text-4xl sm:text-5xl font-bold font-mono tracking-tight mb-2">{value}</div>
+         <div className="text-gold text-xs font-bold uppercase tracking-[0.2em]">{label}</div>
       </div>
    );
 }
 
-function ValueItem({ number, title, text }: { number: string; title: string; text: string }) {
+function PilastroItem({ icon: Icon, number, title, text }: { icon: any; number: string; title: string; text: string }) {
    return (
-      <div className="bg-bg-neutral p-8 border border-navy/5 rounded-sm space-y-3">
-         <span className="text-gold font-mono font-bold text-xl block">{number}</span>
+      <div className="bg-bg-neutral/60 p-8 border border-navy/5 rounded-sm space-y-4 shadow-sm hover:border-gold/40 transition-colors">
+         <div className="flex items-center justify-between">
+            <span className="text-gold font-mono font-bold text-lg block">{number}</span>
+            <Icon size={24} className="text-navy/60" />
+         </div>
          <h3 className="text-navy text-base font-bold uppercase tracking-tight">{title}</h3>
          <p className="text-text-main text-xs font-light leading-relaxed">{text}</p>
       </div>
@@ -364,14 +372,14 @@ function ValueItem({ number, title, text }: { number: string; title: string; tex
 function ProjectCard({ id, title, cat, img, pos, rank, amount }: any) {
    return (
       <Link to={`/portfolio/${id}`} className="block group bg-white border border-navy/10 rounded-sm overflow-hidden shadow-sm hover:shadow-md transition-all h-full">
-         <div className="relative aspect-[4/3] bg-navy overflow-hidden">
+         <div className="relative aspect-[4/3] bg-neutral-100 overflow-hidden">
             <img 
                src={img} 
                alt={title}
                className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 grayscale group-hover:grayscale-0"
             />
             {rank && (
-               <div className="absolute top-3 left-3 bg-gold text-navy text-[10px] font-bold uppercase tracking-wider px-2.5 py-1 rounded-sm shadow-sm">
+               <div className="absolute top-3 left-3 bg-gold text-white text-[10px] font-bold uppercase tracking-wider px-2.5 py-1 rounded-sm shadow-sm">
                   {rank}
                </div>
             )}

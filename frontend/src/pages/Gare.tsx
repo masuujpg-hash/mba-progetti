@@ -7,7 +7,6 @@ import {
   Maximize2,
   X,
   Target,
-  Calculator,
   GraduationCap,
   HeartPulse,
   Landmark,
@@ -36,7 +35,7 @@ function StatItem({ value, label }: { value: string; label: string }) {
       const end = numericValue;
       if (start === end) return;
 
-      const steps = 60; // 60 frames
+      const steps = 60;
       const increment = end / steps;
       let stepCount = 0;
 
@@ -55,7 +54,7 @@ function StatItem({ value, label }: { value: string; label: string }) {
   }, [isInView, numericValue]);
 
   return (
-    <div ref={ref} className="text-center bg-bg-neutral border border-navy/5 p-6 md:p-8 flex flex-col justify-center items-center shadow-sm hover:shadow-md transition-shadow">
+    <div ref={ref} className="text-center bg-bg-neutral/60 border border-navy/5 p-6 md:p-8 flex flex-col justify-center items-center shadow-xs">
        <div className="text-navy text-3xl sm:text-4xl md:text-5xl font-bold tracking-tighter mb-2">
          {prefix}{isInView ? count : 0}{suffix}
        </div>
@@ -72,11 +71,11 @@ export default function Gare() {
     { id: '01', title: 'Scelta della gara', desc: 'Identificazione delle procedure più coerenti con le potenzialità e la struttura dell’impresa.' },
     { id: '02', title: 'Valutazione investimento', desc: 'Analisi preliminare dei costi e dei benefici stimati per la partecipazione.' },
     { id: '03', title: 'Analisi disciplinare', desc: 'Studio approfondito di ogni criterio di valutazione, dei sub-criteri e dei vincoli tecnici.' },
-    { id: '04', title: 'Sopralluogo', desc: 'Verifica diretta dello stato dei luoghi per individuare criticità, vincoli e opportunità migliorative.' },
+    { id: '04', title: 'Sopralluogo', desc: 'Verifica diretta dello stato dei luoghi per individuare criticità e opportunità migliorative.' },
     { id: '05', title: 'Studio progetto', desc: 'Analisi critica del progetto a base di gara, della relazione generale e delle possibili varianti.' },
     { id: '06', title: 'Valutazione migliorie', desc: 'Definizione condivisa con l’impresa delle proposte tecniche migliorative da inserire in offerta.' },
     { id: '07', title: 'Redazione offerta', desc: 'Scrittura professionale della relazione tecnica e produzione di elaborati e schemi grafici.' },
-    { id: '08', title: 'Editing e consegna', desc: 'Revisione finale, impaginazione ad alto impatto visivo e supporto al caricamento telematico.' }
+    { id: '08', title: 'Editing e consegna', desc: 'Impaginazione ad alto impatto visivo e supporto al caricamento telematico.' }
   ];
 
   const ambiti = [
@@ -112,295 +111,176 @@ export default function Gare() {
   return (
     <div className="bg-white selection:bg-navy selection:text-white">
       
-      {/* ── HERO ── */}
-      <section className="relative h-[70vh] w-full flex items-center justify-center overflow-hidden bg-navy">
+      {/* ── HERO CON SFUMATURA ORIGINALE ── */}
+      <section className="relative h-[65vh] w-full flex items-center justify-center overflow-hidden bg-navy">
         <div className="absolute inset-0 z-0">
           <img 
             src="/media/header_2.jpg" 
-            className="w-full h-full object-cover grayscale opacity-20" 
+            className="w-full h-full object-cover grayscale opacity-25" 
             alt="Gare OEPV background"
           />
-          <div className="absolute inset-0 bg-gradient-to-b from-navy/95 via-navy/90 to-navy" />
+          {/* Sfumatura blu originale */}
+          <div className="absolute inset-0 bg-gradient-to-b from-navy via-navy/60 to-white" />
         </div>
-        <div className="relative z-10 text-center px-6 max-w-4xl mx-auto">
+        <div className="relative z-10 text-center px-6 max-w-4xl mx-auto py-16">
            <motion.div
-             initial={{ opacity: 0, y: 30 }}
+             initial={{ opacity: 0, y: 20 }}
              animate={{ opacity: 1, y: 0 }}
-             transition={{ duration: 1.2 }}
+             transition={{ duration: 0.8 }}
            >
-             <span className="text-white text-xs font-bold uppercase tracking-[0.4em] md:tracking-[0.8em] mb-8 block opacity-90">Eccellenza negli Appalti Pubblici</span>
-             <h1 className="text-white text-3xl sm:text-4xl md:text-6xl font-bold leading-[1.1] uppercase tracking-tighter mb-6">
-                Gare <br className="sm:hidden" /> OEPV.
+             <span className="text-white text-xs font-bold uppercase tracking-[0.4em] mb-4 block opacity-90">Eccellenza negli Appalti Pubblici</span>
+             <h1 className="text-white text-3xl sm:text-4xl md:text-6xl font-bold leading-[1.1] uppercase tracking-tighter mb-4">
+                Gare OEPV.
              </h1>
-             <p className="text-white/80 text-base md:text-xl font-light max-w-2xl mx-auto leading-relaxed">
+             <p className="text-white/80 text-sm md:text-base font-light max-w-2xl mx-auto leading-relaxed">
                 Metodo, precisione, dedizione. Specialisti nella redazione di offerte tecniche migliorative per gare d'appalto pubbliche.
              </p>
            </motion.div>
         </div>
       </section>
 
+      {/* ── TAVOLE GRAFICHE E ANTEPRIME METTITI IN ALTO ── */}
+      <section className="py-12 md:py-20 bg-bg-neutral/40 border-b border-navy/5">
+        <div className="max-w-7xl mx-auto px-6">
+           <div className="text-center max-w-3xl mx-auto mb-10">
+              <span className="text-gold text-xs font-bold uppercase tracking-[0.4em] mb-2 block">Elaborati e Layout</span>
+              <h2 className="text-navy text-2xl sm:text-3xl font-bold uppercase tracking-tighter">
+                 Galleria Tavole di Gara
+              </h2>
+              <p className="text-navy/70 text-xs sm:text-sm font-light mt-2">
+                 Esempi reali di tavole grafiche, relazioni metodologiche e layout visuali elaborati dallo studio.
+              </p>
+           </div>
+
+           {/* Carousel Immagini Tavole */}
+           <div className="relative max-w-4xl mx-auto bg-white border border-navy/10 rounded-sm shadow-md overflow-hidden">
+              <div className="relative aspect-[16/9] bg-neutral-900 group">
+                 <img 
+                    src={plates[currentIndex].img} 
+                    alt={plates[currentIndex].title}
+                    className="w-full h-full object-contain cursor-pointer"
+                    onClick={() => setIsFullscreenModalOpen(true)}
+                 />
+                 <button
+                    onClick={() => setIsFullscreenModalOpen(true)}
+                    className="absolute top-4 right-4 bg-navy/80 hover:bg-navy text-gold p-2.5 rounded-sm backdrop-blur-sm transition-colors"
+                    title="Ingrandisci a Schermo Intero"
+                 >
+                    <Maximize2 size={18} />
+                 </button>
+              </div>
+
+              {/* Controlli Didascalia */}
+              <div className="p-4 bg-white border-t border-navy/10 flex items-center justify-between">
+                 <div className="text-navy text-xs sm:text-sm font-bold uppercase tracking-wide">
+                    {plates[currentIndex].title}
+                 </div>
+                 <div className="flex items-center gap-2">
+                    <button 
+                       onClick={handlePrev}
+                       className="p-2 border border-navy/20 text-navy hover:border-gold hover:text-gold transition-colors rounded-sm"
+                       aria-label="Precedente"
+                    >
+                       <ChevronLeft size={18} />
+                    </button>
+                    <span className="text-xs font-mono font-bold text-gold px-2">
+                       {currentIndex + 1} / {plates.length}
+                    </span>
+                    <button 
+                       onClick={handleNext}
+                       className="p-2 border border-navy/20 text-navy hover:border-gold hover:text-gold transition-colors rounded-sm"
+                       aria-label="Successivo"
+                    >
+                       <ChevronRight size={18} />
+                    </button>
+                 </div>
+              </div>
+           </div>
+
+           {/* Ingrandimento Modal */}
+           {isFullscreenModalOpen && (
+              <div className="fixed inset-0 z-50 bg-black/90 backdrop-blur-md flex items-center justify-center p-4 sm:p-8">
+                 <button 
+                    onClick={() => setIsFullscreenModalOpen(false)}
+                    className="absolute top-6 right-6 text-white hover:text-gold p-2 transition-colors"
+                 >
+                    <X size={28} />
+                 </button>
+                 <img 
+                    src={plates[currentIndex].img} 
+                    alt={plates[currentIndex].title}
+                    className="max-w-full max-h-[90vh] object-contain rounded-sm"
+                 />
+              </div>
+           )}
+        </div>
+      </section>
+
       {/* ── INTRO & KPI ── */}
-      <section className="pt-16 md:pt-32 px-6 max-w-7xl mx-auto">
-         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-24 items-center">
-            <div className="lg:col-span-7 space-y-6 text-text-main text-base md:text-lg font-light leading-relaxed">
-               <div className="inline-flex items-center gap-3 text-gold text-xs font-bold uppercase tracking-[0.3em] mb-2">
-                  <Target size={18} /> Specializzazione & Rigore Tecnico
+      <section className="py-12 md:py-20 px-6 max-w-7xl mx-auto">
+         <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16 items-center">
+            <div className="lg:col-span-7 space-y-5 text-navy/80 text-sm font-light leading-relaxed">
+               <div className="inline-flex items-center gap-2 text-gold text-xs font-bold uppercase tracking-[0.3em]">
+                  <Target size={16} /> Specializzazione & Rigore Tecnico
                </div>
                <h2 className="text-navy text-2xl sm:text-3xl font-bold uppercase tracking-tight leading-tight">
                   Supporto Strategico per l'Offerta Economicamente Più Vantaggiosa
                </h2>
                <p>
-                  Dal 2019, MBA Progetti affianca le imprese nella redazione di offerte tecniche migliorative per gare d'appalto pubbliche aggiudicate secondo il criterio dell'offerta economicamente più vantaggiosa (OEPV), nell'ambito del D.Lgs. 36/2023. Analizziamo i documenti di gara per individuare con precisione i margini di miglioramento tecnico, sviluppando proposte fondate su metodo, chiarezza e coerenza con i criteri di valutazione.
+                  Dal 2019, MBA Progetti affianca le imprese nella redazione di offerte tecniche migliorative per gare d'appalto pubbliche aggiudicate secondo il criterio dell'offerta economicamente più vantaggiosa (OEPV).
                </p>
                <p>
-                  Ogni procedura è affrontata come un progetto: con un'analisi iniziale, una strategia condivisa con l'impresa e una produzione documentale orientata alla massimizzazione del punteggio tecnico. Lo studio supporta le imprese anche nelle procedure per appalti integrati, garantendo continuità tecnica dall'offerta migliorativa alla progettazione esecutiva.
+                  Analizziamo i documenti di gara per individuare con precisione i margini di miglioramento tecnico, sviluppando proposte fondate su metodo, chiarezza e coerenza con i criteri di valutazione.
                </p>
             </div>
-            
-            <div className="lg:col-span-5 grid grid-cols-2 sm:grid-cols-2 gap-4 md:gap-6">
+
+            <div className="lg:col-span-5 grid grid-cols-1 sm:grid-cols-3 gap-4">
                <StatItem value="+200" label="Gare Redatte" />
                <StatItem value="63%" label="Gare sul Podio" />
-               <StatItem value="38%" label="Gare Aggiudicate" />
-               <StatItem value="+40" label="Imprese Clienti" />
+               <StatItem value="38%" label="Gare Vinte" />
             </div>
          </div>
       </section>
 
-      {/* ── PERCHÉ SCEGLIERCI ── */}
-      <section className="py-16 md:py-32 bg-bg-neutral mt-20 md:mt-32 border-y border-navy/5">
+      {/* ── COME LAVORIAMO (8 STEP) ── */}
+      <section className="py-12 md:py-20 bg-bg-neutral/50 border-t border-navy/5">
+        <div className="max-w-7xl mx-auto px-6">
+           <div className="text-center max-w-3xl mx-auto mb-12">
+              <span className="text-gold text-xs font-bold uppercase tracking-[0.4em] mb-2 block">Il Processo</span>
+              <h2 className="text-navy text-2xl sm:text-3xl font-bold uppercase tracking-tighter">
+                 Come Lavoriamo in 8 Fasi
+              </h2>
+           </div>
+
+           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
+              {steps.map((st) => (
+                 <div key={st.id} className="bg-white p-6 border border-navy/10 rounded-sm space-y-2 shadow-xs">
+                    <span className="text-gold font-mono font-bold text-sm block">{st.id}</span>
+                    <h3 className="text-navy text-sm font-bold uppercase tracking-tight">{st.title}</h3>
+                    <p className="text-navy/70 text-xs font-light leading-relaxed">{st.desc}</p>
+                 </div>
+              ))}
+           </div>
+        </div>
+      </section>
+
+      {/* ── AMBITI DI INTERVENTO ── */}
+      <section className="py-12 md:py-20 bg-white">
          <div className="max-w-7xl mx-auto px-6">
-            <div className="text-center mb-16 md:mb-24">
-               <span className="text-gold text-xs font-bold uppercase tracking-[0.4em] mb-4 block">I Nostri Vantaggi</span>
-               <h2 className="text-navy text-2xl sm:text-3xl md:text-4xl font-bold uppercase tracking-tighter leading-[1.1]">
-                  Perché Sceglierci.
+            <div className="text-center max-w-3xl mx-auto mb-12">
+               <span className="text-gold text-xs font-bold uppercase tracking-[0.4em] mb-2 block">Ambiti D'Intervento</span>
+               <h2 className="text-navy text-2xl sm:text-3xl font-bold uppercase tracking-tighter">
+                  Tipologie di Opere
                </h2>
             </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-               <div className="bg-white p-8 md:p-10 border border-navy/5 rounded-sm flex flex-col justify-between shadow-sm hover:shadow-md transition-all group">
-                  <div>
-                     <span className="text-gold font-mono text-xl font-bold mb-6 block">01</span>
-                     <h3 className="text-navy text-xl font-bold uppercase tracking-tight mb-4 group-hover:text-gold transition-colors">
-                        Approccio dedicato, non seriale
-                     </h3>
-                     <p className="text-text-main text-sm font-light leading-relaxed">
-                        Ogni gara viene studiata e sviluppata da zero. Analizziamo il disciplinare, interpretiamo i criteri di valutazione e costruiamo soluzioni migliorative specifiche per quella procedura. Nessuna offerta standard, nessuna scorciatoia.
-                     </p>
-                  </div>
-               </div>
-
-               <div className="bg-white p-8 md:p-10 border border-navy/5 rounded-sm flex flex-col justify-between shadow-sm hover:shadow-md transition-all group">
-                  <div>
-                     <span className="text-gold font-mono text-xl font-bold mb-6 block">02</span>
-                     <h3 className="text-navy text-xl font-bold uppercase tracking-tight mb-4 group-hover:text-gold transition-colors">
-                        Un team completo per ogni procedura
-                     </h3>
-                     <p className="text-text-main text-sm font-light leading-relaxed">
-                        Architetti, specialisti BIM, esperti di contabilità dei lavori, restauratori e consulenti strutturali, impiantistici e infrastrutturali. Ogni competenza viene attivata in funzione delle specifiche esigenze della gara.
-                     </p>
-                  </div>
-               </div>
-
-               <div className="bg-white p-8 md:p-10 border border-navy/5 rounded-sm flex flex-col justify-between shadow-sm hover:shadow-md transition-all group">
-                  <div>
-                     <span className="text-gold font-mono text-xl font-bold mb-6 block">03</span>
-                     <h3 className="text-navy text-xl font-bold uppercase tracking-tight mb-4 group-hover:text-gold transition-colors">
-                        Dieci anni di esperienza nel settore
-                     </h3>
-                     <p className="text-text-main text-sm font-light leading-relaxed">
-                        Dal 2015 operiamo nel settore degli appalti pubblici. Un percorso costruito gara dopo gara, su tipologie diverse — edilizia scolastica, restauro, infrastrutture, strutture sportive — in tutta Italia, con solide competenze su D.Lgs. 36/2023, Linee Guida ANAC e CAM.
-                     </p>
-                  </div>
-               </div>
-            </div>
-         </div>
-      </section>
-
-      {/* ── WORKFLOW OPERATIVO (8 STEP) ── */}
-      <section className="py-16 md:py-32 bg-white overflow-hidden">
-         <div className="max-w-7xl mx-auto px-6">
-            <div className="text-center mb-16 md:mb-24">
-               <motion.div
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-               >
-                  <span className="text-gold text-[10px] font-bold uppercase tracking-[0.4em] mb-4 block">Il Nostro Metodo</span>
-                  <h2 className="text-navy text-2xl sm:text-3xl md:text-4xl font-bold uppercase tracking-tighter leading-[1.1]">
-                     Dall'Analisi <br /> All'Aggiudicazione.
-                  </h2>
-               </motion.div>
-            </div>
-
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-x-8 gap-y-16">
-               {steps.map((step, i) => (
-                  <motion.div 
-                     key={step.id}
-                     initial={{ opacity: 0, y: 20 }}
-                     whileInView={{ opacity: 1, y: 0 }}
-                     viewport={{ once: true }}
-                     transition={{ delay: i * 0.08 }}
-                     className="group border-l border-navy/10 pl-6 py-2 hover:border-gold transition-colors"
-                  >
-                     <div className="flex flex-col">
-                        <div className="mb-4">
-                           <span className="text-gold text-4xl font-bold font-mono group-hover:translate-x-1 transition-transform inline-block">
-                              {step.id}
-                           </span>
-                        </div>
-                        <h3 className="text-navy text-lg font-bold uppercase tracking-tight mb-3">{step.title}</h3>
-                        <p className="text-text-main text-xs font-light leading-relaxed">
-                           {step.desc}
-                        </p>
-                     </div>
-                  </motion.div>
-               ))}
-            </div>
-         </div>
-      </section>
-
-      {/* ── IL NOSTRO OBIETTIVO ── */}
-      <section className="py-16 md:py-32 bg-bg-neutral border-t border-navy/5">
-         <div className="max-w-7xl mx-auto px-6">
-            
-            <div className="text-center mb-16 md:mb-24">
-               <span className="text-gold text-xs font-bold uppercase tracking-[0.4em] mb-4 block">Il Nostro Obiettivo</span>
-               <h2 className="text-navy text-2xl sm:text-3xl md:text-4xl font-bold uppercase tracking-tighter leading-[1.2] max-w-2xl mx-auto">
-                  Comunicare la qualità, <br /> non solo produrla.
-               </h2>
-            </div>
-
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-12 mb-20 md:mb-32">
-               <div className="space-y-4">
-                  <div className="w-10 h-px bg-gold mb-6" />
-                  <h3 className="text-navy text-xl font-bold uppercase tracking-tight leading-tight">
-                     Proposte che entrano nel merito
-                  </h3>
-                  <p className="text-text-main text-sm font-light leading-relaxed">
-                     Niente schemi preconfezionati o soluzioni generiche. Ogni miglioramento tecnico è studiato ad hoc sui criteri del bando per portare valore reale.
-                  </p>
-               </div>
-               <div className="space-y-4">
-                  <div className="w-10 h-px bg-gold mb-6" />
-                  <h3 className="text-navy text-xl font-bold uppercase tracking-tight leading-tight">
-                     Ogni miglioria come valore aggiunto
-                  </h3>
-                  <p className="text-text-main text-sm font-light leading-relaxed">
-                     Non elenchiamo soluzioni in modo sterile, descriviamo in modo analitico e grafico come e perché ogni miglioria porti un reale beneficio, in linea con i criteri della gara.
-                  </p>
-               </div>
-               <div className="space-y-4">
-                  <div className="w-10 h-px bg-gold mb-6" />
-                  <h3 className="text-navy text-xl font-bold uppercase tracking-tight leading-tight">
-                     La sintesi grafica come chiave di lettura
-                  </h3>
-                  <p className="text-text-main text-sm font-light leading-relaxed">
-                     La commissione deve valutare in tempi brevi. Disegni, schemi e rendering mettono subito in evidenza il valore della proposta tecnica, facilitando il lavoro di chi giudica.
-                  </p>
-               </div>
-            </div>
-
-            {/* SLIDER / VIEWER FULLSCREEN TAVOLE GRAFICHE */}
-            <div className="max-w-6xl mx-auto mt-16 md:mt-32">
-               <div className="text-center mb-8">
-                  <span className="text-gold text-[10px] font-bold uppercase tracking-[0.4em] mb-2 block">Elaborati di Gara</span>
-                  <h4 className="text-navy text-2xl font-bold uppercase tracking-tighter">
-                     Tavole Tecniche & Progettuali
-                  </h4>
-                  <p className="text-navy/60 text-xs font-light mt-1">
-                     Scorri le tavole ad alta risoluzione o clicca per la vista a schermo intero
-                  </p>
-               </div>
-
-               {/* Main Full-Width Slide Viewer */}
-               <div className="relative w-full aspect-[16/9] md:aspect-[21/9] bg-navy rounded-sm overflow-hidden shadow-2xl border border-navy/10 group">
-                  <img 
-                     src={plates[currentIndex].img} 
-                     alt={plates[currentIndex].title}
-                     className="w-full h-full object-contain bg-zinc-950/90 transition-all duration-500"
-                  />
-                  
-                  {/* Gradient Overlay */}
-                  <div className="absolute inset-0 bg-gradient-to-t from-navy/90 via-transparent to-navy/30 pointer-events-none" />
-
-                  {/* Top Bar: Counter & Fullscreen Toggle */}
-                  <div className="absolute top-4 left-4 right-4 flex items-center justify-between z-10">
-                     <span className="bg-navy/80 backdrop-blur-md text-gold text-[11px] font-mono font-bold tracking-widest px-3 py-1.5 border border-gold/20 rounded-sm">
-                        {plates[currentIndex].title}
-                     </span>
-                     <button
-                        onClick={() => setIsFullscreenModalOpen(true)}
-                        className="bg-navy/80 hover:bg-gold hover:text-navy text-white text-xs font-bold uppercase tracking-wider px-3.5 py-1.5 border border-white/20 transition-all flex items-center gap-1.5 rounded-sm cursor-pointer"
-                     >
-                        <Maximize2 size={14} /> Schermo Intero
-                     </button>
-                  </div>
-
-                  {/* Previous / Next Buttons */}
-                  <button
-                     onClick={handlePrev}
-                     className="absolute left-2 sm:left-4 top-1/2 -translate-y-1/2 w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-navy/80 hover:bg-gold text-white hover:text-navy border border-white/20 flex items-center justify-center transition-all cursor-pointer shadow-lg z-10"
-                     aria-label="Tavola Precedente"
-                  >
-                     <ChevronLeft size={20} />
-                  </button>
-
-                  <button
-                     onClick={handleNext}
-                     className="absolute right-2 sm:right-4 top-1/2 -translate-y-1/2 w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-navy/80 hover:bg-gold text-white hover:text-navy border border-white/20 flex items-center justify-center transition-all cursor-pointer shadow-lg z-10"
-                     aria-label="Tavola Successiva"
-                  >
-                     <ChevronRight size={20} />
-                  </button>
-               </div>
-
-               {/* Horizontal Thumbnail Strip */}
-               <div className="mt-4 flex items-center gap-2 overflow-x-auto pb-2 custom-scrollbar">
-                  {plates.map((plate, index) => (
-                     <button
-                        key={index}
-                        onClick={() => setCurrentIndex(index)}
-                        className={`relative shrink-0 w-24 sm:w-32 aspect-[16/9] border-2 transition-all overflow-hidden rounded-sm cursor-pointer ${
-                           currentIndex === index 
-                              ? 'border-gold opacity-100 scale-105 shadow-md' 
-                              : 'border-transparent opacity-50 hover:opacity-90'
-                        }`}
-                     >
-                        <img 
-                           src={plate.img} 
-                           alt={plate.title}
-                           className="w-full h-full object-cover"
-                        />
-                     </button>
-                  ))}
-               </div>
-            </div>
-         </div>
-      </section>
-
-      {/* ── AMBITI DI INTERVENTO (10 SETTORI) ── */}
-      <section className="py-16 md:py-32 bg-white">
-         <div className="max-w-7xl mx-auto px-6">
-            <div className="text-center mb-16 md:mb-24">
-               <span className="text-gold text-xs font-bold uppercase tracking-[0.4em] mb-4 block">Ambiti di Intervento</span>
-               <h2 className="text-navy text-2xl sm:text-3xl md:text-4xl font-bold uppercase tracking-tighter leading-[1.1]">
-                  Esperienza su Ogni Tipologia di Opera.
-               </h2>
-               <p className="text-text-main text-sm font-light max-w-2xl mx-auto mt-4">
-                  MBA Progetti sviluppa offerte tecniche per gare pubbliche in molteplici settori dell'ingegneria e dell'architettura.
-               </p>
-            </div>
-
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-6">
-               {ambiti.map((item, index) => {
-                  const IconComponent = item.icon;
+            <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-4">
+               {ambiti.map((item, idx) => {
+                  const IconComp = item.icon;
                   return (
-                     <div key={index} className="bg-bg-neutral p-6 rounded-sm border border-navy/5 flex flex-col items-start hover:border-gold/50 transition-all group">
-                        <div className="p-3 bg-white border border-gold/20 text-gold mb-4 rounded-sm group-hover:bg-gold group-hover:text-navy transition-colors">
-                           <IconComponent size={24} />
-                        </div>
-                        <h3 className="text-navy text-sm font-bold uppercase tracking-tight mb-2">{item.title}</h3>
-                        <p className="text-text-main text-xs font-light leading-relaxed">{item.desc}</p>
+                     <div key={idx} className="bg-bg-neutral/60 p-5 border border-navy/5 rounded-sm text-center space-y-2 hover:border-gold transition-colors">
+                        <IconComp size={22} className="mx-auto text-gold" />
+                        <h3 className="text-navy text-xs font-bold uppercase tracking-tight">{item.title}</h3>
                      </div>
                   );
                })}
@@ -408,95 +288,21 @@ export default function Gare() {
          </div>
       </section>
 
-      {/* ── CTA SIMULATORE OEPV ── */}
-      <section className="py-16 md:py-24 bg-navy text-white relative overflow-hidden">
-         <div className="max-w-7xl mx-auto px-6 relative z-10 flex flex-col md:flex-row items-center justify-between gap-8">
-            <div className="space-y-4 max-w-2xl">
-               <div className="inline-flex items-center gap-2 text-gold text-xs font-mono font-bold uppercase tracking-widest">
-                  <Calculator size={16} /> Strumento Pratico Gratuito
-               </div>
-               <h2 className="text-white text-2xl sm:text-3xl md:text-4xl font-bold uppercase tracking-tighter">
-                  Simulatore Punteggio Economico OEPV
-               </h2>
-               <p className="text-white/70 text-sm md:text-base font-light leading-relaxed">
-                  Calcola il punteggio economico in funzione del ribasso per le quattro formule ministeriali più utilizzate nelle gare pubbliche italiane (Lineare, Prezzo minimo, Esponenziale, Bilineare).
-               </p>
-            </div>
-            <div className="shrink-0">
-               <Link 
-                  to="/simulatore" 
-                  className="bg-gold hover:bg-gold-light text-navy font-bold uppercase tracking-wider text-xs px-8 py-5 rounded-sm transition-all inline-flex items-center gap-3 shadow-lg"
-               >
-                  Apri il Simulatore OEPV <ArrowRight size={16} />
-               </Link>
-            </div>
-         </div>
-      </section>
-
-      {/* Lightbox Modal per Vista Full Screen */}
-      {isFullscreenModalOpen && (
-         <div 
-            className="fixed inset-0 z-50 bg-black/95 flex flex-col justify-between p-4 sm:p-8 animate-fadeIn"
-         >
-            {/* Header Modal */}
-            <div className="flex items-center justify-between border-b border-white/10 pb-4">
-               <span className="text-gold font-mono font-bold text-xs uppercase tracking-widest">
-                  {plates[currentIndex].title} — Tavola {currentIndex + 1} di {plates.length}
-               </span>
-               <button 
-                  onClick={() => setIsFullscreenModalOpen(false)}
-                  className="text-white hover:text-gold text-xs font-bold uppercase tracking-widest flex items-center gap-1.5 cursor-pointer bg-white/10 px-4 py-2 rounded-sm"
-               >
-                  Chiudi <X size={16} />
-               </button>
-            </div>
-
-            {/* Main Image Container */}
-            <div className="relative flex-1 flex items-center justify-center my-4 overflow-hidden">
-               <button
-                  onClick={handlePrev}
-                  className="absolute left-2 sm:left-6 text-white hover:text-gold bg-navy/80 border border-white/20 p-3 rounded-full cursor-pointer z-10"
-               >
-                  <ChevronLeft size={28} />
-               </button>
-
-               <img 
-                  src={plates[currentIndex].img} 
-                  alt={plates[currentIndex].title} 
-                  className="max-w-full max-h-[82vh] object-contain shadow-2xl"
-               />
-
-               <button
-                  onClick={handleNext}
-                  className="absolute right-2 sm:right-6 text-white hover:text-gold bg-navy/80 border border-white/20 p-3 rounded-full cursor-pointer z-10"
-               >
-                  <ChevronRight size={28} />
-               </button>
-            </div>
-         </div>
-      )}
-
-      {/* ── CTA FINALE ── */}
-      <section className="py-16 md:py-32 bg-white text-center px-6">
-         <div className="max-w-3xl mx-auto">
-            <h2 className="text-navy text-2xl sm:text-3xl md:text-4xl font-bold uppercase tracking-tighter leading-[1.1] mb-6">
-               Hai bisogno di supporto <br /> per una gara d'appalto?
-            </h2>
-            <p className="text-text-main text-sm md:text-base font-light mb-12">
-               Richiedi un'analisi preliminare del disciplinare di gara o un preventivo personalizzato per la redazione dell'offerta tecnica.
-            </p>
-            <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-               <Link to="/contatti" className="btn-ghost-dark px-8 md:px-12 py-4 md:py-6 inline-flex items-center gap-3 w-full sm:w-auto justify-center">
-                  Richiedi Analisi Bando <ChevronRight size={18} />
-               </Link>
-               <Link to="/portfolio" className="border border-navy/20 hover:border-navy text-navy font-bold uppercase tracking-wider text-xs px-8 md:px-12 py-4 md:py-6 rounded-sm transition-all w-full sm:w-auto text-center">
-                  Guarda il Portfolio Gare
-               </Link>
-            </div>
-         </div>
+      {/* ── FINAL CTA (SENZA BLOCCO BLU) ── */}
+      <section className="py-12 md:py-20 bg-bg-neutral text-navy text-center border-t border-navy/10">
+        <div className="max-w-3xl mx-auto px-6">
+          <h2 className="text-navy text-2xl sm:text-3xl font-bold uppercase tracking-tighter leading-tight mb-4">
+             Hai Bisogno di Supporto per una Gara OEPV?
+          </h2>
+          <p className="text-navy/70 text-sm font-light mb-8">
+             Richiedi uno studio preliminare del disciplinare e della fattibilità delle offerte migliorative.
+          </p>
+          <Link to="/contatti" className="btn-ghost-dark group">
+             Richiedi il Servizio <ArrowRight size={16} className="ml-2 group-hover:translate-x-1 transition-transform inline-block" />
+          </Link>
+        </div>
       </section>
 
     </div>
   );
 }
-
