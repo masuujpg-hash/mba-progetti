@@ -1,20 +1,22 @@
-export default {
+import { defineField, defineType } from 'sanity'
+
+export default defineType({
   name: 'project',
   title: 'Progetto Portfolio',
   type: 'document',
   fields: [
-    {
+    defineField({
       name: 'id',
       title: 'ID Progetto',
       type: 'string',
       description: 'Identificativo univoco (es: p01-realizzazione-nuovo-edificio)',
-    },
-    {
+    }),
+    defineField({
       name: 'title',
       title: 'Titolo dell\'Opera',
       type: 'string',
-    },
-    {
+    }),
+    defineField({
       name: 'slug',
       title: 'Slug URL',
       type: 'slug',
@@ -22,8 +24,8 @@ export default {
         source: 'title',
         maxLength: 96,
       },
-    },
-    {
+    }),
+    defineField({
       name: 'category',
       title: 'Categoria',
       type: 'string',
@@ -39,41 +41,41 @@ export default {
           { title: 'Residenziale', value: 'Residenziale' },
         ],
       },
-    },
-    {
+    }),
+    defineField({
       name: 'description',
       title: 'Descrizione Dettagliata',
       type: 'text',
-    },
-    {
+    }),
+    defineField({
       name: 'mainImage',
       title: 'Immagine Principale (WebP)',
       type: 'image',
       options: {
         hotspot: true,
       },
-    },
-    {
+    }),
+    defineField({
       name: 'location',
       title: 'Luogo',
       type: 'string',
-    },
-    {
+    }),
+    defineField({
       name: 'client',
       title: 'Stazione Appaltante / Cliente',
       type: 'string',
-    },
-    {
+    }),
+    defineField({
       name: 'amount',
       title: 'Importo Lavori',
       type: 'string',
-    },
-    {
+    }),
+    defineField({
       name: 'services',
       title: 'Servizi Svolti',
       type: 'string',
-    },
-    {
+    }),
+    defineField({
       name: 'rank',
       title: 'Posizione in Graduatoria',
       type: 'string',
@@ -84,17 +86,17 @@ export default {
           { title: '3° Posto', value: '3° Posto' },
         ],
       },
-    },
-    {
+    }),
+    defineField({
       name: 'credits',
       title: 'Crediti & Team Esecutivo',
       type: 'string',
-    },
-    {
+    }),
+    defineField({
       name: 'images',
       title: 'Galleria Immagini',
       type: 'array',
       of: [{ type: 'image' }],
-    },
+    }),
   ],
-}
+})
