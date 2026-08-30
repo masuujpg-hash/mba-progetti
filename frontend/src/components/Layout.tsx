@@ -332,10 +332,10 @@ export default function Layout() {
             <div className="lg:col-span-2">
               <h4 className="text-[#B8972A] text-[13px] font-bold uppercase tracking-[0.5em] mb-8">Social</h4>
               <div className="flex gap-6 mt-4">
-                <a href="#" className="text-white/40 hover:text-[#B8972A] transition-colors">
+                <a href="#" rel="noopener noreferrer" aria-label="LinkedIn" className="text-white/40 hover:text-[#B8972A] transition-colors">
                   <LinkedinLogo size={28} weight="light" />
                 </a>
-                <a href="#" className="text-white/40 hover:text-[#B8972A] transition-colors">
+                <a href="#" rel="noopener noreferrer" aria-label="Instagram" className="text-white/40 hover:text-[#B8972A] transition-colors">
                   <InstagramLogo size={28} weight="light" />
                 </a>
               </div>
