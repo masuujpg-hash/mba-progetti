@@ -1,4 +1,30 @@
+# General Crawlers
 User-agent: *
+Allow: /
+Disallow: /admin
+
+# AI Search & LLM Crawlers (Perplexity, ChatGPT, Claude, Gemini, Copilot)
+User-agent: GPTBot
+Allow: /
+Disallow: /admin
+
+User-agent: ChatGPT-User
+Allow: /
+Disallow: /admin
+
+User-agent: PerplexityBot
+Allow: /
+Disallow: /admin
+
+User-agent: ClaudeBot
+Allow: /
+Disallow: /admin
+
+User-agent: Google-Extended
+Allow: /
+Disallow: /admin
+
+User-agent: Bingbot
 Allow: /
 Disallow: /admin
 
