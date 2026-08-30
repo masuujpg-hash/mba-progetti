@@ -24,7 +24,7 @@ export const projects: Project[] = [
     "client": "Università degli Studi “G. d’Annunzio” – Chieti Pescara",
     "amount": "7 MLN",
     "services": "Progetto migliorie tecniche",
-    "credits": "RTP Peia Associati (Capogruppo), VE.MA. Progetti srls, Tekser srl, Ing. V. Aceto",
+    "credits": "Progetto esecutivo e render: RTP Peia Associati (Capogruppo), VE.MA. Progetti srls, Tekser srl, Ing. V. Aceto",
     "images": [
       "/media/portfolio/p01.webp",
       "/media/portfolio/p01_1.webp",
@@ -41,7 +41,7 @@ export const projects: Project[] = [
     "client": "Consorzio per lo Sviluppo Industriale Isernia–Venafro",
     "amount": "1.0 MLN",
     "services": "Progetto migliorie tecniche",
-    "credits": "MBA Studio",
+    "credits": "",
     "images": [
       "/media/portfolio/18_impianti_fotovoltaici_pozzilli.jpg",
       "/media/portfolio/p02.webp",
@@ -59,7 +59,7 @@ export const projects: Project[] = [
     "client": "Comune di Bojano (CB)",
     "amount": "1.5 MLN",
     "services": "Progetto migliorie tecniche",
-    "credits": "MBA Studio",
+    "credits": "",
     "images": [
       "/media/portfolio/09_piscina_comunale_bojano.jpg",
       "/media/portfolio/p03.webp",
@@ -77,7 +77,7 @@ export const projects: Project[] = [
     "client": "Unione dei Comuni Valdichiana Senese – Area Tecnica",
     "amount": "2.2 MLN",
     "services": "Progetto migliorie tecniche, Redazione giustificativi",
-    "credits": "MBA Studio",
+    "credits": "",
     "images": [
       "/media/portfolio/15_ospedale_sarteano.jpg",
       "/media/portfolio/p04.webp",
@@ -96,7 +96,7 @@ export const projects: Project[] = [
     "client": "Regione Autonoma Friuli Venezia Giulia",
     "amount": "0.70 MLN",
     "services": "Progetto migliorie tecniche",
-    "credits": "RTP Studio Associato Arch. B. Pessina – Ing. M. Lanza (Capogruppo)",
+    "credits": "Progetto esecutivo e render: RTP Studio Associato Arch. B. Pessina - Ing. M. Lanza (Capogruppo), Studio Tecnico ASS. TEA, P.I. Gimmi Bodigoi, Geol. Andrea Mocchlutti",
     "images": [
       "/media/portfolio/07_via_firenze_collegio_mondo_unito_duino.jpg",
       "/media/portfolio/p05.webp"
@@ -113,7 +113,7 @@ export const projects: Project[] = [
     "client": "Roma Capitale – Municipio Roma II, Direzione Tecnica",
     "amount": "4.04 MLN",
     "services": "Progetto migliorie tecniche",
-    "credits": "RTP Labics S.r.l. – Arch. Maria Claudia Clemente, Arch. Francesco Isidori",
+    "credits": "Progetto esecutivo e render: RTP Labics S.r.l. - Arch. Maria Claudia Clemente, Arch. Francesco Isidori, Arch. Maria Iva Sacchetti, con Arch. Giovanni Fabbri, Ing. Michele Amerio, Ing. Luca Felicietti, Arch. Paola Vacchiano.",
     "images": [
       "/media/portfolio/p06.webp"
     ]
@@ -128,7 +128,7 @@ export const projects: Project[] = [
     "client": "Cinecittà S.p.A. – Direzione Acquisti e Gare",
     "amount": "28.82 MLN",
     "services": "Progetto migliorie tecniche",
-    "credits": "Dott. Domenico Pinuccio D’Arino, Arch. Dino D’Antimi, Arch. Francesco Karrer",
+    "credits": "Progetto esecutivo e render: Dott. Domenico Pinuccio D'Arino, Arch. Dino D'Antimi, Arch. Francesco Karrer, Arch. Bruno Moauro, Prof. Ing. Francesco Sylos Labini, Ing. Carmine Sommella, Ing. Joseph De Santis, Ing. Alfredo Innocenti, Ing. Anna Tarsitano, Arch. Massimiliano Moauro",
     "images": [
       "/media/portfolio/p07.webp"
     ]
@@ -143,7 +143,7 @@ export const projects: Project[] = [
     "client": "Comune di Bellegra – Città Metropolitana di Roma Capitale",
     "amount": "0.60 MLN",
     "services": "Progetto migliorie tecniche",
-    "credits": "Ingegneria Naturale srl",
+    "credits": "Progetto esecutivo: Ingegneria Naturale srl",
     "images": [
       "/media/portfolio/p08.webp"
     ]
@@ -158,7 +158,7 @@ export const projects: Project[] = [
     "client": "Azienda Sociosanitaria Ligure n. 3 – ASL3 Genova",
     "amount": "8.32 MLN",
     "services": "Progetto migliorie tecniche",
-    "credits": "TECNICAER ENGINEERING srl, DODI MOSS srl",
+    "credits": "Progetto esecutivo e render: TECNICAER ENGINEERING srl, DODI MOSS srl",
     "images": [
       "/media/portfolio/p09.webp"
     ]
@@ -173,7 +173,7 @@ export const projects: Project[] = [
     "client": "ASST Papa Giovanni XXIII – Direzione Tecnico e Patrimoniale",
     "amount": "0.85 MLN",
     "services": "Progetto migliorie tecniche",
-    "credits": "Mythos Consorzio Stabile S.c.ar.l. (Capogruppo), Dott. Agronomo LUIGI BOVISIO",
+    "credits": "Progetto esecutivo e render: Mythos Consorzio Stabile S.c.ar.l. (Capogruppo), Dott. Agronomo LUIGI BOVISIO",
     "images": [
       "/media/portfolio/08_viabilita_universita_bergamo.jpg",
       "/media/portfolio/p10.webp",
@@ -191,7 +191,7 @@ export const projects: Project[] = [
     "client": "Comune di Vallerotonda (FR) – XIV Comunità Montana",
     "amount": "0.9 MLN",
     "services": "Progetto migliorie tecniche",
-    "credits": "Arch. Vitaliano Magro",
+    "credits": "Progetto esecutivo: Arch. Vitaliano Magro",
     "images": [
       "/media/portfolio/16_edifici_erp_vallerotonda.jpg",
       "/media/portfolio/p11.webp"
@@ -208,7 +208,7 @@ export const projects: Project[] = [
     "client": "Comune di San Salvatore Telesino (BN)",
     "amount": "0.71 MLN",
     "services": "Progetto migliorie tecniche",
-    "credits": "Ing. Maturo Rosario",
+    "credits": "Progetto esecutivo: Ing. Maturo Rosario",
     "images": [
       "/media/portfolio/p12.webp",
       "/media/portfolio/p12_1.webp"
@@ -224,7 +224,7 @@ export const projects: Project[] = [
     "client": "Università degli Studi della Tuscia",
     "amount": "3.1 MLN",
     "services": "Progetto migliorie tecniche",
-    "credits": "Arch. Marina Fracasso, Arch. Stefania Ragonesi, Ing. Fabrizio Purchiaroni",
+    "credits": "Progetto esecutivo: Arch. Marina Fracasso, Arch. Stefania Ragonesi, Ing. Fabrizio Purchiaroni, Ing. Marco Renzelli, Ing. Marco Dari",
     "images": [
       "/media/portfolio/06_caserma_palmanova_viterbo.jpg",
       "/media/portfolio/p13.webp"
@@ -241,7 +241,7 @@ export const projects: Project[] = [
     "client": "Comune di San Salvatore Telesino (BN)",
     "amount": "0.70 MLN",
     "services": "Progetto migliorie tecniche",
-    "credits": "MBA Studio",
+    "credits": "",
     "images": [
       "/media/portfolio/10_strade_comunali_san_salvatore_telesino_1.jpg",
       "/media/portfolio/10_strade_comunali_san_salvatore_telesino_2.jpg",
@@ -277,7 +277,7 @@ export const projects: Project[] = [
     "client": "Provincia di Foggia",
     "amount": "5.59 MLN",
     "services": "Progetto migliorie tecniche",
-    "credits": "Arch. Giovanni d'Orsi",
+    "credits": "Progetto esecutivo: Arch. Giovanni d'Orsi",
     "images": [
       "/media/portfolio/p16.webp"
     ]
@@ -292,7 +292,7 @@ export const projects: Project[] = [
     "client": "CUC Sesto San Giovanni / Buscate",
     "amount": "6.5 MLN",
     "services": "Progetto migliorie tecniche, Redazione giustificativi",
-    "credits": "MBA Studio",
+    "credits": "Progetto esecutivo: Arch. Claudia Sesso",
     "images": [
       "/media/portfolio/01_marzabotto_sesto_san_giovanni.jpg"
     ],
@@ -308,7 +308,7 @@ export const projects: Project[] = [
     "client": "Progetto Tiburtina S.r.l.",
     "amount": "12 MLN",
     "services": "Progetto migliorie tecniche",
-    "credits": "MBA Studio",
+    "credits": "Progetto esecutivo e render: RTP \"Il Nodo Stazione Tiburtina\" - Capogruppo Prof. Arch. Filippo Raimondo",
     "images": [
       "/media/portfolio/02_parcheggio_stazione_tiburtina_roma.jpg"
     ],
@@ -324,7 +324,7 @@ export const projects: Project[] = [
     "client": "Ministero delle Infrastrutture e dei Trasporti",
     "amount": "2.8 MLN",
     "services": "Progetto migliorie tecniche",
-    "credits": "MBA Studio",
+    "credits": "Progetto esecutivo: RTP mandante ICONIA Ingegneria civile S.r.l.",
     "images": [
       "/media/portfolio/03_carabinieri_viterbo.jpg"
     ],
@@ -340,7 +340,7 @@ export const projects: Project[] = [
     "client": "Comune di Pomezia (RM)",
     "amount": "3.4 MLN",
     "services": "Progetto migliorie tecniche",
-    "credits": "MBA Studio",
+    "credits": "Progetto esecutivo: Ing. Ceccarelli Simone",
     "images": [
       "/media/portfolio/04_immobile_confiscato_pomezia_1.jpg",
       "/media/portfolio/04_immobile_confiscato_pomezia_2.jpg"
@@ -357,7 +357,7 @@ export const projects: Project[] = [
     "client": "Comune di Ardea (RM)",
     "amount": "1.00 MLN",
     "services": "Progetto migliorie tecniche",
-    "credits": "MBA Studio",
+    "credits": "Progetto esecutivo e render: Ing. Emiliano Giorgi",
     "images": [
       "/media/portfolio/11_stabilimento_las_vegas_beach_ardea.jpg"
     ],
@@ -373,7 +373,7 @@ export const projects: Project[] = [
     "client": "Unione dei Comuni Valli e Delizie",
     "amount": "4.00 MLN",
     "services": "Progetto migliorie tecniche",
-    "credits": "MBA Studio",
+    "credits": "",
     "images": [
       "/media/portfolio/12_scuola_primaria_argenta.jpg"
     ],
@@ -389,7 +389,7 @@ export const projects: Project[] = [
     "client": "Provincia di Treviso",
     "amount": "3.70 MLN",
     "services": "Progetto migliorie tecniche",
-    "credits": "MBA Studio",
+    "credits": "",
     "images": [
       "/media/portfolio/13_residenza_anziani_oderzo.jpg"
     ],
@@ -405,7 +405,7 @@ export const projects: Project[] = [
     "client": "Università degli Studi di Roma “La Sapienza”",
     "amount": "12 MLN",
     "services": "Progetto migliorie tecniche",
-    "credits": "MBA Studio",
+    "credits": "",
     "images": [
       "/media/portfolio/14_residenze_studenti_sapienza_roma.jpg"
     ],
@@ -421,10 +421,11 @@ export const projects: Project[] = [
     "client": "Comune di Isernia (IS)",
     "amount": "1.4 MLN",
     "services": "Progetto migliorie tecniche",
-    "credits": "MBA Studio",
+    "credits": "",
     "images": [
       "/media/portfolio/17_museo_emozionale_isernia.jpg"
     ],
     "rank": "2° Classificato"
   }
 ];
+
