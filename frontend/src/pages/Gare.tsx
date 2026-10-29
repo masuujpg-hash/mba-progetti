@@ -613,7 +613,7 @@ export default function Gare() {
               segments={[
                 { label: "Migliorie Tecniche", value: 50, color: "#1B2A4A" },
                 { label: "Cantierizzazione", value: 25, color: "#3D5A80" },
-                { label: "Criteri CAM & BIM", value: 15, color: "#B8972A" },
+                { label: "Criteri CAM & BIM", value: 15, color: "#F5C400" },
                 { label: "Riduzione Tempi", value: 10, color: "#98A6BD" }
               ]}
             />
@@ -630,7 +630,7 @@ export default function Gare() {
               segments={[
                 { label: "Qualità Materiali", value: 45, color: "#1B2A4A" },
                 { label: "Efficienza & Impianti", value: 25, color: "#3D5A80" },
-                { label: "Metodologia Operativa", value: 15, color: "#B8972A" },
+                { label: "Metodologia Operativa", value: 15, color: "#F5C400" },
                 { label: "Sostenibilità Ambientale", value: 15, color: "#98A6BD" }
               ]}
             />
@@ -644,7 +644,7 @@ export default function Gare() {
               centerValue="63%"
               centerLabel="Sul Podio"
               segments={[
-                { label: "1° Posto Aggiudicata", value: 38, color: "#B8972A" },
+                { label: "1° Posto Aggiudicata", value: 38, color: "#F5C400" },
                 { label: "2° o 3° Posto", value: 25, color: "#1B2A4A" },
                 { label: "Top 5 Punteggio", value: 22, color: "#3D5A80" },
                 { label: "Altre Procedure", value: 15, color: "#98A6BD" }

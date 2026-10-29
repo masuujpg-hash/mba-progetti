@@ -132,7 +132,7 @@ export default function Home() {
         <div className="max-w-6xl mx-auto px-6">
           {/* Section Header */}
           <div className="text-left mb-10">
-            <span className="inline-block bg-[#b8972a] text-white text-[11px] font-bold tracking-[0.08em] px-3 py-1 rounded-[2px] uppercase mb-5">
+            <span className="inline-block bg-[#F5C400] text-white text-[11px] font-bold tracking-[0.08em] px-3 py-1 rounded-[2px] uppercase mb-5">
               GARE OEV
             </span>
             <h2 className="text-[#1B2A4A] text-2xl sm:text-3xl md:text-[34px] font-extrabold tracking-[0.02em] uppercase leading-tight mb-5">

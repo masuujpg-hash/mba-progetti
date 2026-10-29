@@ -342,7 +342,7 @@ function NetworkDiagram() {
             cy={center} 
             r="48" 
             fill="none" 
-            stroke="#B8972A" 
+            stroke="#F5C400" 
             strokeWidth="1.5"
             animate={{ r: [48, 195], opacity: [0.65, 0] }}
             transition={{ duration: 3.4, repeat: Infinity, ease: "easeOut" }}
@@ -373,7 +373,7 @@ function NetworkDiagram() {
                   y1={center}
                   x2={x}
                   y2={y}
-                  stroke={isHovered ? "#B8972A" : "#1B2A4A"}
+                  stroke={isHovered ? "#F5C400" : "#1B2A4A"}
                   strokeOpacity={isHovered ? 0.95 : 0.25}
                   strokeWidth={isHovered ? 2.5 : 1.5}
                   strokeDasharray="4 4"
@@ -386,7 +386,7 @@ function NetworkDiagram() {
                 {/* Flowing Energy Particle */}
                 <motion.circle
                   r={isHovered ? "4" : "2.5"}
-                  fill="#B8972A"
+                  fill="#F5C400"
                   animate={{
                     cx: [center, x],
                     cy: [center, y],
@@ -417,7 +417,7 @@ function NetworkDiagram() {
               cy={center} 
               r="48" 
               fill="#1B2A4A" 
-              stroke="#B8972A" 
+              stroke="#F5C400" 
               strokeWidth="2.5" 
               className="shadow-lg filter drop-shadow(0 4px 12px rgba(27,42,74,0.25))"
             />
@@ -505,7 +505,7 @@ function NetworkDiagram() {
                     cy={y}
                     r="28"
                     fill="none"
-                    stroke="#B8972A"
+                    stroke="#F5C400"
                     strokeWidth="1.5"
                     strokeOpacity="0.5"
                     className="animate-ping"
@@ -516,8 +516,8 @@ function NetworkDiagram() {
                   cx={x}
                   cy={y}
                   r="22"
-                  fill={isHovered ? "#B8972A" : "#1B2A4A"}
-                  stroke={isHovered ? "#1B2A4A" : "#B8972A"}
+                  fill={isHovered ? "#F5C400" : "#1B2A4A"}
+                  stroke={isHovered ? "#1B2A4A" : "#F5C400"}
                   strokeWidth={isHovered ? 2 : 1.5}
                   className="transition-colors duration-300 filter drop-shadow(0 2px 6px rgba(0,0,0,0.15))"
                 />
@@ -530,7 +530,7 @@ function NetworkDiagram() {
                   x={textX}
                   y={textY}
                   textAnchor={anchor}
-                  fill={isHovered ? "#B8972A" : "#1B2A4A"}
+                  fill={isHovered ? "#F5C400" : "#1B2A4A"}
                   fontSize="10"
                   fontWeight="700"
                   letterSpacing="0.8"

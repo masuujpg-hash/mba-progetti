@@ -141,8 +141,8 @@ export default function Layout() {
                                 to={sub.path}
                                 className={`text-[14px] sm:text-[15px] font-medium transition-colors py-1 block whitespace-nowrap ${
                                   subActive
-                                    ? 'text-[#B8972A] font-semibold'
-                                    : 'text-[#1B2A4A] hover:text-[#B8972A]'
+                                    ? 'text-[#F5C400] font-semibold'
+                                    : 'text-[#1B2A4A] hover:text-[#F5C400]'
                                 }`}
                               >
                                 {sub.name}
@@ -163,12 +163,12 @@ export default function Layout() {
                     className={`relative py-1.5 text-[15px] font-medium transition-colors duration-200 ${
                       active
                         ? 'text-[#1B2A4A] font-semibold'
-                        : 'text-[#1B2A4A] hover:text-[#B8972A]'
+                        : 'text-[#1B2A4A] hover:text-[#F5C400]'
                     }`}
                   >
                     {link.name}
                     {active && (
-                      <span className="absolute -bottom-1 left-0 right-0 h-[2.5px] bg-[#B8972A]" />
+                      <span className="absolute -bottom-1 left-0 right-0 h-[2.5px] bg-[#F5C400]" />
                     )}
                   </Link>
                 </div>
@@ -235,7 +235,7 @@ export default function Layout() {
                       <button
                         type="button"
                         onClick={() => setOpenSubmenu((v) => (v === link.name ? null : link.name))}
-                        className="inline-flex items-center justify-center gap-2 text-2xl font-bold text-white hover:text-[#B8972A] transition-colors"
+                        className="inline-flex items-center justify-center gap-2 text-2xl font-bold text-white hover:text-[#F5C400] transition-colors"
                       >
                         {link.name}
                         <CaretDown
@@ -261,7 +261,7 @@ export default function Layout() {
                                     setIsMenuOpen(false);
                                     setOpenSubmenu(null);
                                   }}
-                                  className="text-sm font-medium text-[#B8972A] hover:text-white transition-colors py-2 px-4 rounded-sm bg-white/5 w-full max-w-xs text-center"
+                                  className="text-sm font-medium text-[#F5C400] hover:text-white transition-colors py-2 px-4 rounded-sm bg-white/5 w-full max-w-xs text-center"
                                 >
                                   {sub.name}
                                 </Link>
@@ -276,7 +276,7 @@ export default function Layout() {
                       to={link.path}
                       onClick={() => setIsMenuOpen(false)}
                       className={`text-2xl font-bold transition-colors ${
-                        isLinkActive(link) ? 'text-[#B8972A]' : 'text-white hover:text-[#B8972A]'
+                        isLinkActive(link) ? 'text-[#F5C400]' : 'text-white hover:text-[#F5C400]'
                       }`}
                     >
                       {link.name}
@@ -308,7 +308,7 @@ export default function Layout() {
                 <p className="text-white text-sm sm:text-[15px] font-bold uppercase tracking-[0.06em] leading-tight">
                   IL TUO PROSSIMO CANTIERE
                 </p>
-                <h3 className="text-[#EAB308] text-2xl sm:text-3xl font-black uppercase tracking-tight leading-none mt-1">
+                <h3 className="text-[#F5C400] text-2xl sm:text-3xl font-black uppercase tracking-tight leading-none mt-1">
                   INIZIA QUI
                 </h3>
               </div>

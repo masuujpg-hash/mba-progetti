@@ -70,7 +70,7 @@ function AnimatedVennDiagram() {
                 cx={c3.x}
                 cy={c3.y}
                 r={R}
-                fill="#B8972A"
+                fill="#F5C400"
                 initial={{ opacity: 0, scale: 0.8 }}
                 animate={isInView ? {
                   opacity: hovered === 'core' ? 1 : 0.92,
@@ -139,7 +139,7 @@ function AnimatedVennDiagram() {
               cy={cy}
               r={18}
               fill="none"
-              stroke="#B8972A"
+              stroke="#F5C400"
               strokeWidth="1.5"
               initial={{ scale: 0.8, opacity: 0.8 }}
               animate={{ scale: 1.4, opacity: 0 }}
@@ -216,9 +216,9 @@ function AnimatedVennDiagram() {
             hovered && hovered !== 'core' ? 'opacity-40' : 'opacity-100'
           }`}
         >
-          <span className="w-3.5 h-3.5 rounded-full bg-[#B8972A] mt-1 flex-shrink-0" />
+          <span className="w-3.5 h-3.5 rounded-full bg-[#F5C400] mt-1 flex-shrink-0" />
           <div>
-            <h4 className="text-xs sm:text-[13px] font-bold text-[#B8972A] uppercase tracking-wider leading-tight">
+            <h4 className="text-xs sm:text-[13px] font-bold text-[#F5C400] uppercase tracking-wider leading-tight">
               PROGETTO COORDINATO
             </h4>
             <p className="text-[11px] text-navy/70 lowercase font-normal leading-tight mt-0.5">
@@ -268,10 +268,10 @@ function AnimatedProcessStepper() {
       {/* Stepper Row with Connecting Gold Line */}
       <div className="relative mb-6">
         {/* Continuous Connecting Gold Line passing through circle centers */}
-        <div className="absolute top-7 sm:top-8 left-[12.5%] right-[12.5%] h-[2px] bg-[#B8972A] z-0">
+        <div className="absolute top-7 sm:top-8 left-[12.5%] right-[12.5%] h-[2px] bg-[#F5C400] z-0">
           {/* Animated Light Pulse traveling across the line */}
           <motion.div
-            className="absolute -top-[3px] w-4 h-2 rounded-full bg-white shadow-[0_0_8px_#B8972A]"
+            className="absolute -top-[3px] w-4 h-2 rounded-full bg-white shadow-[0_0_8px_#F5C400]"
             animate={{
               left: ['0%', '100%', '0%']
             }}
@@ -328,8 +328,8 @@ function AnimatedProcessStepper() {
       <div className="grid grid-cols-4 mt-6">
         <div className="col-start-2 col-span-2 flex flex-col items-center">
           {/* Gold Bracket Line with upward ticks */}
-          <div className="w-[82%] sm:w-[75%] h-2.5 border-b border-l border-r border-[#B8972A]" />
-          <span className="text-[10px] sm:text-[11px] font-bold text-[#B8972A] uppercase tracking-wider mt-2.5 text-center px-2">
+          <div className="w-[82%] sm:w-[75%] h-2.5 border-b border-l border-r border-[#F5C400]" />
+          <span className="text-[10px] sm:text-[11px] font-bold text-[#F5C400] uppercase tracking-wider mt-2.5 text-center px-2">
             APPALTO INTEGRATO: PROGETTAZIONE DAL PFTE ALL'ESECUTIVO
           </span>
         </div>
@@ -390,7 +390,7 @@ function AnimatedIronTriangle() {
           <defs>
             <linearGradient id="lineGrad" x1="0%" y1="0%" x2="100%" y2="100%">
               <stop offset="0%" stopColor="#1B2A4A" />
-              <stop offset="50%" stopColor="#B8972A" />
+              <stop offset="50%" stopColor="#F5C400" />
               <stop offset="100%" stopColor="#1B2A4A" />
             </linearGradient>
             <radialGradient id="centerGlow" cx="50%" cy="50%" r="50%">
@@ -418,7 +418,7 @@ function AnimatedIronTriangle() {
             y1="45"
             x2="140"
             y2="152"
-            stroke={activeVertex === 'tempi' ? '#B8972A' : '#1B2A4A'}
+            stroke={activeVertex === 'tempi' ? '#F5C400' : '#1B2A4A'}
             strokeWidth={activeVertex === 'tempi' ? 2.5 : 1.2}
             className="transition-colors"
           />
@@ -427,7 +427,7 @@ function AnimatedIronTriangle() {
             y1="205"
             x2="140"
             y2="152"
-            stroke={activeVertex === 'costi' ? '#B8972A' : '#1B2A4A'}
+            stroke={activeVertex === 'costi' ? '#F5C400' : '#1B2A4A'}
             strokeWidth={activeVertex === 'costi' ? 2.5 : 1.2}
             className="transition-colors"
           />
@@ -436,7 +436,7 @@ function AnimatedIronTriangle() {
             y1="205"
             x2="140"
             y2="152"
-            stroke={activeVertex === 'qualita' ? '#B8972A' : '#1B2A4A'}
+            stroke={activeVertex === 'qualita' ? '#F5C400' : '#1B2A4A'}
             strokeWidth={activeVertex === 'qualita' ? 2.5 : 1.2}
             className="transition-colors"
           />
@@ -444,7 +444,7 @@ function AnimatedIronTriangle() {
           {/* Traveling Pulse Along Triangle Edge */}
           <motion.circle
             r="3.5"
-            fill="#B8972A"
+            fill="#F5C400"
             animate={{
               cx: [140, 230, 50, 140],
               cy: [45, 205, 205, 45]
@@ -466,8 +466,8 @@ function AnimatedIronTriangle() {
               cx="140"
               cy="45"
               r={activeVertex === 'tempi' ? 14 : 10}
-              fill={activeVertex === 'tempi' ? '#B8972A' : '#FFFFFF'}
-              stroke={activeVertex === 'tempi' ? '#1B2A4A' : '#B8972A'}
+              fill={activeVertex === 'tempi' ? '#F5C400' : '#FFFFFF'}
+              stroke={activeVertex === 'tempi' ? '#1B2A4A' : '#F5C400'}
               strokeWidth="2.5"
               className="transition-all duration-200"
             />
@@ -486,8 +486,8 @@ function AnimatedIronTriangle() {
               cx="50"
               cy="205"
               r={activeVertex === 'costi' ? 14 : 10}
-              fill={activeVertex === 'costi' ? '#B8972A' : '#FFFFFF'}
-              stroke={activeVertex === 'costi' ? '#1B2A4A' : '#B8972A'}
+              fill={activeVertex === 'costi' ? '#F5C400' : '#FFFFFF'}
+              stroke={activeVertex === 'costi' ? '#1B2A4A' : '#F5C400'}
               strokeWidth="2.5"
               className="transition-all duration-200"
             />
@@ -506,8 +506,8 @@ function AnimatedIronTriangle() {
               cx="230"
               cy="205"
               r={activeVertex === 'qualita' ? 14 : 10}
-              fill={activeVertex === 'qualita' ? '#B8972A' : '#FFFFFF'}
-              stroke={activeVertex === 'qualita' ? '#1B2A4A' : '#B8972A'}
+              fill={activeVertex === 'qualita' ? '#F5C400' : '#FFFFFF'}
+              stroke={activeVertex === 'qualita' ? '#1B2A4A' : '#F5C400'}
               strokeWidth="2.5"
               className="transition-all duration-200"
             />
@@ -522,7 +522,7 @@ function AnimatedIronTriangle() {
             cy="152"
             r="28"
             fill="url(#centerGlow)"
-            stroke="#B8972A"
+            stroke="#F5C400"
             strokeWidth="2"
             animate={{ scale: [1, 1.05, 1] }}
             transition={{ duration: 2.5, repeat: Infinity, ease: 'easeInOut' }}
@@ -596,7 +596,7 @@ export default function Progettazione() {
       <section className="py-12 sm:py-16 px-6 max-w-7xl mx-auto">
         {/* Header Sezione */}
         <div className="mb-8">
-          <span className="bg-[#B8972A] text-white text-[10px] sm:text-[11px] font-bold uppercase tracking-[0.25em] px-3 py-1 inline-block mb-3 rounded-xs">
+          <span className="bg-[#F5C400] text-white text-[10px] sm:text-[11px] font-bold uppercase tracking-[0.25em] px-3 py-1 inline-block mb-3 rounded-xs">
             EDILIZIA E ARCHITETTURA
           </span>
           <h2 className="text-navy text-2xl sm:text-3xl md:text-4xl font-extrabold uppercase tracking-tight">
@@ -681,7 +681,7 @@ export default function Progettazione() {
       <section className="py-12 sm:py-16 px-6 max-w-7xl mx-auto border-t border-navy/10">
         {/* Header Sezione */}
         <div className="mb-8">
-          <span className="bg-[#B8972A] text-white text-[10px] sm:text-[11px] font-bold uppercase tracking-[0.25em] px-3 py-1 inline-block mb-3 rounded-xs">
+          <span className="bg-[#F5C400] text-white text-[10px] sm:text-[11px] font-bold uppercase tracking-[0.25em] px-3 py-1 inline-block mb-3 rounded-xs">
             OPERE PUBBLICHE E INFRASTRUTTURE
           </span>
           <h2 className="text-navy text-2xl sm:text-3xl md:text-4xl font-extrabold uppercase tracking-tight">
@@ -755,7 +755,7 @@ export default function Progettazione() {
       <section className="py-12 sm:py-16 px-6 max-w-7xl mx-auto border-t border-navy/10">
         {/* Header Sezione */}
         <div className="mb-8">
-          <span className="bg-[#B8972A] text-white text-[10px] sm:text-[11px] font-bold uppercase tracking-[0.25em] px-3 py-1 inline-block mb-3 rounded-[2px]">
+          <span className="bg-[#F5C400] text-white text-[10px] sm:text-[11px] font-bold uppercase tracking-[0.25em] px-3 py-1 inline-block mb-3 rounded-[2px]">
             POST AGGIUDICAZIONE
           </span>
           <h2 className="text-navy text-2xl sm:text-3xl md:text-4xl font-extrabold uppercase tracking-tight">
@@ -774,7 +774,7 @@ export default function Progettazione() {
       <section className="py-12 sm:py-16 px-6 max-w-7xl mx-auto border-t border-navy/10">
         {/* Header Sezione */}
         <div className="mb-8">
-          <span className="bg-[#B8972A] text-white text-[10px] sm:text-[11px] font-bold uppercase tracking-[0.25em] px-3 py-1 inline-block mb-3 rounded-xs">
+          <span className="bg-[#F5C400] text-white text-[10px] sm:text-[11px] font-bold uppercase tracking-[0.25em] px-3 py-1 inline-block mb-3 rounded-xs">
             INTERIOR DESIGN & FIT-OUT
           </span>
           <h2 className="text-navy text-2xl sm:text-3xl md:text-4xl font-extrabold uppercase tracking-tight">
@@ -851,7 +851,7 @@ export default function Progettazione() {
       <section className="py-12 sm:py-16 px-6 max-w-7xl mx-auto border-t border-navy/10">
         {/* Header Sezione */}
         <div className="mb-8">
-          <span className="bg-[#B8972A] text-white text-[10px] sm:text-[11px] font-bold uppercase tracking-[0.25em] px-3 py-1 inline-block mb-3 rounded-xs">
+          <span className="bg-[#F5C400] text-white text-[10px] sm:text-[11px] font-bold uppercase tracking-[0.25em] px-3 py-1 inline-block mb-3 rounded-xs">
             DIREZIONE LAVORI & CONTROLLO
           </span>
           <h2 className="text-navy text-2xl sm:text-3xl md:text-4xl font-extrabold uppercase tracking-tight">

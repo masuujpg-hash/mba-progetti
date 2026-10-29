@@ -7,7 +7,7 @@
   --font-serif: 'Outfit', system-ui, sans-serif;
   
   --color-navy: #1B2A4A;
-  --color-gold: #B8972A;
+  --color-gold: #F5C400;
   --color-text-main: #555555;
   --color-bg-neutral: #F4F4F4;
   --color-bg-primary: #FFFFFF;
@@ -21,7 +21,7 @@
   --accent-gold: var(--color-gold);
   --text-main: var(--color-navy);
   --text-body: var(--color-text-main);
-  --line-gold: rgba(184, 151, 42, 0.3);
+  --line-gold: rgba(245, 196, 0, 0.3);
 
   font-family: 'Outfit', sans-serif;
   line-height: 1.5;

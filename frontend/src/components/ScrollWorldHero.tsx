@@ -179,12 +179,12 @@ export default function ScrollWorldHero() {
               }}
               className="absolute flex flex-col items-center justify-center max-w-3xl space-y-6"
             >
-              <span className="text-[#B8972A] text-[11px] font-bold uppercase tracking-[0.5em] block">
+              <span className="text-[#F5C400] text-[11px] font-bold uppercase tracking-[0.5em] block">
                 {SLIDES[0].pre}
               </span>
               <h1 className="text-white text-3xl sm:text-5xl md:text-6xl font-bold leading-[1.15] uppercase tracking-tighter drop-shadow-2xl">
                 {SLIDES[0].title}{" "}
-                <span className="text-[#B8972A]">{SLIDES[0].highlight}</span>
+                <span className="text-[#F5C400]">{SLIDES[0].highlight}</span>
               </h1>
               <p className="text-white/80 text-sm sm:text-base font-light leading-relaxed max-w-[50ch] drop-shadow">
                 {SLIDES[0].desc}
@@ -210,12 +210,12 @@ export default function ScrollWorldHero() {
               }}
               className="absolute flex flex-col items-center justify-center max-w-3xl space-y-6"
             >
-              <span className="text-[#B8972A] text-[11px] font-bold uppercase tracking-[0.5em] block">
+              <span className="text-[#F5C400] text-[11px] font-bold uppercase tracking-[0.5em] block">
                 {SLIDES[1].pre}
               </span>
               <h2 className="text-white text-3xl sm:text-5xl md:text-6xl font-bold leading-[1.15] uppercase tracking-tighter drop-shadow-2xl">
                 {SLIDES[1].title}{" "}
-                <span className="text-[#B8972A]">{SLIDES[1].highlight}</span>
+                <span className="text-[#F5C400]">{SLIDES[1].highlight}</span>
               </h2>
               <p className="text-white/80 text-sm sm:text-base font-light leading-relaxed max-w-[50ch] drop-shadow">
                 {SLIDES[1].desc}
@@ -237,12 +237,12 @@ export default function ScrollWorldHero() {
               }}
               className="absolute flex flex-col items-center justify-center max-w-3xl space-y-6"
             >
-              <span className="text-[#B8972A] text-[11px] font-bold uppercase tracking-[0.5em] block">
+              <span className="text-[#F5C400] text-[11px] font-bold uppercase tracking-[0.5em] block">
                 {SLIDES[2].pre}
               </span>
               <h2 className="text-white text-3xl sm:text-5xl md:text-6xl font-bold leading-[1.15] uppercase tracking-tighter drop-shadow-2xl">
                 {SLIDES[2].title}{" "}
-                <span className="text-[#B8972A]">{SLIDES[2].highlight}</span>
+                <span className="text-[#F5C400]">{SLIDES[2].highlight}</span>
               </h2>
               <p className="text-white/80 text-sm sm:text-base font-light leading-relaxed max-w-[50ch] drop-shadow">
                 {SLIDES[2].desc}
@@ -263,14 +263,14 @@ export default function ScrollWorldHero() {
 
           {/* Bottom Bar Controls */}
           <div className="flex items-center justify-between border-t border-white/15 pt-4 text-xs text-white/60">
-            <span className="text-[10px] font-bold uppercase tracking-[0.2em] text-[#B8972A]">
+            <span className="text-[10px] font-bold uppercase tracking-[0.2em] text-[#F5C400]">
               Scorri per guidare la camera 3D
             </span>
 
             {/* Progress bar */}
             <div className="w-32 h-[3px] bg-white/15 rounded-full overflow-hidden">
               <motion.div
-                className="h-full bg-[#B8972A] rounded-full"
+                className="h-full bg-[#F5C400] rounded-full"
                 style={{ width: barWidth }}
               />
             </div>

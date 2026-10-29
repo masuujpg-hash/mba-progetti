@@ -24,7 +24,7 @@ export default function ProjectDetail() {
   const getRankBadge = (rank?: string) => {
     if (!rank) return null;
     const r = rank.toLowerCase();
-    if (r.includes('1') || r.includes('primo')) return { bg: 'bg-[#B8972A]', label: rank.includes('Posto') || rank.includes('Classificato') ? rank : '1° Classificato' };
+    if (r.includes('1') || r.includes('primo')) return { bg: 'bg-[#F5C400]', label: rank.includes('Posto') || rank.includes('Classificato') ? rank : '1° Classificato' };
     if (r.includes('2') || r.includes('secondo')) return { bg: 'bg-slate-500', label: rank.includes('Posto') || rank.includes('Classificato') ? rank : '2° Classificato' };
     return null;
   };
