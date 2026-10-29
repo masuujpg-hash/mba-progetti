@@ -294,7 +294,7 @@ export default function Layout() {
       </main>
 
       {/* ── FOOTER ── */}
-      <footer className="bg-[#14223d] text-white pt-16 pb-12 px-6 sm:px-10 lg:px-16 overflow-hidden relative font-blinkers">
+      <footer className="bg-[#14223d] text-white pt-16 pb-12 px-6 sm:px-10 lg:px-16 overflow-hidden relative">
         <div className="max-w-7xl mx-auto relative z-10">
           <div className="grid grid-cols-1 md:grid-cols-12 gap-10 lg:gap-16 mb-16">
 

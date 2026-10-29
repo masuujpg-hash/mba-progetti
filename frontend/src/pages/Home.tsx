@@ -128,7 +128,7 @@ export default function Home() {
       </section>
 
       {/* ── 2. SPECIALISTI IN OFFERTE TECNICHE MIGLIORATIVE ── */}
-      <section className="py-16 md:py-24 bg-white font-blinkers">
+      <section className="py-16 md:py-24 bg-white">
         <div className="max-w-6xl mx-auto px-6">
           {/* Section Header */}
           <div className="text-left mb-10">
@@ -523,14 +523,14 @@ function StatItem({ icon: Icon, value, label }: { icon: any; value: string; labe
   }, [isInView, numericValue]);
 
   return (
-    <div ref={ref} className="text-center p-2 flex flex-col items-center font-blinkers">
+    <div ref={ref} className="text-center p-2 flex flex-col items-center">
       <div className="text-[#1B2A4A] mb-3 flex items-center justify-center h-7">
         <Icon size={26} weight="regular" />
       </div>
-      <div className="text-[#1B2A4A] text-3xl sm:text-4xl md:text-[42px] font-extrabold tracking-tight leading-none mb-2 font-blinkers">
+      <div className="text-[#1B2A4A] text-3xl sm:text-4xl md:text-[42px] font-extrabold tracking-tight leading-none mb-2">
         {prefix}{isInView ? count : 0}{suffix}
       </div>
-      <div className="text-[#64748b] text-[10px] sm:text-[11px] font-bold uppercase tracking-[0.16em] leading-tight font-blinkers">
+      <div className="text-[#64748b] text-[10px] sm:text-[11px] font-bold uppercase tracking-[0.16em] leading-tight">
         {label}
       </div>
     </div>
