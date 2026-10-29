@@ -6,15 +6,18 @@ import {
   ShieldCheck, 
   Users, 
   Heart, 
-  Timer,
-  Buildings,
-  Cube,
-  Lightning,
-  Camera,
-  Scales,
-  Bank,
-  Calculator
+  Timer
 } from '@phosphor-icons/react';
+import { 
+  Crosshair, 
+  Construction, 
+  TrainFrontTunnel, 
+  Box, 
+  Landmark, 
+  FileCheck, 
+  Zap, 
+  DraftingCompass 
+} from 'lucide-react';
 
 export default function Studio() {
   interface TeamMember {
@@ -135,25 +138,27 @@ export default function Studio() {
       </section>
 
       {/* ── 3. UN APPROCCIO MULTIDISCIPLINARE, UN UNICO OBIETTIVO ── */}
-      <section className="py-16 md:py-24 bg-bg-neutral/40 border-t border-navy/5">
+      <section className="py-16 md:py-24 bg-white border-t border-navy/5">
         <div className="max-w-6xl mx-auto px-6">
-          <div className="text-left mb-12">
-            <span className="bg-gold text-white text-[10px] font-bold uppercase tracking-[0.25em] px-3.5 py-1 rounded-sm inline-block mb-4 shadow-sm">
-              IL METODO
+          <div className="text-left mb-10">
+            <span className="bg-[#F5C400] text-white text-[11px] font-bold uppercase tracking-[0.14em] px-3.5 py-1 rounded-[2px] inline-block mb-5 shadow-sm">
+              LA RETE
             </span>
-            <h2 className="text-navy text-2xl sm:text-3xl md:text-4xl font-bold uppercase tracking-tight leading-tight mb-4">
+            <h2 className="text-[#1B2A4A] text-2xl sm:text-3xl md:text-[34px] font-extrabold uppercase tracking-tight leading-tight mb-5">
               UN APPROCCIO MULTIDISCIPLINARE, UN UNICO OBIETTIVO
             </h2>
-            <p className="text-navy/70 text-sm sm:text-base font-light max-w-4xl leading-relaxed mb-3">
-              Architetti, ingegneri, specialisti BIM e restauratori integrano le proprie competenze in funzione delle specificità di ogni gara, sviluppando offerte tecniche complete, coerenti e orientate all'aggiudicazione.
-            </p>
-            <p className="text-navy/60 text-xs sm:text-sm font-light max-w-3xl leading-relaxed">
-              Un modello organizzativo a stella che mette al centro il coordinamento MBA e attiva le migliori professionalità specialistiche.
-            </p>
+            <div className="space-y-4 text-[#1B2A4A]/80 text-sm sm:text-[15px] font-normal max-w-4xl leading-relaxed mb-10">
+              <p>
+                Ogni gara richiede competenze diverse. Lo studio costruisce attorno alla singola procedura <strong className="font-bold text-[#1B2A4A]">un gruppo di lavoro</strong> con architetti, ingegneri strutturisti e impiantisti, restauratori, specialisti BIM e grafici, coinvolti secondo le richieste del disciplinare. Il gruppo lavora sotto il <strong className="font-bold text-[#1B2A4A]">coordinamento dello studio</strong>, dall'analisi degli atti alla consegna dell'offerta.
+              </p>
+              <p>
+                Il confronto tra le diverse competenze permette di <strong className="font-bold text-[#1B2A4A]">individuare migliorie pertinenti</strong>, verificarne la fattibilità e tradurle in <strong className="font-bold text-[#1B2A4A]">una proposta chiara e coerente</strong>.
+              </p>
+            </div>
           </div>
 
           {/* Radial Hub Diagram */}
-          <div className="py-6 flex justify-center">
+          <div className="py-4 flex justify-center">
             <NetworkDiagram />
           </div>
         </div>
@@ -310,256 +315,259 @@ function ValueCard({ icon: Icon, title, text }: { icon: any; title: string; text
   );
 }
 
-// ── RADIAL NETWORK DIAGRAM COMPONENT (ANIMATO) ──
+// ── RADIAL NETWORK DIAGRAM COMPONENT (CLAUDE ARTIFACT EXACT PROPORTIONS) ──
 function NetworkDiagram() {
   const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
 
   const nodes = [
-    { label: "Architettura", icon: Buildings, angle: -90, desc: "Progettazione architettonica integrata e coordinamento delle soluzioni tecniche migliorative." },
-    { label: "Restauro", icon: Bank, angle: -45, desc: "Recupero, conservazione e valorizzazione di edifici storici e vincolati." },
-    { label: "Ingegneria Strutturale", icon: Compass, angle: 0, desc: "Calcolo strutturale, verifiche sismiche e consolidamento statico degli edifici." },
-    { label: "Impianti", icon: Lightning, angle: 45, desc: "Progettazione impiantistica HVAC, elettrica, domotica e conformità CAM." },
-    { label: "BIM", icon: Cube, angle: 90, desc: "Modellazione informativa 4D/5D, gestione interferenze e digital twin dell'opera." },
-    { label: "Rilievi Digitali", icon: Camera, angle: 135, desc: "Scansione 3D Laser Scanner e fotogrammetria con droni per nuvole di punti millimetriche." },
-    { label: "Computi", icon: Calculator, angle: 180, desc: "Computi metrici estimativi, analisi prezzi e ottimizzazione economica dell'appalto." },
-    { label: "Gare OEPV", icon: Scales, angle: 225, desc: "Strategia d'offerta, interpretazione del disciplinare e massimizzazione del punteggio tecnico." },
+    {
+      angle: -90,
+      icon: Crosshair,
+      lines: ["CONSULENTI", "FLUIDO MECCANICI"],
+      align: "top" as const,
+      desc: "Progettazione termo-fluidodinamica, simulazioni energetiche avanzate e impianti speciali."
+    },
+    {
+      angle: -45,
+      icon: Construction,
+      lines: ["CONSULENTI", "STRUTTURALI"],
+      align: "right" as const,
+      desc: "Calcolo strutturale, verifiche sismiche, consolidamento statico e adeguamento edifici."
+    },
+    {
+      angle: 0,
+      icon: TrainFrontTunnel,
+      lines: ["CONSULENTI", "INFRASTRUTTURALI"],
+      align: "right" as const,
+      desc: "Opere stradali, ponti, gallerie, tracciati ferroviari e infrastrutture complesse."
+    },
+    {
+      angle: 45,
+      icon: Box,
+      lines: ["CONSULENTI", "PROGETTAZIONE BIM"],
+      align: "right" as const,
+      desc: "Modellazione informativa 4D/5D, clash detection e capitolati informativi BIM."
+    },
+    {
+      angle: 90,
+      icon: Landmark,
+      lines: ["RESTAURATORI"],
+      align: "bottom" as const,
+      desc: "Restauro conservativo, beni monumentali vincolati e diagnostica dei materiali storici."
+    },
+    {
+      angle: 135,
+      icon: FileCheck,
+      lines: ["CONSULENTI", "LEGALI"],
+      align: "left" as const,
+      desc: "Conformità Codice Appalti, analisi disciplinari e supporto contrattualistico di gara."
+    },
+    {
+      angle: 180,
+      icon: Zap,
+      lines: ["CONSULENTI", "IMPIANTI"],
+      align: "left" as const,
+      desc: "Progettazione elettrica, termotecnica, domotica, energie rinnovabili e CAM."
+    },
+    {
+      angle: 225,
+      icon: DraftingCompass,
+      lines: ["GRAFICI 2D E 3D"],
+      align: "left" as const,
+      desc: "Render fotorealistici, fotoinserimenti territoriali, video animati e infografiche di gara."
+    },
   ];
 
-  const size = 520;
-  const center = size / 2;
-  const radius = 175;
+  const width = 680;
+  const height = 440;
+  const cx = 340;
+  const cy = 220;
+  const centerRadius = 46;
+  const goldRingRadius = 58;
+  const orbitRadius = 132;
+  const satelliteRadius = 24;
 
   return (
-    <div className="relative w-full max-w-[560px] flex flex-col items-center justify-center select-none">
-      <div className="relative w-full aspect-square flex items-center justify-center">
+    <div className="relative w-full max-w-[640px] flex flex-col items-center justify-center select-none">
+      <div className="relative w-full aspect-[680/440] flex items-center justify-center">
         <svg 
-          viewBox={`0 0 ${size} ${size}`} 
+          viewBox={`0 0 ${width} ${height}`} 
           className="w-full h-full overflow-visible"
         >
-          {/* Animated Concentric Radar Pulses from Center */}
-          <motion.circle 
-            cx={center} 
-            cy={center} 
-            r="48" 
-            fill="none" 
-            stroke="#F5C400" 
-            strokeWidth="1.5"
-            animate={{ r: [48, 195], opacity: [0.65, 0] }}
-            transition={{ duration: 3.4, repeat: Infinity, ease: "easeOut" }}
-          />
-          <motion.circle 
-            cx={center} 
-            cy={center} 
-            r="48" 
-            fill="none" 
-            stroke="#1B2A4A" 
-            strokeWidth="1.2"
-            animate={{ r: [48, 195], opacity: [0.45, 0] }}
-            transition={{ duration: 3.4, repeat: Infinity, ease: "easeOut", delay: 1.7 }}
-          />
-
-          {/* Connector Lines & Animated Energy Photons from Center */}
+          {/* Subtle connecting rays from gold ring to satellite node border */}
           {nodes.map((node, i) => {
             const rad = (node.angle * Math.PI) / 180;
-            const x = center + radius * Math.cos(rad);
-            const y = center + radius * Math.sin(rad);
+            const cos = Math.cos(rad);
+            const sin = Math.sin(rad);
+
+            const x1 = cx + goldRingRadius * cos;
+            const y1 = cy + goldRingRadius * sin;
+            const x2 = cx + (orbitRadius - satelliteRadius) * cos;
+            const y2 = cy + (orbitRadius - satelliteRadius) * sin;
+
             const isHovered = hoveredIndex === i;
 
             return (
-              <g key={`connector-${i}`}>
-                {/* Connecting Ray */}
-                <motion.line
-                  x1={center}
-                  y1={center}
-                  x2={x}
-                  y2={y}
+              <g key={`ray-${i}`}>
+                <line
+                  x1={x1}
+                  y1={y1}
+                  x2={x2}
+                  y2={y2}
                   stroke={isHovered ? "#F5C400" : "#1B2A4A"}
-                  strokeOpacity={isHovered ? 0.95 : 0.25}
-                  strokeWidth={isHovered ? 2.5 : 1.5}
-                  strokeDasharray="4 4"
-                  initial={{ pathLength: 0 }}
-                  whileInView={{ pathLength: 1 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.8, delay: i * 0.06 }}
-                />
-
-                {/* Flowing Energy Particle */}
-                <motion.circle
-                  r={isHovered ? "4" : "2.5"}
-                  fill="#F5C400"
-                  animate={{
-                    cx: [center, x],
-                    cy: [center, y],
-                    opacity: [0, 1, 0]
-                  }}
-                  transition={{
-                    duration: 2.4,
-                    repeat: Infinity,
-                    ease: "easeInOut",
-                    delay: i * 0.3
-                  }}
+                  strokeOpacity={isHovered ? 0.95 : 0.28}
+                  strokeWidth={isHovered ? 2 : 1.2}
+                  className="transition-all duration-300"
                 />
               </g>
             );
           })}
 
-          {/* Central Hub Node (MBA) with gentle breathing animation */}
-          <motion.g
-            initial={{ scale: 0 }}
-            whileInView={{ scale: 1 }}
-            viewport={{ once: true }}
-            transition={{ type: "spring", stiffness: 140, damping: 12 }}
-            whileHover={{ scale: 1.05 }}
-            className="cursor-default"
-          >
+          {/* Central MBA Golden Ring */}
+          <circle
+            cx={cx}
+            cy={cy}
+            r={goldRingRadius}
+            fill="none"
+            stroke="#F5C400"
+            strokeWidth="1.2"
+            strokeOpacity="0.75"
+          />
+
+          {/* Central Hub MBA Solid Circle */}
+          <g className="cursor-default">
             <circle 
-              cx={center} 
-              cy={center} 
-              r="48" 
+              cx={cx} 
+              cy={cy} 
+              r={centerRadius} 
               fill="#1B2A4A" 
-              stroke="#F5C400" 
-              strokeWidth="2.5" 
-              className="shadow-lg filter drop-shadow(0 4px 12px rgba(27,42,74,0.25))"
             />
             <text
-              x={center}
-              y={center + 5}
+              x={cx}
+              y={cy}
               textAnchor="middle"
-              dominantBaseline="middle"
+              dominantBaseline="central"
               fill="#FFFFFF"
-              fontSize="18"
-              fontWeight="700"
-              letterSpacing="2"
-              fontFamily="monospace"
+              fontSize="24"
+              fontWeight="800"
+              letterSpacing="0.06em"
+              style={{ fontFamily: "'Inter', ui-sans-serif, system-ui, sans-serif" }}
             >
               MBA
             </text>
-          </motion.g>
+          </g>
 
-          {/* Surrounding Satellite Nodes with harmonic floating animation */}
+          {/* 8 Satellite Nodes */}
           {nodes.map((node, i) => {
             const rad = (node.angle * Math.PI) / 180;
-            const x = center + radius * Math.cos(rad);
-            const y = center + radius * Math.sin(rad);
+            const nx = cx + orbitRadius * Math.cos(rad);
+            const ny = cy + orbitRadius * Math.sin(rad);
             const isHovered = hoveredIndex === i;
-
-            // Calculate text position based on angle
-            let textX = x;
-            let textY = y + 34;
-            let anchor: 'middle' | 'start' | 'end' = 'middle';
-
-            if (node.angle === 0) {
-              textX = x + 28;
-              textY = y + 4;
-              anchor = 'start';
-            } else if (node.angle === 180) {
-              textX = x - 28;
-              textY = y + 4;
-              anchor = 'end';
-            } else if (node.angle === -90) {
-              textY = y - 28;
-            } else if (node.angle === 90) {
-              textY = y + 36;
-            } else if (node.angle > 0 && node.angle < 90) {
-              textX = x + 24;
-              textY = y + 24;
-              anchor = 'start';
-            } else if (node.angle > 90 && node.angle < 180) {
-              textX = x - 24;
-              textY = y + 24;
-              anchor = 'end';
-            } else if (node.angle < 0 && node.angle > -90) {
-              textX = x + 24;
-              textY = y - 18;
-              anchor = 'start';
-            } else if (node.angle < -90) {
-              textX = x - 24;
-              textY = y - 18;
-              anchor = 'end';
-            }
-
             const NodeIcon = node.icon;
 
+            // Text positions based on alignment
+            let textX = nx;
+            let textY = ny;
+            let textAnchor: 'middle' | 'start' | 'end' = 'middle';
+
+            if (node.align === 'top') {
+              textX = nx;
+              textY = ny - satelliteRadius - 12;
+              textAnchor = 'middle';
+            } else if (node.align === 'bottom') {
+              textX = nx;
+              textY = ny + satelliteRadius + 16;
+              textAnchor = 'middle';
+            } else if (node.align === 'right') {
+              textX = nx + satelliteRadius + 11;
+              textY = ny;
+              textAnchor = 'start';
+            } else if (node.align === 'left') {
+              textX = nx - satelliteRadius - 11;
+              textY = ny;
+              textAnchor = 'end';
+            }
+
             return (
-              <motion.g 
+              <g 
                 key={i} 
-                initial={{ scale: 0, opacity: 0 }}
-                whileInView={{ scale: 1, opacity: 1 }}
-                viewport={{ once: true }}
-                animate={{
-                  y: [0, (i % 2 === 0 ? -3.5 : 3.5), 0, (i % 2 === 0 ? 3.5 : -3.5), 0],
-                }}
-                transition={{
-                  scale: { type: "spring", stiffness: 130, damping: 14, delay: 0.15 + i * 0.06 },
-                  opacity: { duration: 0.5, delay: 0.15 + i * 0.06 },
-                  y: { duration: 3.8 + (i % 3) * 0.5, repeat: Infinity, ease: "easeInOut", delay: i * 0.2 }
-                }}
+                className="cursor-pointer"
                 onMouseEnter={() => setHoveredIndex(i)}
                 onMouseLeave={() => setHoveredIndex(null)}
-                className="cursor-pointer"
               >
-                {/* Outer halo when hovered */}
-                {isHovered && (
-                  <circle
-                    cx={x}
-                    cy={y}
-                    r="28"
-                    fill="none"
-                    stroke="#F5C400"
-                    strokeWidth="1.5"
-                    strokeOpacity="0.5"
-                    className="animate-ping"
-                  />
-                )}
-                
+                {/* Node Solid Circle */}
                 <circle
-                  cx={x}
-                  cy={y}
-                  r="22"
+                  cx={nx}
+                  cy={ny}
+                  r={satelliteRadius}
                   fill={isHovered ? "#F5C400" : "#1B2A4A"}
-                  stroke={isHovered ? "#1B2A4A" : "#F5C400"}
-                  strokeWidth={isHovered ? 2 : 1.5}
-                  className="transition-colors duration-300 filter drop-shadow(0 2px 6px rgba(0,0,0,0.15))"
+                  className="transition-colors duration-300"
                 />
-                <foreignObject x={x - 12} y={y - 12} width="24" height="24">
-                  <div className={`w-full h-full flex items-center justify-center transition-colors duration-300 ${isHovered ? 'text-navy' : 'text-white'}`}>
-                    <NodeIcon size={14} weight={isHovered ? "bold" : "regular"} />
+
+                {/* Node Centered Icon */}
+                <foreignObject 
+                  x={nx - 11} 
+                  y={ny - 11} 
+                  width="22" 
+                  height="22"
+                  className="pointer-events-none"
+                >
+                  <div className={`w-full h-full flex items-center justify-center transition-colors duration-300 ${isHovered ? 'text-[#1B2A4A]' : 'text-white'}`}>
+                    <NodeIcon size={18} strokeWidth={2} />
                   </div>
                 </foreignObject>
-                <text
-                  x={textX}
-                  y={textY}
-                  textAnchor={anchor}
-                  fill={isHovered ? "#F5C400" : "#1B2A4A"}
-                  fontSize="10"
-                  fontWeight="700"
-                  letterSpacing="0.8"
-                  className="uppercase transition-colors duration-300"
-                >
-                  {node.label}
-                </text>
-              </motion.g>
+
+                {/* External Text Label */}
+                {node.lines.length === 1 ? (
+                  <text
+                    x={textX}
+                    y={textY + 3}
+                    textAnchor={textAnchor}
+                    fill={isHovered ? "#F5C400" : "#1B2A4A"}
+                    fontSize="9.5"
+                    fontWeight="700"
+                    letterSpacing="0.08em"
+                    className="uppercase select-none transition-colors duration-300"
+                    style={{ fontFamily: "'Inter', ui-sans-serif, system-ui, sans-serif" }}
+                  >
+                    {node.lines[0]}
+                  </text>
+                ) : (
+                  <text
+                    x={textX}
+                    y={node.align === 'top' ? textY - 6 : textY - 3}
+                    textAnchor={textAnchor}
+                    fill={isHovered ? "#F5C400" : "#1B2A4A"}
+                    fontSize="9.5"
+                    fontWeight="700"
+                    letterSpacing="0.08em"
+                    className="uppercase select-none transition-colors duration-300"
+                    style={{ fontFamily: "'Inter', ui-sans-serif, system-ui, sans-serif" }}
+                  >
+                    <tspan x={textX} dy="0">{node.lines[0]}</tspan>
+                    <tspan x={textX} dy="11">{node.lines[1]}</tspan>
+                  </text>
+                )}
+              </g>
             );
           })}
         </svg>
       </div>
 
-      {/* Interactive Detail Highlight Bar */}
-      <div className="mt-4 min-h-[44px] px-6 py-2.5 rounded-sm bg-white border border-navy/10 text-center shadow-sm max-w-md w-full transition-all duration-300">
-        <p className="text-xs font-light text-navy/80 leading-relaxed">
-          {hoveredIndex !== null ? (
-            <span>
-              <strong className="text-gold font-bold uppercase tracking-wider mr-1.5">
-                {nodes[hoveredIndex].label}:
-              </strong>
-              {nodes[hoveredIndex].desc}
-            </span>
-          ) : (
-            <span className="text-navy/50 italic text-[11px]">
-              Passa il mouse su una disciplina per visualizzare il ruolo nel metodo integrato MBA.
-            </span>
-          )}
-        </p>
+      {/* Interactive Tooltip Card at the bottom when a node is hovered */}
+      <div className="h-10 mt-3 flex items-center justify-center w-full px-4">
+        {hoveredIndex !== null ? (
+          <p className="text-xs text-[#1B2A4A]/85 font-medium text-center transition-all">
+            <strong className="text-[#F5C400] font-bold uppercase tracking-wider mr-1.5">
+              {nodes[hoveredIndex].lines.join(" ")}:
+            </strong>
+            {nodes[hoveredIndex].desc}
+          </p>
+        ) : (
+          <p className="text-[11px] text-[#1B2A4A]/40 uppercase tracking-wider text-center">
+            Passa il mouse su una disciplina per visualizzare i dettagli
+          </p>
+        )}
       </div>
     </div>
   );
