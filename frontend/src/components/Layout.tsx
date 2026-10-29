@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import { Link, Outlet, useLocation } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Phone, Envelope, MapPin, LinkedinLogo, InstagramLogo, List, X, CaretDown, ArrowRight } from '@phosphor-icons/react';
+import { LinkedinLogo, InstagramLogo, FacebookLogo, WhatsappLogo, List, X, CaretDown, CaretRight } from '@phosphor-icons/react';
 import CookieBanner from './CookieBanner';
 import SmoothScroll from './SmoothScroll';
 
@@ -294,119 +294,120 @@ export default function Layout() {
       </main>
 
       {/* ── FOOTER ── */}
-      <footer className="bg-[#1B2A4A] pt-16 md:pt-28 pb-12 px-6 overflow-hidden relative">
-        <div className="absolute top-0 left-0 w-full h-px bg-white/5" />
-
+      <footer className="bg-[#14223d] text-white pt-16 pb-12 px-6 sm:px-10 lg:px-16 overflow-hidden relative font-blinkers">
         <div className="max-w-7xl mx-auto relative z-10">
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-12 gap-12 lg:gap-8 mb-24">
+          <div className="grid grid-cols-1 md:grid-cols-12 gap-10 lg:gap-16 mb-16">
 
-            {/* Logo e Descrizione con LA NOSTRA ARCHITETTURA INIZIA QUI */}
-            <div className="lg:col-span-5 space-y-6">
-              <Link to="/" className="inline-block mb-1">
-                <img src="/logo.svg" alt="MBA Progetti" className="h-[44px] w-auto brightness-0 invert" />
+            {/* 1. Colonna Sinistra: Brand & CTA Cantiere */}
+            <div className="md:col-span-5 lg:col-span-5 space-y-5">
+              <Link to="/" className="text-white text-2xl font-black tracking-wider uppercase inline-block">
+                MBA
               </Link>
+
               <div>
-                <p className="text-white/60 text-xs font-bold uppercase tracking-[0.25em] mb-1">
-                  LA NOSTRA ARCHITETTURA
+                <p className="text-white text-sm sm:text-[15px] font-bold uppercase tracking-[0.06em] leading-tight">
+                  IL TUO PROSSIMO CANTIERE
                 </p>
-                <h3 className="text-[#B8972A] text-2xl sm:text-3xl font-bold uppercase tracking-tight mb-3">
+                <h3 className="text-[#EAB308] text-2xl sm:text-3xl font-black uppercase tracking-tight leading-none mt-1">
                   INIZIA QUI
                 </h3>
-                <p className="text-white/60 text-xs font-light max-w-sm leading-relaxed mb-6">
-                  Richiedi una consulenza tecnica per la tua prossima gara d'appalto o progetto esecutivo.
-                </p>
-                <Link to="/contatti" className="btn-ghost-white px-6 py-2.5 text-[10px] tracking-widest uppercase font-bold inline-flex items-center gap-2">
-                  Richiedi una Consulenza <ArrowRight size={12} />
+              </div>
+
+              <p className="text-white/70 text-xs sm:text-[13px] font-normal leading-relaxed max-w-sm">
+                Richiedi una consulenza tecnica per la tua gara d'appalto.
+              </p>
+
+              <div>
+                <Link 
+                  to="/contatti" 
+                  className="inline-flex items-center justify-between w-full max-w-[270px] px-5 py-2.5 border border-white/20 text-white text-[11px] font-bold uppercase tracking-[0.14em] hover:border-gold hover:text-gold transition-colors"
+                >
+                  <span>RICHIEDI UNA CONSULENZA</span>
+                  <CaretRight size={13} weight="bold" />
                 </Link>
               </div>
             </div>
 
-            {/* Menu */}
-            <div className="lg:col-span-2">
-              <h4 className="text-[#B8972A] text-[12px] font-bold uppercase tracking-[0.4em] mb-6">Menu</h4>
-              <ul className="space-y-3">
-                {navLinks.map((link) => (
-                  <li key={link.path}>
-                    <Link to={link.path} className="text-white/60 hover:text-[#B8972A] text-[11px] uppercase tracking-widest transition-colors font-bold">
-                      {link.name}
-                    </Link>
-                  </li>
-                ))}
-              </ul>
-            </div>
-
-            {/* Servizi */}
-            <div className="lg:col-span-2">
-              <h4 className="text-[#B8972A] text-[12px] font-bold uppercase tracking-[0.4em] mb-6">Servizi</h4>
-              <ul className="space-y-3">
+            {/* 2. Colonna Centrale: MENU */}
+            <div className="md:col-span-3 lg:col-span-3">
+              <h4 className="text-white/40 text-[11px] font-bold uppercase tracking-[0.18em] mb-4">
+                MENU
+              </h4>
+              <ul className="space-y-2 text-[13px] text-white/80">
                 <li>
-                  <Link to="/servizi/gare" className="text-white/60 hover:text-[#B8972A] text-[11px] uppercase tracking-widest transition-colors font-bold">
-                    Gare OEPV
-                  </Link>
+                  <Link to="/" className="hover:text-white transition-colors">Home</Link>
                 </li>
                 <li>
-                  <Link to="/servizi/progettazione" className="text-white/60 hover:text-[#B8972A] text-[11px] uppercase tracking-widest transition-colors font-bold">
-                    Progettazione
-                  </Link>
+                  <Link to="/studio" className="hover:text-white transition-colors">Studio</Link>
                 </li>
                 <li>
-                  <Link to="/servizi/rilievi" className="text-white/60 hover:text-[#B8972A] text-[11px] uppercase tracking-widest transition-colors font-bold">
-                    Rilievi Digitali
-                  </Link>
+                  <Link to="/servizi/gare" className="hover:text-white transition-colors">Gare OEV</Link>
                 </li>
                 <li>
-                  <Link to="/servizi/bim" className="text-white/60 hover:text-[#B8972A] text-[11px] uppercase tracking-widest transition-colors font-bold">
-                    BIM Strategy
-                  </Link>
+                  <Link to="/portfolio" className="hover:text-white transition-colors">Portfolio gare</Link>
+                </li>
+                <li>
+                  <Link to="/servizi/progettazione" className="hover:text-white transition-colors">Progettazione</Link>
+                </li>
+                <li>
+                  <Link to="/servizi/rilievi" className="hover:text-white transition-colors">Rilievi</Link>
+                </li>
+                <li>
+                  <Link to="/servizi/bim" className="hover:text-white transition-colors">Servizi BIM</Link>
+                </li>
+                <li>
+                  <Link to="/risorse" className="hover:text-white transition-colors">News</Link>
+                </li>
+                <li>
+                  <Link to="/simulatore" className="hover:text-white transition-colors">Simulatore</Link>
                 </li>
               </ul>
             </div>
 
-            {/* Contatti & Social */}
-            <div className="lg:col-span-3">
-              <h4 className="text-[#B8972A] text-[12px] font-bold uppercase tracking-[0.4em] mb-6">Contatti</h4>
-              <ul className="space-y-4">
-                <li>
-                  <a href="mailto:info@mbaprogetti.it" className="group flex items-center gap-3 text-white hover:text-[#B8972A] transition-colors">
-                    <Envelope size={18} weight="light" className="text-[#B8972A] flex-shrink-0" />
-                    <span className="text-[12px] uppercase font-bold tracking-widest">info@mbaprogetti.it</span>
-                  </a>
-                </li>
-                <li>
-                  <a href="tel:+393286285861" className="group flex items-center gap-3 text-white hover:text-[#B8972A] transition-colors">
-                    <Phone size={18} weight="light" className="text-[#B8972A] flex-shrink-0" />
-                    <span className="text-[12px] uppercase font-bold tracking-widest">+39 328 628 5861</span>
-                  </a>
-                </li>
-                <li className="flex items-start gap-3 text-white/60">
-                  <MapPin size={18} weight="light" className="text-[#B8972A] flex-shrink-0 mt-0.5" />
-                  <span className="text-[11px] uppercase font-bold tracking-widest leading-relaxed">
-                    Via Sardarulo, 7 <br /> 81016 San Potito Sannitico (CE)
-                  </span>
-                </li>
-              </ul>
-              <div className="flex gap-5 mt-6 pt-4 border-t border-white/5">
-                <a href="#" rel="noopener noreferrer" aria-label="LinkedIn" className="text-white/40 hover:text-[#B8972A] transition-colors">
-                  <LinkedinLogo size={24} weight="light" />
+            {/* 3. Colonna Destra: CONTATTI */}
+            <div className="md:col-span-4 lg:col-span-4">
+              <h4 className="text-white/40 text-[11px] font-bold uppercase tracking-[0.18em] mb-4">
+                CONTATTI
+              </h4>
+              <div className="space-y-1.5 text-[13px] text-white/80 leading-relaxed mb-6">
+                <p>Via Sandanrulo 7, 81016 San Potito Sannitico (CE)</p>
+                <p>
+                  <a href="tel:+393286285861" className="hover:text-white transition-colors">328 6285861</a>
+                </p>
+                <p>
+                  <a href="mailto:arch.mariobiondi@gmail.com" className="hover:text-white transition-colors">arch.mariobiondi@gmail.com</a>
+                </p>
+                <p>
+                  <a href="mailto:mario.biondi@archiworldpec.it" className="hover:text-white transition-colors">PEC mario.biondi@archiworldpec.it</a>
+                </p>
+                <p>P. IVA 04274770611</p>
+              </div>
+
+              {/* Social Icons */}
+              <div className="flex items-center gap-4 text-white/80 pt-2">
+                <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" className="hover:text-gold transition-colors">
+                  <LinkedinLogo size={18} weight="fill" />
                 </a>
-                <a href="#" rel="noopener noreferrer" aria-label="Instagram" className="text-white/40 hover:text-[#B8972A] transition-colors">
-                  <InstagramLogo size={24} weight="light" />
+                <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" aria-label="Instagram" className="hover:text-gold transition-colors">
+                  <InstagramLogo size={18} weight="regular" />
+                </a>
+                <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" aria-label="Facebook" className="hover:text-gold transition-colors">
+                  <FacebookLogo size={18} weight="fill" />
+                </a>
+                <a href="https://wa.me/393286285861" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp" className="hover:text-gold transition-colors">
+                  <WhatsappLogo size={18} weight="regular" />
                 </a>
               </div>
             </div>
+
           </div>
 
-          <div className="flex flex-col md:flex-row justify-between items-center pt-10 border-t border-white/5 gap-6">
-            <p className="text-white/20 text-[10px] uppercase font-bold tracking-widest">
-              © {new Date().getFullYear()} MBA Progetti srl. P.IVA 04724770611
-            </p>
-            <div className="flex gap-8 text-white/20 text-[10px] uppercase font-bold tracking-widest">
-              <Link to="/privacy" className="hover:text-[#B8972A] transition-colors">
-                Privacy &amp; Cookie Policy
-              </Link>
-              <Link to="/admin" className="hover:text-[#B8972A] transition-colors">
-                Admin CMS
-              </Link>
+          {/* Barra Privacy & Copyright discreta */}
+          <div className="flex flex-col sm:flex-row justify-between items-center pt-8 border-t border-white/5 text-white/30 text-[11px] gap-4">
+            <p>© {new Date().getFullYear()} MBA Progetti. Tutti i diritti riservati.</p>
+            <div className="flex gap-6">
+              <Link to="/privacy" className="hover:text-white/60 transition-colors">Privacy &amp; Cookie Policy</Link>
+              <Link to="/admin" className="hover:text-white/60 transition-colors">Admin CMS</Link>
             </div>
           </div>
         </div>
