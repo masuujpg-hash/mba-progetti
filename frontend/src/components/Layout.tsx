@@ -1,26 +1,25 @@
 import { useState, useEffect } from 'react';
 import { Link, Outlet, useLocation } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Phone, Envelope, MapPin, LinkedinLogo, InstagramLogo, List, X, CaretDown } from '@phosphor-icons/react';
+import { Phone, Envelope, MapPin, LinkedinLogo, InstagramLogo, List, X, CaretDown, ArrowRight } from '@phosphor-icons/react';
 import CookieBanner from './CookieBanner';
 import SmoothScroll from './SmoothScroll';
 
 export default function Layout() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const [serviziOpen, setServiziOpen] = useState(false);
+  const [openSubmenu, setOpenSubmenu] = useState<string | null>(null);
   const location = useLocation();
 
-
   useEffect(() => {
-    const handleScroll = () => setIsScrolled(window.scrollY > 60);
+    const handleScroll = () => setIsScrolled(window.scrollY > 40);
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
   useEffect(() => {
     setIsMenuOpen(false);
-    setServiziOpen(false);
+    setOpenSubmenu(null);
     window.scrollTo(0, 0);
   }, [location]);
 
@@ -34,47 +33,56 @@ export default function Layout() {
     return () => { document.body.style.overflow = ''; };
   }, [isMenuOpen]);
 
-  const navLinks = [
+  interface NavItem {
+    name: string;
+    path: string;
+    subLinks?: { name: string; path: string }[];
+  }
+
+  const navLinks: NavItem[] = [
     { name: 'Home', path: '/' },
     { name: 'Studio', path: '/studio' },
+    { name: 'Gare OEV', path: '/servizi/gare' },
+    { name: 'Portfolio gare', path: '/portfolio' },
+    { name: 'Progettazione', path: '/servizi/progettazione' },
     {
-      name: 'Servizi',
-      path: '/servizi',
+      name: 'Rilievi e BIM',
+      path: '/servizi/rilievi',
       subLinks: [
-        { name: 'Gare OEPV', path: '/servizi/gare' },
-        { name: 'Progettazione', path: '/servizi/progettazione' },
-        { name: 'Rilievi Digitali', path: '/servizi/rilievi' },
-        { name: 'BIM Strategy', path: '/servizi/bim' },
+        { name: 'Rilievi', path: '/servizi/rilievi' },
+        { name: 'Servizi BIM', path: '/servizi/bim' },
       ],
     },
-    { name: 'Portfolio', path: '/portfolio' },
-    { name: 'Simulatore', path: '/simulatore' },
-    { name: 'Risorse', path: '/risorse' },
+    {
+      name: 'Risorse',
+      path: '/risorse',
+      subLinks: [
+        { name: 'News', path: '/risorse' },
+        { name: 'Simulatore', path: '/simulatore' },
+      ],
+    },
+    { name: 'Contatti', path: '/contatti' },
   ];
 
   // Pages where hero covers full viewport → transparent navbar at top
   const isScrollWorldPage = ['/home-v2', '/home2'].includes(location.pathname);
 
+  const isLinkActive = (item: NavItem) => {
+    if (item.path === '/') return location.pathname === '/';
+    if (item.subLinks) {
+      return item.subLinks.some((sub) => location.pathname === sub.path);
+    }
+    if (item.path === '/portfolio') return location.pathname.startsWith('/portfolio');
+    return location.pathname === item.path;
+  };
+
   const headerBg = isMenuOpen
     ? 'bg-[#1B2A4A]'
     : isScrolled
-    ? 'bg-white/95 border-b border-[#1B2A4A]/5 shadow-sm shadow-[#1B2A4A]/5 backdrop-blur-md'
+    ? 'bg-white/95 backdrop-blur-md shadow-sm'
     : isScrollWorldPage
-    ? 'bg-transparent'
+    ? 'bg-transparent border-transparent'
     : 'bg-white';
-
-  // Nav link color: white on scroll-world pages when at top, else dark
-  const navLinkBase = (active: boolean) => {
-    if (isScrollWorldPage && !isScrolled && !isMenuOpen) {
-      return `text-[11px] font-bold uppercase tracking-[0.35em] transition-colors duration-300 hover:text-[#B8972A] ${active ? 'text-[#B8972A]' : 'text-white/90'}`;
-    }
-    return `text-[11px] font-bold uppercase tracking-[0.35em] transition-colors duration-300 hover:text-[#B8972A] ${active ? 'text-[#B8972A]' : 'text-[#1B2A4A]/80'}`;
-  };
-
-  const isActive = (path: string) =>
-    path === '/'
-      ? location.pathname === '/'
-      : location.pathname.startsWith(path);
 
   return (
     <SmoothScroll>
@@ -82,69 +90,90 @@ export default function Layout() {
 
       {/* ── HEADER ── */}
       <header
-        className={`fixed top-0 left-0 w-full z-50 transition-all duration-500 ${
-          isScrolled ? 'py-3' : 'py-5 md:py-7'
-        } ${headerBg}`}
+        className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 border-b border-[#1B2A4A]/10 ${headerBg}`}
       >
-        <div className="max-w-7xl mx-auto px-5 md:px-8 flex justify-between items-center">
+        <div className="max-w-7xl mx-auto px-5 md:px-8 h-[74px] md:h-[80px] flex justify-between items-center">
 
           {/* Logo */}
           <Link to="/" className="relative z-50 flex-shrink-0">
             <img
               src="/logo.svg"
               alt="MBA Progetti"
-              className={`h-[42px] md:h-[50px] w-auto transition-all duration-300 ${
+              className={`h-[40px] md:h-[46px] w-auto transition-all duration-300 ${
                 isMenuOpen ? 'brightness-0 invert' : ''
               }`}
             />
           </Link>
 
           {/* ── DESKTOP NAV ── */}
-          <nav className="hidden lg:flex items-center gap-8 xl:gap-10">
-            {navLinks.map((link) => (
-              <div key={link.path} className="relative group/nav">
-                <Link
-                  to={link.path}
-                  className={`inline-flex items-center gap-1.5 ${navLinkBase(isActive(link.path))}`}
-                >
-                  {link.name}
-                  {link.subLinks && (
-                    <CaretDown
-                      size={10}
-                      weight="bold"
-                      className="transition-transform duration-300 group-hover/nav:rotate-180 text-current"
-                    />
-                  )}
-                </Link>
+          <nav className="hidden lg:flex items-center h-full gap-5 xl:gap-8">
+            {navLinks.map((link) => {
+              const active = isLinkActive(link);
+              const hasSub = Boolean(link.subLinks && link.subLinks.length > 0);
 
-                {/* Dropdown */}
-                {link.subLinks && (
-                  <div className="absolute top-full left-1/2 -translate-x-1/2 pt-5 opacity-0 translate-y-2 pointer-events-none group-hover/nav:opacity-100 group-hover/nav:translate-y-0 group-hover/nav:pointer-events-auto transition-all duration-300 z-50">
-                    <div className="bg-white border border-[#1B2A4A]/10 p-5 min-w-[210px] shadow-2xl">
-                      <div className="flex flex-col gap-4">
-                        {link.subLinks.map((sub) => (
-                          <Link
-                            key={sub.path}
-                            to={sub.path}
-                            className="flex items-center gap-3 text-[10px] font-bold uppercase tracking-[0.3em] text-[#1B2A4A]/60 hover:text-[#B8972A] transition-colors group/sub"
-                          >
-                            <span className="w-0 group-hover/sub:w-4 h-px bg-[#B8972A] transition-all duration-300 block" />
-                            {sub.name}
-                          </Link>
-                        ))}
+              if (hasSub) {
+                return (
+                  <div key={link.name} className="relative group/nav h-full flex items-center">
+                    <div
+                      className={`inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-t-sm text-[15px] font-medium transition-colors duration-200 cursor-pointer select-none ${
+                        active
+                          ? 'bg-[#F4EEDB] text-[#1B2A4A]'
+                          : 'text-[#1B2A4A] group-hover/nav:bg-[#F4EEDB] hover:text-[#1B2A4A]'
+                      }`}
+                    >
+                      {link.name}
+                      <CaretDown
+                        size={13}
+                        weight="bold"
+                        className="transition-transform duration-200 group-hover/nav:rotate-180 text-[#1B2A4A]"
+                      />
+                    </div>
+
+                    {/* Dropdown Card */}
+                    <div className="absolute top-[calc(100%-1px)] left-0 pt-0 opacity-0 translate-y-1 pointer-events-none group-hover/nav:opacity-100 group-hover/nav:translate-y-0 group-hover/nav:pointer-events-auto transition-all duration-200 z-50 before:absolute before:-top-2.5 before:left-0 before:right-0 before:h-2.5 before:content-['']">
+                      <div className="bg-white border border-[#1B2A4A]/10 shadow-[0_12px_30px_rgba(27,42,74,0.08)] py-3 px-6 min-w-[170px]">
+                        <div className="flex flex-col gap-2">
+                          {link.subLinks!.map((sub) => {
+                            const subActive = location.pathname === sub.path;
+                            return (
+                              <Link
+                                key={sub.path}
+                                to={sub.path}
+                                className={`text-[14px] sm:text-[15px] font-medium transition-colors py-1 block whitespace-nowrap ${
+                                  subActive
+                                    ? 'text-[#B8972A] font-semibold'
+                                    : 'text-[#1B2A4A] hover:text-[#B8972A]'
+                                }`}
+                              >
+                                {sub.name}
+                              </Link>
+                            );
+                          })}
+                        </div>
                       </div>
                     </div>
                   </div>
-                )}
-              </div>
-            ))}
+                );
+              }
 
-            <Link
-              to="/contatti"
-              className="btn-ghost-dark px-7 py-2.5 text-[10px]"
-            >
-              Contatti
-            </Link>
+              return (
+                <div key={link.name} className="relative h-full flex items-center">
+                  <Link
+                    to={link.path}
+                    className={`relative py-1.5 text-[15px] font-medium transition-colors duration-200 ${
+                      active
+                        ? 'text-[#1B2A4A] font-semibold'
+                        : 'text-[#1B2A4A] hover:text-[#B8972A]'
+                    }`}
+                  >
+                    {link.name}
+                    {active && (
+                      <span className="absolute -bottom-1 left-0 right-0 h-[2.5px] bg-[#B8972A]" />
+                    )}
+                  </Link>
+                </div>
+              );
+            })}
           </nav>
 
           {/* ── MOBILE HAMBURGER ── */}
@@ -192,46 +221,47 @@ export default function Layout() {
             transition={{ type: 'spring', damping: 28, stiffness: 220 }}
             className="fixed inset-0 z-40 bg-[#1B2A4A] flex flex-col overflow-y-auto"
           >
-            <div className="flex flex-col items-center justify-center min-h-full gap-6 px-8 pt-28 pb-16">
+            <div className="flex flex-col items-center justify-center min-h-full gap-5 px-8 pt-28 pb-16">
               {navLinks.map((link, i) => (
                 <motion.div
-                  key={link.path}
+                  key={link.name}
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: 0.04 + i * 0.07 }}
+                  transition={{ delay: 0.03 + i * 0.05 }}
                   className="w-full text-center"
                 >
                   {link.subLinks ? (
-                    <div className="flex flex-col gap-3">
+                    <div className="flex flex-col gap-2">
                       <button
-                        onClick={() => setServiziOpen((v) => !v)}
-                        className="inline-flex items-center justify-center gap-3 text-3xl font-bold text-white uppercase tracking-tighter hover:text-[#B8972A] transition-colors"
+                        type="button"
+                        onClick={() => setOpenSubmenu((v) => (v === link.name ? null : link.name))}
+                        className="inline-flex items-center justify-center gap-2 text-2xl font-bold text-white hover:text-[#B8972A] transition-colors"
                       >
                         {link.name}
                         <CaretDown
-                          size={20}
+                          size={18}
                           weight="bold"
-                          className={`transition-transform duration-300 ${serviziOpen ? 'rotate-180' : ''}`}
+                          className={`transition-transform duration-300 ${openSubmenu === link.name ? 'rotate-180' : ''}`}
                         />
                       </button>
                       <AnimatePresence>
-                        {serviziOpen && (
+                        {openSubmenu === link.name && (
                           <motion.div
                             initial={{ opacity: 0, height: 0 }}
                             animate={{ opacity: 1, height: 'auto' }}
                             exit={{ opacity: 0, height: 0 }}
                             className="overflow-hidden"
                           >
-                            <div className="flex flex-col items-center gap-2 pt-3 mt-2 border-t border-white/10">
+                            <div className="flex flex-col items-center gap-2 pt-2 mt-2 border-t border-white/10">
                               {link.subLinks.map((sub) => (
                                 <Link
                                   key={sub.path}
                                   to={sub.path}
                                   onClick={() => {
                                     setIsMenuOpen(false);
-                                    setServiziOpen(false);
+                                    setOpenSubmenu(null);
                                   }}
-                                  className="text-xs font-bold uppercase tracking-[0.3em] text-[#B8972A] hover:text-white transition-colors py-2 px-4 rounded-sm bg-white/5 w-full max-w-xs text-center flex items-center justify-center gap-2"
+                                  className="text-sm font-medium text-[#B8972A] hover:text-white transition-colors py-2 px-4 rounded-sm bg-white/5 w-full max-w-xs text-center"
                                 >
                                   {sub.name}
                                 </Link>
@@ -244,28 +274,16 @@ export default function Layout() {
                   ) : (
                     <Link
                       to={link.path}
-                      className="text-3xl font-bold text-white uppercase tracking-tighter hover:text-[#B8972A] transition-colors"
+                      onClick={() => setIsMenuOpen(false)}
+                      className={`text-2xl font-bold transition-colors ${
+                        isLinkActive(link) ? 'text-[#B8972A]' : 'text-white hover:text-[#B8972A]'
+                      }`}
                     >
                       {link.name}
                     </Link>
                   )}
                 </motion.div>
               ))}
-
-              {/* Mobile CTA */}
-              <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.04 + navLinks.length * 0.07 }}
-                className="mt-8 w-full"
-              >
-                <Link
-                  to="/contatti"
-                  className="block w-full text-center border border-white text-white py-4 text-xs font-bold uppercase tracking-[0.3em] hover:bg-white hover:text-[#1B2A4A] transition-all duration-300"
-                >
-                  Contatti
-                </Link>
-              </motion.div>
             </div>
           </motion.div>
         )}
@@ -282,20 +300,34 @@ export default function Layout() {
         <div className="max-w-7xl mx-auto relative z-10">
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-12 gap-12 lg:gap-8 mb-24">
 
-            {/* Logo e Descrizione */}
-            <div className="lg:col-span-4">
-              <Link to="/" className="inline-block mb-10">
-                <img src="/logo.svg" alt="MBA Progetti" className="h-[72px] w-auto brightness-0 invert" />
+            {/* Logo e Descrizione con LA NOSTRA ARCHITETTURA INIZIA QUI */}
+            <div className="lg:col-span-5 space-y-6">
+              <Link to="/" className="inline-block mb-1">
+                <img src="/logo.svg" alt="MBA Progetti" className="h-[44px] w-auto brightness-0 invert" />
               </Link>
+              <div>
+                <p className="text-white/60 text-xs font-bold uppercase tracking-[0.25em] mb-1">
+                  LA NOSTRA ARCHITETTURA
+                </p>
+                <h3 className="text-[#B8972A] text-2xl sm:text-3xl font-bold uppercase tracking-tight mb-3">
+                  INIZIA QUI
+                </h3>
+                <p className="text-white/60 text-xs font-light max-w-sm leading-relaxed mb-6">
+                  Richiedi una consulenza tecnica per la tua prossima gara d'appalto o progetto esecutivo.
+                </p>
+                <Link to="/contatti" className="btn-ghost-white px-6 py-2.5 text-[10px] tracking-widest uppercase font-bold inline-flex items-center gap-2">
+                  Richiedi una Consulenza <ArrowRight size={12} />
+                </Link>
+              </div>
             </div>
 
             {/* Menu */}
-            <div className="lg:col-span-3">
-              <h4 className="text-[#B8972A] text-[13px] font-bold uppercase tracking-[0.5em] mb-8">Menu</h4>
-              <ul className="space-y-4">
+            <div className="lg:col-span-2">
+              <h4 className="text-[#B8972A] text-[12px] font-bold uppercase tracking-[0.4em] mb-6">Menu</h4>
+              <ul className="space-y-3">
                 {navLinks.map((link) => (
                   <li key={link.path}>
-                    <Link to={link.path} className="text-white/60 hover:text-[#B8972A] text-[13px] uppercase tracking-widest transition-colors font-bold">
+                    <Link to={link.path} className="text-white/60 hover:text-[#B8972A] text-[11px] uppercase tracking-widest transition-colors font-bold">
                       {link.name}
                     </Link>
                   </li>
@@ -303,40 +335,62 @@ export default function Layout() {
               </ul>
             </div>
 
-            {/* Contatti */}
+            {/* Servizi */}
+            <div className="lg:col-span-2">
+              <h4 className="text-[#B8972A] text-[12px] font-bold uppercase tracking-[0.4em] mb-6">Servizi</h4>
+              <ul className="space-y-3">
+                <li>
+                  <Link to="/servizi/gare" className="text-white/60 hover:text-[#B8972A] text-[11px] uppercase tracking-widest transition-colors font-bold">
+                    Gare OEPV
+                  </Link>
+                </li>
+                <li>
+                  <Link to="/servizi/progettazione" className="text-white/60 hover:text-[#B8972A] text-[11px] uppercase tracking-widest transition-colors font-bold">
+                    Progettazione
+                  </Link>
+                </li>
+                <li>
+                  <Link to="/servizi/rilievi" className="text-white/60 hover:text-[#B8972A] text-[11px] uppercase tracking-widest transition-colors font-bold">
+                    Rilievi Digitali
+                  </Link>
+                </li>
+                <li>
+                  <Link to="/servizi/bim" className="text-white/60 hover:text-[#B8972A] text-[11px] uppercase tracking-widest transition-colors font-bold">
+                    BIM Strategy
+                  </Link>
+                </li>
+              </ul>
+            </div>
+
+            {/* Contatti & Social */}
             <div className="lg:col-span-3">
-              <h4 className="text-[#B8972A] text-[13px] font-bold uppercase tracking-[0.5em] mb-8">Contatti</h4>
-              <ul className="space-y-6">
+              <h4 className="text-[#B8972A] text-[12px] font-bold uppercase tracking-[0.4em] mb-6">Contatti</h4>
+              <ul className="space-y-4">
                 <li>
-                  <a href="mailto:info@mbaprogetti.it" className="group flex items-center gap-4 text-white hover:text-[#B8972A] transition-colors">
-                    <Envelope size={20} weight="light" className="text-[#B8972A] flex-shrink-0" />
-                    <span className="text-[13px] uppercase font-bold tracking-widest">info@mbaprogetti.it</span>
+                  <a href="mailto:info@mbaprogetti.it" className="group flex items-center gap-3 text-white hover:text-[#B8972A] transition-colors">
+                    <Envelope size={18} weight="light" className="text-[#B8972A] flex-shrink-0" />
+                    <span className="text-[12px] uppercase font-bold tracking-widest">info@mbaprogetti.it</span>
                   </a>
                 </li>
                 <li>
-                  <a href="tel:+393286285861" className="group flex items-center gap-4 text-white hover:text-[#B8972A] transition-colors">
-                    <Phone size={20} weight="light" className="text-[#B8972A] flex-shrink-0" />
-                    <span className="text-[13px] uppercase font-bold tracking-widest">+39 328 628 5861</span>
+                  <a href="tel:+393286285861" className="group flex items-center gap-3 text-white hover:text-[#B8972A] transition-colors">
+                    <Phone size={18} weight="light" className="text-[#B8972A] flex-shrink-0" />
+                    <span className="text-[12px] uppercase font-bold tracking-widest">+39 328 628 5861</span>
                   </a>
                 </li>
-                <li className="flex items-start gap-4 text-white/60">
-                  <MapPin size={20} weight="light" className="text-[#B8972A] flex-shrink-0 mt-0.5" />
+                <li className="flex items-start gap-3 text-white/60">
+                  <MapPin size={18} weight="light" className="text-[#B8972A] flex-shrink-0 mt-0.5" />
                   <span className="text-[11px] uppercase font-bold tracking-widest leading-relaxed">
                     Via Sardarulo, 7 <br /> 81016 San Potito Sannitico (CE)
                   </span>
                 </li>
               </ul>
-            </div>
-
-            {/* Social */}
-            <div className="lg:col-span-2">
-              <h4 className="text-[#B8972A] text-[13px] font-bold uppercase tracking-[0.5em] mb-8">Social</h4>
-              <div className="flex gap-6 mt-4">
+              <div className="flex gap-5 mt-6 pt-4 border-t border-white/5">
                 <a href="#" rel="noopener noreferrer" aria-label="LinkedIn" className="text-white/40 hover:text-[#B8972A] transition-colors">
-                  <LinkedinLogo size={28} weight="light" />
+                  <LinkedinLogo size={24} weight="light" />
                 </a>
                 <a href="#" rel="noopener noreferrer" aria-label="Instagram" className="text-white/40 hover:text-[#B8972A] transition-colors">
-                  <InstagramLogo size={28} weight="light" />
+                  <InstagramLogo size={24} weight="light" />
                 </a>
               </div>
             </div>
