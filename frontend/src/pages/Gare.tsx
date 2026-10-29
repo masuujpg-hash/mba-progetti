@@ -520,6 +520,10 @@ export default function Gare() {
     setCurrentIndex(prev => (prev === plates.length - 1 ? 0 : prev + 1));
   };
 
+  // Touch Swipe Refs for Mobile
+  const plateTouchStartX = useRef<number>(0);
+  const plateTouchStartY = useRef<number>(0);
+
   const scrollToContact = () => {
     document.getElementById('contattaci-sezione')?.scrollIntoView({ behavior: 'smooth' });
   };
@@ -698,7 +702,24 @@ export default function Gare() {
 
           {/* Viewer Tavola Ingegnerizzata */}
           <div className="relative bg-white border border-navy/15 rounded-xs shadow-sm overflow-hidden mb-4">
-            <div className="relative aspect-[16/10] sm:aspect-[16/9] bg-neutral-900 group">
+            <div 
+              className="relative aspect-[16/10] sm:aspect-[16/9] bg-neutral-900 group touch-pan-y"
+              onTouchStart={(e) => {
+                plateTouchStartX.current = e.touches[0].clientX;
+                plateTouchStartY.current = e.touches[0].clientY;
+              }}
+              onTouchEnd={(e) => {
+                const deltaX = plateTouchStartX.current - e.changedTouches[0].clientX;
+                const deltaY = plateTouchStartY.current - e.changedTouches[0].clientY;
+                if (Math.abs(deltaX) > Math.abs(deltaY) && Math.abs(deltaX) > 40) {
+                  if (deltaX > 0) {
+                    handleNext();
+                  } else {
+                    handlePrev();
+                  }
+                }
+              }}
+            >
               <img 
                 src={plates[currentIndex].img} 
                 alt={plates[currentIndex].title}
@@ -773,18 +794,50 @@ export default function Gare() {
 
           {/* Modale Zoom a Schermo Intero */}
           {isFullscreenModalOpen && (
-            <div className="fixed inset-0 z-50 bg-black/95 backdrop-blur-sm flex items-center justify-center p-4 sm:p-8">
+            <div 
+              className="fixed inset-0 z-50 bg-black/95 backdrop-blur-sm flex items-center justify-center p-4 sm:p-8 touch-pan-y"
+              onTouchStart={(e) => {
+                plateTouchStartX.current = e.touches[0].clientX;
+                plateTouchStartY.current = e.touches[0].clientY;
+              }}
+              onTouchEnd={(e) => {
+                const deltaX = plateTouchStartX.current - e.changedTouches[0].clientX;
+                const deltaY = plateTouchStartY.current - e.changedTouches[0].clientY;
+                if (Math.abs(deltaX) > Math.abs(deltaY) && Math.abs(deltaX) > 40) {
+                  if (deltaX > 0) {
+                    handleNext();
+                  } else {
+                    handlePrev();
+                  }
+                }
+              }}
+            >
               <button 
                 onClick={() => setIsFullscreenModalOpen(false)}
-                className="absolute top-6 right-6 text-white hover:text-gold p-2 transition-colors cursor-pointer"
+                className="absolute top-6 right-6 text-white hover:text-gold p-2 transition-colors cursor-pointer z-10"
                 title="Chiudi"
               >
                 <X size={28} />
               </button>
+              {/* Frecce laterali a schermo intero */}
+              <button
+                onClick={(e) => { e.stopPropagation(); handlePrev(); }}
+                className="absolute left-4 top-1/2 -translate-y-1/2 bg-white/20 hover:bg-white text-white hover:text-navy p-3 rounded-full backdrop-blur-xs transition-all cursor-pointer z-10"
+                aria-label="Tavola Precedente"
+              >
+                <CaretLeft size={24} weight="bold" />
+              </button>
+              <button
+                onClick={(e) => { e.stopPropagation(); handleNext(); }}
+                className="absolute right-4 top-1/2 -translate-y-1/2 bg-white/20 hover:bg-white text-white hover:text-navy p-3 rounded-full backdrop-blur-xs transition-all cursor-pointer z-10"
+                aria-label="Tavola Successiva"
+              >
+                <CaretRight size={24} weight="bold" />
+              </button>
               <img 
                 src={plates[currentIndex].img} 
                 alt={plates[currentIndex].title}
-                className="max-w-full max-h-[92vh] object-contain rounded-xs"
+                className="max-w-full max-h-[92vh] object-contain rounded-xs select-none"
               />
             </div>
           )}

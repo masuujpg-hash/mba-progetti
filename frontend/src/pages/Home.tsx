@@ -72,6 +72,13 @@ export default function Home() {
     '/media/portfolio/p03.webp'
   ];
 
+  // Touch Swipe Refs for Mobile
+  const portfolioTouchStartX = useRef<number>(0);
+  const portfolioTouchStartY = useRef<number>(0);
+
+  const newsTouchStartX = useRef<number>(0);
+  const newsTouchStartY = useRef<number>(0);
+
   return (
     <div className="bg-white selection:bg-navy selection:text-white overflow-x-hidden">
       
@@ -233,8 +240,25 @@ export default function Home() {
             </div>
           </div>
 
-          {/* Slider Track */}
-          <div className="overflow-hidden relative">
+          {/* Slider Track with Mobile Touch Swipe */}
+          <div 
+            className="overflow-hidden relative touch-pan-y"
+            onTouchStart={(e) => {
+              portfolioTouchStartX.current = e.touches[0].clientX;
+              portfolioTouchStartY.current = e.touches[0].clientY;
+            }}
+            onTouchEnd={(e) => {
+              const deltaX = portfolioTouchStartX.current - e.changedTouches[0].clientX;
+              const deltaY = portfolioTouchStartY.current - e.changedTouches[0].clientY;
+              if (Math.abs(deltaX) > Math.abs(deltaY) && Math.abs(deltaX) > 40) {
+                if (deltaX > 0) {
+                  handleNextPortfolio();
+                } else {
+                  handlePrevPortfolio();
+                }
+              }
+            }}
+          >
             <motion.div 
               animate={{ 
                 x: `-${portfolioIndex * (100 / itemsPerView)}%` 
@@ -382,8 +406,25 @@ export default function Home() {
             </div>
           </div>
 
-          {/* News Slider Track */}
-          <div className="overflow-hidden relative">
+          {/* News Slider Track with Mobile Touch Swipe */}
+          <div 
+            className="overflow-hidden relative touch-pan-y"
+            onTouchStart={(e) => {
+              newsTouchStartX.current = e.touches[0].clientX;
+              newsTouchStartY.current = e.touches[0].clientY;
+            }}
+            onTouchEnd={(e) => {
+              const deltaX = newsTouchStartX.current - e.changedTouches[0].clientX;
+              const deltaY = newsTouchStartY.current - e.changedTouches[0].clientY;
+              if (Math.abs(deltaX) > Math.abs(deltaY) && Math.abs(deltaX) > 40) {
+                if (deltaX > 0) {
+                  handleNextNews();
+                } else {
+                  handlePrevNews();
+                }
+              }
+            }}
+          >
             <motion.div 
               animate={{ 
                 x: `-${newsIndex * (100 / itemsPerView)}%` 

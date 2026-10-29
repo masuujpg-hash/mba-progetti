@@ -59,6 +59,10 @@ export default function HomeV2() {
     setCurrentIndex((prev) => (prev === 0 ? wonProjects.length - itemsPerView : prev - 1));
   };
 
+  // Touch Swipe Refs for Mobile
+  const touchStartX = useRef<number>(0);
+  const touchStartY = useRef<number>(0);
+
   const translateX = itemsPerView === 1 
     ? `calc(-${currentIndex * 100}% - ${currentIndex * 24}px)`
     : `calc(-${currentIndex * 50}% - ${currentIndex * 12}px)`;
@@ -215,7 +219,24 @@ export default function HomeV2() {
         </div>
 
         <div className="relative overflow-hidden w-full max-w-7xl mx-auto px-6">
-           <div className="overflow-hidden">
+           <div 
+              className="overflow-hidden touch-pan-y"
+              onTouchStart={(e) => {
+                touchStartX.current = e.touches[0].clientX;
+                touchStartY.current = e.touches[0].clientY;
+              }}
+              onTouchEnd={(e) => {
+                const deltaX = touchStartX.current - e.changedTouches[0].clientX;
+                const deltaY = touchStartY.current - e.changedTouches[0].clientY;
+                if (Math.abs(deltaX) > Math.abs(deltaY) && Math.abs(deltaX) > 40) {
+                  if (deltaX > 0) {
+                    handleNext();
+                  } else {
+                    handlePrev();
+                  }
+                }
+              }}
+           >
               <motion.div 
                  className="flex gap-6"
                  animate={{ x: translateX }}
