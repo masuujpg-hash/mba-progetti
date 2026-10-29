@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Blinkers:wght@100;200;300;400;600;700;800;900&family=Outfit:wght@300;400;500;600;700;800&display=swap');
 @import "tailwindcss";
 
 /* ── Tailwind v4 Theme (Standard CSS Variables) ── */
@@ -71,6 +71,10 @@ h1, h2, h3, h4, .font-display {
   font-family: var(--font-sans) !important;
   font-style: normal !important;
   letter-spacing: 0.05em !important;
+}
+
+.font-blinkers {
+  font-family: 'Blinkers', sans-serif !important;
 }
 
 .text-stroke-gold {

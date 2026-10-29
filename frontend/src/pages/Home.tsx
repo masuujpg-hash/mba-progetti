@@ -7,10 +7,12 @@ import {
   CaretRight,
   Buildings,
   Calendar,
-  FileText,
   Medal,
-  Trophy,
-  Users
+  Users,
+  Clock,
+  FileMagnifyingGlass,
+  CompassTool,
+  Article
 } from '@phosphor-icons/react';
 import { projects } from '../data/projects';
 import { articles } from '../data/articles';
@@ -119,53 +121,79 @@ export default function Home() {
       </section>
 
       {/* ── 2. SPECIALISTI IN OFFERTE TECNICHE MIGLIORATIVE ── */}
-      <section className="py-16 md:py-24 bg-white">
+      <section className="py-16 md:py-24 bg-white font-blinkers">
         <div className="max-w-6xl mx-auto px-6">
           {/* Section Header */}
-          <div className="text-left mb-12">
-            <span className="bg-gold text-white text-[10px] font-bold uppercase tracking-[0.25em] px-3.5 py-1 rounded-sm inline-block mb-4 shadow-sm">
-              CHI SIAMO
+          <div className="text-left mb-10">
+            <span className="inline-block bg-[#b8972a] text-white text-[11px] font-bold tracking-[0.08em] px-3 py-1 rounded-[2px] uppercase mb-5">
+              GARE OEV
             </span>
-            <h2 className="text-navy text-2xl sm:text-3xl md:text-4xl font-bold uppercase tracking-tight leading-tight mb-4">
+            <h2 className="text-[#1B2A4A] text-2xl sm:text-3xl md:text-[34px] font-extrabold tracking-[0.02em] uppercase leading-tight mb-5">
               SPECIALISTI IN OFFERTE TECNICHE MIGLIORATIVE
             </h2>
-            <p className="text-navy/70 text-sm sm:text-base font-light max-w-4xl leading-relaxed">
-              Mettiamo al servizio dei nostri clienti oltre dieci anni di esperienza nel settore degli appalti pubblici, traducendo competenza tecnica e visione strategica in offerte migliori, più competitive e orientate al massimo punteggio.
+            <p className="text-[#475569] text-base md:text-[17px] font-normal leading-[1.65] max-w-5xl">
+              Mettiamo al servizio dei nostri clienti <strong className="font-bold text-[#1B2A4A]">oltre dieci anni di esperienza</strong> nel settore degli appalti pubblici, traducendo competenza tecnica e visione strategica in offerte migliori, più competitive e <strong className="font-bold text-[#1B2A4A]">orientate al massimo punteggio</strong>.
             </p>
           </div>
 
-          {/* 6 Stats / KPI Grid with small icons */}
-          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-6 py-10 border-y border-navy/10 mb-10">
-            <StatItem icon={Calendar} value="10" label="anni di esperienza" />
-            <StatItem icon={FileText} value="+200" label="gare redatte" />
-            <StatItem icon={Medal} value="63%" label="gare sul podio" />
-            <StatItem icon={Trophy} value="38%" label="gare aggiudicate" />
-            <StatItem icon={Buildings} value="+40" label="imprese clienti" />
-            <StatItem icon={Users} value="+10" label="collaboratori" />
+          {/* 6 Stats / KPI Grid */}
+          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-6 md:gap-4 my-12">
+            <StatItem icon={Calendar} value="+10" label="ANNI DI ESPERIENZA" />
+            <StatItem icon={PodiumStarIcon} value="63%" label="GARE SUL PODIO" />
+            <StatItem icon={Medal} value="38%" label="GARE AGGIUDICATE" />
+            <StatItem icon={Clock} value="100%" label="RISPETTO DEI TEMPI" />
+            <StatItem icon={Buildings} value="+40" label="IMPRESE CLIENTI" />
+            <StatItem icon={Users} value="+10" label="COLLABORATORI" />
           </div>
 
           {/* Interstitial Paragraph */}
-          <p className="text-navy/70 text-sm sm:text-base font-light max-w-4xl leading-relaxed mb-10 text-left">
-            Architetti, ingegneri, specialisti BIM e restauratori integrano le proprie competenze in funzione delle specificità di ogni gara, sviluppando offerte tecniche complete, coerenti e orientate all'aggiudicazione.
+          <p className="text-[#475569] text-base md:text-[17px] font-normal leading-[1.65] max-w-5xl mb-12 text-left">
+            Lo studio adotta un <strong className="font-bold text-[#1B2A4A]">approccio selettivo</strong> nella redazione delle offerte tecniche, <strong className="font-bold text-[#1B2A4A]">orientato alla qualità della proposta e non alla produzione seriale</strong>. Ogni intervento è sviluppato con un <strong className="font-bold text-[#1B2A4A]">approfondimento progettuale mirato</strong>, finalizzato a massimizzare la coerenza e l'efficacia delle soluzioni migliorative.
           </p>
 
-          {/* 3 Feature Cards with Navy Square Badges (R, A, I) */}
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            <FeatureCard 
-              letter="R"
-              title="RETE DI 500+ TECNICI"
-              text="Un network multidisciplinare consolidato in tutta Italia per coprire tempestivamente ogni ambito specialistico richiesto dal bando di gara con rigore e continuità."
-            />
-            <FeatureCard 
-              letter="A"
-              title="APPROCCIO STRATEGICO"
-              text="Studio approfondito del disciplinare di gara e dei singoli criteri di valutazione per massimizzare il punteggio tecnico dell'offerta e la competitività globale."
-            />
-            <FeatureCard 
-              letter="I"
-              title="INTEGRAZIONE TOTALE"
-              text="Dalla modellazione informativa BIM al computo metrico estimativo, garantiamo coerenza tecnica, normativa ed esecutiva in ogni elaborato consegnato."
-            />
+          {/* 3 Feature Cards (ANALIZZIAMO / PROGETTIAMO / VALORIZZIAMO) */}
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8">
+            <div className="bg-white border border-[#e2e8f0] p-8 sm:p-10 rounded-[2px] flex flex-col justify-between">
+              <div>
+                <div className="w-[50px] h-[50px] bg-[#1B2A4A] text-white flex items-center justify-center rounded-[2px] mb-7">
+                  <FileMagnifyingGlass size={26} weight="regular" />
+                </div>
+                <h3 className="text-[#1B2A4A] text-[17px] font-bold tracking-[0.05em] uppercase mb-4">
+                  ANALIZZIAMO
+                </h3>
+                <p className="text-[#475569] text-[15px] leading-relaxed">
+                  Ogni disciplinare e progetto esecutivo vengono esaminati con metodo per individuare <strong className="font-bold text-[#1B2A4A]">criteri premianti, vincoli tecnici e margini di miglioramento</strong>.
+                </p>
+              </div>
+            </div>
+
+            <div className="bg-white border border-[#e2e8f0] p-8 sm:p-10 rounded-[2px] flex flex-col justify-between">
+              <div>
+                <div className="w-[50px] h-[50px] bg-[#1B2A4A] text-white flex items-center justify-center rounded-[2px] mb-7">
+                  <CompassTool size={26} weight="regular" />
+                </div>
+                <h3 className="text-[#1B2A4A] text-[17px] font-bold tracking-[0.05em] uppercase mb-4">
+                  PROGETTIAMO
+                </h3>
+                <p className="text-[#475569] text-[15px] leading-relaxed">
+                  Elaboriamo soluzioni migliorative basate su <strong className="font-bold text-[#1B2A4A]">coerenza tecnica e fattibilità operativa</strong>, integrando architettura, strutture ed impianti.
+                </p>
+              </div>
+            </div>
+
+            <div className="bg-white border border-[#e2e8f0] p-8 sm:p-10 rounded-[2px] flex flex-col justify-between">
+              <div>
+                <div className="w-[50px] h-[50px] bg-[#1B2A4A] text-white flex items-center justify-center rounded-[2px] mb-7">
+                  <Article size={26} weight="regular" />
+                </div>
+                <h3 className="text-[#1B2A4A] text-[17px] font-bold tracking-[0.05em] uppercase mb-4">
+                  VALORIZZIAMO
+                </h3>
+                <p className="text-[#475569] text-[15px] leading-relaxed">
+                  Trasformiamo i contenuti tecnici in <strong className="font-bold text-[#1B2A4A]">documentazione chiara e immediatamente valutabile</strong> per agevolare la commissione giudicatrice.
+                </p>
+              </div>
+            </div>
           </div>
         </div>
       </section>
@@ -394,6 +422,31 @@ export default function Home() {
 
 // ── SUB-COMPONENTS ──
 
+function PodiumStarIcon({ size = 26, className = "" }: { size?: number; className?: string }) {
+  return (
+    <svg 
+      width={size} 
+      height={size} 
+      viewBox="0 0 24 24" 
+      fill="none" 
+      stroke="currentColor" 
+      strokeWidth="1.6" 
+      strokeLinecap="round" 
+      strokeLinejoin="round" 
+      className={className}
+    >
+      {/* Stella a 5 punte */}
+      <polygon points="12 1.5 13.1 4.5 16.3 4.5 13.7 6.4 14.7 9.4 12 7.5 9.3 9.4 10.3 6.4 7.7 4.5 10.9 4.5 12 1.5" />
+      {/* Gradino centrale (1° posto) */}
+      <rect x="8.5" y="10.5" width="7" height="12" />
+      {/* Gradino sinistro (2° posto) */}
+      <rect x="2.5" y="13.5" width="6" height="9" />
+      {/* Gradino destro (3° posto) */}
+      <rect x="15.5" y="15.5" width="6" height="7" />
+    </svg>
+  );
+}
+
 function StatItem({ icon: Icon, value, label }: { icon: any; value: string; label: string }) {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: "-50px" });
@@ -429,27 +482,20 @@ function StatItem({ icon: Icon, value, label }: { icon: any; value: string; labe
   }, [isInView, numericValue]);
 
   return (
-    <div ref={ref} className="text-center p-3">
-      <Icon size={22} className="mx-auto mb-2.5 text-navy/70" weight="regular" />
-      <div className="text-navy text-3xl sm:text-4xl font-bold font-mono tracking-tight mb-1">
+    <div ref={ref} className="text-center p-2 flex flex-col items-center font-blinkers">
+      <div className="text-[#1B2A4A] mb-3 flex items-center justify-center h-7">
+        <Icon size={26} weight="regular" />
+      </div>
+      <div className="text-[#1B2A4A] text-3xl sm:text-4xl md:text-[42px] font-extrabold tracking-tight leading-none mb-2 font-blinkers">
         {prefix}{isInView ? count : 0}{suffix}
       </div>
-      <div className="text-gold text-[10px] font-bold uppercase tracking-[0.2em] leading-tight">{label}</div>
+      <div className="text-[#64748b] text-[10px] sm:text-[11px] font-bold uppercase tracking-[0.16em] leading-tight font-blinkers">
+        {label}
+      </div>
     </div>
   );
 }
 
-function FeatureCard({ letter, title, text }: { letter: string; title: string; text: string }) {
-  return (
-    <div className="bg-bg-neutral/40 p-7 border border-navy/10 rounded-sm space-y-4 shadow-sm hover:border-gold/50 transition-colors">
-      <div className="w-10 h-10 bg-navy text-white font-mono font-bold text-base flex items-center justify-center rounded-sm">
-        {letter}
-      </div>
-      <h3 className="text-navy text-sm font-bold uppercase tracking-tight">{title}</h3>
-      <p className="text-navy/70 text-xs font-light leading-relaxed">{text}</p>
-    </div>
-  );
-}
 
 function ProjectCard({ id, title, cat, img, pos, rank, amount }: any) {
   return (
