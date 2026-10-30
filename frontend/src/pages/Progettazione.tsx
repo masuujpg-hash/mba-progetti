@@ -352,28 +352,10 @@ function AnimatedIronTriangle() {
   const containerRef = useRef<HTMLDivElement>(null);
   const isInView = useInView(containerRef, { once: true, margin: '-50px' });
 
-  const vertexDetails = {
-    tempi: {
-      title: 'Tempi & Cronoprogramma',
-      badge: '100% Rispetto Milestone',
-      desc: 'Cronoprogrammi esecutivi Gantt a maglie strette, SAL puntuali e monitoraggio quotidiano delle lavorazioni critiche.'
-    },
-    costi: {
-      title: 'Costi & Budget Cantierabile',
-      badge: 'Zero Extra Costi',
-      desc: 'Computi metrici estimativi dettagliati, contabilità dei lavori trasparente e prevenzione totale delle riserve.'
-    },
-    qualita: {
-      title: 'Qualità Esecutiva & CAM',
-      badge: 'Conformità Assoluta',
-      desc: 'Verifica della posa in opera, collaudi in corso d\'opera e certificazione dei materiali conformi ai requisiti di progetto.'
-    }
-  };
-
   return (
-    <div ref={containerRef} className="bg-white/80 p-6 rounded-lg border border-navy/10 shadow-xs flex flex-col items-center justify-center">
+    <div ref={containerRef} className="flex flex-col items-center justify-center py-4">
       {/* Triangle SVG Container */}
-      <div className="relative w-64 h-64 sm:w-72 sm:h-72 flex items-center justify-center">
+      <div className="relative w-72 h-72 sm:w-80 sm:h-80 flex items-center justify-center">
         {/* Animated Compass / Radar Ring Background */}
         <motion.div
           animate={{ rotate: -360 }}
@@ -534,23 +516,6 @@ function AnimatedIronTriangle() {
             LAVORI
           </text>
         </svg>
-      </div>
-
-      {/* Dynamic Detail Card Below SVG */}
-      <div className="w-full mt-3 min-h-[68px]">
-        {activeVertex ? (
-          <div className="p-2.5 rounded bg-navy/5 border border-gold/40 text-left transition-all">
-            <div className="flex items-center justify-between mb-1">
-              <span className="text-xs font-bold text-navy uppercase">{vertexDetails[activeVertex].title}</span>
-              <span className="text-[10px] text-gold font-bold">{vertexDetails[activeVertex].badge}</span>
-            </div>
-            <p className="text-[11px] text-navy/70 leading-snug">{vertexDetails[activeVertex].desc}</p>
-          </div>
-        ) : (
-          <div className="p-2.5 rounded bg-transparent border border-dashed border-navy/15 text-center text-navy/50 text-[11px]">
-            Passa il cursore sui vertici (Tempi, Costi, Qualità) per esplorare i controlli MBA.
-          </div>
-        )}
       </div>
     </div>
   );
