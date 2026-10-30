@@ -31,9 +31,6 @@ export default function Portfolio() {
             <h1 className="text-white text-3xl sm:text-4xl md:text-6xl font-bold uppercase tracking-tighter mb-4">
                Archivio Opere.
             </h1>
-            <p className="text-white/80 text-sm md:text-base font-light max-w-xl mx-auto leading-relaxed">
-               Una selezione delle aggiudicazioni e delle offerte tecniche più significative sviluppate dallo studio per imprese di costruzione in tutta Italia.
-            </p>
           </motion.div>
         </div>
       </section>

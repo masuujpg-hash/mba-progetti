@@ -216,9 +216,6 @@ export default function Home() {
               <h2 className="text-navy text-2xl sm:text-3xl md:text-4xl font-bold uppercase tracking-tight leading-tight">
                 I NOSTRI PROGETTI & APPALTI
               </h2>
-              <p className="text-text-main text-sm font-light max-w-xl mt-3">
-                Esplora le offerte migliorative vincenti ed i progetti firmati dallo studio.
-              </p>
             </div>
             
             {/* Carousel Controls */}
