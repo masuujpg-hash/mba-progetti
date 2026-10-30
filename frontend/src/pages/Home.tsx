@@ -22,6 +22,7 @@ export default function Home() {
 
   const [portfolioIndex, setPortfolioIndex] = useState(0);
   const [itemsPerView, setItemsPerView] = useState(3);
+  const [isPortfolioPaused, setIsPortfolioPaused] = useState(false);
 
   // NEWS CAROUSEL STATE
   const [newsIndex, setNewsIndex] = useState(0);
@@ -56,6 +57,17 @@ export default function Home() {
 
   const maxPortfolioIndex = Math.max(0, homeProjects.length - itemsPerView);
   const maxNewsIndex = Math.max(0, homeArticles.length - itemsPerView);
+
+  // Autoplay automatico a intervallo per il carosello progetti
+  useEffect(() => {
+    if (isPortfolioPaused || homeProjects.length <= itemsPerView) return;
+
+    const interval = setInterval(() => {
+      setPortfolioIndex((prev) => (prev >= maxPortfolioIndex ? 0 : prev + 1));
+    }, 4000);
+
+    return () => clearInterval(interval);
+  }, [isPortfolioPaused, homeProjects.length, itemsPerView, maxPortfolioIndex]);
 
   const handleNextPortfolio = () => {
     setPortfolioIndex((prev) => (prev >= maxPortfolioIndex ? 0 : prev + 1));
@@ -226,14 +238,18 @@ export default function Home() {
             </h2>
           </div>
 
-          {/* Slider Track with Mobile Touch Swipe */}
+          {/* Slider Track with Mobile Touch Swipe and Auto-slide Pause on Hover */}
           <div 
             className="overflow-hidden relative touch-pan-y"
+            onMouseEnter={() => setIsPortfolioPaused(true)}
+            onMouseLeave={() => setIsPortfolioPaused(false)}
             onTouchStart={(e) => {
+              setIsPortfolioPaused(true);
               portfolioTouchStartX.current = e.touches[0].clientX;
               portfolioTouchStartY.current = e.touches[0].clientY;
             }}
             onTouchEnd={(e) => {
+              setIsPortfolioPaused(false);
               const deltaX = portfolioTouchStartX.current - e.changedTouches[0].clientX;
               const deltaY = portfolioTouchStartY.current - e.changedTouches[0].clientY;
               if (Math.abs(deltaX) > Math.abs(deltaY) && Math.abs(deltaX) > 40) {
@@ -550,6 +566,16 @@ function StatItem({ icon: Icon, value, label }: { icon: any; value: string; labe
 
 
 function ProjectCard({ id, title, cat, img, pos, rank, amount }: any) {
+  // Linea 1 dettagliata (es. "3,4 MLN · 2° CLASSIFICATO")
+  const metaParts: string[] = [];
+  if (amount) metaParts.push(amount);
+  if (rank) {
+    metaParts.push(rank.toUpperCase());
+  } else if (cat) {
+    metaParts.push(cat.toUpperCase());
+  }
+  const metaLine = metaParts.join(' · ');
+
   return (
     <Link to={`/portfolio/${id}`} className="block group bg-white border border-navy/10 rounded-[1px] overflow-hidden shadow-xs hover:shadow-md transition-all h-full">
       <div className="relative aspect-[4/3] bg-neutral-100 overflow-hidden">
@@ -558,16 +584,19 @@ function ProjectCard({ id, title, cat, img, pos, rank, amount }: any) {
           alt={title}
           className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
         />
-        {rank && (
-          <div className="absolute top-3 left-3 bg-[#F5C400] text-white text-[10px] font-bold uppercase tracking-wider px-2.5 py-1 rounded-[1px] shadow-sm">
-            {rank}
-          </div>
-        )}
       </div>
-      <div className="p-5">
-        <span className="text-[#F5C400] text-[10px] font-bold uppercase tracking-wider block mb-1 font-outfit">{cat} · {amount}</span>
-        <h3 className="text-navy text-sm font-bold uppercase tracking-tight mb-2 group-hover:text-[#F5C400] transition-colors line-clamp-2">{title}</h3>
-        <p className="text-navy/50 text-xs font-medium block">{pos}</p>
+      <div className="p-5 space-y-2">
+        {metaLine && (
+          <span className="text-[#1B2A4A] text-xs font-bold uppercase tracking-[0.12em] block font-outfit">
+            {metaLine}
+          </span>
+        )}
+        <h3 className="text-[#1B2A4A] text-base font-bold leading-snug group-hover:text-[#F5C400] transition-colors line-clamp-2 font-outfit">
+          {title}
+        </h3>
+        <p className="text-[#64748B] text-xs font-normal font-outfit">
+          {pos}
+        </p>
       </div>
     </Link>
   );
