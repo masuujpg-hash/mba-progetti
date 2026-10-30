@@ -208,33 +208,14 @@ export default function Home() {
       {/* ── 3. I NOSTRI PROGETTI & APPALTI (PORTFOLIO CAROUSEL) ── */}
       <section className="py-16 md:py-24 bg-bg-neutral/40 overflow-hidden" id="portfolio-home">
         <div className="px-6 max-w-7xl mx-auto">
-          <div className="mb-10 flex flex-col md:flex-row justify-between items-start md:items-end gap-6">
-            <div>
-              <span className="bg-gold text-white text-[10px] font-bold uppercase tracking-[0.25em] px-3.5 py-1 rounded-sm inline-block mb-4 shadow-sm">
-                PORTFOLIO COMPLETO
-              </span>
-              <h2 className="text-navy text-2xl sm:text-3xl md:text-4xl font-bold uppercase tracking-tight leading-tight">
-                I NOSTRI PROGETTI & APPALTI
-              </h2>
-            </div>
-            
-            {/* Carousel Controls */}
-            <div className="flex items-center gap-3 shrink-0">
-              <button 
-                onClick={handlePrevPortfolio}
-                className="p-3 border border-navy/20 text-navy hover:border-gold hover:text-gold transition-colors bg-white rounded-sm shadow-sm"
-                aria-label="Progetto Precedente"
-              >
-                <CaretLeft size={20} />
-              </button>
-              <button 
-                onClick={handleNextPortfolio}
-                className="p-3 border border-navy/20 text-navy hover:border-gold hover:text-gold transition-colors bg-white rounded-sm shadow-sm"
-                aria-label="Progetto Successivo"
-              >
-                <CaretRight size={20} />
-              </button>
-            </div>
+          {/* Section Header */}
+          <div className="mb-10">
+            <span className="bg-[#F5C400] text-white text-[10px] font-bold uppercase tracking-[0.25em] px-3.5 py-1 rounded-[1px] inline-block mb-4 shadow-sm">
+              PORTFOLIO COMPLETO
+            </span>
+            <h2 className="text-navy text-2xl sm:text-3xl md:text-4xl font-bold uppercase tracking-tight leading-tight">
+              I NOSTRI PROGETTI & APPALTI
+            </h2>
           </div>
 
           {/* Slider Track with Mobile Touch Swipe */}
@@ -283,10 +264,32 @@ export default function Home() {
             </motion.div>
           </div>
 
-          <div className="mt-12 text-center">
-            <Link to="/portfolio" className="btn-ghost-dark group px-8 py-3 text-xs tracking-widest uppercase font-bold">
-              Vedi Tutti i Progetti nel Portfolio <ArrowRight className="ml-2 group-hover:translate-x-1 transition-transform inline-block" />
+          {/* Bottom Bar: CTA on Left, Carousel Controls on Right */}
+          <div className="mt-10 flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-4">
+            <Link 
+              to="/portfolio" 
+              className="border border-navy/20 hover:border-[#F5C400] hover:text-[#F5C400] bg-white px-6 py-3.5 text-[11px] sm:text-xs tracking-widest uppercase font-bold text-navy transition-all rounded-[1px] shadow-xs inline-flex items-center justify-center sm:justify-start gap-3 group"
+            >
+              <span>Vedi Tutti i Progetti nel Portfolio</span>
+              <ArrowRight size={15} className="group-hover:translate-x-1 transition-transform" />
             </Link>
+
+            <div className="flex items-center justify-end gap-3 shrink-0 self-end sm:self-auto">
+              <button 
+                onClick={handlePrevPortfolio}
+                className="w-11 h-11 border border-navy/20 text-navy hover:border-[#F5C400] hover:text-[#F5C400] transition-colors bg-white rounded-[1px] shadow-xs flex items-center justify-center"
+                aria-label="Progetto Precedente"
+              >
+                <CaretLeft size={20} />
+              </button>
+              <button 
+                onClick={handleNextPortfolio}
+                className="w-11 h-11 border border-navy/20 text-navy hover:border-[#F5C400] hover:text-[#F5C400] transition-colors bg-white rounded-[1px] shadow-xs flex items-center justify-center"
+                aria-label="Progetto Successivo"
+              >
+                <CaretRight size={20} />
+              </button>
+            </div>
           </div>
         </div>
       </section>
@@ -371,36 +374,17 @@ export default function Home() {
       {/* ── 6. AGGIORNAMENTI DALLO STUDIO (NEWS / BLOG) ── */}
       <section className="py-16 md:py-24 bg-bg-neutral/30 border-t border-navy/5">
         <div className="max-w-7xl mx-auto px-6">
-          <div className="mb-10 flex flex-col md:flex-row justify-between items-start md:items-end gap-6">
-            <div>
-              <span className="bg-gold text-white text-[10px] font-bold uppercase tracking-[0.25em] px-3.5 py-1 rounded-sm inline-block mb-4 shadow-sm">
-                NEWS
-              </span>
-              <h2 className="text-navy text-2xl sm:text-3xl md:text-4xl font-bold uppercase tracking-tight leading-tight mb-3">
-                AGGIORNAMENTI DALLO STUDIO
-              </h2>
-              <p className="text-navy/70 text-sm sm:text-base font-light max-w-xl leading-relaxed">
-                Novità, approfondimenti tecnici e casi studio dal mondo delle gare pubbliche e dell'architettura.
-              </p>
-            </div>
-
-            {/* News Carousel Controls */}
-            <div className="flex items-center gap-3 shrink-0">
-              <button 
-                onClick={handlePrevNews}
-                className="p-3 border border-navy/20 text-navy hover:border-gold hover:text-gold transition-colors bg-white rounded-sm shadow-sm"
-                aria-label="Articolo Precedente"
-              >
-                <CaretLeft size={20} />
-              </button>
-              <button 
-                onClick={handleNextNews}
-                className="p-3 border border-navy/20 text-navy hover:border-gold hover:text-gold transition-colors bg-white rounded-sm shadow-sm"
-                aria-label="Articolo Successivo"
-              >
-                <CaretRight size={20} />
-              </button>
-            </div>
+          {/* Section Header */}
+          <div className="mb-10">
+            <span className="bg-[#F5C400] text-white text-[10px] font-bold uppercase tracking-[0.25em] px-3.5 py-1 rounded-[1px] inline-block mb-4 shadow-sm">
+              NEWS
+            </span>
+            <h2 className="text-navy text-2xl sm:text-3xl md:text-4xl font-bold uppercase tracking-tight leading-tight mb-3">
+              AGGIORNAMENTI DALLO STUDIO
+            </h2>
+            <p className="text-navy/70 text-sm sm:text-base font-light max-w-xl leading-relaxed">
+              Novità, approfondimenti tecnici e casi studio dal mondo delle gare pubbliche e dell'architettura.
+            </p>
           </div>
 
           {/* News Slider Track with Mobile Touch Swipe */}
@@ -446,10 +430,32 @@ export default function Home() {
             </motion.div>
           </div>
 
-          <div className="mt-12 text-center">
-            <Link to="/risorse" className="btn-ghost-dark group px-8 py-3 text-xs tracking-widest uppercase font-bold">
-              Vedi Tutti gli Aggiornamenti <ArrowRight className="ml-2 group-hover:translate-x-1 transition-transform inline-block" />
+          {/* Bottom Bar: CTA on Left, Carousel Controls on Right */}
+          <div className="mt-10 flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-4">
+            <Link 
+              to="/risorse" 
+              className="border border-navy/20 hover:border-[#F5C400] hover:text-[#F5C400] bg-white px-6 py-3.5 text-[11px] sm:text-xs tracking-widest uppercase font-bold text-navy transition-all rounded-[1px] shadow-xs inline-flex items-center justify-center sm:justify-start gap-3 group"
+            >
+              <span>Vedi Tutti gli Aggiornamenti</span>
+              <ArrowRight size={15} className="group-hover:translate-x-1 transition-transform" />
             </Link>
+
+            <div className="flex items-center justify-end gap-3 shrink-0 self-end sm:self-auto">
+              <button 
+                onClick={handlePrevNews}
+                className="w-11 h-11 border border-navy/20 text-navy hover:border-[#F5C400] hover:text-[#F5C400] transition-colors bg-white rounded-[1px] shadow-xs flex items-center justify-center"
+                aria-label="Articolo Precedente"
+              >
+                <CaretLeft size={20} />
+              </button>
+              <button 
+                onClick={handleNextNews}
+                className="w-11 h-11 border border-navy/20 text-navy hover:border-[#F5C400] hover:text-[#F5C400] transition-colors bg-white rounded-[1px] shadow-xs flex items-center justify-center"
+                aria-label="Articolo Successivo"
+              >
+                <CaretRight size={20} />
+              </button>
+            </div>
           </div>
         </div>
       </section>
@@ -537,7 +543,7 @@ function StatItem({ icon: Icon, value, label }: { icon: any; value: string; labe
 
 function ProjectCard({ id, title, cat, img, pos, rank, amount }: any) {
   return (
-    <Link to={`/portfolio/${id}`} className="block group bg-white border border-navy/10 rounded-sm overflow-hidden shadow-sm hover:shadow-md transition-all h-full">
+    <Link to={`/portfolio/${id}`} className="block group bg-white border border-navy/10 rounded-[1px] overflow-hidden shadow-xs hover:shadow-md transition-all h-full">
       <div className="relative aspect-[4/3] bg-neutral-100 overflow-hidden">
         <img 
           src={img} 
@@ -545,14 +551,14 @@ function ProjectCard({ id, title, cat, img, pos, rank, amount }: any) {
           className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 grayscale group-hover:grayscale-0"
         />
         {rank && (
-          <div className="absolute top-3 left-3 bg-gold text-white text-[10px] font-bold uppercase tracking-wider px-2.5 py-1 rounded-sm shadow-sm">
+          <div className="absolute top-3 left-3 bg-[#F5C400] text-white text-[10px] font-bold uppercase tracking-wider px-2.5 py-1 rounded-[1px] shadow-sm">
             {rank}
           </div>
         )}
       </div>
       <div className="p-5">
-        <span className="text-gold text-[10px] font-bold uppercase tracking-wider block mb-1 font-outfit">{cat} • {amount}</span>
-        <h3 className="text-navy text-sm font-bold uppercase tracking-tight mb-2 group-hover:text-gold transition-colors line-clamp-2">{title}</h3>
+        <span className="text-[#F5C400] text-[10px] font-bold uppercase tracking-wider block mb-1 font-outfit">{cat} · {amount}</span>
+        <h3 className="text-navy text-sm font-bold uppercase tracking-tight mb-2 group-hover:text-[#F5C400] transition-colors line-clamp-2">{title}</h3>
         <p className="text-navy/50 text-xs font-medium block">{pos}</p>
       </div>
     </Link>
@@ -561,19 +567,19 @@ function ProjectCard({ id, title, cat, img, pos, rank, amount }: any) {
 
 function ServiceBentoCard({ letter, title, link, desc }: { letter: string; title: string; link: string; desc: string }) {
   return (
-    <Link to={link} className="p-8 bg-bg-neutral/40 border border-navy/10 rounded-sm flex flex-col justify-between group hover:border-gold hover:shadow-sm transition-all h-[320px]">
+    <Link to={link} className="p-8 bg-bg-neutral/40 border border-navy/10 rounded-[1px] flex flex-col justify-between group hover:border-[#F5C400] hover:shadow-sm transition-all h-[320px]">
       <div>
-        <div className="w-10 h-10 bg-navy text-white font-mono font-bold text-base flex items-center justify-center rounded-sm mb-6 group-hover:bg-gold group-hover:text-navy transition-colors">
+        <div className="w-10 h-10 bg-navy text-white font-mono font-bold text-base flex items-center justify-center rounded-[1px] mb-6 group-hover:bg-[#F5C400] group-hover:text-navy transition-colors">
           {letter}
         </div>
-        <h3 className="text-navy text-lg font-bold uppercase tracking-tight mb-3 group-hover:text-gold transition-colors">
+        <h3 className="text-navy text-lg font-bold uppercase tracking-tight mb-3 group-hover:text-[#F5C400] transition-colors">
           {title}
         </h3>
         <p className="text-navy/70 text-xs font-light leading-relaxed">
           {desc}
         </p>
       </div>
-      <div className="flex items-center gap-2 text-gold text-[11px] font-bold uppercase tracking-wider group-hover:text-navy transition-colors pt-6 border-t border-navy/10">
+      <div className="flex items-center gap-2 text-[#F5C400] text-[11px] font-bold uppercase tracking-wider group-hover:text-navy transition-colors pt-6 border-t border-navy/10">
         Scopri Servizio <ArrowRight size={14} />
       </div>
     </Link>
@@ -582,19 +588,19 @@ function ServiceBentoCard({ letter, title, link, desc }: { letter: string; title
 
 function ArticleCard({ title, category, excerpt, image }: { title: string; category: string; excerpt: string; image: string }) {
   return (
-    <Link to="/risorse" className="block group bg-white border border-navy/10 rounded-sm overflow-hidden shadow-sm hover:shadow-md transition-all h-full">
+    <Link to="/risorse" className="block group bg-white border border-navy/10 rounded-[1px] overflow-hidden shadow-xs hover:shadow-md transition-all h-full">
       <div className="relative aspect-[16/10] bg-neutral-100 overflow-hidden">
         <img 
           src={image} 
           alt={title}
           className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 grayscale group-hover:grayscale-0"
         />
-        <div className="absolute top-3 left-3 bg-navy text-white text-[10px] font-bold uppercase tracking-wider px-2.5 py-1 rounded-sm shadow-sm">
+        <div className="absolute top-3 left-3 bg-navy text-white text-[10px] font-bold uppercase tracking-wider px-2.5 py-1 rounded-[1px] shadow-sm">
           {category}
         </div>
       </div>
       <div className="p-5">
-        <h3 className="text-navy text-sm font-bold uppercase tracking-tight mb-2 group-hover:text-gold transition-colors line-clamp-2">
+        <h3 className="text-navy text-sm font-bold uppercase tracking-tight mb-2 group-hover:text-[#F5C400] transition-colors line-clamp-2">
           {title}
         </h3>
         <p className="text-navy/60 text-xs font-light leading-relaxed line-clamp-3">
