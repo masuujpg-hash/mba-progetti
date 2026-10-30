@@ -50,20 +50,20 @@ export default function Portfolio() {
 
           <div className="lg:col-span-5 grid grid-cols-2 gap-4">
             <div className="border-l border-gold/40 pl-4">
-              <div className="text-navy text-2xl md:text-3xl font-bold tracking-tighter mb-0.5">+200</div>
-              <div className="text-gold text-[10px] font-bold uppercase tracking-wider">Gare Redatte</div>
+              <div className="text-navy text-2xl md:text-3xl font-bold tracking-tighter mb-0.5 font-outfit">+200</div>
+              <div className="text-gold text-[10px] font-bold uppercase tracking-wider font-outfit">Gare Redatte</div>
             </div>
             <div className="border-l border-gold/40 pl-4">
-              <div className="text-navy text-2xl md:text-3xl font-bold tracking-tighter mb-0.5">63%</div>
-              <div className="text-gold text-[10px] font-bold uppercase tracking-wider">Sul Podio</div>
+              <div className="text-navy text-2xl md:text-3xl font-bold tracking-tighter mb-0.5 font-outfit">63%</div>
+              <div className="text-gold text-[10px] font-bold uppercase tracking-wider font-outfit">Sul Podio</div>
             </div>
             <div className="border-l border-gold/40 pl-4">
-              <div className="text-navy text-2xl md:text-3xl font-bold tracking-tighter mb-0.5">38%</div>
-              <div className="text-gold text-[10px] font-bold uppercase tracking-wider">Aggiudicate</div>
+              <div className="text-navy text-2xl md:text-3xl font-bold tracking-tighter mb-0.5 font-outfit">38%</div>
+              <div className="text-gold text-[10px] font-bold uppercase tracking-wider font-outfit">Aggiudicate</div>
             </div>
             <div className="border-l border-gold/40 pl-4">
-              <div className="text-navy text-2xl md:text-3xl font-bold tracking-tighter mb-0.5">+40</div>
-              <div className="text-gold text-[10px] font-bold uppercase tracking-wider">Imprese Clienti</div>
+              <div className="text-navy text-2xl md:text-3xl font-bold tracking-tighter mb-0.5 font-outfit">+40</div>
+              <div className="text-gold text-[10px] font-bold uppercase tracking-wider font-outfit">Imprese Clienti</div>
             </div>
           </div>
         </div>

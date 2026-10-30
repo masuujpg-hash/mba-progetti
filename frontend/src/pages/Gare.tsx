@@ -56,10 +56,10 @@ function StatCounter({ value, label }: { value: string; label: string }) {
   return (
     <div ref={ref} className="border-b border-navy/10 pb-4 last:border-b-0">
       <div className="flex items-baseline gap-4">
-        <span className="text-navy text-4xl sm:text-5xl font-bold tracking-tight font-heading">
+        <span className="text-navy text-4xl sm:text-5xl font-bold tracking-tight font-outfit">
           {prefix}{isInView ? count : 0}{suffix}
         </span>
-        <span className="text-navy/70 text-xs sm:text-sm font-medium uppercase tracking-wider">
+        <span className="text-navy/70 text-xs sm:text-sm font-medium uppercase tracking-wider font-outfit">
           {label}
         </span>
       </div>
@@ -242,12 +242,12 @@ function AnimatedDonutChart({
             transition={{ duration: 0.8, delay: 0.4 }}
             className="flex flex-col items-center justify-center"
           >
-            <span className="text-navy text-2xl sm:text-3xl font-extrabold tracking-tight font-heading leading-none">
+            <span className="text-navy text-2xl sm:text-3xl font-extrabold tracking-tight font-outfit leading-none">
               {prefix}{isInView ? centerCount : 0}{suffix}
               {centerUnit && <span className="text-xs font-normal text-navy/60 ml-0.5">{centerUnit}</span>}
             </span>
             {centerLabel && (
-              <span className="text-[9px] uppercase tracking-widest text-gold font-bold mt-1">
+              <span className="text-[9px] uppercase tracking-widest text-gold font-bold mt-1 font-outfit">
                 {centerLabel}
               </span>
             )}

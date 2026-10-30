@@ -445,10 +445,10 @@ function StatItem({ icon: Icon, value, label }: any) {
        <div className="text-gold mb-6 flex justify-center">
           <Icon size={36} weight="light" />
        </div>
-       <div className="text-navy text-3xl md:text-5xl lg:text-6xl font-bold tracking-tighter mb-3">
+       <div className="text-navy text-3xl md:text-5xl lg:text-6xl font-bold tracking-tighter mb-3 font-outfit">
          {prefix}{isInView ? count : 0}{suffix}
        </div>
-       <div className="text-gold text-[11px] font-bold uppercase tracking-[0.2em] leading-relaxed max-w-[120px] mx-auto">{label}</div>
+       <div className="text-gold text-[11px] font-bold uppercase tracking-[0.2em] leading-relaxed max-w-[120px] mx-auto font-outfit">{label}</div>
     </div>
   );
 }

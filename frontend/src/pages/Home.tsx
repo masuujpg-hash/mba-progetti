@@ -524,10 +524,10 @@ function StatItem({ icon: Icon, value, label }: { icon: any; value: string; labe
       <div className="text-[#1B2A4A] mb-3 flex items-center justify-center h-7">
         <Icon size={26} weight="regular" />
       </div>
-      <div className="text-[#1B2A4A] text-3xl sm:text-4xl md:text-[42px] font-extrabold tracking-tight leading-none mb-2">
+      <div className="text-[#1B2A4A] text-3xl sm:text-4xl md:text-[42px] font-extrabold tracking-tight leading-none mb-2 font-outfit">
         {prefix}{isInView ? count : 0}{suffix}
       </div>
-      <div className="text-[#64748b] text-[10px] sm:text-[11px] font-bold uppercase tracking-[0.16em] leading-tight">
+      <div className="text-[#64748b] text-[10px] sm:text-[11px] font-bold uppercase tracking-[0.16em] leading-tight font-outfit">
         {label}
       </div>
     </div>
@@ -551,7 +551,7 @@ function ProjectCard({ id, title, cat, img, pos, rank, amount }: any) {
         )}
       </div>
       <div className="p-5">
-        <span className="text-gold text-[10px] font-bold uppercase tracking-wider block mb-1">{cat} • {amount}</span>
+        <span className="text-gold text-[10px] font-bold uppercase tracking-wider block mb-1 font-outfit">{cat} • {amount}</span>
         <h3 className="text-navy text-sm font-bold uppercase tracking-tight mb-2 group-hover:text-gold transition-colors line-clamp-2">{title}</h3>
         <p className="text-navy/50 text-xs font-medium block">{pos}</p>
       </div>
