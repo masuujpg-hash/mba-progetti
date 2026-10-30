@@ -132,7 +132,7 @@ export default function Home() {
         <div className="max-w-6xl mx-auto px-6">
           {/* Section Header */}
           <div className="text-left mb-10">
-            <span className="inline-block bg-[#F5C400] text-white text-[11px] font-bold tracking-[0.08em] px-3 py-1 rounded-[2px] uppercase mb-5">
+            <span className="inline-block bg-[#F5C400] text-white text-[11px] font-bold tracking-[0.08em] px-3 py-1 rounded-[1px] uppercase mb-5">
               GARE OEV
             </span>
             <h2 className="text-[#1B2A4A] text-2xl sm:text-3xl md:text-[34px] font-extrabold tracking-[0.02em] uppercase leading-tight mb-5">
@@ -160,9 +160,9 @@ export default function Home() {
 
           {/* 3 Feature Cards (ANALIZZIAMO / PROGETTIAMO / VALORIZZIAMO) */}
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8">
-            <div className="bg-white border border-[#e2e8f0] p-8 sm:p-10 rounded-[2px] flex flex-col justify-between">
+            <div className="bg-white border border-[#e2e8f0] p-8 sm:p-10 rounded-[1px] flex flex-col justify-between">
               <div>
-                <div className="w-[50px] h-[50px] bg-[#1B2A4A] text-white flex items-center justify-center rounded-[2px] mb-7">
+                <div className="w-[50px] h-[50px] bg-[#1B2A4A] text-white flex items-center justify-center rounded-[1px] mb-7">
                   <FileMagnifyingGlass size={26} weight="regular" />
                 </div>
                 <h3 className="text-[#1B2A4A] text-[17px] font-bold tracking-[0.05em] uppercase mb-4">
@@ -174,9 +174,9 @@ export default function Home() {
               </div>
             </div>
 
-            <div className="bg-white border border-[#e2e8f0] p-8 sm:p-10 rounded-[2px] flex flex-col justify-between">
+            <div className="bg-white border border-[#e2e8f0] p-8 sm:p-10 rounded-[1px] flex flex-col justify-between">
               <div>
-                <div className="w-[50px] h-[50px] bg-[#1B2A4A] text-white flex items-center justify-center rounded-[2px] mb-7">
+                <div className="w-[50px] h-[50px] bg-[#1B2A4A] text-white flex items-center justify-center rounded-[1px] mb-7">
                   <CompassTool size={26} weight="regular" />
                 </div>
                 <h3 className="text-[#1B2A4A] text-[17px] font-bold tracking-[0.05em] uppercase mb-4">
@@ -188,9 +188,9 @@ export default function Home() {
               </div>
             </div>
 
-            <div className="bg-white border border-[#e2e8f0] p-8 sm:p-10 rounded-[2px] flex flex-col justify-between">
+            <div className="bg-white border border-[#e2e8f0] p-8 sm:p-10 rounded-[1px] flex flex-col justify-between">
               <div>
-                <div className="w-[50px] h-[50px] bg-[#1B2A4A] text-white flex items-center justify-center rounded-[2px] mb-7">
+                <div className="w-[50px] h-[50px] bg-[#1B2A4A] text-white flex items-center justify-center rounded-[1px] mb-7">
                   <Article size={26} weight="regular" />
                 </div>
                 <h3 className="text-[#1B2A4A] text-[17px] font-bold tracking-[0.05em] uppercase mb-4">

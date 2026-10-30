@@ -23,6 +23,14 @@
   --text-body: var(--color-text-main);
   --line-gold: rgba(245, 196, 0, 0.3);
 
+  --radius-xs: 1px;
+  --radius-sm: 1px;
+  --radius-md: 1px;
+  --radius-lg: 1px;
+  --radius-xl: 2px;
+  --radius-2xl: 2px;
+  --radius: 1px;
+
   font-family: var(--font-sans);
   line-height: 1.5;
   font-weight: 400;
@@ -45,6 +53,13 @@
   --color-text-main: var(--color-text-main);
   --color-bg-neutral: var(--color-bg-neutral);
   --color-bg-primary: var(--color-bg-primary);
+
+  --radius-xs: 1px;
+  --radius-sm: 1px;
+  --radius-md: 1px;
+  --radius-lg: 1px;
+  --radius-xl: 2px;
+  --radius-2xl: 2px;
 }
 
 /* ── Global Resets & Lenis Smooth Scroll ── */
@@ -65,6 +80,34 @@ html.lenis, html.lenis body {
 }
 .lenis.lenis-smooth [data-lenis-prevent] {
   overscroll-behavior: contain;
+}
+
+
+/* ── Architectural Sharp/Crisp Corners across all rectangles ── */
+.rounded,
+.rounded-xs,
+.rounded-sm,
+.rounded-md,
+.rounded-lg,
+.rounded-xl,
+.rounded-\[2px\],
+.rounded-\[1px\] {
+  border-radius: 1px !important;
+}
+
+.rounded-t,
+.rounded-t-sm,
+.rounded-t-xs {
+  border-top-left-radius: 1px !important;
+  border-top-right-radius: 1px !important;
+}
+
+.rounded-r,
+.rounded-r-sm,
+.rounded-r-xs,
+.rounded-r-lg {
+  border-top-right-radius: 1px !important;
+  border-bottom-right-radius: 1px !important;
 }
 
 /* ── Typography ── */
@@ -130,7 +173,7 @@ h1, h2, h3, h4, .font-display {
   display: inline-flex !important;
   align-items: center !important;
   justify-content: center !important;
-  border-radius: 2px !important;
+  border-radius: 1px !important;
   white-space: normal !important;
   text-align: center !important;
   box-sizing: border-box !important;

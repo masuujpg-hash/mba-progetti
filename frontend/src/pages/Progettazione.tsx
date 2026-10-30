@@ -755,7 +755,7 @@ export default function Progettazione() {
       <section className="py-12 sm:py-16 px-6 max-w-7xl mx-auto border-t border-navy/10">
         {/* Header Sezione */}
         <div className="mb-8">
-          <span className="bg-[#F5C400] text-white text-[10px] sm:text-[11px] font-bold uppercase tracking-[0.25em] px-3 py-1 inline-block mb-3 rounded-[2px]">
+          <span className="bg-[#F5C400] text-white text-[10px] sm:text-[11px] font-bold uppercase tracking-[0.25em] px-3 py-1 inline-block mb-3 rounded-[1px]">
             POST AGGIUDICAZIONE
           </span>
           <h2 className="text-navy text-2xl sm:text-3xl md:text-4xl font-extrabold uppercase tracking-tight">

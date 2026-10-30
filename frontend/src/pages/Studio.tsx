@@ -141,7 +141,7 @@ export default function Studio() {
       <section className="py-16 md:py-24 bg-white border-t border-navy/5">
         <div className="max-w-6xl mx-auto px-6">
           <div className="text-left mb-10">
-            <span className="bg-[#F5C400] text-white text-[11px] font-bold uppercase tracking-[0.14em] px-3.5 py-1 rounded-[2px] inline-block mb-5 shadow-sm">
+            <span className="bg-[#F5C400] text-white text-[11px] font-bold uppercase tracking-[0.14em] px-3.5 py-1 rounded-[1px] inline-block mb-5 shadow-sm">
               LA RETE
             </span>
             <h2 className="text-[#1B2A4A] text-2xl sm:text-3xl md:text-[34px] font-extrabold uppercase tracking-tight leading-tight mb-5">
