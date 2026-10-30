@@ -2,22 +2,20 @@ import { motion, useInView } from 'framer-motion';
 import { useRef, useState, useEffect, type ReactNode } from 'react';
 import { Link } from 'react-router-dom';
 import { 
-  Calculator,
   FileText,
-  Compass,
-  PencilRuler,
-  Sparkle,
-  PaperPlaneTilt,
   CaretLeft,
   CaretRight,
-  ArrowsOut,
-  X,
   CheckCircle,
   Phone,
   EnvelopeSimple,
   MapPin,
   MagnifyingGlass,
-  ShieldCheck
+  ShieldCheck,
+  Stack,
+  ChartLineUp,
+  Lightbulb,
+  PencilSimple,
+  UploadSimple
 } from '@phosphor-icons/react';
 
 // ─── COMPONENTE STAT COUNTER ────────────────────────────────────────────────
@@ -257,7 +255,7 @@ function AnimatedDonutChart({
 // ─── PAGINA PRINCIPALE GARE OEPV ─────────────────────────────────────────────
 export default function Gare() {
   const [currentIndex, setCurrentIndex] = useState(0);
-  const [isFullscreenModalOpen, setIsFullscreenModalOpen] = useState(false);
+  const [isPlateHovered, setIsPlateHovered] = useState(false);
   const [activeStep, setActiveStep] = useState(0);
 
   // Form state
@@ -282,56 +280,71 @@ export default function Gare() {
     setFormSubmitted(true);
   };
 
-  // 7 Fasi di lavoro conformi al mockup
+  // 8 Fasi di lavoro conformi al mockup
   const processSteps = [
     {
       id: '01',
+      tag: 'PRIMA DELLA GARA',
       title: 'Scelta della gara',
-      short: 'Scelta Gara',
+      heading: 'SCELTA DELLA GARA',
       icon: MagnifyingGlass,
-      desc: 'Identificazione delle procedure più coerenti con le potenzialità e la struttura dell’impresa. Analisi preliminare dei requisiti di qualificazione (SOA) e della fattibilità tecnica ed economica dell’intervento.'
+      desc: "Selezione delle procedure più coerenti con struttura, qualificazioni e referenze dell'impresa."
     },
     {
       id: '02',
-      title: 'Valutazione investimento',
-      short: 'Investimento',
-      icon: Calculator,
-      desc: 'Analisi preliminare dei costi di partecipazione, stima del budget per le proposte migliorative e calcolo del ritorno atteso in termini di punteggio tecnico tabellare e discrezionale.'
+      tag: 'ANALISI',
+      title: 'Analisi del disciplinare',
+      heading: 'ANALISI DEL DISCIPLINARE',
+      icon: FileText,
+      desc: "Lettura di ogni criterio e sub-criterio, dei pesi e dei vincoli di formato dell'offerta."
     },
     {
       id: '03',
-      title: 'Analisi disciplinare',
-      short: 'Disciplinare',
-      icon: FileText,
-      desc: 'Studio approfondito di ogni criterio e sub-criterio di valutazione, della ponderazione dei punteggi e dei vincoli tecnici fissati dalla Stazione Appaltante nel bando.'
+      tag: 'ANALISI',
+      title: 'Sopralluogo',
+      heading: 'SOPRALLUOGO',
+      icon: MapPin,
+      desc: "Verifica dello stato dei luoghi per cogliere criticità e opportunità non evidenti dagli elaborati."
     },
     {
       id: '04',
-      title: 'Sopralluogo tecnico',
-      short: 'Sopralluogo',
-      icon: Compass,
-      desc: 'Verifica diretta dello stato dei luoghi, rilievo delle criticità operative, vincoli di cantierizzazione e individuazione mirata delle opportunità di miglioramento.'
+      tag: 'ANALISI',
+      title: 'Studio del progetto',
+      heading: 'STUDIO DEL PROGETTO',
+      icon: Stack,
+      desc: "Analisi critica del progetto a base di gara per individuarne carenze e margini di miglioramento."
     },
     {
       id: '05',
-      title: 'Studio del progetto',
-      short: 'Studio Progetto',
-      icon: PencilRuler,
-      desc: 'Analisi critica degli elaborati a base di gara (progetto esecutivo o di fattibilità), delle relazioni specialistiche e del quadro economico di spesa.'
+      tag: 'ANALISI',
+      title: "Valutazione dell'investimento",
+      heading: "VALUTAZIONE DELL'INVESTIMENTO",
+      icon: ChartLineUp,
+      desc: "Stima dei costi di esecuzione delle migliorie e simulazione dei punteggi tecnici ed economici, per definire il ribasso e decidere con dati alla mano."
     },
     {
       id: '06',
-      title: 'Valutazione migliorie',
-      short: 'Migliorie',
-      icon: Sparkle,
-      desc: 'Brainstorming ingegneristico e architettonico per la definizione condivisa con l’impresa delle proposte tecniche a più alto impatto premiante, nel pieno rispetto dei vincoli di capitolato.'
+      tag: 'OFFERTA',
+      title: 'Definizione delle migliorie',
+      heading: 'DEFINIZIONE DELLE MIGLIORIE',
+      icon: Lightbulb,
+      desc: "Scelta condivisa con l'impresa delle proposte migliorative, valutandone i costi e la rispondenza ai criteri e sub-criteri di valutazione."
     },
     {
       id: '07',
-      title: 'Redazione & consegna',
-      short: 'Consegna',
-      icon: PaperPlaneTilt,
-      desc: 'Stesura della relazione tecnica con rigorosa gerarchia editoriale, produzione di tavole grafiche esplicative, rendering 3D fotorealistici e supporto al caricamento sui portali telematici.'
+      tag: 'OFFERTA',
+      title: "Redazione dell'offerta",
+      heading: "REDAZIONE DELL'OFFERTA",
+      icon: PencilSimple,
+      desc: "Stesura della relazione tecnica e produzione di schemi, tavole e render, per rendere l'offerta immediatamente comprensibile e valutabile dalla commissione."
+    },
+    {
+      id: '08',
+      tag: 'OFFERTA',
+      title: 'Impaginazione e consegna',
+      heading: 'IMPAGINAZIONE E CONSEGNA',
+      icon: UploadSimple,
+      desc: "Impaginazione nel rispetto dei limiti del disciplinare e consegna all'impresa almeno 48 ore prima della scadenza della procedura."
     }
   ];
 
@@ -444,40 +457,43 @@ export default function Gare() {
     { 
       img: "/media/portfolio/tavole-02.webp", 
       thumb: "/media/portfolio/tavole-02.webp",
-      title: "Tavola 1 — Analisi e Inquadramento Tecnico",
-      subtitle: "Inquadramento territoriale, analisi vincolistica e concept delle migliorie"
+      caption: "Confronto tra base di gara e offerta migliorativa, impianti sportivi"
     },
     { 
       img: "/media/portfolio/tavole-03.webp", 
       thumb: "/media/portfolio/tavole-03.webp",
-      title: "Tavola 2 — Proposte Migliorative & Sostenibilità CAM",
-      subtitle: "Dettaglio delle soluzioni a basso impatto ambientale e certificazioni di prodotto"
+      caption: "Scheda prestazionale di materiali e finiture"
     },
     { 
       img: "/media/portfolio/tavole-04.webp", 
       thumb: "/media/portfolio/tavole-04.webp",
-      title: "Tavola 3 — Layout Tecnologico & Schemi Impiantistici",
-      subtitle: "Integrazione HVAC, pannelli fotovoltaici e soluzioni a elevata efficienza energetica"
+      caption: "Colore e comfort negli ambienti scolastici"
     },
     { 
       img: "/media/portfolio/tavole-05.webp", 
       thumb: "/media/portfolio/tavole-05.webp",
-      title: "Tavola 4 — Cantierizzazione, Sicurezza e Fasi Operative",
-      subtitle: "Cronoprogramma cantieri, mitigazione delle polveri e gestione del rumore"
+      caption: "Arredo urbano e sistemazione degli spazi esterni"
     },
     { 
       img: "/media/portfolio/tavole-06.webp", 
       thumb: "/media/portfolio/tavole-06.webp",
-      title: "Tavola 5 — Nodi Costruttivi e Dettagli Esecutivi",
-      subtitle: "Spaccati assonometrici, stratigrafie e pacchetti di isolamento termo-acustico"
+      caption: "Proposte migliorative per le aree esterne"
     },
     { 
       img: "/media/portfolio/tavole_Tavola disegno 1.webp", 
       thumb: "/media/portfolio/tavole_Tavola disegno 1.webp",
-      title: "Tavola 6 — Sintesi Progettuale e Computo Prestazionale",
-      subtitle: "Quadro sinottico delle migliorie e confronto prestazionale con il progetto base"
+      caption: "Soluzioni per coperture a verde pensile e finiture per esterni"
     }
   ];
+
+  // Auto-slide per le tavole di gara (si mette in pausa al passaggio del mouse)
+  useEffect(() => {
+    if (isPlateHovered) return;
+    const timer = setInterval(() => {
+      setCurrentIndex(prev => (prev === plates.length - 1 ? 0 : prev + 1));
+    }, 6000);
+    return () => clearInterval(timer);
+  }, [isPlateHovered, plates.length]);
 
   const handlePrev = () => {
     setCurrentIndex(prev => (prev === 0 ? plates.length - 1 : prev - 1));
@@ -632,7 +648,7 @@ export default function Gare() {
           <h2 className="text-navy text-2xl sm:text-3xl md:text-4xl font-bold uppercase tracking-tight font-heading mb-4">
             OFFERTE CHE SI LEGGONO AL PRIMO SGUARDO
           </h2>
-          <p className="text-navy/70 text-sm sm:text-base font-light max-w-3xl mb-12 leading-relaxed">
+          <p className="text-navy/85 text-base sm:text-lg font-normal max-w-3xl mb-12 leading-relaxed">
             I commissari di gara valutano decine di relazioni in tempi ridotti. Le nostre offerte tecniche trasformano concetti complessi in elaborati grafici ad alto impatto visivo e immediata comprensione.
           </p>
 
@@ -642,7 +658,7 @@ export default function Gare() {
               <div className="text-gold text-xs font-bold uppercase tracking-widest border-b border-gold/30 pb-1">
                 GERARCHIA VISIVA
               </div>
-              <p className="text-navy/80 text-xs sm:text-sm font-light leading-relaxed">
+              <p className="text-navy/80 text-sm sm:text-[15px] font-light leading-relaxed">
                 Layout editoriale rigoroso: titoli chiari, schemi logici e box informativi che guidano immediatamente il valutatore sui punti di maggior punteggio.
               </p>
             </div>
@@ -651,7 +667,7 @@ export default function Gare() {
               <div className="text-gold text-xs font-bold uppercase tracking-widest border-b border-gold/30 pb-1">
                 DATI ELETTRONICI & BIM
               </div>
-              <p className="text-navy/80 text-xs sm:text-sm font-light leading-relaxed">
+              <p className="text-navy/80 text-sm sm:text-[15px] font-light leading-relaxed">
                 Integrazione di modelli 3D, simulazioni energetiche, cronoprogrammi e schemi costruttivi che certificano il valore tecnico delle soluzioni proposte.
               </p>
             </div>
@@ -660,84 +676,64 @@ export default function Gare() {
               <div className="text-gold text-xs font-bold uppercase tracking-widest border-b border-gold/30 pb-1">
                 SINTESI EFFICACE
               </div>
-              <p className="text-navy/80 text-xs sm:text-sm font-light leading-relaxed">
+              <p className="text-navy/80 text-sm sm:text-[15px] font-light leading-relaxed">
                 Nessun riempitivo verbale: testi asciutti, tecnici e precisi, supportati da rendering fotorealistici e tavole illustrative conformi al disciplinare.
               </p>
             </div>
           </div>
 
-          {/* Viewer Tavola Ingegnerizzata */}
-          <div className="relative bg-white border border-navy/15 rounded-xs shadow-sm overflow-hidden mb-4">
-            <div 
-              className="relative aspect-[16/10] sm:aspect-[16/9] bg-neutral-900 group touch-pan-y"
-              onTouchStart={(e) => {
-                plateTouchStartX.current = e.touches[0].clientX;
-                plateTouchStartY.current = e.touches[0].clientY;
-              }}
-              onTouchEnd={(e) => {
-                const deltaX = plateTouchStartX.current - e.changedTouches[0].clientX;
-                const deltaY = plateTouchStartY.current - e.changedTouches[0].clientY;
-                if (Math.abs(deltaX) > Math.abs(deltaY) && Math.abs(deltaX) > 40) {
-                  if (deltaX > 0) {
-                    handleNext();
-                  } else {
-                    handlePrev();
-                  }
+          {/* Viewer Tavola Ingegnerizzata a Grande Formato con Didascalia Overlay */}
+          <div 
+            className="relative w-full aspect-[16/10.5] sm:aspect-[16/10] bg-[#eef1f4] border border-navy/15 overflow-hidden shadow-sm mb-5 group touch-pan-y"
+            onMouseEnter={() => setIsPlateHovered(true)}
+            onMouseLeave={() => setIsPlateHovered(false)}
+            onTouchStart={(e) => {
+              setIsPlateHovered(true);
+              plateTouchStartX.current = e.touches[0].clientX;
+              plateTouchStartY.current = e.touches[0].clientY;
+            }}
+            onTouchEnd={(e) => {
+              const deltaX = plateTouchStartX.current - e.changedTouches[0].clientX;
+              const deltaY = plateTouchStartY.current - e.changedTouches[0].clientY;
+              if (Math.abs(deltaX) > Math.abs(deltaY) && Math.abs(deltaX) > 40) {
+                if (deltaX > 0) {
+                  handleNext();
+                } else {
+                  handlePrev();
                 }
-              }}
+              }
+              setTimeout(() => setIsPlateHovered(false), 2000);
+            }}
+          >
+            <img 
+              src={plates[currentIndex].img} 
+              alt={plates[currentIndex].caption}
+              className="w-full h-full object-contain select-none"
+            />
+
+            {/* Frecce Navigazione Laterali nello stile esatto del mockup */}
+            <button
+              onClick={handlePrev}
+              className="absolute left-2 sm:left-4 top-1/2 -translate-y-1/2 w-10 h-10 sm:w-11 sm:h-11 bg-white border border-navy/20 text-navy flex items-center justify-center shadow-md hover:bg-neutral-50 hover:border-navy transition-all cursor-pointer z-10"
+              aria-label="Tavola Precedente"
             >
-              <img 
-                src={plates[currentIndex].img} 
-                alt={plates[currentIndex].title}
-                className="w-full h-full object-contain cursor-pointer transition-transform duration-300 group-hover:scale-[1.01]"
-                onClick={() => setIsFullscreenModalOpen(true)}
-              />
+              <CaretLeft size={22} weight="regular" />
+            </button>
+            <button
+              onClick={handleNext}
+              className="absolute right-2 sm:right-4 top-1/2 -translate-y-1/2 w-10 h-10 sm:w-11 sm:h-11 bg-white border border-navy/20 text-navy flex items-center justify-center shadow-md hover:bg-neutral-50 hover:border-navy transition-all cursor-pointer z-10"
+              aria-label="Tavola Successiva"
+            >
+              <CaretRight size={22} weight="regular" />
+            </button>
 
-              {/* Tasto Ingrandisci Schermo Intero */}
-              <button
-                onClick={() => setIsFullscreenModalOpen(true)}
-                className="absolute top-4 right-4 bg-navy/80 hover:bg-navy text-gold p-2.5 rounded-xs backdrop-blur-xs transition-colors shadow-sm cursor-pointer"
-                title="Ingrandisci a Schermo Intero"
-              >
-                <ArrowsOut size={18} />
-              </button>
-
-              {/* Frecce Navigazione Laterali */}
-              <button
-                onClick={handlePrev}
-                className="absolute left-3 top-1/2 -translate-y-1/2 bg-white/90 hover:bg-white text-navy p-2 rounded-xs shadow-md transition-all cursor-pointer opacity-80 group-hover:opacity-100"
-                aria-label="Tavola Precedente"
-              >
-                <CaretLeft size={20} weight="bold" />
-              </button>
-              <button
-                onClick={handleNext}
-                className="absolute right-3 top-1/2 -translate-y-1/2 bg-white/90 hover:bg-white text-navy p-2 rounded-xs shadow-md transition-all cursor-pointer opacity-80 group-hover:opacity-100"
-                aria-label="Tavola Successiva"
-              >
-                <CaretRight size={20} weight="bold" />
-              </button>
-            </div>
-
-            {/* Didascalia e contatore */}
-            <div className="p-4 bg-white border-t border-navy/10 flex flex-wrap items-center justify-between gap-4">
-              <div>
-                <h4 className="text-navy text-xs sm:text-sm font-bold uppercase tracking-wide">
-                  {plates[currentIndex].title}
-                </h4>
-                <p className="text-navy/60 text-xs font-light">
-                  {plates[currentIndex].subtitle}
-                </p>
-              </div>
-              <div className="flex items-center gap-2">
-                <span className="text-xs font-mono font-bold text-gold px-2 py-0.5 bg-bg-neutral rounded-xs">
-                  {currentIndex + 1} / {plates.length}
-                </span>
-              </div>
+            {/* Didascalia Overlay in basso a sinistra conforme all'immagine */}
+            <div className="absolute bottom-0 left-0 bg-[#2b3544]/90 text-white px-4 sm:px-6 py-2.5 sm:py-3 text-xs sm:text-sm font-normal tracking-wide max-w-full sm:max-w-3xl select-none backdrop-blur-xs">
+              {plates[currentIndex].caption}
             </div>
           </div>
 
-          {/* Thumbnail Carousel sottostante */}
+          {/* Miniature di navigazione rapida sottostanti */}
           <div className="grid grid-cols-3 sm:grid-cols-6 gap-2 sm:gap-3">
             {plates.map((plate, idx) => (
               <button
@@ -748,69 +744,20 @@ export default function Gare() {
                     ? 'border-gold shadow-xs scale-[1.02]' 
                     : 'border-transparent opacity-60 hover:opacity-100'
                 }`}
+                aria-label={`Visualizza tavola ${idx + 1}`}
               >
                 <img 
                   src={plate.thumb} 
-                  alt={plate.title}
+                  alt={plate.caption}
                   className="w-full h-full object-cover"
                 />
               </button>
             ))}
           </div>
-
-          {/* Modale Zoom a Schermo Intero */}
-          {isFullscreenModalOpen && (
-            <div 
-              className="fixed inset-0 z-50 bg-black/95 backdrop-blur-sm flex items-center justify-center p-4 sm:p-8 touch-pan-y"
-              onTouchStart={(e) => {
-                plateTouchStartX.current = e.touches[0].clientX;
-                plateTouchStartY.current = e.touches[0].clientY;
-              }}
-              onTouchEnd={(e) => {
-                const deltaX = plateTouchStartX.current - e.changedTouches[0].clientX;
-                const deltaY = plateTouchStartY.current - e.changedTouches[0].clientY;
-                if (Math.abs(deltaX) > Math.abs(deltaY) && Math.abs(deltaX) > 40) {
-                  if (deltaX > 0) {
-                    handleNext();
-                  } else {
-                    handlePrev();
-                  }
-                }
-              }}
-            >
-              <button 
-                onClick={() => setIsFullscreenModalOpen(false)}
-                className="absolute top-6 right-6 text-white hover:text-gold p-2 transition-colors cursor-pointer z-10"
-                title="Chiudi"
-              >
-                <X size={28} />
-              </button>
-              {/* Frecce laterali a schermo intero */}
-              <button
-                onClick={(e) => { e.stopPropagation(); handlePrev(); }}
-                className="absolute left-4 top-1/2 -translate-y-1/2 bg-white/20 hover:bg-white text-white hover:text-navy p-3 rounded-full backdrop-blur-xs transition-all cursor-pointer z-10"
-                aria-label="Tavola Precedente"
-              >
-                <CaretLeft size={24} weight="bold" />
-              </button>
-              <button
-                onClick={(e) => { e.stopPropagation(); handleNext(); }}
-                className="absolute right-4 top-1/2 -translate-y-1/2 bg-white/20 hover:bg-white text-white hover:text-navy p-3 rounded-full backdrop-blur-xs transition-all cursor-pointer z-10"
-                aria-label="Tavola Successiva"
-              >
-                <CaretRight size={24} weight="bold" />
-              </button>
-              <img 
-                src={plates[currentIndex].img} 
-                alt={plates[currentIndex].title}
-                className="max-w-full max-h-[92vh] object-contain rounded-xs select-none"
-              />
-            </div>
-          )}
         </div>
       </section>
 
-      {/* ── 4. DALLA SCELTA DELLA GARA ALLA CONSEGNA (7 FASI INTERATTIVE) ── */}
+      {/* ── 4. DALLA SCELTA DELLA GARA ALLA CONSEGNA (8 FASI INTERATTIVE) ── */}
       <section className="py-14 sm:py-20 px-6 max-w-7xl mx-auto">
         <div className="mb-3">
           <span className="inline-block bg-gold text-white text-[10px] font-bold uppercase tracking-[0.2em] px-2.5 py-0.5 rounded-xs">
@@ -820,13 +767,13 @@ export default function Gare() {
         <h2 className="text-navy text-2xl sm:text-3xl md:text-4xl font-bold uppercase tracking-tight font-heading mb-4">
           DALLA SCELTA DELLA GARA ALLA CONSEGNA
         </h2>
-        <p className="text-navy/70 text-sm sm:text-base font-light max-w-3xl mb-12 leading-relaxed">
-          Un percorso strutturato in 7 fasi per affiancare l'impresa in ogni passaggio, dalla valutazione iniziale all'invio dell'offerta.
+        <p className="text-navy/85 text-base sm:text-lg font-normal max-w-3xl mb-12 leading-relaxed">
+          Un percorso strutturato per affiancare l'impresa in ogni passaggio, dalla valutazione iniziale all'invio dell'offerta.
         </p>
 
-        {/* Timeline a 7 step con icone circolari numerate */}
-        <div className="bg-bg-neutral/50 p-6 sm:p-8 rounded-xs border border-navy/10 mb-6">
-          <div className="grid grid-cols-3 sm:grid-cols-7 gap-3 sm:gap-2 mb-8">
+        {/* Timeline a 8 step con icone circolari disposte su 2 righe da 4 conformi al mockup */}
+        <div className="bg-[#f8f9fb] p-6 sm:p-10 rounded-xs border border-navy/10 mb-6">
+          <div className="grid grid-cols-2 sm:grid-cols-4 gap-y-7 gap-x-3 sm:gap-x-6 mb-8">
             {processSteps.map((step, idx) => {
               const StepIcon = step.icon;
               const isActive = activeStep === idx;
@@ -834,49 +781,42 @@ export default function Gare() {
                 <button
                   key={step.id}
                   onClick={() => setActiveStep(idx)}
-                  className="flex flex-col items-center text-center group cursor-pointer"
+                  className="flex flex-col items-center text-center group cursor-pointer focus:outline-none"
                 >
                   <div 
-                    className={`w-12 h-12 sm:w-14 sm:h-14 rounded-full flex items-center justify-center mb-2 transition-all duration-200 border-2 ${
+                    className={`w-14 h-14 sm:w-16 sm:h-16 rounded-full flex items-center justify-center mb-2.5 transition-all duration-200 ${
                       isActive 
-                        ? 'bg-navy border-gold text-gold shadow-md scale-105' 
-                        : 'bg-white border-navy/20 text-navy/70 hover:border-gold hover:text-gold'
+                        ? 'p-[3px] border-2 border-gold shadow-xs' 
+                        : 'border border-navy/20 bg-white group-hover:border-navy/40'
                     }`}
                   >
-                    <StepIcon size={20} weight={isActive ? "bold" : "regular"} />
+                    <div className={`w-full h-full rounded-full flex items-center justify-center transition-colors ${
+                      isActive ? 'bg-navy text-white' : 'text-navy/80 group-hover:text-navy'
+                    }`}>
+                      <StepIcon size={22} weight={isActive ? "bold" : "regular"} />
+                    </div>
                   </div>
-                  <span className={`text-[10px] sm:text-[11px] font-bold uppercase tracking-wider transition-colors line-clamp-1 ${
-                    isActive ? 'text-navy' : 'text-navy/60 group-hover:text-gold'
+                  <span className={`text-xs sm:text-[13px] tracking-tight transition-colors line-clamp-2 max-w-[125px] leading-snug ${
+                    isActive ? 'font-bold text-navy' : 'font-normal text-navy/75 group-hover:text-navy'
                   }`}>
-                    {step.short}
+                    {step.title}
                   </span>
                 </button>
               );
             })}
           </div>
 
-          {/* Dettaglio Fase Selezionata con Icona Grande a Destra */}
-          <div className="bg-white p-6 sm:p-8 border-l-4 border-gold shadow-xs rounded-xs flex flex-col md:flex-row items-start md:items-center justify-between gap-6">
-            <div className="space-y-2 max-w-2xl">
-              <span className="text-gold text-xs font-bold uppercase tracking-widest">
-                FASE {processSteps[activeStep].id} / 07
-              </span>
-              <h3 className="text-navy text-lg sm:text-xl font-bold uppercase tracking-tight font-heading">
-                {processSteps[activeStep].title}
-              </h3>
-              <p className="text-navy/80 text-xs sm:text-sm font-light leading-relaxed">
-                {processSteps[activeStep].desc}
-              </p>
-            </div>
-
-            <div className="shrink-0 self-end md:self-center">
-              <div className="w-16 h-16 sm:w-20 sm:h-20 rounded-full border border-gold/30 bg-gold/5 flex items-center justify-center text-gold">
-                {(() => {
-                  const CurrentIcon = processSteps[activeStep].icon;
-                  return <CurrentIcon size={36} weight="duotone" />;
-                })()}
-              </div>
-            </div>
+          {/* Dettaglio Fase Selezionata con Bordo Oro a Sinistra conforme al mockup */}
+          <div className="bg-white p-6 sm:p-8 border-l-[3px] border-gold shadow-xs rounded-xs">
+            <span className="inline-block text-gold text-[11px] sm:text-xs font-bold uppercase tracking-[0.2em] mb-1.5">
+              {processSteps[activeStep].tag}
+            </span>
+            <h3 className="text-navy text-lg sm:text-xl font-bold uppercase tracking-tight font-heading mb-2.5">
+              {processSteps[activeStep].heading}
+            </h3>
+            <p className="text-navy/80 text-xs sm:text-sm md:text-[15px] font-light leading-relaxed max-w-3xl">
+              {processSteps[activeStep].desc}
+            </p>
           </div>
         </div>
       </section>
@@ -894,21 +834,21 @@ export default function Gare() {
             TIPOLOGIE DI OPERE
           </h2>
           
-          <p className="text-navy/80 text-xs sm:text-sm font-light max-w-4xl mb-12 leading-relaxed">
+          <p className="text-navy/85 text-base sm:text-lg md:text-[18px] font-normal max-w-4xl mb-12 leading-relaxed">
             L'esperienza maturata consente allo studio di operare con competenza in ambiti diversi, dall'<strong className="font-bold text-navy">edilizia scolastica</strong> al <strong className="font-bold text-navy">restauro</strong>, dalle <strong className="font-bold text-navy">infrastrutture</strong> all'<strong className="font-bold text-navy">edilizia residenziale</strong> e alle <strong className="font-bold text-navy">strutture sportive</strong>, adottando in ogni caso un approccio tecnico fondato sull'analisi dei criteri di valutazione, del progetto a base di gara e delle esigenze operative dell'impresa.
           </p>
 
-          {/* Griglia a 5 colonne x 2 righe con bordi interni ed esterni geometrici */}
-          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 border-t border-l border-navy/10 bg-white">
+          {/* Griglia a 10 celle con bordi geometrici e testi potenziati */}
+          <div className="grid grid-cols-2 lg:grid-cols-5 border-t border-l border-navy/15 bg-white">
             {tipologieOpere.map((item, idx) => (
               <div 
                 key={idx} 
-                className="border-r border-b border-navy/10 p-6 sm:py-10 sm:px-4 flex flex-col items-center justify-center text-center group hover:bg-neutral-50/70 transition-colors min-h-[170px]"
+                className="border-r border-b border-navy/15 p-6 sm:py-10 sm:px-5 flex flex-col items-center justify-center text-center group hover:bg-neutral-50/80 transition-colors min-h-[175px]"
               >
                 <div className="h-10 flex items-center justify-center mb-4 transition-transform duration-200 group-hover:scale-110">
                   {item.icon}
                 </div>
-                <h3 className="text-navy text-[10px] sm:text-[11px] font-bold uppercase tracking-widest leading-relaxed whitespace-pre-line font-sans">
+                <h3 className="text-navy text-xs sm:text-[13px] md:text-sm font-bold uppercase tracking-[0.14em] leading-snug whitespace-pre-line font-outfit">
                   {item.title}
                 </h3>
               </div>

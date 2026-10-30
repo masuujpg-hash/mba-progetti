@@ -12,7 +12,10 @@ import {
   Clock,
   FileMagnifyingGlass,
   CompassTool,
-  Article
+  Article,
+  PencilLine,
+  Crosshair,
+  Cube
 } from '@phosphor-icons/react';
 import { getHomeProjects, getHomeArticles } from '../lib/contentStore';
 
@@ -26,6 +29,7 @@ export default function Home() {
 
   // NEWS CAROUSEL STATE
   const [newsIndex, setNewsIndex] = useState(0);
+  const [isNewsPaused, setIsNewsPaused] = useState(false);
 
   useEffect(() => {
     const handleUpdate = () => {
@@ -68,6 +72,17 @@ export default function Home() {
 
     return () => clearInterval(interval);
   }, [isPortfolioPaused, homeProjects.length, itemsPerView, maxPortfolioIndex]);
+
+  // Autoplay automatico a intervallo per il carosello news
+  useEffect(() => {
+    if (isNewsPaused || homeArticles.length <= itemsPerView) return;
+
+    const interval = setInterval(() => {
+      setNewsIndex((prev) => (prev >= maxNewsIndex ? 0 : prev + 1));
+    }, 4500);
+
+    return () => clearInterval(interval);
+  }, [isNewsPaused, homeArticles.length, itemsPerView, maxNewsIndex]);
 
   const handleNextPortfolio = () => {
     setPortfolioIndex((prev) => (prev >= maxPortfolioIndex ? 0 : prev + 1));
@@ -374,51 +389,55 @@ export default function Home() {
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             <ServiceBentoCard 
-              letter="P"
+              icon={PencilLine}
               title="PROGETTAZIONE" 
               link="/servizi/progettazione"
-              desc="Dall'architettura all'infrastruttura, sviluppiamo soluzioni attente alla qualità, all'efficienza energetica e alla fattibilità esecutiva dell'opera."
+              desc="Edifici pubblici e privati, ristrutturazioni, interior design."
             />
             <ServiceBentoCard 
-              letter="B"
-              title="BIM" 
-              link="/servizi/bim"
-              desc="Modellazione informativa 3D/4D/5D e gestione dei processi BIM per ogni fase del ciclo di vita dell'edificio."
-            />
-            <ServiceBentoCard 
-              letter="R"
+              icon={Crosshair}
               title="RILIEVI" 
               link="/servizi/rilievi"
-              desc="Digitalizzazione del costruito tramite Laser Scanner 3D e droni ad altissima precisione per ogni tipologia di manufatto."
+              desc="Digitalizzazione del costruito tramite Laser Scanner 3D e droni."
+            />
+            <ServiceBentoCard 
+              icon={Cube}
+              title="SERVIZI BIM" 
+              link="/servizi/bim"
+              desc="Modellazione informativa e gestione dei processi BIM per ogni fase."
             />
           </div>
         </div>
       </section>
 
       {/* ── 6. AGGIORNAMENTI DALLO STUDIO (NEWS / BLOG) ── */}
-      <section className="py-16 md:py-24 bg-bg-neutral/30 border-t border-navy/5">
+      <section className="py-16 md:py-24 bg-white border-t border-navy/5">
         <div className="max-w-7xl mx-auto px-6">
           {/* Section Header */}
           <div className="mb-10">
-            <span className="bg-[#F5C400] text-white text-[10px] font-bold uppercase tracking-[0.25em] px-3.5 py-1 rounded-[1px] inline-block mb-4 shadow-sm">
+            <span className="bg-[#F5C400] text-white text-[10px] font-bold uppercase tracking-[0.25em] px-3.5 py-1 rounded-[1px] inline-block mb-4 shadow-sm font-outfit">
               NEWS
             </span>
-            <h2 className="text-navy text-2xl sm:text-3xl md:text-4xl font-bold uppercase tracking-tight leading-tight mb-3">
+            <h2 className="text-navy text-2xl sm:text-3xl md:text-4xl font-bold uppercase tracking-tight leading-tight mb-3 font-outfit">
               AGGIORNAMENTI DALLO STUDIO
             </h2>
-            <p className="text-navy/70 text-sm sm:text-base font-light max-w-xl leading-relaxed">
-              Novità, approfondimenti tecnici e casi studio dal mondo delle gare pubbliche e dell'architettura.
+            <p className="text-navy/70 text-sm sm:text-base font-light max-w-xl leading-relaxed font-outfit">
+              Gare aggiudicate, novità normative sul codice dei contratti, strumenti per le imprese.
             </p>
           </div>
 
-          {/* News Slider Track with Mobile Touch Swipe */}
+          {/* News Slider Track with Mobile Touch Swipe and Auto-slide Pause */}
           <div 
             className="overflow-hidden relative touch-pan-y"
+            onMouseEnter={() => setIsNewsPaused(true)}
+            onMouseLeave={() => setIsNewsPaused(false)}
             onTouchStart={(e) => {
+              setIsNewsPaused(true);
               newsTouchStartX.current = e.touches[0].clientX;
               newsTouchStartY.current = e.touches[0].clientY;
             }}
             onTouchEnd={(e) => {
+              setIsNewsPaused(false);
               const deltaX = newsTouchStartX.current - e.changedTouches[0].clientX;
               const deltaY = newsTouchStartY.current - e.changedTouches[0].clientY;
               if (Math.abs(deltaX) > Math.abs(deltaY) && Math.abs(deltaX) > 40) {
@@ -448,6 +467,7 @@ export default function Home() {
                     category={art.category}
                     excerpt={art.excerpt}
                     image={newsImages[idx % newsImages.length] || art.coverImage}
+                    date={art.publishedAt}
                   />
                 </div>
               ))}
@@ -458,10 +478,10 @@ export default function Home() {
           <div className="mt-8 sm:mt-10 flex flex-row items-center justify-between gap-2 sm:gap-4">
             <Link 
               to="/risorse" 
-              className="border border-navy/20 hover:border-[#F5C400] hover:text-[#F5C400] bg-white px-2.5 sm:px-6 py-3 sm:py-3.5 text-[9px] min-[380px]:text-[10px] sm:text-xs tracking-wider sm:tracking-widest uppercase font-bold text-navy transition-all rounded-[1px] shadow-xs inline-flex items-center justify-center gap-1.5 sm:gap-3 group flex-1 min-w-0"
+              className="border border-[#1B2A4A]/30 hover:border-[#F5C400] hover:text-[#F5C400] bg-white px-4 sm:px-8 py-3 sm:py-3.5 text-xs tracking-[0.16em] uppercase font-bold text-[#1B2A4A] transition-all rounded-[1px] shadow-xs inline-flex items-center justify-between gap-4 sm:gap-8 group flex-1 sm:flex-initial sm:min-w-[240px]"
             >
-              <span className="truncate">Vedi Tutti gli Aggiornamenti</span>
-              <ArrowRight size={14} className="group-hover:translate-x-1 transition-transform shrink-0" />
+              <span>TUTTE LE NEWS</span>
+              <CaretRight size={13} weight="bold" className="group-hover:translate-x-1 transition-transform shrink-0" />
             </Link>
 
             <div className="flex items-center justify-end gap-1.5 sm:gap-3 shrink-0">
@@ -602,45 +622,77 @@ function ProjectCard({ id, title, cat, img, pos, rank, amount }: any) {
   );
 }
 
-function ServiceBentoCard({ letter, title, link, desc }: { letter: string; title: string; link: string; desc: string }) {
+function ServiceBentoCard({ icon: Icon, title, link, desc }: { icon: any; title: string; link: string; desc: string }) {
   return (
-    <Link to={link} className="p-8 bg-bg-neutral/40 border border-navy/10 rounded-[1px] flex flex-col justify-between group hover:border-[#F5C400] hover:shadow-sm transition-all h-[320px]">
+    <Link to={link} className="p-8 bg-[#F8F9FA] border border-navy/10 rounded-[1px] flex flex-col justify-between group hover:border-[#F5C400] hover:shadow-sm transition-all h-[320px]">
       <div>
-        <div className="w-10 h-10 bg-navy text-white font-mono font-bold text-base flex items-center justify-center rounded-[1px] mb-6 group-hover:bg-[#F5C400] group-hover:text-navy transition-colors">
-          {letter}
+        <div className="w-12 h-12 bg-[#1B2A4A] text-white flex items-center justify-center rounded-[1px] mb-6 shadow-xs group-hover:bg-[#F5C400] group-hover:text-[#1B2A4A] transition-colors">
+          <Icon size={22} weight="regular" />
         </div>
-        <h3 className="text-navy text-lg font-bold uppercase tracking-tight mb-3 group-hover:text-[#F5C400] transition-colors">
+        <h3 className="text-[#1B2A4A] text-lg sm:text-xl font-extrabold uppercase tracking-tight mb-3 font-outfit group-hover:text-[#F5C400] transition-colors">
           {title}
         </h3>
-        <p className="text-navy/70 text-xs font-light leading-relaxed">
+        <p className="text-[#1B2A4A]/70 text-xs sm:text-sm font-normal leading-relaxed font-outfit">
           {desc}
         </p>
       </div>
-      <div className="flex items-center gap-2 text-[#F5C400] text-[11px] font-bold uppercase tracking-wider group-hover:text-navy transition-colors pt-6 border-t border-navy/10">
-        Scopri Servizio <ArrowRight size={14} />
+      <div className="flex items-center gap-2 text-[#F5C400] text-[11px] font-bold uppercase tracking-[0.16em] font-outfit group-hover:text-[#1B2A4A] transition-colors pt-6 border-t border-navy/10">
+        <span>SCOPRI IL SETTORE</span>
+        <CaretRight size={13} weight="bold" className="group-hover:translate-x-1 transition-transform" />
       </div>
     </Link>
   );
 }
 
-function ArticleCard({ title, category, excerpt, image }: { title: string; category: string; excerpt: string; image: string }) {
+function formatArticleDate(dateStr?: string) {
+  if (!dateStr) return '';
+  try {
+    const d = new Date(dateStr);
+    if (isNaN(d.getTime())) return dateStr;
+    const day = d.getDate();
+    const months = [
+      'Gennaio', 'Febbraio', 'Marzo', 'Aprile', 'Maggio', 'Giugno',
+      'Luglio', 'Agosto', 'Settembre', 'Ottobre', 'Novembre', 'Dicembre'
+    ];
+    return `${day} ${months[d.getMonth()]} ${d.getFullYear()}`;
+  } catch {
+    return dateStr;
+  }
+}
+
+function ArticleCard({ 
+  title, 
+  excerpt, 
+  image, 
+  date 
+}: { 
+  title: string; 
+  category?: string; 
+  excerpt: string; 
+  image: string; 
+  date?: string; 
+}) {
+  const displayDate = date ? formatArticleDate(date) : '';
+
   return (
-    <Link to="/risorse" className="block group bg-white border border-navy/10 rounded-[1px] overflow-hidden shadow-xs hover:shadow-md transition-all h-full">
-      <div className="relative aspect-[16/10] bg-neutral-100 overflow-hidden">
+    <Link to="/risorse" className="block group h-full">
+      <div className="relative aspect-[4/3] bg-neutral-100 overflow-hidden rounded-[1px]">
         <img 
           src={image} 
           alt={title}
           className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
         />
-        <div className="absolute top-3 left-3 bg-navy text-white text-[10px] font-bold uppercase tracking-wider px-2.5 py-1 rounded-[1px] shadow-sm">
-          {category}
-        </div>
       </div>
-      <div className="p-5">
-        <h3 className="text-navy text-sm font-bold uppercase tracking-tight mb-2 group-hover:text-[#F5C400] transition-colors line-clamp-2">
+      <div className="pt-4 space-y-1 text-left">
+        {displayDate && (
+          <span className="text-[#64748B] text-xs font-normal block font-outfit">
+            {displayDate}
+          </span>
+        )}
+        <h3 className="text-[#1B2A4A] text-base font-bold leading-snug group-hover:text-[#F5C400] transition-colors line-clamp-2 font-outfit">
           {title}
         </h3>
-        <p className="text-navy/60 text-xs font-light leading-relaxed line-clamp-3">
+        <p className="text-[#64748B] text-xs sm:text-[13px] font-normal leading-relaxed line-clamp-2 font-outfit">
           {excerpt}
         </p>
       </div>
