@@ -1,5 +1,6 @@
 import { motion, useInView } from 'framer-motion';
-import { useRef, useState, useEffect } from 'react';
+import { useRef, useState, useEffect, type ReactNode } from 'react';
+import { Link } from 'react-router-dom';
 import { 
   Calculator,
   FileText,
@@ -7,7 +8,6 @@ import {
   PencilRuler,
   Sparkle,
   PaperPlaneTilt,
-  ArrowRight,
   CaretLeft,
   CaretRight,
   ArrowsOut,
@@ -16,7 +16,8 @@ import {
   Phone,
   EnvelopeSimple,
   MapPin,
-  MagnifyingGlass
+  MagnifyingGlass,
+  ShieldCheck
 } from '@phosphor-icons/react';
 
 // ─── COMPONENTE STAT COUNTER ────────────────────────────────────────────────
@@ -54,12 +55,12 @@ function StatCounter({ value, label }: { value: string; label: string }) {
   }, [isInView, numericValue]);
 
   return (
-    <div ref={ref} className="border-b border-navy/10 pb-4 last:border-b-0">
-      <div className="flex items-baseline gap-4">
-        <span className="text-navy text-4xl sm:text-5xl font-bold tracking-tight font-outfit">
+    <div ref={ref} className="py-5 sm:py-6 border-b border-navy/10 last:border-b-0 first:pt-0">
+      <div className="grid grid-cols-[110px_1fr] sm:grid-cols-[130px_1fr] items-center gap-4">
+        <span className="text-[#1B2A4A] text-4xl sm:text-5xl font-bold tracking-tight font-outfit">
           {prefix}{isInView ? count : 0}{suffix}
         </span>
-        <span className="text-navy/70 text-xs sm:text-sm font-medium uppercase tracking-wider font-outfit">
+        <span className="text-[#1B2A4A]/70 text-[11px] sm:text-xs font-semibold uppercase tracking-[0.16em] font-outfit">
           {label}
         </span>
       </div>
@@ -72,71 +73,51 @@ interface DonutSegment {
   label: string;
   value: number; // percentage (0-100)
   color: string;
+  textColor?: string;
+}
+
+interface LegendItem {
+  label: string;
+  color: string;
 }
 
 interface AnimatedDonutChartProps {
-  id: string;
-  title: string;
-  subtitle: string;
-  subtext: string;
-  centerValue: string;
-  centerUnit?: string;
-  centerLabel?: string;
+  prefixTitle: string;
+  highlightTitle: string;
+  centerIcon: ReactNode;
   segments: DonutSegment[];
+  legendCol1: LegendItem[];
+  legendCol2: LegendItem[];
 }
 
 function AnimatedDonutChart({
-  title,
-  subtitle,
-  subtext,
-  centerValue,
-  centerUnit,
-  centerLabel,
-  segments
+  prefixTitle,
+  highlightTitle,
+  centerIcon,
+  segments,
+  legendCol1,
+  legendCol2
 }: AnimatedDonutChartProps) {
   const containerRef = useRef<HTMLDivElement>(null);
-  const isInView = useInView(containerRef, { once: true, margin: "-80px" });
+  const isInView = useInView(containerRef, { once: true, margin: "-60px" });
   const [hoveredIdx, setHoveredIdx] = useState<number | null>(null);
-  const [centerCount, setCenterCount] = useState(0);
-
-  const numericCenter = parseInt(centerValue.replace(/[^0-9]/g, ''), 10) || 0;
-  const prefix = centerValue.startsWith('+') ? '+' : '';
-  const suffix = centerValue.endsWith('%') ? '%' : '';
-
-  useEffect(() => {
-    if (isInView) {
-      let step = 0;
-      const totalSteps = 60;
-      const inc = numericCenter / totalSteps;
-      const timer = setInterval(() => {
-        step++;
-        if (step >= totalSteps) {
-          setCenterCount(numericCenter);
-          clearInterval(timer);
-        } else {
-          setCenterCount(Math.floor(inc * step));
-        }
-      }, 18);
-      return () => clearInterval(timer);
-    }
-  }, [isInView, numericCenter]);
 
   // Geometria SVG Donut
   const size = 220;
   const cx = size / 2;
   const cy = size / 2;
   const radius = 68;
-  const strokeWidth = 34;
+  const strokeWidth = 36;
   const circumference = 2 * Math.PI * radius;
 
-  // Calcolo segmenti cumulativi
+  // Calcolo segmenti cumulativi partendo da -90deg (12:00 in alto)
   let accumulatedPercent = 0;
   const segmentData = segments.map((seg) => {
     const startAngle = (accumulatedPercent / 100) * 360 - 90;
     const arcLength = (seg.value / 100) * circumference;
-    const gap = 2; // pixel gap tra fette
+    const gap = 2; // pixel gap tra le fette
     const dashLength = Math.max(0, arcLength - gap);
-    
+
     // Angolo medio per etichetta percentuale
     const midAngle = startAngle + (seg.value / 100) * 180;
     const rad = (midAngle * Math.PI) / 180;
@@ -156,22 +137,22 @@ function AnimatedDonutChart({
   });
 
   return (
-    <div ref={containerRef} className="flex flex-col items-center text-center group">
+    <div ref={containerRef} className="flex flex-col items-center group w-full max-w-[270px]">
       {/* Container SVG con animazioni */}
-      <div className="relative w-48 h-48 sm:w-52 sm:h-52 mb-4 flex items-center justify-center">
+      <div className="relative w-52 h-52 sm:w-56 sm:h-56 mb-2 flex items-center justify-center">
         <svg 
           width="100%" 
           height="100%" 
           viewBox={`0 0 ${size} ${size}`} 
-          className="transform rotate-0 filter drop-shadow-sm overflow-visible"
+          className="transform rotate-0 filter drop-shadow-xs overflow-visible"
         >
-          {/* Cerchio di fondo sottile */}
+          {/* Cerchio di fondo bianco / neutro sottilissimo */}
           <circle
             cx={cx}
             cy={cy}
             r={radius}
             fill="none"
-            stroke="#E9ECEF"
+            stroke="#F1F3F5"
             strokeWidth={strokeWidth}
           />
 
@@ -179,47 +160,51 @@ function AnimatedDonutChart({
           {segmentData.map((seg, idx) => {
             const isHovered = hoveredIdx === idx;
             return (
-              <g key={idx} onMouseEnter={() => setHoveredIdx(idx)} onMouseLeave={() => setHoveredIdx(null)}>
+              <g 
+                key={idx} 
+                onMouseEnter={() => setHoveredIdx(idx)} 
+                onMouseLeave={() => setHoveredIdx(null)}
+              >
                 <motion.circle
                   cx={cx}
                   cy={cy}
                   r={radius}
                   fill="none"
                   stroke={seg.color}
-                  strokeWidth={isHovered ? strokeWidth + 4 : strokeWidth}
+                  strokeWidth={isHovered ? strokeWidth + 3 : strokeWidth}
                   strokeDasharray={`${seg.dashLength} ${circumference - seg.dashLength}`}
                   transform={`rotate(${seg.startAngle} ${cx} ${cy})`}
                   strokeLinecap="butt"
                   initial={{ strokeDashoffset: circumference, opacity: 0.2 }}
                   animate={isInView ? { strokeDashoffset: 0, opacity: 1 } : { strokeDashoffset: circumference, opacity: 0.2 }}
                   transition={{
-                    duration: 1.4,
-                    delay: idx * 0.15,
+                    duration: 1.2,
+                    delay: idx * 0.12,
                     ease: [0.16, 1, 0.3, 1]
                   }}
                   className="cursor-pointer transition-all duration-200"
                   style={{
-                    filter: isHovered ? 'drop-shadow(0 2px 8px rgba(27,42,74,0.3))' : 'none'
+                    filter: isHovered ? 'drop-shadow(0 2px 8px rgba(27,42,74,0.25))' : 'none'
                   }}
                 />
 
-                {/* Etichetta % all'interno della fetta (se fetta >= 12%) */}
-                {seg.value >= 12 && (
-                  <motion.text
-                    x={seg.labelX}
-                    y={seg.labelY + 4}
-                    textAnchor="middle"
-                    fill="#FFFFFF"
-                    fontSize="10"
-                    fontWeight="700"
-                    className="pointer-events-none select-none font-sans"
-                    initial={{ opacity: 0, scale: 0 }}
-                    animate={isInView ? { opacity: 1, scale: 1 } : { opacity: 0, scale: 0 }}
-                    transition={{ duration: 0.5, delay: 0.8 + idx * 0.12 }}
-                  >
-                    {seg.value}%
-                  </motion.text>
-                )}
+                {/* Etichetta % all'interno della fetta */}
+                <motion.text
+                  x={seg.labelX}
+                  y={seg.labelY}
+                  textAnchor="middle"
+                  dominantBaseline="central"
+                  fill={seg.textColor || (seg.value <= 10 ? '#1B2A4A' : '#FFFFFF')}
+                  fontSize={seg.value <= 5 ? "9" : "10.5"}
+                  fontWeight="700"
+                  className="pointer-events-none select-none"
+                  style={{ fontFamily: "'Outfit', ui-sans-serif, system-ui, sans-serif" }}
+                  initial={{ opacity: 0, scale: 0 }}
+                  animate={isInView ? { opacity: 1, scale: 1 } : { opacity: 0, scale: 0 }}
+                  transition={{ duration: 0.4, delay: 0.7 + idx * 0.1 }}
+                >
+                  {seg.value}%
+                </motion.text>
               </g>
             );
           })}
@@ -230,55 +215,37 @@ function AnimatedDonutChart({
             cy={cy}
             r={radius - strokeWidth / 2 - 1}
             fill="#FFFFFF"
-            className="filter drop-shadow-xs"
           />
         </svg>
 
-        {/* Valore e label al centro della ciambella */}
-        <div className="absolute inset-0 flex flex-col items-center justify-center pointer-events-none">
-          <motion.div
-            initial={{ opacity: 0, scale: 0.7 }}
-            animate={isInView ? { opacity: 1, scale: 1 } : { opacity: 0, scale: 0.7 }}
-            transition={{ duration: 0.8, delay: 0.4 }}
-            className="flex flex-col items-center justify-center"
-          >
-            <span className="text-navy text-2xl sm:text-3xl font-extrabold tracking-tight font-outfit leading-none">
-              {prefix}{isInView ? centerCount : 0}{suffix}
-              {centerUnit && <span className="text-xs font-normal text-navy/60 ml-0.5">{centerUnit}</span>}
-            </span>
-            {centerLabel && (
-              <span className="text-[9px] uppercase tracking-widest text-gold font-bold mt-1 font-outfit">
-                {centerLabel}
-              </span>
-            )}
-          </motion.div>
+        {/* Icona circolare al centro della ciambella */}
+        <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
+          <div className="w-9 h-9 rounded-full border border-navy/20 flex items-center justify-center bg-white shadow-xs">
+            {centerIcon}
+          </div>
         </div>
       </div>
 
-      {/* Titolo e didascalia sotto il grafico */}
-      <div className="max-w-[240px]">
-        <div className="text-gold text-xs font-bold uppercase tracking-widest mb-1">
-          {title}
-        </div>
-        <div className="text-navy text-xs font-bold leading-tight mb-1">
-          {subtitle}
-        </div>
-        <div className="text-navy/60 text-[11px] font-light leading-relaxed">
-          {subtext}
-        </div>
+      {/* Titolo sotto il grafico */}
+      <h3 className="font-outfit text-sm sm:text-[15px] font-normal text-navy mt-4 mb-3 text-center">
+        {prefixTitle} <span className="text-[#F5C400] font-bold uppercase tracking-wider">{highlightTitle}</span>
+      </h3>
 
-        {/* Mini legenda interattiva */}
-        <div className="mt-3 pt-2 border-t border-navy/5 flex flex-wrap justify-center gap-x-3 gap-y-1 text-[10px] text-navy/70">
-          {segments.map((seg, i) => (
-            <div 
-              key={i} 
-              onMouseEnter={() => setHoveredIdx(i)}
-              onMouseLeave={() => setHoveredIdx(null)}
-              className={`flex items-center gap-1.5 cursor-pointer transition-opacity ${hoveredIdx !== null && hoveredIdx !== i ? 'opacity-40' : 'opacity-100'}`}
-            >
-              <span className="w-2 h-2 rounded-full shrink-0" style={{ backgroundColor: seg.color }} />
-              <span className="truncate max-w-[90px]">{seg.label}</span>
-              <span className="font-bold text-navy">{seg.value}%</span>
+      {/* Mini legenda a due colonne */}
+      <div className="w-full max-w-[270px] grid grid-cols-2 gap-x-4 gap-y-2 text-left font-outfit text-[11px] font-semibold tracking-wider text-[#1B2A4A]/80">
+        <div className="space-y-2">
+          {legendCol1.map((item, idx) => (
+            <div key={idx} className="flex items-center gap-2">
+              <span className="w-2 h-2 rounded-full shrink-0" style={{ backgroundColor: item.color }} />
+              <span className="uppercase whitespace-nowrap">{item.label}</span>
+            </div>
+          ))}
+        </div>
+        <div className="space-y-2">
+          {legendCol2.map((item, idx) => (
+            <div key={idx} className="flex items-center gap-2">
+              <span className="w-2 h-2 rounded-full shrink-0" style={{ backgroundColor: item.color }} />
+              <span className="uppercase whitespace-nowrap">{item.label}</span>
             </div>
           ))}
         </div>
@@ -524,10 +491,6 @@ export default function Gare() {
   const plateTouchStartX = useRef<number>(0);
   const plateTouchStartY = useRef<number>(0);
 
-  const scrollToContact = () => {
-    document.getElementById('contattaci-sezione')?.scrollIntoView({ behavior: 'smooth' });
-  };
-
   return (
     <div className="bg-white text-navy selection:bg-navy selection:text-white">
       
@@ -560,94 +523,97 @@ export default function Gare() {
       </section>
 
       {/* ── 2. OFFERTE TECNICHE MIGLIORATIVE & GRAFICI ANIMATI ── */}
-      <section className="py-12 sm:py-16 px-6 max-w-7xl mx-auto">
-        <div className="mb-3">
-          <span className="inline-block bg-gold text-white text-[10px] font-bold uppercase tracking-[0.2em] px-2.5 py-0.5 rounded-xs">
-            SERVIZI
-          </span>
-        </div>
-        <h2 className="text-navy text-2xl sm:text-3xl md:text-4xl font-bold uppercase tracking-tight font-heading mb-8">
+      <section className="py-14 sm:py-20 px-6 max-w-7xl mx-auto">
+        <h2 className="text-navy text-2xl sm:text-3xl md:text-[34px] font-bold uppercase tracking-tight font-outfit mb-8">
           OFFERTE TECNICHE MIGLIORATIVE
         </h2>
 
         {/* Riga superiore: Descrizione a sinistra + 3 Stats animate a destra */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-14 items-start mb-16">
-          <div className="lg:col-span-7 space-y-4 text-navy/80 text-sm sm:text-base font-light leading-relaxed">
-            <p>
-              Dal 2019 MBA Progetti supporta le imprese nell’elaborazione di offerte tecniche per gare d’appalto con il criterio dell’Offerta Economicamente Più Vantaggiosa (OEPV).
-            </p>
-            <p>
-              Il nostro approccio unisce rigore metodologico, competenze multidisciplinari e una cura grafica volta a valorizzare ogni elemento della proposta tecnica, rendendola chiara, leggibile e pienamente rispondente ai criteri della commissione giudicatrice.
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-14 items-start mb-14">
+          <div className="lg:col-span-7 space-y-6">
+            <p className="text-[#1B2A4A]/80 text-sm sm:text-base font-normal leading-relaxed font-outfit">
+              Lo studio MBA affianca le imprese nella redazione di <strong className="font-bold text-[#1B2A4A]">offerte tecniche migliorative</strong> per gare d’appalto pubbliche aggiudicate secondo il criterio dell’<strong className="font-bold text-[#1B2A4A]">offerta economicamente più vantaggiosa (OEV)</strong>. Analizziamo disciplinari e progetti posti a base di gara per individuare con precisione i <strong className="font-bold text-[#1B2A4A]">margini di miglioramento tecnico e operativo</strong>, sviluppando proposte fondate su <strong className="font-bold text-[#1B2A4A]">metodo, chiarezza e coerenza con i criteri di valutazione</strong>, capaci di tradursi in <strong className="font-bold text-[#1B2A4A]">risultati concreti</strong> nelle procedure di gara.
             </p>
             <div className="pt-2">
-              <button 
-                onClick={scrollToContact}
-                className="inline-flex items-center gap-2 border border-navy text-navy hover:bg-navy hover:text-white px-5 py-2.5 text-xs font-bold uppercase tracking-widest transition-all duration-200 rounded-xs group cursor-pointer"
+              <Link 
+                to="/portfolio"
+                className="inline-flex items-center gap-3 border border-[#1B2A4A]/60 text-[#1B2A4A] hover:bg-[#1B2A4A] hover:text-white px-6 py-2.5 text-xs font-bold uppercase tracking-[0.14em] transition-all duration-200 rounded-[1px] group cursor-pointer font-outfit"
               >
-                <span>Richiedi una consulenza</span>
-                <ArrowRight size={14} className="group-hover:translate-x-1 transition-transform text-gold" />
-              </button>
+                <span>VEDI LE GARE SEGUITE</span>
+                <CaretRight size={13} weight="bold" className="group-hover:translate-x-0.5 transition-transform" />
+              </Link>
             </div>
           </div>
 
-          <div className="lg:col-span-5 flex flex-col justify-between space-y-4 pt-1 lg:pl-6 border-l-0 lg:border-l border-navy/10">
-            <StatCounter value="+10" label="anni di esperienza" />
-            <StatCounter value="63%" label="gare sul podio" />
-            <StatCounter value="38%" label="gare aggiudicate" />
+          <div className="lg:col-span-5 flex flex-col justify-between pt-1 lg:pl-10 lg:border-l border-navy/10">
+            <StatCounter value="+10" label="ANNI DI ESPERIENZA" />
+            <StatCounter value="63%" label="GARE SUL PODIO" />
+            <StatCounter value="38%" label="GARE AGGIUDICATE" />
           </div>
         </div>
 
         {/* ── 3 GRAFICI A CIAMBELLA ANIMATI ── */}
-        <div className="pt-8 border-t border-navy/10">
+        <div className="pt-12 border-t border-navy/10">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-10 lg:gap-12 justify-items-center">
             
-            {/* Grafico 1: Criteri Tecnici Premianti (80 pt) */}
+            {/* Grafico 1: Ubicazione */}
             <AnimatedDonutChart
-              id="chart-1"
-              title="Criteri Tecnici Premianti"
-              subtitle="Punteggio Tecnico 80 pt · Economico 20 pt"
-              subtext="Massimizzazione del punteggio tabellare e discrezionale secondo il bando."
-              centerValue="80"
-              centerUnit="pt"
-              centerLabel="Tecnico"
+              prefixTitle="gare per"
+              highlightTitle="UBICAZIONE"
+              centerIcon={<MapPin size={16} weight="regular" className="text-navy" />}
               segments={[
-                { label: "Migliorie Tecniche", value: 50, color: "#1B2A4A" },
-                { label: "Cantierizzazione", value: 25, color: "#3D5A80" },
-                { label: "Criteri CAM & BIM", value: 15, color: "#F5C400" },
-                { label: "Riduzione Tempi", value: 10, color: "#98A6BD" }
+                { label: "CENTRO ITALIA", value: 50, color: "#1B2A4A", textColor: "#FFFFFF" },
+                { label: "NORD ITALIA", value: 30, color: "#3B5274", textColor: "#FFFFFF" },
+                { label: "SUD E ISOLE", value: 20, color: "#788EA7", textColor: "#FFFFFF" }
+              ]}
+              legendCol1={[
+                { label: "CENTRO ITALIA", color: "#1B2A4A" },
+                { label: "SUD E ISOLE", color: "#788EA7" }
+              ]}
+              legendCol2={[
+                { label: "NORD ITALIA", color: "#3B5274" }
               ]}
             />
 
-            {/* Grafico 2: Ripartizione Sub-criteri */}
+            {/* Grafico 2: Categorie SOA */}
             <AnimatedDonutChart
-              id="chart-2"
-              title="Ripartizione Sub-criteri"
-              subtitle="Analisi Ponderale per Sub-peso"
-              subtext="Studio analitico dei singoli pesi per calibrare le migliorie più competitive."
-              centerValue="70"
-              centerUnit="pt"
-              centerLabel="Media OEPV"
+              prefixTitle="gare per categorie"
+              highlightTitle="SOA"
+              centerIcon={<ShieldCheck size={16} weight="regular" className="text-navy" />}
               segments={[
-                { label: "Qualità Materiali", value: 45, color: "#1B2A4A" },
-                { label: "Efficienza & Impianti", value: 25, color: "#3D5A80" },
-                { label: "Metodologia Operativa", value: 15, color: "#F5C400" },
-                { label: "Sostenibilità Ambientale", value: 15, color: "#98A6BD" }
+                { label: "OG1", value: 55, color: "#1B2A4A", textColor: "#FFFFFF" },
+                { label: "OG2", value: 30, color: "#3B5274", textColor: "#FFFFFF" },
+                { label: "OG3", value: 10, color: "#788EA7", textColor: "#FFFFFF" },
+                { label: "ALTRE CATEGORIE", value: 5, color: "#BAC7D5", textColor: "#1B2A4A" }
+              ]}
+              legendCol1={[
+                { label: "OG1", color: "#1B2A4A" },
+                { label: "OG3", color: "#788EA7" }
+              ]}
+              legendCol2={[
+                { label: "OG2", color: "#3B5274" },
+                { label: "ALTRE CATEGORIE", color: "#BAC7D5" }
               ]}
             />
 
-            {/* Grafico 3: Tasso di Successo / Podio (63%) */}
+            {/* Grafico 3: Importo */}
             <AnimatedDonutChart
-              id="chart-3"
-              title="Tasso di Successo sul Podio"
-              subtitle="63% Podio · 38% Aggiudicate"
-              subtext="Statistiche verificate su oltre 200 procedure d'appalto redatte dal 2019."
-              centerValue="63%"
-              centerLabel="Sul Podio"
+              prefixTitle="gare per"
+              highlightTitle="IMPORTO"
+              centerIcon={<span className="text-navy font-outfit font-semibold text-sm leading-none">€</span>}
               segments={[
-                { label: "1° Posto Aggiudicata", value: 38, color: "#F5C400" },
-                { label: "2° o 3° Posto", value: 25, color: "#1B2A4A" },
-                { label: "Top 5 Punteggio", value: 22, color: "#3D5A80" },
-                { label: "Altre Procedure", value: 15, color: "#98A6BD" }
+                { label: "1 – 5 MLN", value: 40, color: "#1B2A4A", textColor: "#FFFFFF" },
+                { label: "5 – 20 MLN", value: 30, color: "#3B5274", textColor: "#FFFFFF" },
+                { label: "< 1 MLN", value: 20, color: "#788EA7", textColor: "#FFFFFF" },
+                { label: "> 20 MLN", value: 10, color: "#BAC7D5", textColor: "#1B2A4A" }
+              ]}
+              legendCol1={[
+                { label: "1 – 5 MLN", color: "#1B2A4A" },
+                { label: "< 1 MLN", color: "#788EA7" }
+              ]}
+              legendCol2={[
+                { label: "5 – 20 MLN", color: "#3B5274" },
+                { label: "> 20 MLN", color: "#BAC7D5" }
               ]}
             />
 
