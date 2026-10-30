@@ -35,40 +35,6 @@ export default function Portfolio() {
         </div>
       </section>
 
-      {/* ── INTRO & STATS EQUILIBRATE ── */}
-      <section className="py-12 md:py-16 px-6 max-w-7xl mx-auto border-b border-navy/5">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
-          <div className="lg:col-span-7">
-            <span className="text-gold text-xs font-bold uppercase tracking-[0.4em] mb-2 block">MBA Progetti</span>
-            <h2 className="text-navy text-2xl sm:text-3xl font-bold uppercase tracking-tighter leading-tight mb-4">
-              Esperienza & Risultati sul Campo
-            </h2>
-            <p className="text-navy/70 font-light leading-relaxed text-xs sm:text-sm">
-              Dal 2019, MBA Progetti ha affiancato imprese di costruzione in oltre 200 procedure di gara su tutto il territorio nazionale. Ogni scheda tecnica riporta stazione appaltante, importo a base di gara e posizione ottenuta in graduatoria.
-            </p>
-          </div>
-
-          <div className="lg:col-span-5 grid grid-cols-2 gap-4">
-            <div className="border-l border-gold/40 pl-4">
-              <div className="text-navy text-2xl md:text-3xl font-bold tracking-tighter mb-0.5 font-outfit">+200</div>
-              <div className="text-gold text-[10px] font-bold uppercase tracking-wider font-outfit">Gare Redatte</div>
-            </div>
-            <div className="border-l border-gold/40 pl-4">
-              <div className="text-navy text-2xl md:text-3xl font-bold tracking-tighter mb-0.5 font-outfit">63%</div>
-              <div className="text-gold text-[10px] font-bold uppercase tracking-wider font-outfit">Sul Podio</div>
-            </div>
-            <div className="border-l border-gold/40 pl-4">
-              <div className="text-navy text-2xl md:text-3xl font-bold tracking-tighter mb-0.5 font-outfit">38%</div>
-              <div className="text-gold text-[10px] font-bold uppercase tracking-wider font-outfit">Aggiudicate</div>
-            </div>
-            <div className="border-l border-gold/40 pl-4">
-              <div className="text-navy text-2xl md:text-3xl font-bold tracking-tighter mb-0.5 font-outfit">+40</div>
-              <div className="text-gold text-[10px] font-bold uppercase tracking-wider font-outfit">Imprese Clienti</div>
-            </div>
-          </div>
-        </div>
-      </section>
-
       {/* ── GRID PROGETTI EQUILIBRATA ── */}
       <section className="py-12 md:py-20 px-6 max-w-7xl mx-auto">
          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -109,7 +75,7 @@ function ProjectGridItem({ project }: { project: Project }) {
 
   return (
     <Link to={`/portfolio/${project.id}`}>
-      <div className="group relative aspect-[4/3] sm:aspect-[4/5] overflow-hidden bg-neutral-100 cursor-pointer shadow-xs hover:shadow-md transition-all border border-navy/10 rounded-sm">
+      <div className="group relative aspect-[4/3] sm:aspect-[4/5] overflow-hidden bg-neutral-100 cursor-pointer shadow-xs hover:shadow-md transition-all border border-navy/10 rounded-[1px]">
          {/* FOTO NATURALE SENZA VETRO BLU */}
          <img 
            src={project.image} 
@@ -120,16 +86,16 @@ function ProjectGridItem({ project }: { project: Project }) {
 
          {/* Badge solo se 1° o 2° classificato */}
          {isTopRank && (
-            <div className={`absolute top-4 left-4 ${isSecond ? 'bg-navy' : 'bg-gold'} text-white text-[10px] font-bold uppercase tracking-wider px-2.5 py-1 z-10 shadow-sm rounded-sm`}>
+            <div className={`absolute top-4 left-4 ${isSecond ? 'bg-navy' : 'bg-[#F5C400]'} text-white text-[10px] font-bold uppercase tracking-wider px-2.5 py-1 z-10 shadow-sm rounded-[1px]`}>
                {project.rank}
             </div>
          )}
 
          {/* Gradiente scuro naturale solo in basso per leggibilità testo */}
          <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent p-5 flex flex-col justify-end">
-            <h3 className="text-white text-base sm:text-lg font-bold uppercase tracking-tight mb-1 group-hover:text-gold transition-colors line-clamp-2">{project.title}</h3>
+            <h3 className="text-white text-base sm:text-lg font-bold uppercase tracking-tight mb-1 group-hover:text-[#F5C400] transition-colors line-clamp-2">{project.title}</h3>
             <div className="flex items-center gap-1.5 text-white/80 text-[10px] font-bold uppercase tracking-wider">
-               <MapPin size={12} className="text-gold shrink-0" /> {project.location}
+               <MapPin size={12} className="text-[#F5C400] shrink-0" /> {project.location}
             </div>
          </div>
       </div>
