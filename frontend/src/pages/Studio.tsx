@@ -451,7 +451,7 @@ function NetworkDiagram() {
               fontSize="24"
               fontWeight="800"
               letterSpacing="0.06em"
-              style={{ fontFamily: "'Inter', ui-sans-serif, system-ui, sans-serif" }}
+              style={{ fontFamily: "'Outfit', ui-sans-serif, system-ui, sans-serif" }}
             >
               MBA
             </text>
@@ -528,7 +528,7 @@ function NetworkDiagram() {
                     fontWeight="700"
                     letterSpacing="0.08em"
                     className="uppercase select-none transition-colors duration-300"
-                    style={{ fontFamily: "'Inter', ui-sans-serif, system-ui, sans-serif" }}
+                    style={{ fontFamily: "'Outfit', ui-sans-serif, system-ui, sans-serif" }}
                   >
                     {node.lines[0]}
                   </text>
@@ -542,7 +542,7 @@ function NetworkDiagram() {
                     fontWeight="700"
                     letterSpacing="0.08em"
                     className="uppercase select-none transition-colors duration-300"
-                    style={{ fontFamily: "'Inter', ui-sans-serif, system-ui, sans-serif" }}
+                    style={{ fontFamily: "'Outfit', ui-sans-serif, system-ui, sans-serif" }}
                   >
                     <tspan x={textX} dy="0">{node.lines[0]}</tspan>
                     <tspan x={textX} dy="11">{node.lines[1]}</tspan>
