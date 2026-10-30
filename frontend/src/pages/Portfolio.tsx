@@ -1,12 +1,24 @@
+import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import { 
   ArrowRight, 
   MapPin
 } from '@phosphor-icons/react';
-import { projects, type Project } from '../data/projects';
+import { type Project } from '../data/projects';
+import { getStoredProjects } from '../lib/contentStore';
 
 export default function Portfolio() {
+  const [projectList, setProjectList] = useState<Project[]>(getStoredProjects);
+
+  useEffect(() => {
+    const handleUpdate = () => {
+      setProjectList(getStoredProjects());
+    };
+    window.addEventListener('mba_projects_updated', handleUpdate);
+    return () => window.removeEventListener('mba_projects_updated', handleUpdate);
+  }, []);
+
   return (
     <div className="bg-white selection:bg-navy selection:text-white overflow-x-hidden">
       
@@ -38,7 +50,7 @@ export default function Portfolio() {
       {/* ── GRID PROGETTI EQUILIBRATA ── */}
       <section className="py-12 md:py-20 px-6 max-w-7xl mx-auto">
          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-            {projects.map((p) => (
+            {projectList.map((p) => (
                <ProjectGridItem key={p.id} project={p} />
             ))}
          </div>

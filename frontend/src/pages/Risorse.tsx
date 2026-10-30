@@ -1,12 +1,22 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { ArrowRight, Calculator, BookOpen, X, CalendarBlank, User } from '@phosphor-icons/react';
 import { Link } from 'react-router-dom';
 import Simulatore from '../components/Simulatore';
-import { articles, type Article } from '../data/articles';
+import { type Article } from '../data/articles';
+import { getStoredArticles } from '../lib/contentStore';
 
 export default function Risorse() {
+  const [articleList, setArticleList] = useState<Article[]>(getStoredArticles);
   const [selectedArticle, setSelectedArticle] = useState<Article | null>(null);
+
+  useEffect(() => {
+    const handleUpdate = () => {
+      setArticleList(getStoredArticles());
+    };
+    window.addEventListener('mba_articles_updated', handleUpdate);
+    return () => window.removeEventListener('mba_articles_updated', handleUpdate);
+  }, []);
 
   return (
     <div className="bg-white selection:bg-navy selection:text-white">
@@ -81,7 +91,7 @@ export default function Risorse() {
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12">
-               {articles.map((article) => (
+               {articleList.map((article) => (
                   <ArticleCard 
                      key={article.id}
                      article={article}

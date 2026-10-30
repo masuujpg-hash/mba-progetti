@@ -17,10 +17,19 @@ import {
   SignOut,
   Pencil,
   X,
-  CloudCheck
+  CloudCheck,
+  ArrowUp,
+  ArrowDown,
+  HouseLine
 } from '@phosphor-icons/react';
-import { projects as initialProjects, type Project } from '../data/projects';
-import { articles as initialArticles, type Article } from '../data/articles';
+import { type Project } from '../data/projects';
+import { type Article } from '../data/articles';
+import { 
+  getStoredProjects, 
+  saveStoredProjects, 
+  getStoredArticles, 
+  saveStoredArticles 
+} from '../lib/contentStore';
 import { writeClient, uploadWebPToSanity } from '../lib/sanity';
 
 interface ConvertedWebP {
@@ -72,7 +81,7 @@ export default function Admin() {
   const [activeTab, setActiveTab] = useState<'portfolio' | 'articles' | 'compressor' | 'export'>('portfolio');
 
   // Portfolio State & Edit State
-  const [projectList, setProjectList] = useState<Project[]>(initialProjects);
+  const [projectList, setProjectList] = useState<Project[]>(getStoredProjects);
   const [editingProjectId, setEditingProjectId] = useState<string | null>(null);
   const [newProject, setNewProject] = useState<Partial<Project>>({
     title: '',
@@ -86,10 +95,13 @@ export default function Admin() {
     rank: '1° Posto',
     images: [],
     image: '',
+    order: undefined,
+    featuredInHome: true,
+    orderHome: undefined,
   });
 
   // Articles State & Edit State
-  const [articleList, setArticleList] = useState<Article[]>(initialArticles);
+  const [articleList, setArticleList] = useState<Article[]>(getStoredArticles);
   const [editingArticleId, setEditingArticleId] = useState<string | null>(null);
   const [newArticle, setNewArticle] = useState<Partial<Article>>({
     title: '',
@@ -99,6 +111,9 @@ export default function Admin() {
     coverImage: '',
     publishedAt: new Date().toISOString().split('T')[0],
     author: 'MBA Progetti',
+    order: undefined,
+    featuredInHome: true,
+    orderHome: undefined,
   });
 
   // Global Compressor & Sanity Sync Status
@@ -225,7 +240,40 @@ export default function Admin() {
       rank: '1° Posto',
       images: [],
       image: '',
+      order: undefined,
+      featuredInHome: true,
+      orderHome: undefined,
     });
+  };
+
+  // Move Project Up or Down in the List
+  const handleMoveProject = (index: number, direction: 'up' | 'down') => {
+    const targetIndex = direction === 'up' ? index - 1 : index + 1;
+    if (targetIndex < 0 || targetIndex >= projectList.length) return;
+
+    const updated = [...projectList];
+    const [moved] = updated.splice(index, 1);
+    updated.splice(targetIndex, 0, moved);
+
+    // Re-index order 1..N
+    const withOrders = updated.map((item, idx) => ({ ...item, order: idx + 1 }));
+    setProjectList(withOrders);
+    saveStoredProjects(withOrders);
+    showNotify(`✅ Progetto spostato in posizione #${targetIndex + 1}!`);
+  };
+
+  // Toggle Home presence for Project
+  const handleToggleProjectHome = (id: string) => {
+    const updated = projectList.map((p) => {
+      if (p.id === id) {
+        const current = p.featuredInHome !== false;
+        return { ...p, featuredInHome: !current };
+      }
+      return p;
+    });
+    setProjectList(updated);
+    saveStoredProjects(updated);
+    showNotify('✅ Visibilità Home aggiornata!');
   };
 
   // Add or Update Project with Direct Sanity Sync
@@ -236,6 +284,10 @@ export default function Admin() {
     setIsSanitySyncing(true);
 
     const projectIdToUse = editingProjectId || `p${String(projectList.length + 1).padStart(2, '0')}-${newProject.title.toLowerCase().replace(/[^a-z0-9]+/g, '-').slice(0, 30)}`;
+
+    const currentOrder = editingProjectId 
+      ? (projectList.find(p => p.id === editingProjectId)?.order ?? projectList.length)
+      : projectList.length + 1;
 
     const projectData: Project = {
       id: projectIdToUse,
@@ -250,13 +302,20 @@ export default function Admin() {
       credits: newProject.credits || '',
       images: newProject.images && newProject.images.length > 0 ? newProject.images : [newProject.image || '/media/portfolio/p01.webp'],
       rank: newProject.rank,
+      order: typeof newProject.order === 'number' && !isNaN(newProject.order) ? newProject.order : currentOrder,
+      featuredInHome: newProject.featuredInHome !== undefined ? newProject.featuredInHome : true,
+      orderHome: typeof newProject.orderHome === 'number' && !isNaN(newProject.orderHome) ? newProject.orderHome : undefined,
     };
 
+    let updatedList: Project[];
     if (editingProjectId) {
-      setProjectList(projectList.map((p) => (p.id === editingProjectId ? projectData : p)));
+      updatedList = projectList.map((p) => (p.id === editingProjectId ? projectData : p));
     } else {
-      setProjectList([projectData, ...projectList]);
+      updatedList = [projectData, ...projectList];
     }
+
+    setProjectList(updatedList);
+    saveStoredProjects(updatedList);
 
     // Direct Sanity Cloud Push
     try {
@@ -281,6 +340,9 @@ export default function Admin() {
         services: projectData.services,
         credits: projectData.credits,
         rank: projectData.rank || '',
+        order: projectData.order,
+        featuredInHome: projectData.featuredInHome,
+        orderHome: projectData.orderHome,
         mainImage: mainImageAsset,
         images: galleryAssets,
       };
@@ -297,7 +359,9 @@ export default function Admin() {
   };
 
   const handleDeleteProject = async (id: string) => {
-    setProjectList(projectList.filter((item) => item.id !== id));
+    const updated = projectList.filter((item) => item.id !== id);
+    setProjectList(updated);
+    saveStoredProjects(updated);
     try {
       const sanityId = id.replace(/[^a-zA-Z0-9_-]/g, '-');
       await writeClient.delete(sanityId);
@@ -324,7 +388,39 @@ export default function Admin() {
       coverImage: '',
       publishedAt: new Date().toISOString().split('T')[0],
       author: 'MBA Progetti',
+      order: undefined,
+      featuredInHome: true,
+      orderHome: undefined,
     });
+  };
+
+  // Move Article Up or Down in the List
+  const handleMoveArticle = (index: number, direction: 'up' | 'down') => {
+    const targetIndex = direction === 'up' ? index - 1 : index + 1;
+    if (targetIndex < 0 || targetIndex >= articleList.length) return;
+
+    const updated = [...articleList];
+    const [moved] = updated.splice(index, 1);
+    updated.splice(targetIndex, 0, moved);
+
+    const withOrders = updated.map((item, idx) => ({ ...item, order: idx + 1 }));
+    setArticleList(withOrders);
+    saveStoredArticles(withOrders);
+    showNotify(`✅ Articolo spostato in posizione #${targetIndex + 1}!`);
+  };
+
+  // Toggle Home presence for Article
+  const handleToggleArticleHome = (id: string) => {
+    const updated = articleList.map((a) => {
+      if (a.id === id) {
+        const current = a.featuredInHome !== false;
+        return { ...a, featuredInHome: !current };
+      }
+      return a;
+    });
+    setArticleList(updated);
+    saveStoredArticles(updated);
+    showNotify('✅ Visibilità Home aggiornata!');
   };
 
   // Add or Update Article with Direct Sanity Sync
@@ -335,6 +431,11 @@ export default function Admin() {
     setIsSanitySyncing(true);
 
     const articleIdToUse = editingArticleId || `art-${Date.now()}`;
+
+    const currentOrder = editingArticleId 
+      ? (articleList.find(a => a.id === editingArticleId)?.order ?? articleList.length)
+      : articleList.length + 1;
+
     const articleData: Article = {
       id: articleIdToUse,
       title: newArticle.title || '',
@@ -345,13 +446,20 @@ export default function Admin() {
       coverImage: newArticle.coverImage || 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=2015&auto=format&fit=crop',
       publishedAt: newArticle.publishedAt || new Date().toISOString().split('T')[0],
       author: newArticle.author || 'MBA Progetti',
+      order: typeof newArticle.order === 'number' && !isNaN(newArticle.order) ? newArticle.order : currentOrder,
+      featuredInHome: newArticle.featuredInHome !== undefined ? newArticle.featuredInHome : true,
+      orderHome: typeof newArticle.orderHome === 'number' && !isNaN(newArticle.orderHome) ? newArticle.orderHome : undefined,
     };
 
+    let updatedArticles: Article[];
     if (editingArticleId) {
-      setArticleList(articleList.map((a) => (a.id === editingArticleId ? articleData : a)));
+      updatedArticles = articleList.map((a) => (a.id === editingArticleId ? articleData : a));
     } else {
-      setArticleList([articleData, ...articleList]);
+      updatedArticles = [articleData, ...articleList];
     }
+
+    setArticleList(updatedArticles);
+    saveStoredArticles(updatedArticles);
 
     // Direct Sanity Cloud Push for Article
     try {
@@ -366,6 +474,9 @@ export default function Admin() {
         content: articleData.content,
         publishedAt: articleData.publishedAt,
         author: articleData.author,
+        order: articleData.order,
+        featuredInHome: articleData.featuredInHome,
+        orderHome: articleData.orderHome,
         coverImage: coverAsset,
       };
 
@@ -381,7 +492,9 @@ export default function Admin() {
   };
 
   const handleDeleteArticle = async (id: string) => {
-    setArticleList(articleList.filter((item) => item.id !== id));
+    const updated = articleList.filter((item) => item.id !== id);
+    setArticleList(updated);
+    saveStoredArticles(updated);
     try {
       await writeClient.delete(id);
       showNotify('Articolo rimosso anche da Sanity CMS!');
@@ -400,11 +513,11 @@ export default function Admin() {
   };
 
   const generateProjectsTsCode = () => {
-    return `export interface Project {\n  id: string;\n  title: string;\n  description: string;\n  image: string;\n  location: string;\n  category: string;\n  client: string;\n  amount: string;\n  services: string;\n  credits: string;\n  images: string[];\n  rank?: string;\n}\n\nexport const projects: Project[] = ${JSON.stringify(projectList, null, 2)};\n`;
+    return `export interface Project {\n  id: string;\n  title: string;\n  description: string;\n  image: string;\n  location: string;\n  category: string;\n  client: string;\n  amount: string;\n  services: string;\n  credits: string;\n  images: string[];\n  rank?: string;\n  order?: number;\n  featuredInHome?: boolean;\n  orderHome?: number;\n}\n\nexport const projects: Project[] = ${JSON.stringify(projectList, null, 2)};\n`;
   };
 
   const generateArticlesTsCode = () => {
-    return `export interface Article {\n  id: string;\n  title: string;\n  slug: string;\n  category: 'Normativa' | 'Tecnica' | 'BIM' | 'Case Study' | 'Generale';\n  excerpt: string;\n  content: string;\n  coverImage: string;\n  publishedAt: string;\n  author: string;\n}\n\nexport const articles: Article[] = ${JSON.stringify(articleList, null, 2)};\n`;
+    return `export interface Article {\n  id: string;\n  title: string;\n  slug: string;\n  category: 'Normativa' | 'Tecnica' | 'BIM' | 'Case Study' | 'Generale';\n  excerpt: string;\n  content: string;\n  coverImage: string;\n  publishedAt: string;\n  author: string;\n  order?: number;\n  featuredInHome?: boolean;\n  orderHome?: number;\n}\n\nexport const articles: Article[] = ${JSON.stringify(articleList, null, 2)};\n`;
   };
 
   // 🔒 SCREEN DI LOGIN SE NON AUTENTICATO
@@ -744,6 +857,53 @@ export default function Admin() {
                   )}
                 </div>
 
+                {/* Controllo Ordine e Visibilità Home */}
+                <div className="bg-[#14223d]/5 border border-navy/15 p-5 rounded-[1px] space-y-4">
+                  <h4 className="text-navy text-xs font-bold uppercase tracking-wider flex items-center gap-2">
+                    <SlidersHorizontal size={16} className="text-[#F5C400]" />
+                    Controllo Ordine &amp; Visibilità Home
+                  </h4>
+                  <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
+                    <div>
+                      <label className="block text-navy/70 text-[10px] font-bold uppercase tracking-widest mb-1.5">
+                        Posizione Generale (Portfolio)
+                      </label>
+                      <input
+                        type="number"
+                        min="1"
+                        value={newProject.order ?? ''}
+                        onChange={(e) => setNewProject({ ...newProject, order: e.target.value ? parseInt(e.target.value, 10) : undefined })}
+                        placeholder="Es. 1, 2, 3..."
+                        className="w-full bg-white border border-navy/20 p-3 text-xs focus:outline-none focus:border-[#F5C400]"
+                      />
+                    </div>
+                    <div>
+                      <label className="block text-navy/70 text-[10px] font-bold uppercase tracking-widest mb-1.5">
+                        Posizione nella Home
+                      </label>
+                      <input
+                        type="number"
+                        min="1"
+                        value={newProject.orderHome ?? ''}
+                        onChange={(e) => setNewProject({ ...newProject, orderHome: e.target.value ? parseInt(e.target.value, 10) : undefined })}
+                        placeholder="Es. 1, 2, 3..."
+                        className="w-full bg-white border border-navy/20 p-3 text-xs focus:outline-none focus:border-[#F5C400]"
+                      />
+                    </div>
+                    <div className="flex flex-col justify-end">
+                      <label className="flex items-center gap-2 cursor-pointer p-3 bg-white border border-navy/20 h-[42px]">
+                        <input
+                          type="checkbox"
+                          checked={newProject.featuredInHome !== false}
+                          onChange={(e) => setNewProject({ ...newProject, featuredInHome: e.target.checked })}
+                          className="w-4 h-4 text-[#F5C400] accent-[#F5C400]"
+                        />
+                        <span className="text-[11px] font-bold text-navy uppercase tracking-wider">Mostra in Home</span>
+                      </label>
+                    </div>
+                  </div>
+                </div>
+
                 <div className="flex gap-4">
                   <button 
                     type="submit" 
@@ -777,44 +937,97 @@ export default function Admin() {
               </form>
             </div>
 
-            {/* List Section with Edit Button */}
+            {/* List Section with Edit & Reorder Buttons */}
             <div className="lg:col-span-5 space-y-6">
-              <h3 className="text-navy text-xl font-bold uppercase tracking-tighter mb-6">
-                Progetti Nel Portfolio ({projectList.length})
-              </h3>
+              <div className="flex items-center justify-between">
+                <h3 className="text-navy text-xl font-bold uppercase tracking-tighter">
+                  Progetti Nel Portfolio ({projectList.length})
+                </h3>
+                <span className="text-[11px] text-navy/50 font-normal">
+                  Usa le frecce per riordinare
+                </span>
+              </div>
 
-              <div className="space-y-4 max-h-[800px] overflow-y-auto pr-2">
-                {projectList.map((p) => (
+              <div className="space-y-3 max-h-[800px] overflow-y-auto pr-2">
+                {projectList.map((p, idx) => (
                   <div 
                     key={p.id} 
-                    className={`bg-white p-5 border transition-all flex items-center justify-between gap-4 ${
-                      editingProjectId === p.id ? 'border-gold ring-2 ring-gold/20' : 'border-navy/10'
+                    className={`bg-white p-3.5 border transition-all flex items-center justify-between gap-3 rounded-[1px] ${
+                      editingProjectId === p.id ? 'border-[#F5C400] ring-2 ring-[#F5C400]/20' : 'border-navy/10 hover:border-navy/30'
                     }`}
                   >
-                    <div className="flex items-center gap-4">
-                      <img src={p.image} alt={p.title} className="w-16 h-16 object-cover bg-navy/10 border border-navy/10" />
-                      <div>
-                        <span className="text-gold text-[9px] font-bold uppercase tracking-widest">{p.category}</span>
-                        <h4 className="text-navy text-sm font-bold uppercase tracking-tight line-clamp-1">{p.title}</h4>
-                        <p className="text-navy/50 text-[11px]">{p.location} • {p.amount}</p>
+                    <div className="flex items-center gap-3 min-w-0">
+                      {/* Position Badges */}
+                      <div className="flex flex-col items-center justify-center shrink-0 w-8 h-8 bg-navy text-white text-xs font-bold font-outfit rounded-[1px]">
+                        #{idx + 1}
+                      </div>
+                      <img src={p.image} alt={p.title} className="w-12 h-12 object-cover bg-navy/10 border border-navy/10 shrink-0" />
+                      <div className="min-w-0">
+                        <div className="flex items-center gap-2 flex-wrap mb-0.5">
+                          <span className="text-[#F5C400] text-[9px] font-bold uppercase tracking-widest">{p.category}</span>
+                          {p.featuredInHome !== false ? (
+                            <span className="bg-[#F5C400]/15 text-navy text-[9px] font-bold px-1.5 py-0.5 rounded-[1px] flex items-center gap-1">
+                              <HouseLine size={10} weight="fill" className="text-[#F5C400]" />
+                              Home {p.orderHome ? `#${p.orderHome}` : ''}
+                            </span>
+                          ) : (
+                            <span className="bg-navy/5 text-navy/40 text-[9px] font-bold px-1.5 py-0.5 rounded-[1px]">
+                              Nascosto da Home
+                            </span>
+                          )}
+                        </div>
+                        <h4 className="text-navy text-xs font-bold uppercase tracking-tight truncate">{p.title}</h4>
+                        <p className="text-navy/50 text-[10px]">{p.location} • {p.amount}</p>
                       </div>
                     </div>
 
-                    <div className="flex items-center gap-2">
+                    {/* Reorder and Action Buttons */}
+                    <div className="flex items-center gap-1 shrink-0">
                       <button
+                        type="button"
+                        onClick={() => handleMoveProject(idx, 'up')}
+                        disabled={idx === 0}
+                        className="p-1.5 bg-navy/5 hover:bg-navy hover:text-white text-navy disabled:opacity-20 disabled:hover:bg-navy/5 disabled:hover:text-navy transition-colors rounded-[1px]"
+                        title="Sposta in Alto"
+                      >
+                        <ArrowUp size={14} weight="bold" />
+                      </button>
+                      <button
+                        type="button"
+                        onClick={() => handleMoveProject(idx, 'down')}
+                        disabled={idx === projectList.length - 1}
+                        className="p-1.5 bg-navy/5 hover:bg-navy hover:text-white text-navy disabled:opacity-20 disabled:hover:bg-navy/5 disabled:hover:text-navy transition-colors rounded-[1px]"
+                        title="Sposta in Basso"
+                      >
+                        <ArrowDown size={14} weight="bold" />
+                      </button>
+                      <button
+                        type="button"
+                        onClick={() => handleToggleProjectHome(p.id)}
+                        className={`p-1.5 transition-colors rounded-[1px] ${
+                          p.featuredInHome !== false 
+                            ? 'bg-[#F5C400]/20 text-navy hover:bg-[#F5C400] hover:text-navy' 
+                            : 'bg-navy/5 text-navy/40 hover:bg-navy/10'
+                        }`}
+                        title={p.featuredInHome !== false ? "Visibile in Home (clicca per nascondere)" : "Nascosto da Home (clicca per mostrare)"}
+                      >
+                        <HouseLine size={14} weight={p.featuredInHome !== false ? "fill" : "regular"} />
+                      </button>
+                      <button
+                        type="button"
                         onClick={() => handleStartEditProject(p)}
-                        className="bg-navy/5 hover:bg-navy hover:text-white text-navy transition-colors p-2 text-xs flex items-center gap-1 font-bold"
+                        className="p-1.5 bg-navy/5 hover:bg-navy hover:text-white text-navy transition-colors rounded-[1px]"
                         title="Modifica Progetto"
                       >
-                        <Pencil size={16} />
+                        <Pencil size={14} />
                       </button>
-
                       <button
+                        type="button"
                         onClick={() => handleDeleteProject(p.id)}
-                        className="text-navy/30 hover:text-red-600 transition-colors p-2"
+                        className="p-1.5 text-navy/30 hover:text-red-600 transition-colors rounded-[1px]"
                         title="Rimuovi Progetto"
                       >
-                        <Trash size={18} />
+                        <Trash size={14} />
                       </button>
                     </div>
                   </div>
@@ -940,6 +1153,53 @@ export default function Admin() {
                   )}
                 </div>
 
+                {/* Controllo Ordine e Visibilità Home */}
+                <div className="bg-[#14223d]/5 border border-navy/15 p-5 rounded-[1px] space-y-4">
+                  <h4 className="text-navy text-xs font-bold uppercase tracking-wider flex items-center gap-2">
+                    <SlidersHorizontal size={16} className="text-[#F5C400]" />
+                    Controllo Ordine &amp; Visibilità Home
+                  </h4>
+                  <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
+                    <div>
+                      <label className="block text-navy/70 text-[10px] font-bold uppercase tracking-widest mb-1.5">
+                        Posizione Generale (Blog)
+                      </label>
+                      <input
+                        type="number"
+                        min="1"
+                        value={newArticle.order ?? ''}
+                        onChange={(e) => setNewArticle({ ...newArticle, order: e.target.value ? parseInt(e.target.value, 10) : undefined })}
+                        placeholder="Es. 1, 2, 3..."
+                        className="w-full bg-white border border-navy/20 p-3 text-xs focus:outline-none focus:border-[#F5C400]"
+                      />
+                    </div>
+                    <div>
+                      <label className="block text-navy/70 text-[10px] font-bold uppercase tracking-widest mb-1.5">
+                        Posizione nella Home
+                      </label>
+                      <input
+                        type="number"
+                        min="1"
+                        value={newArticle.orderHome ?? ''}
+                        onChange={(e) => setNewArticle({ ...newArticle, orderHome: e.target.value ? parseInt(e.target.value, 10) : undefined })}
+                        placeholder="Es. 1, 2, 3..."
+                        className="w-full bg-white border border-navy/20 p-3 text-xs focus:outline-none focus:border-[#F5C400]"
+                      />
+                    </div>
+                    <div className="flex flex-col justify-end">
+                      <label className="flex items-center gap-2 cursor-pointer p-3 bg-white border border-navy/20 h-[42px]">
+                        <input
+                          type="checkbox"
+                          checked={newArticle.featuredInHome !== false}
+                          onChange={(e) => setNewArticle({ ...newArticle, featuredInHome: e.target.checked })}
+                          className="w-4 h-4 text-[#F5C400] accent-[#F5C400]"
+                        />
+                        <span className="text-[11px] font-bold text-navy uppercase tracking-wider">Mostra in Home</span>
+                      </label>
+                    </div>
+                  </div>
+                </div>
+
                 <div className="flex gap-4">
                   <button 
                     type="submit" 
@@ -975,41 +1235,94 @@ export default function Admin() {
 
             {/* Articles List */}
             <div className="lg:col-span-5 space-y-6">
-              <h3 className="text-navy text-xl font-bold uppercase tracking-tighter mb-6">
-                Articoli Pubblicati ({articleList.length})
-              </h3>
+              <div className="flex items-center justify-between">
+                <h3 className="text-navy text-xl font-bold uppercase tracking-tighter">
+                  Articoli Pubblicati ({articleList.length})
+                </h3>
+                <span className="text-[11px] text-navy/50 font-normal">
+                  Usa le frecce per riordinare
+                </span>
+              </div>
 
-              <div className="space-y-4 max-h-[800px] overflow-y-auto pr-2">
-                {articleList.map((a) => (
+              <div className="space-y-3 max-h-[800px] overflow-y-auto pr-2">
+                {articleList.map((a, idx) => (
                   <div 
                     key={a.id} 
-                    className={`bg-white p-5 border transition-all flex items-center justify-between gap-4 ${
-                      editingArticleId === a.id ? 'border-gold ring-2 ring-gold/20' : 'border-navy/10'
+                    className={`bg-white p-3.5 border transition-all flex items-center justify-between gap-3 rounded-[1px] ${
+                      editingArticleId === a.id ? 'border-[#F5C400] ring-2 ring-[#F5C400]/20' : 'border-navy/10 hover:border-navy/30'
                     }`}
                   >
-                    <div className="flex items-center gap-4">
-                      <img src={a.coverImage} alt={a.title} className="w-16 h-16 object-cover bg-navy/10 border border-navy/10" />
-                      <div>
-                        <span className="text-gold text-[9px] font-bold uppercase tracking-widest">{a.category} • {a.publishedAt}</span>
-                        <h4 className="text-navy text-sm font-bold uppercase tracking-tight line-clamp-1">{a.title}</h4>
+                    <div className="flex items-center gap-3 min-w-0">
+                      {/* Position Badges */}
+                      <div className="flex flex-col items-center justify-center shrink-0 w-8 h-8 bg-navy text-white text-xs font-bold font-outfit rounded-[1px]">
+                        #{idx + 1}
+                      </div>
+                      <img src={a.coverImage} alt={a.title} className="w-12 h-12 object-cover bg-navy/10 border border-navy/10 shrink-0" />
+                      <div className="min-w-0">
+                        <div className="flex items-center gap-2 flex-wrap mb-0.5">
+                          <span className="text-[#F5C400] text-[9px] font-bold uppercase tracking-widest">{a.category} • {a.publishedAt}</span>
+                          {a.featuredInHome !== false ? (
+                            <span className="bg-[#F5C400]/15 text-navy text-[9px] font-bold px-1.5 py-0.5 rounded-[1px] flex items-center gap-1">
+                              <HouseLine size={10} weight="fill" className="text-[#F5C400]" />
+                              Home {a.orderHome ? `#${a.orderHome}` : ''}
+                            </span>
+                          ) : (
+                            <span className="bg-navy/5 text-navy/40 text-[9px] font-bold px-1.5 py-0.5 rounded-[1px]">
+                              Nascosto da Home
+                            </span>
+                          )}
+                        </div>
+                        <h4 className="text-navy text-xs font-bold uppercase tracking-tight truncate">{a.title}</h4>
                       </div>
                     </div>
 
-                    <div className="flex items-center gap-2">
+                    {/* Reorder and Action Buttons */}
+                    <div className="flex items-center gap-1 shrink-0">
                       <button
+                        type="button"
+                        onClick={() => handleMoveArticle(idx, 'up')}
+                        disabled={idx === 0}
+                        className="p-1.5 bg-navy/5 hover:bg-navy hover:text-white text-navy disabled:opacity-20 disabled:hover:bg-navy/5 disabled:hover:text-navy transition-colors rounded-[1px]"
+                        title="Sposta in Alto"
+                      >
+                        <ArrowUp size={14} weight="bold" />
+                      </button>
+                      <button
+                        type="button"
+                        onClick={() => handleMoveArticle(idx, 'down')}
+                        disabled={idx === articleList.length - 1}
+                        className="p-1.5 bg-navy/5 hover:bg-navy hover:text-white text-navy disabled:opacity-20 disabled:hover:bg-navy/5 disabled:hover:text-navy transition-colors rounded-[1px]"
+                        title="Sposta in Basso"
+                      >
+                        <ArrowDown size={14} weight="bold" />
+                      </button>
+                      <button
+                        type="button"
+                        onClick={() => handleToggleArticleHome(a.id)}
+                        className={`p-1.5 transition-colors rounded-[1px] ${
+                          a.featuredInHome !== false 
+                            ? 'bg-[#F5C400]/20 text-navy hover:bg-[#F5C400] hover:text-navy' 
+                            : 'bg-navy/5 text-navy/40 hover:bg-navy/10'
+                        }`}
+                        title={a.featuredInHome !== false ? "Visibile in Home (clicca per nascondere)" : "Nascosto da Home (clicca per mostrare)"}
+                      >
+                        <HouseLine size={14} weight={a.featuredInHome !== false ? "fill" : "regular"} />
+                      </button>
+                      <button
+                        type="button"
                         onClick={() => handleStartEditArticle(a)}
-                        className="bg-navy/5 hover:bg-navy hover:text-white text-navy transition-colors p-2 text-xs flex items-center gap-1 font-bold"
+                        className="p-1.5 bg-navy/5 hover:bg-navy hover:text-white text-navy transition-colors rounded-[1px]"
                         title="Modifica Articolo"
                       >
-                        <Pencil size={16} />
+                        <Pencil size={14} />
                       </button>
-
                       <button
+                        type="button"
                         onClick={() => handleDeleteArticle(a.id)}
-                        className="text-navy/30 hover:text-red-600 transition-colors p-2"
+                        className="p-1.5 text-navy/30 hover:text-red-600 transition-colors rounded-[1px]"
                         title="Rimuovi Articolo"
                       >
-                        <Trash size={18} />
+                        <Trash size={14} />
                       </button>
                     </div>
                   </div>

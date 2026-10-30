@@ -2,19 +2,20 @@ import { useParams, Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { useEffect } from 'react';
 import { ArrowLeft, MapPin, ArrowRight, Buildings, CurrencyEur, Briefcase, Trophy, Users } from '@phosphor-icons/react';
-import { projects } from '../data/projects';
+import { getStoredProjects } from '../lib/contentStore';
 
 export default function ProjectDetail() {
   const { id } = useParams();
+  const projectList = getStoredProjects();
   
-  const projectIndex = projects.findIndex(p => p.id === id);
-  const project = projects[projectIndex];
+  const projectIndex = projectList.findIndex(p => p.id === id);
+  const project = projectList[projectIndex];
 
   // 3 Progetti correlati anziché 1 solo
   const relatedProjects = [
-    projects[(projectIndex + 1) % projects.length],
-    projects[(projectIndex + 2) % projects.length],
-    projects[(projectIndex + 3) % projects.length]
+    projectList[(projectIndex + 1) % projectList.length],
+    projectList[(projectIndex + 2) % projectList.length],
+    projectList[(projectIndex + 3) % projectList.length]
   ];
 
   useEffect(() => {

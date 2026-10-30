@@ -98,5 +98,25 @@ export default defineType({
       type: 'array',
       of: [{ type: 'image' }],
     }),
+    defineField({
+      name: 'order',
+      title: 'Ordine di Visualizzazione Generale',
+      type: 'number',
+      description: 'Numero progressivo per decidere la posizione nell\'archivio generale (es. 1, 2, 3...)',
+      initialValue: 99,
+    }),
+    defineField({
+      name: 'featuredInHome',
+      title: 'Mostra nella Home Page',
+      type: 'boolean',
+      description: 'Se attivo, questo progetto viene inserito nel carosello della Home Page',
+      initialValue: true,
+    }),
+    defineField({
+      name: 'orderHome',
+      title: 'Ordine Specifico nel Carosello Home',
+      type: 'number',
+      description: 'Numero progressivo per decidere l\'ordine esatto delle slide nella Home (es. 1, 2, 3...)',
+    }),
   ],
 })

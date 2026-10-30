@@ -64,5 +64,25 @@ export default defineType({
       type: 'string',
       initialValue: 'MBA Progetti',
     }),
+    defineField({
+      name: 'order',
+      title: 'Ordine di Visualizzazione Generale',
+      type: 'number',
+      description: 'Numero progressivo per decidere la posizione nell\'elenco articoli (es. 1, 2, 3...)',
+      initialValue: 99,
+    }),
+    defineField({
+      name: 'featuredInHome',
+      title: 'Mostra nella Home Page',
+      type: 'boolean',
+      description: 'Se attivo, questo articolo viene inserito nel carosello delle News in Home',
+      initialValue: true,
+    }),
+    defineField({
+      name: 'orderHome',
+      title: 'Ordine Specifico nel Carosello Home',
+      type: 'number',
+      description: 'Numero progressivo per decidere l\'ordine delle slide nella Home (es. 1, 2, 3...)',
+    }),
   ],
 })

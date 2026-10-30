@@ -11,6 +11,9 @@ export interface Project {
   credits: string;
   images: string[];
   rank?: string;
+  order?: number;
+  featuredInHome?: boolean;
+  orderHome?: number;
 }
 
 export const projects: Project[] = [

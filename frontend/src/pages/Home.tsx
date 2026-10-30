@@ -14,22 +14,30 @@ import {
   CompassTool,
   Article
 } from '@phosphor-icons/react';
-import { projects } from '../data/projects';
-import { articles } from '../data/articles';
+import { getHomeProjects, getHomeArticles } from '../lib/contentStore';
 
 export default function Home() {
-  // PORTFOLIO CAROUSEL STATE - SOLO PROGETTI AL 1° O 2° POSTO
-  const homeProjects = projects.filter((p) => {
-    if (!p.rank) return false;
-    const r = p.rank.toLowerCase();
-    return r.includes('1') || r.includes('2') || r.includes('primo') || r.includes('secondo');
-  });
+  const [homeProjects, setHomeProjects] = useState(getHomeProjects);
+  const [homeArticles, setHomeArticles] = useState(getHomeArticles);
 
   const [portfolioIndex, setPortfolioIndex] = useState(0);
   const [itemsPerView, setItemsPerView] = useState(3);
 
   // NEWS CAROUSEL STATE
   const [newsIndex, setNewsIndex] = useState(0);
+
+  useEffect(() => {
+    const handleUpdate = () => {
+      setHomeProjects(getHomeProjects());
+      setHomeArticles(getHomeArticles());
+    };
+    window.addEventListener('mba_projects_updated', handleUpdate);
+    window.addEventListener('mba_articles_updated', handleUpdate);
+    return () => {
+      window.removeEventListener('mba_projects_updated', handleUpdate);
+      window.removeEventListener('mba_articles_updated', handleUpdate);
+    };
+  }, []);
 
   useEffect(() => {
     const handleResize = () => {
@@ -47,7 +55,7 @@ export default function Home() {
   }, []);
 
   const maxPortfolioIndex = Math.max(0, homeProjects.length - itemsPerView);
-  const maxNewsIndex = Math.max(0, articles.length - itemsPerView);
+  const maxNewsIndex = Math.max(0, homeArticles.length - itemsPerView);
 
   const handleNextPortfolio = () => {
     setPortfolioIndex((prev) => (prev >= maxPortfolioIndex ? 0 : prev + 1));
@@ -413,7 +421,7 @@ export default function Home() {
               transition={{ ease: [0.16, 1, 0.3, 1], duration: 0.6 }}
               className="flex gap-6"
             >
-              {articles.map((art, idx) => (
+              {homeArticles.map((art, idx) => (
                 <div 
                   key={art.id} 
                   style={{ width: `calc(${100 / itemsPerView}% - ${(24 * (itemsPerView - 1)) / itemsPerView}px)` }}

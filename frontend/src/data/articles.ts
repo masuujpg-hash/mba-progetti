@@ -8,6 +8,9 @@ export interface Article {
   coverImage: string;
   publishedAt: string;
   author: string;
+  order?: number;
+  featuredInHome?: boolean;
+  orderHome?: number;
 }
 
 export const articles: Article[] = [
