@@ -299,28 +299,30 @@ export default function Layout() {
           <div className="grid grid-cols-1 md:grid-cols-12 gap-10 lg:gap-16 mb-16">
 
             {/* 1. Colonna Sinistra: Brand & CTA Cantiere */}
-            <div className="md:col-span-5 lg:col-span-5 space-y-5">
-              <Link to="/" className="text-white text-2xl font-black tracking-wider uppercase inline-block">
-                MBA
-              </Link>
+            <div className="md:col-span-5 lg:col-span-5 flex flex-col justify-between space-y-6 md:space-y-0">
+              <div className="space-y-5">
+                <Link to="/" className="text-white text-2xl font-black tracking-wider uppercase inline-block">
+                  MBA
+                </Link>
 
-              <div>
-                <p className="text-white text-sm sm:text-[15px] font-bold uppercase tracking-[0.06em] leading-tight">
-                  IL TUO PROSSIMO CANTIERE
+                <div>
+                  <p className="text-white text-sm sm:text-[15px] font-bold uppercase tracking-[0.06em] leading-tight">
+                    IL TUO PROSSIMO CANTIERE
+                  </p>
+                  <h3 className="text-[#F5C400] text-2xl sm:text-3xl font-black uppercase tracking-tight leading-none mt-1">
+                    INIZIA QUI
+                  </h3>
+                </div>
+
+                <p className="text-white/70 text-xs sm:text-[13px] font-normal leading-relaxed max-w-sm">
+                  Richiedi una consulenza tecnica per la tua gara d'appalto.
                 </p>
-                <h3 className="text-[#F5C400] text-2xl sm:text-3xl font-black uppercase tracking-tight leading-none mt-1">
-                  INIZIA QUI
-                </h3>
               </div>
 
-              <p className="text-white/70 text-xs sm:text-[13px] font-normal leading-relaxed max-w-sm">
-                Richiedi una consulenza tecnica per la tua gara d'appalto.
-              </p>
-
-              <div>
+              <div className="pt-2 md:pt-0">
                 <Link 
                   to="/contatti" 
-                  className="inline-flex items-center justify-between w-full max-w-[270px] px-5 py-2.5 border border-white/20 text-white text-[11px] font-bold uppercase tracking-[0.14em] hover:border-gold hover:text-gold transition-colors"
+                  className="inline-flex items-center justify-between w-full max-w-[270px] px-5 py-2.5 border border-white/20 text-white text-[11px] font-bold uppercase tracking-[0.14em] hover:border-[#F5C400] hover:text-[#F5C400] transition-colors rounded-[1px]"
                 >
                   <span>RICHIEDI UNA CONSULENZA</span>
                   <CaretRight size={13} weight="bold" />
@@ -365,36 +367,38 @@ export default function Layout() {
             </div>
 
             {/* 3. Colonna Destra: CONTATTI */}
-            <div className="md:col-span-4 lg:col-span-4">
-              <h4 className="text-white/40 text-[11px] font-bold uppercase tracking-[0.18em] mb-4">
-                CONTATTI
-              </h4>
-              <div className="space-y-1.5 text-[13px] text-white/80 leading-relaxed mb-6">
-                <p>Via Sandanrulo 7, 81016 San Potito Sannitico (CE)</p>
-                <p>
-                  <a href="tel:+393286285861" className="hover:text-white transition-colors">328 6285861</a>
-                </p>
-                <p>
-                  <a href="mailto:arch.mariobiondi@gmail.com" className="hover:text-white transition-colors">arch.mariobiondi@gmail.com</a>
-                </p>
-                <p>
-                  <a href="mailto:mario.biondi@archiworldpec.it" className="hover:text-white transition-colors">PEC mario.biondi@archiworldpec.it</a>
-                </p>
-                <p>P. IVA 04274770611</p>
+            <div className="md:col-span-4 lg:col-span-4 flex flex-col justify-between space-y-6 md:space-y-0">
+              <div>
+                <h4 className="text-white/40 text-[11px] font-bold uppercase tracking-[0.18em] mb-4">
+                  CONTATTI
+                </h4>
+                <div className="space-y-1.5 text-[13px] text-white/80 leading-relaxed mb-6">
+                  <p>Via Sandanrulo 7, 81016 San Potito Sannitico (CE)</p>
+                  <p>
+                    <a href="tel:+393286285861" className="hover:text-white transition-colors">328 6285861</a>
+                  </p>
+                  <p>
+                    <a href="mailto:arch.mariobiondi@gmail.com" className="hover:text-white transition-colors">arch.mariobiondi@gmail.com</a>
+                  </p>
+                  <p>
+                    <a href="mailto:mario.biondi@archiworldpec.it" className="hover:text-white transition-colors">PEC mario.biondi@archiworldpec.it</a>
+                  </p>
+                  <p>P. IVA 04274770611</p>
+                </div>
               </div>
 
-              {/* Social Icons */}
-              <div className="flex items-center gap-4 text-white/80 pt-2">
-                <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" className="hover:text-gold transition-colors">
+              {/* Social Icons spinti in basso e allineati sulla linea base */}
+              <div className="flex items-center gap-4 text-white/80 pt-2 md:pt-0">
+                <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" className="hover:text-[#F5C400] transition-colors">
                   <LinkedinLogo size={18} weight="fill" />
                 </a>
-                <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" aria-label="Instagram" className="hover:text-gold transition-colors">
+                <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" aria-label="Instagram" className="hover:text-[#F5C400] transition-colors">
                   <InstagramLogo size={18} weight="regular" />
                 </a>
-                <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" aria-label="Facebook" className="hover:text-gold transition-colors">
+                <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" aria-label="Facebook" className="hover:text-[#F5C400] transition-colors">
                   <FacebookLogo size={18} weight="fill" />
                 </a>
-                <a href="https://wa.me/393286285861" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp" className="hover:text-gold transition-colors">
+                <a href="https://wa.me/393286285861" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp" className="hover:text-[#F5C400] transition-colors">
                   <WhatsappLogo size={18} weight="regular" />
                 </a>
               </div>
