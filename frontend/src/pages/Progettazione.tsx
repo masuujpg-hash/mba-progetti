@@ -11,7 +11,6 @@ import {
   Tree,
   Compass,
   Buildings,
-  Drop,
   ShieldCheck,
   Wrench,
   CheckCircle,
@@ -681,35 +680,30 @@ export default function Progettazione() {
           </div>
         </div>
 
-        {/* Horizontal Strip con 6 Servizi / Caratteristiche con Icone */}
-        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 divide-y sm:divide-y-0 sm:divide-x divide-navy/10 border-y border-navy/15 py-3 bg-bg-neutral/20 rounded-sm">
+        {/* Horizontal Strip con 5 Servizi / Caratteristiche con Icone */}
+        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 divide-y sm:divide-y-0 sm:divide-x divide-navy/10 border-y border-navy/15 py-3 bg-bg-neutral/20 rounded-[1px]">
           <div className="flex flex-col items-center text-center p-3">
-            <Tree size={24} className="text-gold mb-1.5" />
+            <Tree size={24} className="text-[#F5C400] mb-1.5" />
             <span className="text-xs font-bold text-navy uppercase tracking-tight">Parchi Urbani</span>
             <span className="text-[10px] text-navy/60 font-light">Verde attrezzato</span>
           </div>
           <div className="flex flex-col items-center text-center p-3">
-            <Compass size={24} className="text-gold mb-1.5" />
+            <Compass size={24} className="text-[#F5C400] mb-1.5" />
             <span className="text-xs font-bold text-navy uppercase tracking-tight">Mobilità Dolce</span>
             <span className="text-[10px] text-navy/60 font-light">Piste ciclabili & percorsi</span>
           </div>
           <div className="flex flex-col items-center text-center p-3">
-            <Buildings size={24} className="text-gold mb-1.5" />
+            <Buildings size={24} className="text-[#F5C400] mb-1.5" />
             <span className="text-xs font-bold text-navy uppercase tracking-tight">Rigenerazione</span>
             <span className="text-[10px] text-navy/60 font-light">Piazze & centri storici</span>
           </div>
           <div className="flex flex-col items-center text-center p-3">
-            <Wrench size={24} className="text-gold mb-1.5" />
+            <Wrench size={24} className="text-[#F5C400] mb-1.5" />
             <span className="text-xs font-bold text-navy uppercase tracking-tight">Sottoservizi</span>
             <span className="text-[10px] text-navy/60 font-light">Reti & infrastrutture</span>
           </div>
           <div className="flex flex-col items-center text-center p-3">
-            <Drop size={24} className="text-gold mb-1.5" />
-            <span className="text-xs font-bold text-navy uppercase tracking-tight">Drenaggio CAM</span>
-            <span className="text-[10px] text-navy/60 font-light">Invarianza idraulica</span>
-          </div>
-          <div className="flex flex-col items-center text-center p-3">
-            <ShieldCheck size={24} className="text-gold mb-1.5" />
+            <ShieldCheck size={24} className="text-[#F5C400] mb-1.5" />
             <span className="text-xs font-bold text-navy uppercase tracking-tight">Accessibilità</span>
             <span className="text-[10px] text-navy/60 font-light">Abbattimento barriere</span>
           </div>
