@@ -129,7 +129,7 @@ export default function Home() {
 
       {/* ── 2. SPECIALISTI IN OFFERTE TECNICHE MIGLIORATIVE ── */}
       <section className="py-16 md:py-24 bg-white">
-        <div className="max-w-6xl mx-auto px-6">
+        <div className="max-w-7xl mx-auto px-6">
           {/* Section Header */}
           <div className="text-left mb-10">
             <span className="inline-block bg-[#F5C400] text-white text-[11px] font-bold tracking-[0.08em] px-3 py-1 rounded-[1px] uppercase mb-5">
@@ -138,7 +138,7 @@ export default function Home() {
             <h2 className="text-[#1B2A4A] text-2xl sm:text-3xl md:text-[34px] font-extrabold tracking-[0.02em] uppercase leading-tight mb-5">
               SPECIALISTI IN OFFERTE TECNICHE MIGLIORATIVE
             </h2>
-            <p className="text-[#475569] text-base md:text-[17px] font-normal leading-[1.65] max-w-5xl">
+            <p className="text-[#475569] text-base md:text-[17px] font-normal leading-[1.65]">
               Mettiamo al servizio dei nostri clienti <strong className="font-bold text-[#1B2A4A]">oltre dieci anni di esperienza</strong> nel settore degli appalti pubblici, traducendo competenza tecnica e visione strategica in offerte migliori, più competitive e <strong className="font-bold text-[#1B2A4A]">orientate al massimo punteggio</strong>.
             </p>
           </div>
@@ -154,7 +154,7 @@ export default function Home() {
           </div>
 
           {/* Interstitial Paragraph */}
-          <p className="text-[#475569] text-base md:text-[17px] font-normal leading-[1.65] max-w-5xl mb-12 text-left">
+          <p className="text-[#475569] text-base md:text-[17px] font-normal leading-[1.65] mb-12 text-left">
             Lo studio adotta un <strong className="font-bold text-[#1B2A4A]">approccio selettivo</strong> nella redazione delle offerte tecniche, <strong className="font-bold text-[#1B2A4A]">orientato alla qualità della proposta e non alla produzione seriale</strong>. Ogni intervento è sviluppato con un <strong className="font-bold text-[#1B2A4A]">approfondimento progettuale mirato</strong>, finalizzato a massimizzare la coerenza e l'efficacia delle soluzioni migliorative.
           </p>
 

@@ -98,7 +98,7 @@ export default function Studio() {
 
       {/* ── 2. STORIA E METODO ── */}
       <section className="py-16 md:py-24 bg-white">
-        <div className="max-w-6xl mx-auto px-6">
+        <div className="max-w-7xl mx-auto px-6">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-center">
             
             {/* Left Column: Text */}
@@ -139,7 +139,7 @@ export default function Studio() {
 
       {/* ── 3. UN APPROCCIO MULTIDISCIPLINARE, UN UNICO OBIETTIVO ── */}
       <section className="py-16 md:py-24 bg-white border-t border-navy/5">
-        <div className="max-w-6xl mx-auto px-6">
+        <div className="max-w-7xl mx-auto px-6">
           <div className="text-left mb-10">
             <span className="bg-[#F5C400] text-white text-[11px] font-bold uppercase tracking-[0.14em] px-3.5 py-1 rounded-[1px] inline-block mb-5 shadow-sm">
               LA RETE
@@ -166,7 +166,7 @@ export default function Studio() {
 
       {/* ── 4. I NOSTRI VALORI ── */}
       <section className="py-16 md:py-24 bg-white border-t border-navy/5">
-        <div className="max-w-6xl mx-auto px-6">
+        <div className="max-w-7xl mx-auto px-6">
           <div className="text-left mb-12">
             <span className="bg-gold text-white text-[10px] font-bold uppercase tracking-[0.25em] px-3.5 py-1 rounded-sm inline-block mb-4 shadow-sm">
               I NOSTRI VALORI
@@ -217,7 +217,7 @@ export default function Studio() {
 
       {/* ── 5. MARIO BIONDI (FONDATORE) ── */}
       <section className="py-16 md:py-24 bg-bg-neutral/40 border-t border-navy/5">
-        <div className="max-w-6xl mx-auto px-6">
+        <div className="max-w-7xl mx-auto px-6">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-center">
             
             {/* Left: Founder Photo / Portrait container */}
@@ -265,7 +265,7 @@ export default function Studio() {
 
       {/* ── 6. UNA RETE DI PROFESSIONALITÀ ── */}
       <section className="py-16 md:py-24 bg-white border-t border-navy/5">
-        <div className="max-w-6xl mx-auto px-6">
+        <div className="max-w-7xl mx-auto px-6">
           <div className="text-left mb-12">
             <span className="bg-gold text-white text-[10px] font-bold uppercase tracking-[0.25em] px-3.5 py-1 rounded-sm inline-block mb-4 shadow-sm">
               TEAM & NETWORK PROFESSIONALE

@@ -560,7 +560,7 @@ export default function Gare() {
       </section>
 
       {/* ── 2. OFFERTE TECNICHE MIGLIORATIVE & GRAFICI ANIMATI ── */}
-      <section className="py-12 sm:py-16 px-6 max-w-6xl mx-auto">
+      <section className="py-12 sm:py-16 px-6 max-w-7xl mx-auto">
         <div className="mb-3">
           <span className="inline-block bg-gold text-white text-[10px] font-bold uppercase tracking-[0.2em] px-2.5 py-0.5 rounded-xs">
             SERVIZI
@@ -657,7 +657,7 @@ export default function Gare() {
 
       {/* ── 3. OFFERTE CHE SI LEGGONO AL PRIMO SGUARDO ── */}
       <section className="py-14 sm:py-20 bg-bg-neutral/40 border-t border-navy/10">
-        <div className="max-w-6xl mx-auto px-6">
+        <div className="max-w-7xl mx-auto px-6">
           <div className="mb-3">
             <span className="inline-block bg-gold text-white text-[10px] font-bold uppercase tracking-[0.2em] px-2.5 py-0.5 rounded-xs">
               LAYOUT
@@ -845,7 +845,7 @@ export default function Gare() {
       </section>
 
       {/* ── 4. DALLA SCELTA DELLA GARA ALLA CONSEGNA (7 FASI INTERATTIVE) ── */}
-      <section className="py-14 sm:py-20 px-6 max-w-6xl mx-auto">
+      <section className="py-14 sm:py-20 px-6 max-w-7xl mx-auto">
         <div className="mb-3">
           <span className="inline-block bg-gold text-white text-[10px] font-bold uppercase tracking-[0.2em] px-2.5 py-0.5 rounded-xs">
             METODO
@@ -917,7 +917,7 @@ export default function Gare() {
 
       {/* ── 5. TIPOLOGIE DI OPERE (ESATTAMENTE COME IL MOCKUP) ── */}
       <section className="py-16 sm:py-24 bg-white border-t border-navy/10">
-        <div className="max-w-6xl mx-auto px-6">
+        <div className="max-w-7xl mx-auto px-6">
           <div className="mb-4">
             <span className="inline-block bg-gold text-white text-[10px] font-bold uppercase tracking-[0.2em] px-3 py-1 rounded-xs">
               AMBITI
@@ -952,7 +952,7 @@ export default function Gare() {
       </section>
 
       {/* ── 6. CONTATTACI SUBITO ── */}
-      <section id="contattaci-sezione" className="py-14 sm:py-20 px-6 max-w-6xl mx-auto">
+      <section id="contattaci-sezione" className="py-14 sm:py-20 px-6 max-w-7xl mx-auto">
         <div className="border-l-4 border-gold bg-bg-neutral/40 p-6 sm:p-10 rounded-xs shadow-xs">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12">
             
