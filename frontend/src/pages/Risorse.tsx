@@ -188,7 +188,7 @@ function ArticleCard({ article, onClick }: { article: Article; onClick: () => vo
        <div className="aspect-video overflow-hidden bg-navy">
           <img 
             src={article.coverImage} 
-            className="w-full h-full object-cover grayscale opacity-60 group-hover:grayscale-0 group-hover:scale-110 transition-all duration-1000 group-hover:opacity-100" 
+            className="w-full h-full object-cover group-hover:scale-105 transition-all duration-700" 
             alt={article.title} 
           />
        </div>

@@ -88,11 +88,11 @@ function ProjectGridItem({ project }: { project: Project }) {
   return (
     <Link to={`/portfolio/${project.id}`}>
       <div className="group relative aspect-[4/3] sm:aspect-[4/5] overflow-hidden bg-neutral-100 cursor-pointer shadow-xs hover:shadow-md transition-all border border-navy/10 rounded-[1px]">
-         {/* FOTO NATURALE SENZA VETRO BLU */}
+         {/* FOTO NATURALE A COLORI */}
          <img 
            src={project.image} 
            loading="lazy"
-           className="w-full h-full object-cover group-hover:scale-105 transition-all duration-700 grayscale group-hover:grayscale-0" 
+           className="w-full h-full object-cover group-hover:scale-105 transition-all duration-700" 
            alt={project.title} 
          />
 

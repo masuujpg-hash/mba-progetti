@@ -243,7 +243,7 @@ export default function Servizi() {
                 <img 
                   src={currentService.image} 
                   alt={currentService.title}
-                  className="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-700"
+                  className="w-full h-full object-cover transition-all duration-700"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent p-6 flex flex-col justify-end">
                   <span className="text-gold text-[10px] font-bold uppercase tracking-wider mb-1">MBA Progetti</span>

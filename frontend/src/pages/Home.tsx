@@ -272,30 +272,30 @@ export default function Home() {
             </motion.div>
           </div>
 
-          {/* Bottom Bar: CTA on Left, Carousel Controls on Right */}
-          <div className="mt-10 flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-4">
+          {/* Bottom Bar: CTA on Left, Carousel Controls on Right (Allineati sulla stessa riga anche da mobile) */}
+          <div className="mt-8 sm:mt-10 flex flex-row items-center justify-between gap-2 sm:gap-4">
             <Link 
               to="/portfolio" 
-              className="border border-navy/20 hover:border-[#F5C400] hover:text-[#F5C400] bg-white px-6 py-3.5 text-[11px] sm:text-xs tracking-widest uppercase font-bold text-navy transition-all rounded-[1px] shadow-xs inline-flex items-center justify-center sm:justify-start gap-3 group"
+              className="border border-navy/20 hover:border-[#F5C400] hover:text-[#F5C400] bg-white px-2.5 sm:px-6 py-3 sm:py-3.5 text-[9px] min-[380px]:text-[10px] sm:text-xs tracking-wider sm:tracking-widest uppercase font-bold text-navy transition-all rounded-[1px] shadow-xs inline-flex items-center justify-center gap-1.5 sm:gap-3 group flex-1 min-w-0"
             >
-              <span>Vedi Tutti i Progetti nel Portfolio</span>
-              <ArrowRight size={15} className="group-hover:translate-x-1 transition-transform" />
+              <span className="truncate">Vedi Tutti i Progetti nel Portfolio</span>
+              <ArrowRight size={14} className="group-hover:translate-x-1 transition-transform shrink-0" />
             </Link>
 
-            <div className="flex items-center justify-end gap-3 shrink-0 self-end sm:self-auto">
+            <div className="flex items-center justify-end gap-1.5 sm:gap-3 shrink-0">
               <button 
                 onClick={handlePrevPortfolio}
-                className="w-11 h-11 border border-navy/20 text-navy hover:border-[#F5C400] hover:text-[#F5C400] transition-colors bg-white rounded-[1px] shadow-xs flex items-center justify-center"
+                className="w-9 h-9 min-[380px]:w-10 min-[380px]:h-10 sm:w-11 sm:h-11 border border-navy/20 text-navy hover:border-[#F5C400] hover:text-[#F5C400] transition-colors bg-white rounded-[1px] shadow-xs flex items-center justify-center shrink-0"
                 aria-label="Progetto Precedente"
               >
-                <CaretLeft size={20} />
+                <CaretLeft size={18} />
               </button>
               <button 
                 onClick={handleNextPortfolio}
-                className="w-11 h-11 border border-navy/20 text-navy hover:border-[#F5C400] hover:text-[#F5C400] transition-colors bg-white rounded-[1px] shadow-xs flex items-center justify-center"
+                className="w-9 h-9 min-[380px]:w-10 min-[380px]:h-10 sm:w-11 sm:h-11 border border-navy/20 text-navy hover:border-[#F5C400] hover:text-[#F5C400] transition-colors bg-white rounded-[1px] shadow-xs flex items-center justify-center shrink-0"
                 aria-label="Progetto Successivo"
               >
-                <CaretRight size={20} />
+                <CaretRight size={18} />
               </button>
             </div>
           </div>
@@ -438,30 +438,30 @@ export default function Home() {
             </motion.div>
           </div>
 
-          {/* Bottom Bar: CTA on Left, Carousel Controls on Right */}
-          <div className="mt-10 flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-4">
+          {/* Bottom Bar: CTA on Left, Carousel Controls on Right (Allineati sulla stessa riga anche da mobile) */}
+          <div className="mt-8 sm:mt-10 flex flex-row items-center justify-between gap-2 sm:gap-4">
             <Link 
               to="/risorse" 
-              className="border border-navy/20 hover:border-[#F5C400] hover:text-[#F5C400] bg-white px-6 py-3.5 text-[11px] sm:text-xs tracking-widest uppercase font-bold text-navy transition-all rounded-[1px] shadow-xs inline-flex items-center justify-center sm:justify-start gap-3 group"
+              className="border border-navy/20 hover:border-[#F5C400] hover:text-[#F5C400] bg-white px-2.5 sm:px-6 py-3 sm:py-3.5 text-[9px] min-[380px]:text-[10px] sm:text-xs tracking-wider sm:tracking-widest uppercase font-bold text-navy transition-all rounded-[1px] shadow-xs inline-flex items-center justify-center gap-1.5 sm:gap-3 group flex-1 min-w-0"
             >
-              <span>Vedi Tutti gli Aggiornamenti</span>
-              <ArrowRight size={15} className="group-hover:translate-x-1 transition-transform" />
+              <span className="truncate">Vedi Tutti gli Aggiornamenti</span>
+              <ArrowRight size={14} className="group-hover:translate-x-1 transition-transform shrink-0" />
             </Link>
 
-            <div className="flex items-center justify-end gap-3 shrink-0 self-end sm:self-auto">
+            <div className="flex items-center justify-end gap-1.5 sm:gap-3 shrink-0">
               <button 
                 onClick={handlePrevNews}
-                className="w-11 h-11 border border-navy/20 text-navy hover:border-[#F5C400] hover:text-[#F5C400] transition-colors bg-white rounded-[1px] shadow-xs flex items-center justify-center"
+                className="w-9 h-9 min-[380px]:w-10 min-[380px]:h-10 sm:w-11 sm:h-11 border border-navy/20 text-navy hover:border-[#F5C400] hover:text-[#F5C400] transition-colors bg-white rounded-[1px] shadow-xs flex items-center justify-center shrink-0"
                 aria-label="Articolo Precedente"
               >
-                <CaretLeft size={20} />
+                <CaretLeft size={18} />
               </button>
               <button 
                 onClick={handleNextNews}
-                className="w-11 h-11 border border-navy/20 text-navy hover:border-[#F5C400] hover:text-[#F5C400] transition-colors bg-white rounded-[1px] shadow-xs flex items-center justify-center"
+                className="w-9 h-9 min-[380px]:w-10 min-[380px]:h-10 sm:w-11 sm:h-11 border border-navy/20 text-navy hover:border-[#F5C400] hover:text-[#F5C400] transition-colors bg-white rounded-[1px] shadow-xs flex items-center justify-center shrink-0"
                 aria-label="Articolo Successivo"
               >
-                <CaretRight size={20} />
+                <CaretRight size={18} />
               </button>
             </div>
           </div>
@@ -556,7 +556,7 @@ function ProjectCard({ id, title, cat, img, pos, rank, amount }: any) {
         <img 
           src={img} 
           alt={title}
-          className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 grayscale group-hover:grayscale-0"
+          className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
         />
         {rank && (
           <div className="absolute top-3 left-3 bg-[#F5C400] text-white text-[10px] font-bold uppercase tracking-wider px-2.5 py-1 rounded-[1px] shadow-sm">
@@ -601,7 +601,7 @@ function ArticleCard({ title, category, excerpt, image }: { title: string; categ
         <img 
           src={image} 
           alt={title}
-          className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 grayscale group-hover:grayscale-0"
+          className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
         />
         <div className="absolute top-3 left-3 bg-navy text-white text-[10px] font-bold uppercase tracking-wider px-2.5 py-1 rounded-[1px] shadow-sm">
           {category}

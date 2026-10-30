@@ -57,7 +57,7 @@ export default function ProjectDetail() {
               <img 
                 src={project.image} 
                 alt={project.title}
-                className="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-1000"
+                className="w-full h-full object-cover transition-all duration-700"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-navy/40 via-transparent to-transparent pointer-events-none" />
               
@@ -203,7 +203,7 @@ export default function ProjectDetail() {
                     <img 
                       src={rp.image} 
                       alt={rp.title}
-                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 grayscale group-hover:grayscale-0"
+                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                     />
                     {rp.rank && (
                       <div className="absolute top-3 left-3 bg-gold text-white text-[10px] font-bold uppercase tracking-wider px-2 py-0.5 rounded-sm">

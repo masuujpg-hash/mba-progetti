@@ -519,7 +519,7 @@ function ArticleCard({ tag, title, text, img, link }: any) {
   return (
     <Link to={link || "/risorse#articles"} className="bg-white group cursor-pointer shadow-sm hover:shadow-2xl transition-all duration-700 overflow-hidden block">
        <div className="aspect-video overflow-hidden bg-navy">
-          <img src={img} className="w-full h-full object-cover grayscale opacity-60 group-hover:grayscale-0 group-hover:scale-110 transition-all duration-1000 group-hover:opacity-100" alt={title} />
+          <img src={img} className="w-full h-full object-cover group-hover:scale-105 transition-all duration-700" alt={title} />
        </div>
        <div className="p-6 sm:p-10">
           <span className="text-gold text-[11px] font-bold uppercase tracking-[0.4em] mb-4 block">{tag}</span>

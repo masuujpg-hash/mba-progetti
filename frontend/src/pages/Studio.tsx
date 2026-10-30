@@ -226,7 +226,7 @@ export default function Studio() {
                 <img 
                   src="/media/team_rilievi.jpg" 
                   alt="Arch. Mario Biondi" 
-                  className="w-full h-full object-cover object-top grayscale"
+                  className="w-full h-full object-cover object-top"
                 />
                 <div className="absolute inset-0 bg-navy/10" />
               </div>
