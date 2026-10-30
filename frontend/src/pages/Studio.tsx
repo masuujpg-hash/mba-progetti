@@ -388,7 +388,7 @@ function NetworkDiagram() {
   const satelliteRadius = 24;
 
   return (
-    <div className="relative w-full max-w-[640px] flex flex-col items-center justify-center select-none">
+    <div className="relative w-full max-w-[920px] flex flex-col items-center justify-center select-none mx-auto">
       <div className="relative w-full aspect-[680/440] flex items-center justify-center">
         <svg 
           viewBox={`0 0 ${width} ${height}`} 
@@ -524,7 +524,7 @@ function NetworkDiagram() {
                     y={textY + 3}
                     textAnchor={textAnchor}
                     fill={isHovered ? "#F5C400" : "#1B2A4A"}
-                    fontSize="9.5"
+                    fontSize="10"
                     fontWeight="700"
                     letterSpacing="0.08em"
                     className="uppercase select-none transition-colors duration-300"
@@ -538,7 +538,7 @@ function NetworkDiagram() {
                     y={node.align === 'top' ? textY - 6 : textY - 3}
                     textAnchor={textAnchor}
                     fill={isHovered ? "#F5C400" : "#1B2A4A"}
-                    fontSize="9.5"
+                    fontSize="10"
                     fontWeight="700"
                     letterSpacing="0.08em"
                     className="uppercase select-none transition-colors duration-300"
@@ -552,22 +552,6 @@ function NetworkDiagram() {
             );
           })}
         </svg>
-      </div>
-
-      {/* Interactive Tooltip Card at the bottom when a node is hovered */}
-      <div className="h-10 mt-3 flex items-center justify-center w-full px-4">
-        {hoveredIndex !== null ? (
-          <p className="text-xs text-[#1B2A4A]/85 font-medium text-center transition-all">
-            <strong className="text-[#F5C400] font-bold uppercase tracking-wider mr-1.5">
-              {nodes[hoveredIndex].lines.join(" ")}:
-            </strong>
-            {nodes[hoveredIndex].desc}
-          </p>
-        ) : (
-          <p className="text-[11px] text-[#1B2A4A]/40 uppercase tracking-wider text-center">
-            Passa il mouse su una disciplina per visualizzare i dettagli
-          </p>
-        )}
       </div>
     </div>
   );
