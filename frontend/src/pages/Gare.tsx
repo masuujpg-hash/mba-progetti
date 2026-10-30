@@ -102,12 +102,12 @@ function AnimatedDonutChart({
   const isInView = useInView(containerRef, { once: true, margin: "-60px" });
   const [hoveredIdx, setHoveredIdx] = useState<number | null>(null);
 
-  // Geometria SVG Donut
-  const size = 220;
+  // Geometria SVG Donut maggiorata
+  const size = 280;
   const cx = size / 2;
   const cy = size / 2;
-  const radius = 68;
-  const strokeWidth = 36;
+  const radius = 88;
+  const strokeWidth = 46;
   const circumference = 2 * Math.PI * radius;
 
   // Calcolo segmenti cumulativi partendo da -90deg (12:00 in alto)
@@ -115,7 +115,7 @@ function AnimatedDonutChart({
   const segmentData = segments.map((seg) => {
     const startAngle = (accumulatedPercent / 100) * 360 - 90;
     const arcLength = (seg.value / 100) * circumference;
-    const gap = 2; // pixel gap tra le fette
+    const gap = 2.5; // pixel gap tra le fette
     const dashLength = Math.max(0, arcLength - gap);
 
     // Angolo medio per etichetta percentuale
@@ -137,9 +137,9 @@ function AnimatedDonutChart({
   });
 
   return (
-    <div ref={containerRef} className="flex flex-col items-center group w-full max-w-[270px]">
-      {/* Container SVG con animazioni */}
-      <div className="relative w-52 h-52 sm:w-56 sm:h-56 mb-2 flex items-center justify-center">
+    <div ref={containerRef} className="flex flex-col items-center group w-full max-w-[340px]">
+      {/* Container SVG maggiorato con animazioni */}
+      <div className="relative w-64 h-64 sm:w-72 sm:h-72 lg:w-[300px] lg:h-[300px] mb-3 flex items-center justify-center">
         <svg 
           width="100%" 
           height="100%" 
@@ -171,7 +171,7 @@ function AnimatedDonutChart({
                   r={radius}
                   fill="none"
                   stroke={seg.color}
-                  strokeWidth={isHovered ? strokeWidth + 3 : strokeWidth}
+                  strokeWidth={isHovered ? strokeWidth + 4 : strokeWidth}
                   strokeDasharray={`${seg.dashLength} ${circumference - seg.dashLength}`}
                   transform={`rotate(${seg.startAngle} ${cx} ${cy})`}
                   strokeLinecap="butt"
@@ -184,7 +184,7 @@ function AnimatedDonutChart({
                   }}
                   className="cursor-pointer transition-all duration-200"
                   style={{
-                    filter: isHovered ? 'drop-shadow(0 2px 8px rgba(27,42,74,0.25))' : 'none'
+                    filter: isHovered ? 'drop-shadow(0 4px 12px rgba(27,42,74,0.25))' : 'none'
                   }}
                 />
 
@@ -195,7 +195,7 @@ function AnimatedDonutChart({
                   textAnchor="middle"
                   dominantBaseline="central"
                   fill={seg.textColor || (seg.value <= 10 ? '#1B2A4A' : '#FFFFFF')}
-                  fontSize={seg.value <= 5 ? "9" : "10.5"}
+                  fontSize={seg.value <= 5 ? "10.5" : "12.5"}
                   fontWeight="700"
                   className="pointer-events-none select-none"
                   style={{ fontFamily: "'Outfit', ui-sans-serif, system-ui, sans-serif" }}
@@ -220,23 +220,23 @@ function AnimatedDonutChart({
 
         {/* Icona circolare al centro della ciambella */}
         <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
-          <div className="w-9 h-9 rounded-full border border-navy/20 flex items-center justify-center bg-white shadow-xs">
+          <div className="w-12 h-12 rounded-full border border-navy/20 flex items-center justify-center bg-white shadow-xs">
             {centerIcon}
           </div>
         </div>
       </div>
 
       {/* Titolo sotto il grafico */}
-      <h3 className="font-outfit text-sm sm:text-[15px] font-normal text-navy mt-4 mb-3 text-center">
+      <h3 className="font-outfit text-base sm:text-[17px] font-normal text-navy mt-4 mb-3 text-center">
         {prefixTitle} <span className="text-[#F5C400] font-bold uppercase tracking-wider">{highlightTitle}</span>
       </h3>
 
       {/* Mini legenda a due colonne */}
-      <div className="w-full max-w-[270px] grid grid-cols-2 gap-x-4 gap-y-2 text-left font-outfit text-[11px] font-semibold tracking-wider text-[#1B2A4A]/80">
+      <div className="w-full max-w-[290px] grid grid-cols-2 gap-x-5 gap-y-2.5 text-left font-outfit text-xs font-semibold tracking-wider text-[#1B2A4A]/80">
         <div className="space-y-2">
           {legendCol1.map((item, idx) => (
             <div key={idx} className="flex items-center gap-2">
-              <span className="w-2 h-2 rounded-full shrink-0" style={{ backgroundColor: item.color }} />
+              <span className="w-2.5 h-2.5 rounded-full shrink-0" style={{ backgroundColor: item.color }} />
               <span className="uppercase whitespace-nowrap">{item.label}</span>
             </div>
           ))}
@@ -244,7 +244,7 @@ function AnimatedDonutChart({
         <div className="space-y-2">
           {legendCol2.map((item, idx) => (
             <div key={idx} className="flex items-center gap-2">
-              <span className="w-2 h-2 rounded-full shrink-0" style={{ backgroundColor: item.color }} />
+              <span className="w-2.5 h-2.5 rounded-full shrink-0" style={{ backgroundColor: item.color }} />
               <span className="uppercase whitespace-nowrap">{item.label}</span>
             </div>
           ))}
@@ -553,14 +553,14 @@ export default function Gare() {
         </div>
 
         {/* ── 3 GRAFICI A CIAMBELLA ANIMATI ── */}
-        <div className="pt-12 border-t border-navy/10">
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-10 lg:gap-12 justify-items-center">
+        <div className="pt-12 sm:pt-16 border-t border-navy/10">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-12 lg:gap-14 justify-items-center">
             
             {/* Grafico 1: Ubicazione */}
             <AnimatedDonutChart
               prefixTitle="gare per"
               highlightTitle="UBICAZIONE"
-              centerIcon={<MapPin size={16} weight="regular" className="text-navy" />}
+              centerIcon={<MapPin size={20} weight="regular" className="text-navy" />}
               segments={[
                 { label: "CENTRO ITALIA", value: 50, color: "#1B2A4A", textColor: "#FFFFFF" },
                 { label: "NORD ITALIA", value: 30, color: "#3B5274", textColor: "#FFFFFF" },
@@ -579,7 +579,7 @@ export default function Gare() {
             <AnimatedDonutChart
               prefixTitle="gare per categorie"
               highlightTitle="SOA"
-              centerIcon={<ShieldCheck size={16} weight="regular" className="text-navy" />}
+              centerIcon={<ShieldCheck size={20} weight="regular" className="text-navy" />}
               segments={[
                 { label: "OG1", value: 55, color: "#1B2A4A", textColor: "#FFFFFF" },
                 { label: "OG2", value: 30, color: "#3B5274", textColor: "#FFFFFF" },
@@ -600,7 +600,7 @@ export default function Gare() {
             <AnimatedDonutChart
               prefixTitle="gare per"
               highlightTitle="IMPORTO"
-              centerIcon={<span className="text-navy font-outfit font-semibold text-sm leading-none">€</span>}
+              centerIcon={<span className="text-navy font-outfit font-semibold text-base sm:text-lg leading-none">€</span>}
               segments={[
                 { label: "1 – 5 MLN", value: 40, color: "#1B2A4A", textColor: "#FFFFFF" },
                 { label: "5 – 20 MLN", value: 30, color: "#3B5274", textColor: "#FFFFFF" },
