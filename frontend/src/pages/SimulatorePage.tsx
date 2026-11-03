@@ -6,25 +6,27 @@ export default function SimulatorePage() {
     <div className="bg-white selection:bg-navy selection:text-white overflow-x-hidden min-h-screen">
       
       {/* ── HERO SIMULATORE ── */}
-      <section className="relative h-[50vh] w-full flex items-center justify-center overflow-hidden bg-navy pt-20">
+      <section className="relative min-h-[50vh] md:h-[55vh] w-full flex items-center justify-center overflow-hidden bg-navy">
         <div className="absolute inset-0 z-0">
           <img 
             src="/media/header_2.jpg" 
             alt="Simulatore Economico"
-            className="w-full h-full object-cover grayscale opacity-20"
+            className="w-full h-full object-cover grayscale opacity-25"
           />
-          <div className="absolute inset-0 bg-gradient-to-b from-navy via-transparent to-white" />
+          <div className="absolute inset-0 bg-gradient-to-b from-navy via-navy/60 to-white" />
         </div>
 
-        <div className="relative z-10 text-center px-6">
+        <div className="relative z-10 text-center px-6 max-w-4xl mx-auto py-16">
           <motion.div
-            initial={{ opacity: 0, y: 30 }}
+            initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 1.5 }}
+            transition={{ duration: 0.8 }}
           >
-            <span className="text-gold text-xs font-bold uppercase tracking-[0.3em] md:tracking-[0.8em] mb-6 md:mb-8 block">Strumento Gratuito</span>
-            <h1 className="text-white text-3xl sm:text-4xl md:text-5xl font-bold leading-[1.1] uppercase tracking-tighter mb-6 md:mb-8">
-               Simulatore <br /> Economico.
+            <span className="text-white/80 text-[11px] font-bold uppercase tracking-[0.4em] md:tracking-[0.6em] mb-4 block font-outfit">
+              STRUMENTO GRATUITO PER LE IMPRESE
+            </span>
+            <h1 className="text-white text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold uppercase tracking-[0.25em] md:tracking-[0.35em] leading-[1.2] mb-4 font-outfit">
+               SIMULATORE OEPV
             </h1>
           </motion.div>
         </div>

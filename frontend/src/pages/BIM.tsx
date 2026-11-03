@@ -1,47 +1,7 @@
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
-import { 
-  Database,
-  TrendingUp,
-  FileCheck,
-  Layers,
-  Cpu,
-  Binary,
-  ArrowRight
-} from 'lucide-react';
 
 export default function BIM() {
-  const bimServices = [
-    { 
-       id: '01', 
-       title: 'Modellazione e coordinamento', 
-       desc: 'Sviluppiamo modelli informativi architettonici, strutturali e impiantistici coordinati tra loro. La centralizzazione delle informazioni riduce interferenze, varianti e imprevisti in fase esecutiva.', 
-       img: '/media/portfolio/p08.png',
-       icon: Layers
-    },
-    { 
-       id: '02', 
-       title: 'BIM per le gare d’appalto', 
-       desc: 'Nelle procedure OEPV il modello BIM supporta la redazione delle offerte con elaborati grafici precisi e documentazione conforme ai livelli informativi richiesti dal disciplinare.', 
-       img: '/media/portfolio/p10_1.webp',
-       icon: FileCheck
-    },
-    { 
-       id: '03', 
-       title: 'Scan to BIM & HBIM', 
-       desc: 'Partendo dalle nuvole di punti acquisite con laser scanner e drone, generiamo modelli BIM dello stato di fatto — incluso l\'HBIM per gli edifici storici — che costituiscono la base per interventi di recupero.', 
-       img: '/media/blk360_rilievi.webp',
-       icon: Cpu
-    },
-    { 
-       id: '04', 
-       title: 'As-Built BIM & Asset Management', 
-       desc: 'Aggiorniamo la documentazione digitale al termine dei lavori per riflettere fedelmente quanto realizzato in cantiere per la gestione e manutenzione futura.', 
-       img: '/media/portfolio/p15_1.webp',
-       icon: Database
-    }
-  ];
-
   return (
     <div className="bg-white selection:bg-navy selection:text-white">
       
@@ -73,102 +33,244 @@ export default function BIM() {
         </div>
       </section>
 
-      {/* ── CITAZIONE & INTRODUZIONE ── */}
-      <section className="py-12 md:py-16 px-6 max-w-4xl mx-auto text-center">
-         <div className="bg-bg-neutral border-l-4 border-gold p-6 sm:p-8 rounded-r-sm text-left shadow-xs mb-8">
-            <p className="text-navy text-lg sm:text-xl font-light italic leading-relaxed">
-               "La qualità di un progetto si misura anche nella precisione delle informazioni che lo descrivono."
+      {/* ── IL MODELLO COME BASE DI CONOSCENZA DELL'EDIFICIO ── */}
+      <section className="py-12 sm:py-16 px-6 max-w-7xl mx-auto">
+        <div className="mb-8">
+          <span className="bg-gold text-white text-[10px] font-bold uppercase tracking-[0.25em] px-3.5 py-1 rounded-[1px] inline-block mb-3 shadow-xs font-outfit">
+            DIGITALIZZAZIONE DEL COSTRUITO
+          </span>
+          <h2 className="text-navy text-2xl sm:text-3xl md:text-4xl font-extrabold uppercase tracking-tight font-heading">
+            IL MODELLO COME BASE DI CONOSCENZA DELL’EDIFICIO
+          </h2>
+        </div>
+
+        {/* 2-Column Grid: Text a Sinistra, Visual Villa BIM a Destra */}
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center mb-10">
+          {/* Left Column: Description */}
+          <div className="lg:col-span-6 space-y-5 text-navy/85 text-[15px] sm:text-[17px] font-normal leading-relaxed font-outfit">
+            <p>
+              Convertiamo il rilievo di <strong className="text-navy font-bold">edifici e complessi esistenti</strong> in <strong className="text-navy font-bold">modelli informativi</strong> e applichiamo il BIM alla progettazione di nuove opere. Operiamo grazie a <strong className="text-navy font-bold">consolidati rapporti di collaborazione</strong> con professionisti specializzati in rilievo e modellazione BIM, che affiancano lo studio in ogni fase e consentono di raccogliere geometrie, materiali e dati in un’unica fonte, coordinata e verificabile.
             </p>
-         </div>
-         <p className="text-navy/80 text-sm md:text-base font-light leading-relaxed">
-            Il Building Information Modeling è il processo con cui gestiamo, coordiniamo e condividiamo le informazioni di un progetto in modo integrato e trasparente. Appliciamo la metodologia BIM nelle fasi di progettazione, rilievo e redazione delle offerte tecniche.
-         </p>
-      </section>
-
-      {/* ── SERVIZI BIM ── */}
-      <section className="py-12 md:py-20 bg-bg-neutral/40 border-t border-navy/5">
-         <div className="max-w-7xl mx-auto px-6">
-            <div className="text-center mb-12">
-               <span className="text-gold text-xs font-bold uppercase tracking-[0.4em] mb-2 block">Ingegneria dei Dati</span>
-               <h2 className="text-navy text-2xl sm:text-3xl font-bold uppercase tracking-tighter">
-                  Digital Twin & Modellazione
-               </h2>
-            </div>
-
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-               {bimServices.map((step) => {
-                  const IconComp = step.icon;
-                  return (
-                     <div 
-                        key={step.id}
-                        className="bg-white border border-navy/10 rounded-sm overflow-hidden p-6 flex flex-col justify-between space-y-4 shadow-xs"
-                     >
-                        <div className="flex items-center justify-between">
-                           <span className="text-gold font-mono font-bold text-xs">{step.id}</span>
-                           <IconComp size={20} className="text-navy/60" />
-                        </div>
-                        <div>
-                           <h3 className="text-navy text-base font-bold uppercase tracking-tight mb-2">{step.title}</h3>
-                           <p className="text-navy/70 text-xs font-light leading-relaxed">{step.desc}</p>
-                        </div>
-                     </div>
-                  );
-               })}
-            </div>
-         </div>
-      </section>
-
-      {/* ── METODO DIGITALE ── */}
-      <section className="py-12 md:py-20 bg-white">
-         <div className="max-w-7xl mx-auto px-6">
-            <div className="text-center mb-12">
-               <span className="text-gold text-xs font-bold uppercase tracking-[0.4em] mb-2 block">Vantaggi Competitivi</span>
-               <h2 className="text-navy text-2xl sm:text-3xl font-bold uppercase tracking-tighter">
-                  Efficienza Informativa & Interoperabilità
-               </h2>
-            </div>
-
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-               <div className="p-6 bg-bg-neutral/60 border border-navy/5 rounded-sm space-y-3">
-                  <Database size={24} className="text-gold" />
-                  <h3 className="text-navy text-base font-bold uppercase tracking-tight">Asset Management</h3>
-                  <p className="text-navy/70 text-xs font-light leading-relaxed">
-                     I dati del modello al servizio della gestione immobiliare, dei facility management e della manutenzione predittiva dell'immobile.
-                  </p>
-               </div>
-
-               <div className="p-6 bg-bg-neutral/60 border border-navy/5 rounded-sm space-y-3">
-                  <TrendingUp size={24} className="text-gold" />
-                  <h3 className="text-navy text-base font-bold uppercase tracking-tight">Ottimizzazione Costi</h3>
-                  <p className="text-navy/70 text-xs font-light leading-relaxed">
-                     Riduzione drastica delle varianti e dei tempi di cantiere grazie alla simulazione virtuale delle interferenze (Clash Detection).
-                  </p>
-               </div>
-
-               <div className="p-6 bg-bg-neutral/60 border border-navy/5 rounded-sm space-y-3">
-                  <Binary size={24} className="text-gold" />
-                  <h3 className="text-navy text-base font-bold uppercase tracking-tight">Standard OpenBIM (IFC)</h3>
-                  <p className="text-navy/70 text-xs font-light leading-relaxed">
-                     Interoperabilità totale garantita dall'uso di formati aperti (IFC, BCF, COBie) in linea con le normative ISO 19650.
-                  </p>
-               </div>
-            </div>
-         </div>
-      </section>
-
-      {/* ── FINAL CTA (SENZA BLOCCO BLU) ── */}
-      <section className="py-12 md:py-20 bg-bg-neutral text-navy text-center border-t border-navy/10">
-         <div className="max-w-3xl mx-auto px-6">
-            <h2 className="text-navy text-2xl sm:text-3xl font-bold uppercase tracking-tighter leading-tight mb-4">
-               Digitalizza la Tua Commessa
-            </h2>
-            <p className="text-navy/70 text-sm font-light mb-8">
-               Contatta i nostri specialisti BIM per definire la strategia informativa ed il Capitolato Informativo (CI).
+            <p>
+              Dal progetto alla manutenzione, <strong className="text-navy font-bold">le informazioni restano accessibili</strong> a progettisti, imprese e gestori, senza dover rilevare o ridisegnare due volte lo stesso edificio. Il coordinamento dell’incarico resta in capo all’arch. Mario Biondi, <strong className="text-navy font-bold">interlocutore unico</strong> per la committenza.
             </p>
-            <Link to="/contatti" className="btn-ghost-dark group">
-               Richiedi una Consulenza <ArrowRight size={16} className="ml-2 group-hover:translate-x-1 transition-transform inline-block" />
-            </Link>
-         </div>
+          </div>
+
+          {/* Right Column: Visual Villa Point Cloud / Wireframe */}
+          <div className="lg:col-span-6">
+            <div className="relative rounded-[1px] overflow-hidden border border-navy/10 shadow-sm group">
+              <img
+                src="/media/bim_modello_conoscenza.jpg"
+                alt="BIM Modello Come Base di Conoscenza dell'Edificio"
+                className="w-full h-auto max-h-[380px] object-cover group-hover:scale-[1.02] transition-transform duration-700"
+              />
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ── SCAN TO BIM: DALLA NUVOLA DI PUNTI AL MODELLO ── */}
+      <section className="py-12 sm:py-16 px-6 max-w-7xl mx-auto border-t border-navy/10">
+        <div className="mb-4">
+          <span className="bg-gold text-white text-[10px] font-bold uppercase tracking-[0.25em] px-3.5 py-1 rounded-[1px] inline-block shadow-xs font-outfit">
+            SCAN TO BIM
+          </span>
+        </div>
+
+        <div className="flex items-center gap-3.5 mb-6">
+          <div className="w-10 h-10 rounded-[1px] bg-navy flex items-center justify-center text-white shrink-0 shadow-xs">
+            <svg className="w-5 h-5 text-white" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+              <path d="M12 2l8 4.5v11L12 22l-8-4.5v-11L12 2z" />
+              <path d="M12 12l8-4.5" />
+              <path d="M12 12v10" />
+              <path d="M12 12L4 7.5" />
+            </svg>
+          </div>
+          <h2 className="text-navy text-2xl sm:text-3xl md:text-4xl font-extrabold uppercase tracking-tight font-heading">
+            DALLA NUVOLA DI PUNTI AL MODELLO
+          </h2>
+        </div>
+
+        <p className="text-navy/85 text-[15px] sm:text-[17px] font-normal leading-relaxed max-w-4xl mb-10 font-outfit">
+          La nuvola di punti georeferenziata, acquisita con laser scanner e drone, viene convertita in un <strong className="text-navy font-bold">modello parametrico 3D</strong> sviluppato con <strong className="text-navy font-bold">Autodesk Revit</strong> e <strong className="text-navy font-bold">ReCap Pro</strong> (o equivalente). Geometrie, spessori murari e componenti strutturali sono <strong className="text-navy font-bold">verificati sul costruito</strong>.
+        </p>
+
+        {/* Visual a piena larghezza: Split Nuvola di Punti / Modello Lineare BIM */}
+        <div className="relative rounded-[1px] overflow-hidden border border-navy/10 shadow-sm group bg-white">
+          <img
+            src="/media/bim_scan_to_model_split.jpg"
+            alt="Confronto Nuvola di Punti Laser Scanner e Modello Parametrico BIM"
+            className="w-full h-auto object-cover group-hover:scale-[1.01] transition-transform duration-700"
+          />
+        </div>
+      </section>
+
+      {/* ── HBIM: IL PATRIMONIO STORICO IN UN MODELLO ── */}
+      <section className="py-12 sm:py-16 px-6 max-w-7xl mx-auto border-t border-navy/10">
+        <div className="mb-4">
+          <span className="bg-gold text-white text-[10px] font-bold uppercase tracking-[0.25em] px-3.5 py-1 rounded-[1px] inline-block shadow-xs font-outfit">
+            HBIM
+          </span>
+        </div>
+
+        <div className="flex items-center gap-3.5 mb-6">
+          <div className="w-10 h-10 rounded-[1px] bg-navy flex items-center justify-center text-white shrink-0 shadow-xs">
+            <svg className="w-5 h-5 text-white" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+              <path d="M4 21V10a8 8 0 0 1 16 0v11" />
+              <path d="M8 21V11a4 4 0 0 1 8 0v10" />
+              <line x1="2" y1="21" x2="22" y2="21" />
+            </svg>
+          </div>
+          <h2 className="text-navy text-2xl sm:text-3xl md:text-4xl font-extrabold uppercase tracking-tight font-heading">
+            IL PATRIMONIO STORICO IN UN MODELLO
+          </h2>
+        </div>
+
+        <p className="text-navy/85 text-[15px] sm:text-[17px] font-normal leading-relaxed max-w-4xl mb-10 font-outfit">
+          Per i <strong className="text-navy font-bold">beni storici vincolati</strong> la modellazione restituisce volte, archi, murature irregolari ed elementi decorativi con il livello di dettaglio richiesto dal <strong className="text-navy font-bold">restauro</strong>, e li collega alla mappatura del degrado e del quadro fessurativo.
+        </p>
+
+        {/* Visual a piena larghezza: Split Nuvola di Punti / Disegno HBIM */}
+        <div className="relative rounded-[1px] overflow-hidden border border-navy/10 shadow-sm group bg-white">
+          <img
+            src="/media/bim_hbim_storico_split.jpg"
+            alt="HBIM Modellazione Patrimonio Storico e Beni Vincolati"
+            className="w-full h-auto object-cover group-hover:scale-[1.01] transition-transform duration-700"
+          />
+        </div>
+      </section>
+
+      {/* ── BIM PER LA PROGETTAZIONE: UN UNICO MODELLO PER TUTTE LE DISCIPLINE ── */}
+      <section className="py-12 sm:py-16 px-6 max-w-7xl mx-auto border-t border-navy/10">
+        <div className="mb-4">
+          <span className="bg-gold text-white text-[10px] font-bold uppercase tracking-[0.25em] px-3.5 py-1 rounded-[1px] inline-block shadow-xs font-outfit">
+            BIM PER LA PROGETTAZIONE
+          </span>
+        </div>
+
+        <div className="flex items-center gap-3.5 mb-6">
+          <div className="w-10 h-10 rounded-[1px] bg-navy flex items-center justify-center text-white shrink-0 shadow-xs">
+            <svg className="w-5 h-5 text-white" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+              <circle cx="6" cy="12" r="2" />
+              <circle cx="18" cy="6" r="2" />
+              <circle cx="18" cy="12" r="2" />
+              <circle cx="18" cy="18" r="2" />
+              <path d="M8 11.2l8-4.4" />
+              <path d="M8 12h8" />
+              <path d="M8 12.8l8 4.4" />
+            </svg>
+          </div>
+          <h2 className="text-navy text-2xl sm:text-3xl md:text-4xl font-extrabold uppercase tracking-tight font-heading">
+            UN UNICO MODELLO PER TUTTE LE DISCIPLINE
+          </h2>
+        </div>
+
+        <p className="text-navy/85 text-[15px] sm:text-[17px] font-normal leading-relaxed max-w-4xl mb-10 font-outfit">
+          Nelle nuove opere <strong className="text-navy font-bold">architettura, strutture e impianti</strong> confluiscono in un modello coordinato, che consente di verificare le interferenze prima del cantiere e di <strong className="text-navy font-bold">validare le informazioni</strong> condivise tra i progettisti.
+        </p>
+
+        {/* Visual a piena larghezza: Split Nuvola di Punti / Modello Multidisciplinare */}
+        <div className="relative rounded-[1px] overflow-hidden border border-navy/10 shadow-sm group bg-white">
+          <img
+            src="/media/bim_multidisciplinare_split.jpg"
+            alt="BIM Multidisciplinare Architettura Strutture Impianti"
+            className="w-full h-auto object-cover group-hover:scale-[1.01] transition-transform duration-700"
+          />
+        </div>
+      </section>
+
+      {/* ── MODELLI AS BUILT E DATI: INFORMAZIONI PRONTE PER ESSERE USATE ── */}
+      <section className="py-12 sm:py-16 px-6 max-w-7xl mx-auto border-t border-navy/10">
+        <div className="mb-4">
+          <span className="bg-gold text-white text-[10px] font-bold uppercase tracking-[0.25em] px-3.5 py-1 rounded-[1px] inline-block shadow-xs font-outfit">
+            MODELLI AS BUILT E DATI
+          </span>
+        </div>
+
+        <div className="flex items-center gap-3.5 mb-6">
+          <div className="w-10 h-10 rounded-[1px] bg-navy flex items-center justify-center text-white shrink-0 shadow-xs">
+            <svg className="w-5 h-5 text-white" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+              <ellipse cx="12" cy="5" rx="7" ry="2.5" />
+              <path d="M5 5v5c0 1.4 3.1 2.5 7 2.5s7-1.1 7-2.5V5" />
+              <path d="M5 10v5c0 1.4 3.1 2.5 7 2.5s7-1.1 7-2.5v-5" />
+              <path d="M5 15v4c0 1.4 3.1 2.5 7 2.5s7-1.1 7-2.5v-4" />
+            </svg>
+          </div>
+          <h2 className="text-navy text-2xl sm:text-3xl md:text-4xl font-extrabold uppercase tracking-tight font-heading">
+            INFORMAZIONI PRONTE PER ESSERE USATE
+          </h2>
+        </div>
+
+        <p className="text-navy/85 text-[15px] sm:text-[17px] font-normal leading-relaxed max-w-4xl mb-10 font-outfit">
+          Il modello <strong className="text-navy font-bold">as built</strong> fotografa l'opera come realizzata e organizza <strong className="text-navy font-bold">dataset 2D e 3D interoperabili</strong>, pronti per l'integrazione nei flussi di lavoro di committenti e gestori: manutenzione, ristrutturazioni, nuove progettazioni.
+        </p>
+
+        {/* Visual a piena larghezza: Nuvola di Punti As Built Urban */}
+        <div className="relative rounded-[1px] overflow-hidden border border-navy/10 shadow-sm group bg-white">
+          <img
+            src="/media/bim_as_built_data.jpg"
+            alt="Modelli As Built e Dataset Interoperabili"
+            className="w-full h-auto object-cover group-hover:scale-[1.01] transition-transform duration-700"
+          />
+        </div>
+      </section>
+
+      {/* ── GARE OEV: IL BIM AL SERVIZIO DELL'OFFERTA ── */}
+      <section className="py-12 sm:py-16 px-6 max-w-7xl mx-auto border-t border-navy/10">
+        <div className="mb-4">
+          <span className="bg-gold text-white text-[10px] font-bold uppercase tracking-[0.25em] px-3.5 py-1 rounded-[1px] inline-block shadow-xs font-outfit">
+            GARE OEV
+          </span>
+        </div>
+
+        <h2 className="text-navy text-2xl sm:text-3xl md:text-4xl font-extrabold uppercase tracking-tight font-heading mb-6">
+          IL BIM AL SERVIZIO DELL’OFFERTA
+        </h2>
+
+        <p className="text-navy/85 text-[15px] sm:text-[17px] font-normal leading-relaxed max-w-4xl mb-8 font-outfit">
+          Rilievo e modello sono strumenti che lo studio mette a disposizione delle offerte tecniche migliorative: verificano lo <strong className="text-navy font-bold">stato di fatto</strong> e rendono misurabili le proposte presentate alla commissione.
+        </p>
+
+        <div className="flex flex-wrap items-center gap-4 mb-16">
+          <Link
+            to="/servizi/gare"
+            className="border border-navy/30 hover:border-gold text-navy hover:text-gold px-6 py-3.5 rounded-[1px] text-xs sm:text-sm font-bold uppercase tracking-widest transition-colors flex items-center justify-between min-w-[190px] shadow-2xs group"
+          >
+            <span>GARE OEV</span>
+            <span className="text-sm font-semibold transition-transform group-hover:translate-x-1">&gt;</span>
+          </Link>
+          <Link
+            to="/servizi/rilievi"
+            className="border border-navy/30 hover:border-gold text-navy hover:text-gold px-6 py-3.5 rounded-[1px] text-xs sm:text-sm font-bold uppercase tracking-widest transition-colors flex items-center justify-between min-w-[190px] shadow-2xs group"
+          >
+            <span>RILIEVI</span>
+            <span className="text-sm font-semibold transition-transform group-hover:translate-x-1">&gt;</span>
+          </Link>
+        </div>
+
+        {/* ── BANNER CONTATTI ── */}
+        <div className="mb-4">
+          <span className="bg-gold text-white text-[10px] font-bold uppercase tracking-[0.25em] px-3.5 py-1 rounded-[1px] inline-block shadow-xs font-outfit">
+            CONTATTI
+          </span>
+        </div>
+        <div className="bg-[#F9FBFC] border-l-4 border-gold p-8 sm:p-10 flex flex-col md:flex-row md:items-center justify-between gap-6 shadow-xs">
+          <div>
+            <h3 className="text-navy text-xl sm:text-2xl md:text-3xl font-extrabold uppercase tracking-tight font-heading">
+              HAI BISOGNO DI UN MODELLO BIM?
+            </h3>
+            <p className="text-navy/75 text-sm sm:text-base font-outfit mt-2">
+              Indicaci l'edificio e l'uso previsto: definiamo insieme il livello di dettaglio.
+            </p>
+          </div>
+          <Link
+            to="/contatti"
+            className="bg-navy text-white text-xs sm:text-sm font-bold uppercase tracking-widest px-8 py-4 hover:bg-gold transition-colors inline-flex items-center justify-center gap-4 rounded-[1px] shadow-sm shrink-0"
+          >
+            <span>CONTATTACI</span>
+            <span>&gt;</span>
+          </Link>
+        </div>
       </section>
 
     </div>

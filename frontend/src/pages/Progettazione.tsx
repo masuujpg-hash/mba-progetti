@@ -3,22 +3,11 @@ import { useRef, useState } from 'react';
 import { Link } from 'react-router-dom';
 import {
   HouseLine,
-  FileText,
   Lightning,
   Wheelchair,
   ArrowsClockwise,
   Leaf,
-  Tree,
-  Compass,
-  Buildings,
-  ShieldCheck,
-  Wrench,
-  CheckCircle,
-  ArrowRight,
-  SpeakerHigh,
-  SunDim,
-  SlidersHorizontal,
-  Armchair,
+  CaretRight,
   Article,
   Desktop,
   Bank
@@ -328,17 +317,14 @@ function AnimatedProcessStepper() {
         <div className="col-start-2 col-span-2 flex flex-col items-center">
           {/* Gold Bracket Line with upward ticks */}
           <div className="w-[82%] sm:w-[75%] h-2.5 border-b border-l border-r border-[#F5C400]" />
-          <span className="text-[10px] sm:text-[11px] font-bold text-[#F5C400] uppercase tracking-wider mt-2.5 text-center px-2">
+          <span className="text-[10px] sm:text-[11.5px] font-bold text-[#F5C400] uppercase tracking-[0.16em] mt-2.5 text-center px-2 font-outfit">
             APPALTO INTEGRATO: PROGETTAZIONE DAL PFTE ALL'ESECUTIVO
           </span>
         </div>
       </div>
 
-      {/* Thin Divider Line */}
-      <div className="w-full h-px bg-navy/10 mt-8 mb-6" />
-
       {/* Bottom Subtitle */}
-      <p className="text-center text-xs sm:text-[12px] font-bold text-navy uppercase tracking-[0.2em]">
+      <p className="text-center text-xs sm:text-[13px] font-bold text-navy uppercase tracking-[0.2em] mt-8 pt-2 font-outfit">
         UN SOLO GRUPPO DI LAVORO DALLA GARA AL CANTIERE
       </p>
     </div>
@@ -347,173 +333,176 @@ function AnimatedProcessStepper() {
 
 // ─── GRAFICO ANIMATO 3: TRIANGOLO DI FERRO DEL PROJECT MANAGEMENT ────────────
 function AnimatedIronTriangle() {
-  const [activeVertex, setActiveVertex] = useState<'tempi' | 'costi' | 'qualita' | null>(null);
   const containerRef = useRef<HTMLDivElement>(null);
   const isInView = useInView(containerRef, { once: true, margin: '-50px' });
+  const [hoveredNode, setHoveredNode] = useState<'committente' | 'uffici' | 'impresa' | 'center' | null>(null);
+
+  // Geometria conforme al mockup:
+  // Vertici: Committente (in alto), Uffici Tecnici (in basso a sinistra), Impresa (in basso a destra)
+  const topX = 140, topY = 48;
+  const leftX = 52, leftY = 196;
+  const rightX = 228, rightY = 196;
+  const centerX = 140, centerY = 148;
 
   return (
     <div ref={containerRef} className="flex flex-col items-center justify-center py-4">
-      {/* Triangle SVG Container */}
       <div className="relative w-72 h-72 sm:w-80 sm:h-80 flex items-center justify-center">
-        {/* Animated Compass / Radar Ring Background */}
-        <motion.div
-          animate={{ rotate: -360 }}
-          transition={{ duration: 50, repeat: Infinity, ease: 'linear' }}
-          className="absolute inset-4 border border-navy/10 rounded-full pointer-events-none"
-        />
-        <motion.div
-          animate={{ scale: [1, 1.05, 1], opacity: [0.15, 0.3, 0.15] }}
-          transition={{ duration: 4, repeat: Infinity, ease: 'easeInOut' }}
-          className="absolute inset-10 border border-gold/40 rounded-full pointer-events-none"
-        />
-
-        <svg viewBox="0 0 280 260" className="w-full h-full overflow-visible drop-shadow-sm">
-          <defs>
-            <linearGradient id="lineGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-              <stop offset="0%" stopColor="#1B2A4A" />
-              <stop offset="50%" stopColor="#F5C400" />
-              <stop offset="100%" stopColor="#1B2A4A" />
-            </linearGradient>
-            <radialGradient id="centerGlow" cx="50%" cy="50%" r="50%">
-              <stop offset="0%" stopColor="#1B2A4A" />
-              <stop offset="100%" stopColor="#1B2A4A" stopOpacity="0.85" />
-            </radialGradient>
-          </defs>
-
-          {/* Triangle Path */}
-          {/* Top: (140, 45) | Bottom Left: (50, 205) | Bottom Right: (230, 205) | Center: (140, 152) */}
+        <svg viewBox="0 0 280 250" className="w-full h-full overflow-visible">
+          {/* Triangolo esterno tratteggiato che unisce i tre vertici */}
           <motion.polygon
-            points="140,45 230,205 50,205"
-            initial={{ pathLength: 0, opacity: 0 }}
-            animate={isInView ? { pathLength: 1, opacity: 1 } : {}}
-            transition={{ duration: 1.5, ease: 'easeInOut' }}
-            fill="rgba(27, 42, 74, 0.03)"
-            stroke="#1B2A4A"
-            strokeWidth="1.5"
-            strokeDasharray="4 2"
+            points={`${topX},${topY} ${rightX},${rightY} ${leftX},${leftY}`}
+            initial={{ opacity: 0 }}
+            animate={isInView ? { opacity: 1 } : {}}
+            transition={{ duration: 1 }}
+            fill="none"
+            stroke="#CBD5E1"
+            strokeWidth="1.2"
+            strokeDasharray="4 4"
           />
 
-          {/* Internal Connectors to Center */}
+          {/* Linee continue dorate dal centro ai 3 nodi */}
           <motion.line
-            x1="140"
-            y1="45"
-            x2="140"
-            y2="152"
-            stroke={activeVertex === 'tempi' ? '#F5C400' : '#1B2A4A'}
-            strokeWidth={activeVertex === 'tempi' ? 2.5 : 1.2}
-            className="transition-colors"
+            x1={centerX}
+            y1={centerY}
+            x2={topX}
+            y2={topY}
+            stroke="#C5A038"
+            strokeWidth="1.6"
+            initial={{ pathLength: 0 }}
+            animate={isInView ? { pathLength: 1 } : {}}
+            transition={{ duration: 0.8 }}
           />
           <motion.line
-            x1="50"
-            y1="205"
-            x2="140"
-            y2="152"
-            stroke={activeVertex === 'costi' ? '#F5C400' : '#1B2A4A'}
-            strokeWidth={activeVertex === 'costi' ? 2.5 : 1.2}
-            className="transition-colors"
+            x1={centerX}
+            y1={centerY}
+            x2={leftX}
+            y2={leftY}
+            stroke="#C5A038"
+            strokeWidth="1.6"
+            initial={{ pathLength: 0 }}
+            animate={isInView ? { pathLength: 1 } : {}}
+            transition={{ duration: 0.8, delay: 0.1 }}
           />
           <motion.line
-            x1="230"
-            y1="205"
-            x2="140"
-            y2="152"
-            stroke={activeVertex === 'qualita' ? '#F5C400' : '#1B2A4A'}
-            strokeWidth={activeVertex === 'qualita' ? 2.5 : 1.2}
-            className="transition-colors"
+            x1={centerX}
+            y1={centerY}
+            x2={rightX}
+            y2={rightY}
+            stroke="#C5A038"
+            strokeWidth="1.6"
+            initial={{ pathLength: 0 }}
+            animate={isInView ? { pathLength: 1 } : {}}
+            transition={{ duration: 0.8, delay: 0.2 }}
           />
 
-          {/* Traveling Pulse Along Triangle Edge */}
-          <motion.circle
-            r="3.5"
-            fill="#F5C400"
-            animate={{
-              cx: [140, 230, 50, 140],
-              cy: [45, 205, 205, 45]
-            }}
-            transition={{
-              duration: 6,
-              repeat: Infinity,
-              ease: 'linear'
-            }}
-          />
-
-          {/* Vertex 1: TEMPI (Top) */}
+          {/* Vertice 1: COMMITTENTE (In Alto) */}
           <g
             className="cursor-pointer"
-            onMouseEnter={() => setActiveVertex('tempi')}
-            onMouseLeave={() => setActiveVertex(null)}
+            onMouseEnter={() => setHoveredNode('committente')}
+            onMouseLeave={() => setHoveredNode(null)}
           >
             <circle
-              cx="140"
-              cy="45"
-              r={activeVertex === 'tempi' ? 14 : 10}
-              fill={activeVertex === 'tempi' ? '#F5C400' : '#FFFFFF'}
-              stroke={activeVertex === 'tempi' ? '#1B2A4A' : '#F5C400'}
-              strokeWidth="2.5"
-              className="transition-all duration-200"
+              cx={topX}
+              cy={topY}
+              r={12}
+              fill="#FFFFFF"
+              stroke="#1B2A4A"
+              strokeWidth="2"
+              className="transition-transform duration-200"
             />
-            <text x="140" y="24" textAnchor="middle" className="text-[11px] font-bold fill-navy uppercase tracking-wider">
-              TEMPI
+            <text
+              x={topX}
+              y={topY - 20}
+              textAnchor="middle"
+              className="text-[10px] font-bold fill-navy uppercase tracking-[0.16em] font-outfit"
+            >
+              COMMITTENTE
             </text>
           </g>
 
-          {/* Vertex 2: COSTI (Bottom Left) */}
+          {/* Vertice 2: UFFICI TECNICI (In Basso a Sinistra) */}
           <g
             className="cursor-pointer"
-            onMouseEnter={() => setActiveVertex('costi')}
-            onMouseLeave={() => setActiveVertex(null)}
+            onMouseEnter={() => setHoveredNode('uffici')}
+            onMouseLeave={() => setHoveredNode(null)}
           >
             <circle
-              cx="50"
-              cy="205"
-              r={activeVertex === 'costi' ? 14 : 10}
-              fill={activeVertex === 'costi' ? '#F5C400' : '#FFFFFF'}
-              stroke={activeVertex === 'costi' ? '#1B2A4A' : '#F5C400'}
-              strokeWidth="2.5"
-              className="transition-all duration-200"
+              cx={leftX}
+              cy={leftY}
+              r={12}
+              fill="#FFFFFF"
+              stroke="#1B2A4A"
+              strokeWidth="2"
+              className="transition-transform duration-200"
             />
-            <text x="45" y="230" textAnchor="middle" className="text-[11px] font-bold fill-navy uppercase tracking-wider">
-              COSTI
+            <text
+              x={leftX}
+              y={leftY + 28}
+              textAnchor="middle"
+              className="text-[10px] font-bold fill-navy uppercase tracking-[0.16em] font-outfit"
+            >
+              UFFICI TECNICI
             </text>
           </g>
 
-          {/* Vertex 3: QUALITÀ (Bottom Right) */}
+          {/* Vertice 3: IMPRESA (In Basso a Destra) */}
           <g
             className="cursor-pointer"
-            onMouseEnter={() => setActiveVertex('qualita')}
-            onMouseLeave={() => setActiveVertex(null)}
+            onMouseEnter={() => setHoveredNode('impresa')}
+            onMouseLeave={() => setHoveredNode(null)}
           >
             <circle
-              cx="230"
-              cy="205"
-              r={activeVertex === 'qualita' ? 14 : 10}
-              fill={activeVertex === 'qualita' ? '#F5C400' : '#FFFFFF'}
-              stroke={activeVertex === 'qualita' ? '#1B2A4A' : '#F5C400'}
-              strokeWidth="2.5"
-              className="transition-all duration-200"
+              cx={rightX}
+              cy={rightY}
+              r={12}
+              fill="#FFFFFF"
+              stroke="#1B2A4A"
+              strokeWidth="2"
+              className="transition-transform duration-200"
             />
-            <text x="235" y="230" textAnchor="middle" className="text-[11px] font-bold fill-navy uppercase tracking-wider">
-              QUALITÀ
+            <text
+              x={rightX}
+              y={rightY + 28}
+              textAnchor="middle"
+              className="text-[10px] font-bold fill-navy uppercase tracking-[0.16em] font-outfit"
+            >
+              IMPRESA
             </text>
           </g>
 
-          {/* Central Hub: DIREZIONE LAVORI */}
-          <motion.circle
-            cx="140"
-            cy="152"
-            r="28"
-            fill="url(#centerGlow)"
-            stroke="#F5C400"
-            strokeWidth="2"
-            animate={{ scale: [1, 1.05, 1] }}
-            transition={{ duration: 2.5, repeat: Infinity, ease: 'easeInOut' }}
-          />
-          <text x="140" y="148" textAnchor="middle" className="text-[7.5px] font-bold fill-white uppercase tracking-tight pointer-events-none">
-            DIREZIONE
-          </text>
-          <text x="140" y="159" textAnchor="middle" className="text-[7.5px] font-bold fill-gold uppercase tracking-tight pointer-events-none">
-            LAVORI
-          </text>
+          {/* Hub Centrale: DIREZIONE LAVORI (Cerchio Navy con Testo Bianco) */}
+          <g
+            className="cursor-pointer"
+            onMouseEnter={() => setHoveredNode('center')}
+            onMouseLeave={() => setHoveredNode(null)}
+          >
+            <circle
+              cx={centerX}
+              cy={centerY}
+              r={36}
+              fill="#1B2A4A"
+              stroke="#1B2A4A"
+              className={`transition-all duration-200 ${
+                hoveredNode === 'center' ? 'filter drop-shadow-md' : ''
+              }`}
+            />
+            <text
+              x={centerX}
+              y={centerY - 4}
+              textAnchor="middle"
+              className="text-[9px] font-bold fill-white uppercase tracking-[0.12em] font-outfit pointer-events-none"
+            >
+              DIREZIONE
+            </text>
+            <text
+              x={centerX}
+              y={centerY + 9}
+              textAnchor="middle"
+              className="text-[9px] font-bold fill-white uppercase tracking-[0.12em] font-outfit pointer-events-none"
+            >
+              LAVORI
+            </text>
+          </g>
         </svg>
       </div>
     </div>
@@ -559,19 +548,19 @@ export default function Progettazione() {
       {/* ── 2. SEZIONE 1: EDIFICI PENSATI PER ESSERE COSTRUITI ── */}
       <section className="py-12 sm:py-16 px-6 max-w-7xl mx-auto">
         {/* Header Sezione */}
-        <div className="mb-8">
-          <span className="bg-[#F5C400] text-white text-[10px] sm:text-[11px] font-bold uppercase tracking-[0.25em] px-3 py-1 inline-block mb-3 rounded-xs">
+        <div className="mb-6">
+          <span className="bg-gold text-white text-[10px] font-bold uppercase tracking-[0.25em] px-3.5 py-1 rounded-[1px] inline-block mb-3 shadow-xs font-outfit">
             EDILIZIA E ARCHITETTURA
           </span>
-          <h2 className="text-navy text-2xl sm:text-3xl md:text-4xl font-extrabold uppercase tracking-tight">
+          <h2 className="text-navy text-2xl sm:text-3xl md:text-4xl font-extrabold uppercase tracking-tight font-heading">
             EDIFICI PENSATI PER ESSERE COSTRUITI
           </h2>
         </div>
 
         {/* 2-Column Grid: Text & Diagram */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center mb-12">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center mb-12">
           {/* Left Description Column (Testo esatto dal mockup) */}
-          <div className="lg:col-span-6 space-y-5 text-navy/80 text-[13px] sm:text-[14px] leading-relaxed font-normal">
+          <div className="lg:col-span-6 space-y-5 text-navy/85 text-[15px] sm:text-[17px] leading-relaxed font-normal font-outfit">
             <p>
               Affianchiamo <strong className="text-navy font-bold">committenti pubblici e privati</strong> nella progettazione di edifici, spazi e interventi di recupero. Le esigenze d’uso, le risorse disponibili e le caratteristiche del luogo guidano scelte architettoniche e costruttive orientate alla <strong className="text-navy font-bold">sostenibilità ambientale</strong>, all’<strong className="text-navy font-bold">efficienza energetica</strong> e alla qualità degli spazi.
             </p>
@@ -588,44 +577,48 @@ export default function Progettazione() {
 
         {/* Horizontal Strip con i 6 Punti Chiave identici al Mockup */}
         <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 divide-y sm:divide-y-0 sm:divide-x divide-navy/10 border-y border-navy/15 my-10 py-5 bg-white">
-          <div className="flex flex-col items-center justify-center text-center p-2 sm:p-3 group">
-            <HouseLine size={24} weight="regular" className="text-navy mb-2 group-hover:text-gold transition-colors" />
-            <span className="text-[10px] sm:text-[11px] font-bold text-navy uppercase tracking-wider leading-tight">
+          <div className="flex flex-col items-center justify-center text-center p-3 sm:p-4 group">
+            <HouseLine size={26} weight="regular" className="text-navy mb-2 group-hover:text-gold transition-colors" />
+            <span className="text-[11px] sm:text-xs font-bold text-navy uppercase tracking-[0.14em] leading-tight font-outfit">
               QUALITÀ<br />ARCHITETTONICA
             </span>
           </div>
 
-          <div className="flex flex-col items-center justify-center text-center p-2 sm:p-3 group">
-            <FileText size={24} weight="regular" className="text-navy mb-2 group-hover:text-gold transition-colors" />
-            <span className="text-[10px] sm:text-[11px] font-bold text-navy uppercase tracking-wider leading-tight">
+          <div className="flex flex-col items-center justify-center text-center p-3 sm:p-4 group">
+            <svg className="w-[26px] h-[26px] text-navy mb-2 group-hover:text-gold transition-colors" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round">
+              <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" />
+              <polyline points="14 2 14 8 20 8" />
+              <path d="M9 15l2 2 4-4" />
+            </svg>
+            <span className="text-[11px] sm:text-xs font-bold text-navy uppercase tracking-[0.14em] leading-tight font-outfit">
               CAM
             </span>
           </div>
 
-          <div className="flex flex-col items-center justify-center text-center p-2 sm:p-3 group">
-            <Lightning size={24} weight="regular" className="text-navy mb-2 group-hover:text-gold transition-colors" />
-            <span className="text-[10px] sm:text-[11px] font-bold text-navy uppercase tracking-wider leading-tight">
+          <div className="flex flex-col items-center justify-center text-center p-3 sm:p-4 group">
+            <Lightning size={26} weight="regular" className="text-navy mb-2 group-hover:text-gold transition-colors" />
+            <span className="text-[11px] sm:text-xs font-bold text-navy uppercase tracking-[0.14em] leading-tight font-outfit">
               EFFICIENZA ENERGETICA
             </span>
           </div>
 
-          <div className="flex flex-col items-center justify-center text-center p-2 sm:p-3 group">
-            <Wheelchair size={24} weight="regular" className="text-navy mb-2 group-hover:text-gold transition-colors" />
-            <span className="text-[10px] sm:text-[11px] font-bold text-navy uppercase tracking-wider leading-tight">
+          <div className="flex flex-col items-center justify-center text-center p-3 sm:p-4 group">
+            <Wheelchair size={26} weight="regular" className="text-navy mb-2 group-hover:text-gold transition-colors" />
+            <span className="text-[11px] sm:text-xs font-bold text-navy uppercase tracking-[0.14em] leading-tight font-outfit">
               ACCESSIBILITÀ
             </span>
           </div>
 
-          <div className="flex flex-col items-center justify-center text-center p-2 sm:p-3 group">
-            <ArrowsClockwise size={24} weight="regular" className="text-navy mb-2 group-hover:text-gold transition-colors" />
-            <span className="text-[10px] sm:text-[11px] font-bold text-navy uppercase tracking-wider leading-tight">
+          <div className="flex flex-col items-center justify-center text-center p-3 sm:p-4 group">
+            <ArrowsClockwise size={26} weight="regular" className="text-navy mb-2 group-hover:text-gold transition-colors" />
+            <span className="text-[11px] sm:text-xs font-bold text-navy uppercase tracking-[0.14em] leading-tight font-outfit">
               CICLO DI VITA
             </span>
           </div>
 
-          <div className="flex flex-col items-center justify-center text-center p-2 sm:p-3 group">
-            <Leaf size={24} weight="regular" className="text-navy mb-2 group-hover:text-gold transition-colors" />
-            <span className="text-[10px] sm:text-[11px] font-bold text-navy uppercase tracking-wider leading-tight">
+          <div className="flex flex-col items-center justify-center text-center p-3 sm:p-4 group">
+            <Leaf size={26} weight="regular" className="text-navy mb-2 group-hover:text-gold transition-colors" />
+            <span className="text-[11px] sm:text-xs font-bold text-navy uppercase tracking-[0.14em] leading-tight font-outfit">
               SOSTENIBILITÀ
             </span>
           </div>
@@ -645,67 +638,102 @@ export default function Progettazione() {
       <section className="py-12 sm:py-16 px-6 max-w-7xl mx-auto border-t border-navy/10">
         {/* Header Sezione */}
         <div className="mb-8">
-          <span className="bg-[#F5C400] text-white text-[10px] sm:text-[11px] font-bold uppercase tracking-[0.25em] px-3 py-1 inline-block mb-3 rounded-xs">
-            OPERE PUBBLICHE E INFRASTRUTTURE
+          <span className="bg-gold text-white text-[10px] font-bold uppercase tracking-[0.25em] px-3.5 py-1 rounded-[1px] inline-block mb-3 shadow-xs font-outfit">
+            INFRASTRUTTURE E SPAZI PUBBLICI
           </span>
-          <h2 className="text-navy text-2xl sm:text-3xl md:text-4xl font-extrabold uppercase tracking-tight">
+          <h2 className="text-navy text-2xl sm:text-3xl md:text-4xl font-extrabold uppercase tracking-tight font-heading">
             OPERE PUBBLICHE CHE DURANO NEL TEMPO
           </h2>
         </div>
 
         {/* 2-Column Grid: Image a Sinistra (p10_1.webp Parco), Testo a Destra */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center mb-10">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center mb-12">
           {/* Left Column: Park Showcase Image */}
           <div className="lg:col-span-6">
-            <div className="relative rounded-lg overflow-hidden border border-navy/10 shadow-sm group h-64 sm:h-80 md:h-[360px]">
+            <div className="relative rounded-[1px] overflow-hidden border border-navy/10 shadow-sm group">
               <img
                 src="/media/portfolio/p10_1.webp"
-                alt="Riqualificazione Parchi e Spazi Pubblici"
-                className="w-full h-full object-cover group-hover:scale-[1.02] transition-transform duration-700"
+                alt="Progettazione Spazi Pubblici e Percorsi Parco"
+                className="w-full h-auto max-h-[380px] object-cover group-hover:scale-[1.02] transition-transform duration-700"
               />
             </div>
           </div>
 
-          {/* Right Column: Text */}
-          <div className="lg:col-span-6 space-y-4 text-navy/80 text-sm sm:text-base font-light leading-relaxed">
+          {/* Right Column: Text esatto da mockup */}
+          <div className="lg:col-span-6 space-y-5 text-navy/85 text-[15px] sm:text-[17px] font-normal leading-relaxed font-outfit">
             <p>
-              Progettiamo infrastrutture viarie, piazze, parchi urbani e spazi di aggregazione pubblica con criteri di <strong className="text-navy font-semibold">durabilità, accessibilità universale</strong> e minimo impatto ambientale.
+              Progettiamo strade, aree urbane, percorsi pedonali, parcheggi e illuminazione pubblica considerando <strong className="text-navy font-bold">come le persone attraversano e vivono questi spazi</strong>. Continuità dei percorsi, accessibilità, sicurezza e qualità della luce guidano il disegno insieme alle esigenze di mobilità e gestione dell’area.
             </p>
             <p>
-              Ogni intervento è pensato per integrarsi armoniosamente nel contesto urbano e paesaggistico, riducendo i costi di manutenzione futura attraverso l'impiego di materiali certificati e tecniche costruttive all'avanguardia.
-            </p>
-            <p className="text-navy/70 text-xs sm:text-sm border-l-2 border-gold pl-4 py-1">
-              Dallo studio dell'invarianza idraulica alla valorizzazione della biodiversità autoctona, rispondiamo alle esigenze delle amministrazioni pubbliche con progetti cantierabili e duraturi.
+              Applichiamo i <strong className="text-navy font-bold">Criteri Ambientali Minimi</strong> pertinenti e valutiamo materiali, consumi energetici e manutenzione lungo il <strong className="text-navy font-bold">ciclo di vita dell’opera</strong>. Le scelte tecniche contribuiscono così a realizzare spazi pubblici <strong className="text-navy font-bold">più fruibili, durevoli e meno onerosi da gestire</strong>.
             </p>
           </div>
         </div>
 
-        {/* Horizontal Strip con 5 Servizi / Caratteristiche con Icone */}
-        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 divide-y sm:divide-y-0 sm:divide-x divide-navy/10 border-y border-navy/15 py-3 bg-bg-neutral/20 rounded-[1px]">
-          <div className="flex flex-col items-center text-center p-3">
-            <Tree size={24} className="text-[#F5C400] mb-1.5" />
-            <span className="text-xs font-bold text-navy uppercase tracking-tight">Parchi Urbani</span>
-            <span className="text-[10px] text-navy/60 font-light">Verde attrezzato</span>
+        {/* Horizontal Strip con le 6 Categorie conformi al mockup */}
+        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 divide-y sm:divide-y-0 sm:divide-x divide-navy/10 border-y border-navy/15 my-8 py-5 bg-white">
+          <div className="flex flex-col items-center justify-center text-center p-3 sm:p-4 group">
+            <svg className="w-[26px] h-[26px] text-navy mb-2 group-hover:text-gold transition-colors" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round">
+              <path d="M4 22L8 2M20 22L16 2" />
+              <line x1="12" y1="4" x2="12" y2="7" />
+              <line x1="12" y1="11" x2="12" y2="14" />
+              <line x1="12" y1="18" x2="12" y2="21" />
+            </svg>
+            <span className="text-[11px] sm:text-xs font-bold text-navy uppercase tracking-[0.14em] leading-tight font-outfit">
+              STRADE
+            </span>
           </div>
-          <div className="flex flex-col items-center text-center p-3">
-            <Compass size={24} className="text-[#F5C400] mb-1.5" />
-            <span className="text-xs font-bold text-navy uppercase tracking-tight">Mobilità Dolce</span>
-            <span className="text-[10px] text-navy/60 font-light">Piste ciclabili & percorsi</span>
+
+          <div className="flex flex-col items-center justify-center text-center p-3 sm:p-4 group">
+            <svg className="w-[26px] h-[26px] text-navy mb-2 group-hover:text-gold transition-colors" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round">
+              <rect x="3" y="10" width="7" height="12" />
+              <rect x="14" y="4" width="7" height="18" />
+              <path d="M6 13h1M6 16h1M6 19h1M17 7h1M17 10h1M17 13h1M17 16h1M17 19h1" />
+            </svg>
+            <span className="text-[11px] sm:text-xs font-bold text-navy uppercase tracking-[0.14em] leading-tight font-outfit">
+              AREE URBANE
+            </span>
           </div>
-          <div className="flex flex-col items-center text-center p-3">
-            <Buildings size={24} className="text-[#F5C400] mb-1.5" />
-            <span className="text-xs font-bold text-navy uppercase tracking-tight">Rigenerazione</span>
-            <span className="text-[10px] text-navy/60 font-light">Piazze & centri storici</span>
+
+          <div className="flex flex-col items-center justify-center text-center p-3 sm:p-4 group">
+            <svg className="w-[26px] h-[26px] text-navy mb-2 group-hover:text-gold transition-colors" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round">
+              <circle cx="12" cy="4" r="2" />
+              <path d="M12 6v6m0 0l-3 4m3-4l3 4m-3-6l-3-2m3 2l3-2" />
+            </svg>
+            <span className="text-[11px] sm:text-xs font-bold text-navy uppercase tracking-[0.14em] leading-tight font-outfit">
+              PERCORSI PEDONALI
+            </span>
           </div>
-          <div className="flex flex-col items-center text-center p-3">
-            <Wrench size={24} className="text-[#F5C400] mb-1.5" />
-            <span className="text-xs font-bold text-navy uppercase tracking-tight">Sottoservizi</span>
-            <span className="text-[10px] text-navy/60 font-light">Reti & infrastrutture</span>
+
+          <div className="flex flex-col items-center justify-center text-center p-3 sm:p-4 group">
+            <svg className="w-[26px] h-[26px] text-navy mb-2 group-hover:text-gold transition-colors" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round">
+              <rect x="4" y="4" width="16" height="16" rx="1.5" />
+              <path d="M9 16V8h3.5a2.5 2.5 0 0 1 0 5H9" />
+            </svg>
+            <span className="text-[11px] sm:text-xs font-bold text-navy uppercase tracking-[0.14em] leading-tight font-outfit">
+              PARCHEGGI
+            </span>
           </div>
-          <div className="flex flex-col items-center text-center p-3">
-            <ShieldCheck size={24} className="text-[#F5C400] mb-1.5" />
-            <span className="text-xs font-bold text-navy uppercase tracking-tight">Accessibilità</span>
-            <span className="text-[10px] text-navy/60 font-light">Abbattimento barriere</span>
+
+          <div className="flex flex-col items-center justify-center text-center p-3 sm:p-4 group">
+            <svg className="w-[26px] h-[26px] text-navy mb-2 group-hover:text-gold transition-colors" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round">
+              <path d="M9 22V7a4 4 0 0 1 4-4h2a2 2 0 0 1 2 2v2a1 1 0 0 1-1 1h-2a1 1 0 0 1-1-1" />
+              <line x1="14" y1="10" x2="16" y2="10" />
+            </svg>
+            <span className="text-[11px] sm:text-xs font-bold text-navy uppercase tracking-[0.14em] leading-tight font-outfit">
+              ILLUMINAZIONE
+            </span>
+          </div>
+
+          <div className="flex flex-col items-center justify-center text-center p-3 sm:p-4 group">
+            <svg className="w-[26px] h-[26px] text-navy mb-2 group-hover:text-gold transition-colors" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round">
+              <circle cx="12" cy="8" r="5" />
+              <line x1="12" y1="13" x2="12" y2="21" />
+              <line x1="9" y1="21" x2="15" y2="21" />
+            </svg>
+            <span className="text-[11px] sm:text-xs font-bold text-navy uppercase tracking-[0.14em] leading-tight font-outfit">
+              VERDE PUBBLICO
+            </span>
           </div>
         </div>
       </section>
@@ -713,14 +741,14 @@ export default function Progettazione() {
       {/* ── 4. SEZIONE 3: DALLA GARA AL PROGETTO ESECUTIVO ── */}
       <section className="py-12 sm:py-16 px-6 max-w-7xl mx-auto border-t border-navy/10">
         {/* Header Sezione */}
-        <div className="mb-8">
-          <span className="bg-[#F5C400] text-white text-[10px] sm:text-[11px] font-bold uppercase tracking-[0.25em] px-3 py-1 inline-block mb-3 rounded-[1px]">
+        <div className="mb-10">
+          <span className="bg-gold text-white text-[10px] font-bold uppercase tracking-[0.25em] px-3.5 py-1 rounded-[1px] inline-block mb-3 shadow-xs font-outfit">
             POST AGGIUDICAZIONE
           </span>
-          <h2 className="text-navy text-2xl sm:text-3xl md:text-4xl font-extrabold uppercase tracking-tight">
+          <h2 className="text-navy text-2xl sm:text-3xl md:text-4xl font-extrabold uppercase tracking-tight font-heading mb-6">
             DALLA GARA AL PROGETTO ESECUTIVO
           </h2>
-          <p className="text-navy/80 text-[13px] sm:text-[14px] leading-relaxed max-w-4xl mt-3 font-normal">
+          <p className="text-navy/85 text-[15px] sm:text-[17px] font-normal leading-relaxed max-w-4xl font-outfit">
             Dopo l’aggiudicazione le migliorie offerte in gara devono diventare progetto. Lo studio sviluppa l’esecutivo in coerenza con l’offerta tecnica e con i requisiti di sostenibilità del capitolato: <strong className="text-navy font-bold">chi ha scritto le migliorie è anche chi le traduce in elaborati</strong>, senza perdite di informazione tra gara e cantiere.
           </p>
         </div>
@@ -733,75 +761,105 @@ export default function Progettazione() {
       <section className="py-12 sm:py-16 px-6 max-w-7xl mx-auto border-t border-navy/10">
         {/* Header Sezione */}
         <div className="mb-8">
-          <span className="bg-[#F5C400] text-white text-[10px] sm:text-[11px] font-bold uppercase tracking-[0.25em] px-3 py-1 inline-block mb-3 rounded-xs">
-            INTERIOR DESIGN & FIT-OUT
+          <span className="bg-gold text-white text-[10px] font-bold uppercase tracking-[0.25em] px-3.5 py-1 rounded-[1px] inline-block mb-3 shadow-xs font-outfit">
+            INTERIOR DESIGN
           </span>
-          <h2 className="text-navy text-2xl sm:text-3xl md:text-4xl font-extrabold uppercase tracking-tight">
+          <h2 className="text-navy text-2xl sm:text-3xl md:text-4xl font-extrabold uppercase tracking-tight font-heading">
             SPAZI INTERNI PROGETTATI INTORNO A CHI LI VIVE
           </h2>
         </div>
 
         {/* 2-Column Grid: Testo a Sinistra, Visual a Destra */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center mb-10">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center mb-12">
           {/* Left Column: Description */}
-          <div className="lg:col-span-6 space-y-4 text-navy/80 text-sm sm:text-base font-light leading-relaxed">
+          <div className="lg:col-span-6 space-y-5 text-navy/85 text-[15px] sm:text-[17px] font-normal leading-relaxed font-outfit">
             <p>
-              Dallo studio dei flussi alla scelta dei materiali, illuminotecnica e arredi su misura. Creiamo ambienti di lavoro, residenziali e collettivi dove <strong className="text-navy font-semibold">estetica, acustica e benessere termoigrometrico</strong> si fondono in un'esperienza coerente e funzionale.
+              Progettiamo la ristrutturazione di <strong className="text-navy font-bold">abitazioni, attività commerciali e spazi per enti pubblici</strong>. Partiamo dall’uso degli ambienti e dalle esigenze di chi li abita, vi lavora o li frequenta; definiamo quindi distribuzione, materiali, arredi e illuminazione in un <strong className="text-navy font-bold">progetto coordinato</strong>, attento anche agli impianti e ai dettagli esecutivi.
             </p>
             <p>
-              Curiamo ogni dettaglio costruttivo per garantire un'esecuzione rapida e senza imprevisti in cantiere, con particolare attenzione all'efficienza energetica, all'isolamento acustico e all'impiego di materiali conformi ai requisiti CAM.
+              Ogni scelta considera accessibilità, <strong className="text-navy font-bold">benessere indoor</strong>, durabilità e sostenibilità ambientale. Ne derivano ambienti riconoscibili e funzionali, <strong className="text-navy font-bold">coerenti con il budget</strong> e con le esigenze di gestione nel tempo.
             </p>
-            <div className="p-4 bg-bg-neutral/60 rounded border-l-2 border-gold space-y-1">
-              <span className="text-xs font-bold text-navy uppercase block">Space Planning & Layout Esecutivo</span>
-              <p className="text-xs text-navy/70 leading-relaxed">
-                Modellazione tridimensionale degli interni con integrazione di canalizzazioni impiantistiche a scomparsa e dettagli di falegnameria su misura.
-              </p>
-            </div>
           </div>
 
-          {/* Right Column: Interior Visual Card (p01_1.webp) */}
+          {/* Right Column: Interior / Building Visual Card (17_museo_emozionale_isernia.jpg) */}
           <div className="lg:col-span-6">
-            <div className="relative rounded-lg overflow-hidden border border-navy/10 shadow-sm group h-64 sm:h-80 md:h-[360px] bg-bg-neutral/40 flex items-center justify-center">
+            <div className="relative rounded-[1px] overflow-hidden border border-navy/10 shadow-sm group">
               <img
-                src="/media/portfolio/p01_1.webp"
-                alt="Spazi Interni e Interior Design Architettonico"
-                className="w-full h-full object-cover group-hover:scale-[1.02] transition-transform duration-700"
+                src="/media/portfolio/17_museo_emozionale_isernia.jpg"
+                alt="Auditorium Spazi ed Edifici Interni"
+                className="w-full h-auto max-h-[380px] object-cover group-hover:scale-[1.02] transition-transform duration-700"
               />
             </div>
           </div>
         </div>
 
-        {/* Horizontal Strip con 6 Servizi di Interior Design */}
-        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 divide-y sm:divide-y-0 sm:divide-x divide-navy/10 border-y border-navy/15 py-3 bg-bg-neutral/20 rounded-sm">
-          <div className="flex flex-col items-center text-center p-3">
-            <SlidersHorizontal size={24} className="text-gold mb-1.5" />
-            <span className="text-xs font-bold text-navy uppercase tracking-tight">Space Planning</span>
-            <span className="text-[10px] text-navy/60 font-light">Flussi ed ergonomia</span>
+        {/* Horizontal Strip con le 6 Categorie conformi al mockup */}
+        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 divide-y sm:divide-y-0 sm:divide-x divide-navy/10 border-y border-navy/15 my-8 py-5 bg-white">
+          <div className="flex flex-col items-center justify-center text-center p-3 sm:p-4 group">
+            <svg className="w-[26px] h-[26px] text-navy mb-2 group-hover:text-gold transition-colors" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round">
+              <rect x="3" y="3" width="18" height="18" rx="1" />
+              <line x1="9" y1="3" x2="9" y2="21" />
+              <line x1="9" y1="12" x2="21" y2="12" />
+            </svg>
+            <span className="text-[11px] sm:text-xs font-bold text-navy uppercase tracking-[0.14em] leading-tight font-outfit">
+              DISTRIBUZIONE
+            </span>
           </div>
-          <div className="flex flex-col items-center text-center p-3">
-            <SpeakerHigh size={24} className="text-gold mb-1.5" />
-            <span className="text-xs font-bold text-navy uppercase tracking-tight">Comfort Acustico</span>
-            <span className="text-[10px] text-navy/60 font-light">Fonoassorbenza attiva</span>
+
+          <div className="flex flex-col items-center justify-center text-center p-3 sm:p-4 group">
+            <svg className="w-[26px] h-[26px] text-navy mb-2 group-hover:text-gold transition-colors" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round">
+              <rect x="3" y="3" width="7" height="7" rx="0.5" />
+              <rect x="14" y="3" width="7" height="7" rx="0.5" />
+              <rect x="3" y="14" width="7" height="7" rx="0.5" />
+              <rect x="14" y="14" width="7" height="7" rx="0.5" />
+            </svg>
+            <span className="text-[11px] sm:text-xs font-bold text-navy uppercase tracking-[0.14em] leading-tight font-outfit">
+              MATERIALI
+            </span>
           </div>
-          <div className="flex flex-col items-center text-center p-3">
-            <SunDim size={24} className="text-gold mb-1.5" />
-            <span className="text-xs font-bold text-navy uppercase tracking-tight">Light Design</span>
-            <span className="text-[10px] text-navy/60 font-light">Luce naturale & LED</span>
+
+          <div className="flex flex-col items-center justify-center text-center p-3 sm:p-4 group">
+            <svg className="w-[26px] h-[26px] text-navy mb-2 group-hover:text-gold transition-colors" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round">
+              <path d="M4 11V8a3 3 0 0 1 3-3h10a3 3 0 0 1 3 3v3" />
+              <rect x="2" y="11" width="20" height="7" rx="1.5" />
+              <line x1="5" y1="18" x2="5" y2="21" />
+              <line x1="19" y1="18" x2="19" y2="21" />
+            </svg>
+            <span className="text-[11px] sm:text-xs font-bold text-navy uppercase tracking-[0.14em] leading-tight font-outfit">
+              ARREDI
+            </span>
           </div>
-          <div className="flex flex-col items-center text-center p-3">
-            <ShieldCheck size={24} className="text-gold mb-1.5" />
-            <span className="text-xs font-bold text-navy uppercase tracking-tight">Materiali CAM</span>
-            <span className="text-[10px] text-navy/60 font-light">Certificati VOC-free</span>
+
+          <div className="flex flex-col items-center justify-center text-center p-3 sm:p-4 group">
+            <svg className="w-[26px] h-[26px] text-navy mb-2 group-hover:text-gold transition-colors" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round">
+              <path d="M6 9l2-6h8l2 6H6z" />
+              <line x1="12" y1="9" x2="12" y2="21" />
+              <line x1="8" y1="21" x2="16" y2="21" />
+            </svg>
+            <span className="text-[11px] sm:text-xs font-bold text-navy uppercase tracking-[0.14em] leading-tight font-outfit">
+              ILLUMINAZIONE
+            </span>
           </div>
-          <div className="flex flex-col items-center text-center p-3">
-            <Armchair size={24} className="text-gold mb-1.5" />
-            <span className="text-xs font-bold text-navy uppercase tracking-tight">Arredo Custom</span>
-            <span className="text-[10px] text-navy/60 font-light">Dettagli su misura</span>
+
+          <div className="flex flex-col items-center justify-center text-center p-3 sm:p-4 group">
+            <svg className="w-[26px] h-[26px] text-navy mb-2 group-hover:text-gold transition-colors" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round">
+              <line x1="7" y1="17" x2="14" y2="10" strokeWidth="1.8" />
+              <line x1="11" y1="7" x2="17" y2="13" strokeWidth="2.5" strokeLinecap="round" />
+            </svg>
+            <span className="text-[11px] sm:text-xs font-bold text-navy uppercase tracking-[0.14em] leading-tight font-outfit">
+              FINITURE
+            </span>
           </div>
-          <div className="flex flex-col items-center text-center p-3">
-            <CheckCircle size={24} className="text-gold mb-1.5" />
-            <span className="text-xs font-bold text-navy uppercase tracking-tight">Direzione Fit-Out</span>
-            <span className="text-[10px] text-navy/60 font-light">Posa a regola d'arte</span>
+
+          <div className="flex flex-col items-center justify-center text-center p-3 sm:p-4 group">
+            <svg className="w-[26px] h-[26px] text-navy mb-2 group-hover:text-gold transition-colors" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round">
+              <path d="M7 3v4M17 3v4" />
+              <rect x="5" y="7" width="14" height="8" rx="2" />
+              <path d="M12 15v6" />
+            </svg>
+            <span className="text-[11px] sm:text-xs font-bold text-navy uppercase tracking-[0.14em] leading-tight font-outfit">
+              IMPIANTI
+            </span>
           </div>
         </div>
       </section>
@@ -810,45 +868,59 @@ export default function Progettazione() {
       <section className="py-12 sm:py-16 px-6 max-w-7xl mx-auto border-t border-navy/10">
         {/* Header Sezione */}
         <div className="mb-8">
-          <span className="bg-[#F5C400] text-white text-[10px] sm:text-[11px] font-bold uppercase tracking-[0.25em] px-3 py-1 inline-block mb-3 rounded-xs">
-            DIREZIONE LAVORI & CONTROLLO
+          <span className="bg-gold text-white text-[10px] font-bold uppercase tracking-[0.25em] px-3.5 py-1 rounded-[1px] inline-block mb-3 shadow-xs font-outfit">
+            DIREZIONE LAVORI
           </span>
-          <h2 className="text-navy text-2xl sm:text-3xl md:text-4xl font-extrabold uppercase tracking-tight">
+          <h2 className="text-navy text-2xl sm:text-3xl md:text-4xl font-extrabold uppercase tracking-tight font-heading">
             IL PROGETTO REALIZZATO COME PREVISTO
           </h2>
         </div>
 
-        {/* 2-Column Grid: Triangolo di Ferro a Sinistra, Testo a Destra */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center mb-10">
-          {/* Left Column: Animated Iron Triangle */}
-          <div className="lg:col-span-6">
+        {/* 2-Column Grid: Diagramma Committente/Uffici/Impresa a Sinistra, Testo e Metriche a Destra */}
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center mb-10">
+          {/* Left Column: Animated Direzione Lavori Diagram */}
+          <div className="lg:col-span-6 flex justify-center">
             <AnimatedIronTriangle />
           </div>
 
-          {/* Right Column: Description & Metric Cards */}
+          {/* Right Column: Description & Metric Columns conformi al mockup */}
           <div className="lg:col-span-6 space-y-6">
-            <div className="space-y-4 text-navy/80 text-sm sm:text-base font-light leading-relaxed">
+            <div className="space-y-4 text-navy/85 text-[15px] sm:text-[17px] font-normal leading-relaxed font-outfit">
               <p>
-                La nostra direzione lavori assicura che ciò che è stato disegnato, computato e approvato <strong className="text-navy font-semibold">coincida esattamente con l'opera finita</strong>.
+                La direzione lavori è svolta con la <strong className="text-navy font-bold">conoscenza diretta dei processi costruttivi</strong>, per rispettare tempi, costi e qualità esecutiva.
               </p>
               <p>
-                Presenza costante sul campo, rigore tecnico nei collaudi e contabilità trasparente tutelano committente ed impresa da contenziosi, ritardi di cronoprogramma ed aggravi economici imprevisti.
+                Il confronto costante tra committente, impresa e uffici tecnici fa sì che ogni scelta di progetto venga <strong className="text-navy font-bold">realizzata in cantiere come previsto</strong>.
               </p>
             </div>
 
-            {/* 3 Stat Highlight Blocks */}
-            <div className="grid grid-cols-3 gap-3 pt-2">
-              <div className="p-3.5 bg-bg-neutral/60 rounded border-t-2 border-gold text-center">
-                <span className="text-navy font-bold text-xl sm:text-2xl block font-heading">100%</span>
-                <span className="text-[10px] text-navy/70 uppercase tracking-tight block mt-0.5">Cronoprogramma</span>
-              </div>
-              <div className="p-3.5 bg-bg-neutral/60 rounded border-t-2 border-gold text-center">
-                <span className="text-navy font-bold text-xl sm:text-2xl block font-heading">0%</span>
-                <span className="text-[10px] text-navy/70 uppercase tracking-tight block mt-0.5">Scostamento Budget</span>
-              </div>
-              <div className="p-3.5 bg-bg-neutral/60 rounded border-t-2 border-gold text-center">
-                <span className="text-navy font-bold text-xl sm:text-2xl block font-heading">LOD 400</span>
-                <span className="text-[10px] text-navy/70 uppercase tracking-tight block mt-0.5">Controllo Cantiere</span>
+            {/* 3 Metric Columns: TEMPI, COSTI, QUALITÀ */}
+            <div className="border-t border-navy/10 pt-6 mt-8">
+              <div className="grid grid-cols-3 divide-x divide-navy/10">
+                <div className="pr-4">
+                  <span className="text-gold text-xs sm:text-[13px] font-bold uppercase tracking-[0.16em] block mb-1 font-outfit">
+                    TEMPI
+                  </span>
+                  <p className="text-[11.5px] sm:text-xs text-navy/75 leading-snug font-normal font-outfit">
+                    cronoprogramma verificato
+                  </p>
+                </div>
+                <div className="px-4">
+                  <span className="text-gold text-xs sm:text-[13px] font-bold uppercase tracking-[0.16em] block mb-1 font-outfit">
+                    COSTI
+                  </span>
+                  <p className="text-[11.5px] sm:text-xs text-navy/75 leading-snug font-normal font-outfit">
+                    contabilità e varianti
+                  </p>
+                </div>
+                <div className="pl-4">
+                  <span className="text-gold text-xs sm:text-[13px] font-bold uppercase tracking-[0.16em] block mb-1 font-outfit">
+                    QUALITÀ
+                  </span>
+                  <p className="text-[11.5px] sm:text-xs text-navy/75 leading-snug font-normal font-outfit">
+                    controllo delle lavorazioni
+                  </p>
+                </div>
               </div>
             </div>
           </div>
@@ -857,25 +929,27 @@ export default function Progettazione() {
 
       {/* ── 7. SEZIONE 6: CTA BANNER (HAI UN PROGETTO DA SVILUPPARE?) ── */}
       <section className="py-12 sm:py-16 px-6 max-w-7xl mx-auto border-t border-navy/10">
-        <div className="border-l-4 border-gold bg-bg-neutral/50 p-6 sm:p-10 rounded-r-lg flex flex-col md:flex-row items-start md:items-center justify-between gap-6 shadow-xs">
-          <div className="space-y-2">
-            <span className="text-gold text-[10px] font-bold uppercase tracking-[0.3em] block">
-              CONTATTI & CONSULENZA
-            </span>
-            <h3 className="text-navy text-xl sm:text-2xl md:text-3xl font-extrabold uppercase tracking-tight">
+        <div className="mb-4">
+          <span className="bg-gold text-white text-[10px] font-bold uppercase tracking-[0.25em] px-3.5 py-1 rounded-[1px] inline-block shadow-xs font-outfit">
+            CONTATTI
+          </span>
+        </div>
+        <div className="border-l-4 border-gold bg-[#f8f9fb] p-6 sm:p-10 rounded-[1px] flex flex-col md:flex-row items-start md:items-center justify-between gap-6 shadow-2xs">
+          <div className="space-y-1.5">
+            <h3 className="text-navy text-xl sm:text-2xl md:text-[26px] font-extrabold uppercase tracking-tight font-heading">
               HAI UN PROGETTO DA SVILUPPARE?
             </h3>
-            <p className="text-navy/70 text-xs sm:text-sm font-light max-w-xl">
-              Richiedi una consulenza preliminare per scoprire come possiamo ingegnerizzare la tua opera garantendo tempi, costi e qualità esecutiva.
+            <p className="text-navy/75 text-sm sm:text-[15px] font-normal font-outfit">
+              Raccontaci l'intervento: ti rispondiamo entro 24 ore.
             </p>
           </div>
 
           <Link
             to="/contatti"
-            className="flex-shrink-0 bg-navy hover:bg-navy/90 text-white text-xs sm:text-sm font-bold uppercase tracking-wider px-6 py-3.5 rounded transition-all flex items-center gap-2 group shadow-sm hover:shadow"
+            className="flex-shrink-0 bg-[#1B2A4A] hover:bg-navy/90 text-white text-xs sm:text-[13px] font-bold uppercase tracking-[0.14em] px-8 py-3.5 rounded-[1px] transition-all flex items-center gap-3 group shadow-xs font-outfit"
           >
-            <span>PARLA CON NOI</span>
-            <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform" />
+            <span>CONTATTACI</span>
+            <CaretRight size={13} weight="bold" className="group-hover:translate-x-0.5 transition-transform" />
           </Link>
         </div>
       </section>

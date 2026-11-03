@@ -373,7 +373,7 @@ export default function Layout() {
                   CONTATTI
                 </h4>
                 <div className="space-y-1.5 text-[13px] text-white/80 leading-relaxed mb-6">
-                  <p>Via Sandanrulo 7, 81016 San Potito Sannitico (CE)</p>
+                  <p>Via Sardarulo 7, 81016 San Potito Sannitico (CE)</p>
                   <p>
                     <a href="tel:+393286285861" className="hover:text-white transition-colors">328 6285861</a>
                   </p>

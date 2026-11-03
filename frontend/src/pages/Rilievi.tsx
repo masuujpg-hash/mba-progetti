@@ -7,7 +7,6 @@ import {
   Satellite,
   Radio,
   Layers,
-  ChevronRight,
   Crosshair,
   ShieldAlert,
   Ruler,
@@ -15,8 +14,7 @@ import {
   X,
   Database,
   Camera,
-  Grid,
-  ArrowRight
+  Grid
 } from 'lucide-react';
 
 interface TavolaPortfolio {
@@ -290,26 +288,133 @@ export default function Rilievi() {
         </div>
       </section>
 
-      {/* ── CITAZIONE & INTRODUZIONE ── */}
-      <section className="py-12 md:py-16 px-6 max-w-5xl mx-auto text-center">
-         <div className="bg-bg-neutral border-l-4 border-gold p-6 sm:p-8 rounded-r-sm text-left shadow-xs mb-8">
-            <p className="text-navy text-lg sm:text-xl font-light italic leading-relaxed">
-               "Documentare con precisione è il primo passo per intervenire con qualità."
+      {/* ── COLLABORAZIONE CON STUDIO ILARIO DI BUCCIO ── */}
+      <section className="pt-12 sm:pt-16 pb-4 px-6 max-w-7xl mx-auto">
+        <div className="bg-[#f8f9fb] border-l-4 border-gold p-6 sm:p-8 rounded-[1px] shadow-2xs">
+          <span className="text-gold text-xs sm:text-[13px] font-bold uppercase tracking-[0.2em] block mb-2 font-outfit">
+            COLLABORAZIONE
+          </span>
+          <p className="text-navy/85 text-[15px] sm:text-[17px] font-normal leading-relaxed font-outfit">
+            Per le attività di rilievo lo studio MBA collabora con lo <strong className="text-navy font-bold">studio dell'ing. Ilario Di Buccio</strong>, specialista di rilievi e modellazione BIM. L'incarico resta coordinato dall'arch. Mario Biondi, interlocutore unico per la committenza.
+          </p>
+        </div>
+      </section>
+
+      {/* ── DOCUMENTARE CON PRECISIONE PER INTERVENIRE CON QUALITÀ ── */}
+      <section className="py-12 sm:py-16 px-6 max-w-7xl mx-auto">
+        <div className="mb-8">
+          <span className="bg-gold text-white text-[10px] font-bold uppercase tracking-[0.25em] px-3.5 py-1 rounded-[1px] inline-block mb-3 shadow-xs font-outfit">
+            RILIEVO DIGITALE
+          </span>
+          <h2 className="text-navy text-2xl sm:text-3xl md:text-4xl font-extrabold uppercase tracking-tight font-heading">
+            DOCUMENTARE CON PRECISIONE PER INTERVENIRE CON QUALITÀ
+          </h2>
+        </div>
+
+        {/* 2-Column Grid: Text & Point Cloud Photo */}
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center mb-12">
+          {/* Left Column: Description */}
+          <div className="lg:col-span-6 space-y-5 text-navy/85 text-[15px] sm:text-[17px] font-normal leading-relaxed font-outfit">
+            <p>
+              Prima di progettare, restaurare o proporre migliorie in gara occorre sapere come è fatto davvero l’esistente. Acquisiamo <strong className="text-navy font-bold">dati metrici ad alta precisione</strong> con <strong className="text-navy font-bold">laser scanner 3D, droni fotogrammetrici e stazioni GNSS topografiche</strong>, per fabbricati esistenti, complessi storici e infrastrutture.
             </p>
-            <span className="text-gold text-xs font-bold uppercase tracking-wider block mt-3">— Arch. Mario Biondi, MBA Studio</span>
-         </div>
-         <p className="text-navy/80 text-sm md:text-base font-light leading-relaxed">
-            Acquisiamo dati metrici ad alta precisione con Laser Scanner 3D terricolo, droni fotogrammetrici e stazioni GPS topografiche per rilevare fabbricati esistenti, complessi storici ed infrastrutture.
-         </p>
+            <p>
+              Dalla nuvola di punti georeferenziata ricaviamo <strong className="text-navy font-bold">elaborati 2D e 3D, ortofoto, mappature del degrado e modelli BIM</strong>: un unico dato di partenza, utilizzabile da progettisti, imprese e direzione lavori.
+            </p>
+          </div>
+
+          {/* Right Column: Point Cloud Photo */}
+          <div className="lg:col-span-6">
+            <div className="relative rounded-[1px] overflow-hidden border border-navy/10 shadow-sm group">
+              <img
+                src="/media/rilievi_nuvola_punti.jpg"
+                alt="Rilievo Laser Scanner Nuvola di Punti"
+                className="w-full h-auto max-h-[380px] object-cover group-hover:scale-[1.02] transition-transform duration-700"
+              />
+            </div>
+          </div>
+        </div>
+
+        {/* Horizontal Strip con i 6 Servizi di Rilievo conformi al mockup */}
+        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 divide-y sm:divide-y-0 sm:divide-x divide-navy/10 border-y border-navy/15 my-8 py-5 bg-white">
+          <div className="flex flex-col items-center justify-center text-center p-3 sm:p-4 group">
+            <svg className="w-[26px] h-[26px] text-navy mb-2 group-hover:text-gold transition-colors" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round">
+              <path d="M5 8V5h3M16 5h3v3M5 16v3h3M19 16v3h-3" />
+              <circle cx="12" cy="12" r="1.5" fill="currentColor" />
+            </svg>
+            <span className="text-[11px] sm:text-xs font-bold text-navy uppercase tracking-[0.14em] leading-tight font-outfit">
+              LASER SCANNER 3D
+            </span>
+          </div>
+
+          <div className="flex flex-col items-center justify-center text-center p-3 sm:p-4 group">
+            <svg className="w-[26px] h-[26px] text-navy mb-2 group-hover:text-gold transition-colors" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round">
+              <line x1="8" y1="8" x2="16" y2="16" />
+              <line x1="16" y1="8" x2="8" y2="16" />
+              <circle cx="12" cy="12" r="2" fill="currentColor" />
+              <circle cx="6" cy="6" r="3" />
+              <circle cx="18" cy="6" r="3" />
+              <circle cx="6" cy="18" r="3" />
+              <circle cx="18" cy="18" r="3" />
+            </svg>
+            <span className="text-[11px] sm:text-xs font-bold text-navy uppercase tracking-[0.14em] leading-tight font-outfit">
+              DRONE E<br />FOTOGRAMMETRIA
+            </span>
+          </div>
+
+          <div className="flex flex-col items-center justify-center text-center p-3 sm:p-4 group">
+            <svg className="w-[26px] h-[26px] text-navy mb-2 group-hover:text-gold transition-colors" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round">
+              <circle cx="12" cy="12" r="6" />
+              <line x1="12" y1="2" x2="12" y2="22" />
+              <line x1="2" y1="12" x2="22" y2="12" />
+            </svg>
+            <span className="text-[11px] sm:text-xs font-bold text-navy uppercase tracking-[0.14em] leading-tight font-outfit">
+              TOPOGRAFIA GNSS
+            </span>
+          </div>
+
+          <div className="flex flex-col items-center justify-center text-center p-3 sm:p-4 group">
+            <svg className="w-[26px] h-[26px] text-navy mb-2 group-hover:text-gold transition-colors" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round">
+              <rect x="4" y="3" width="16" height="18" rx="1.5" />
+              <path d="M12 3l2 6-4 4 4 4-2 4" />
+            </svg>
+            <span className="text-[11px] sm:text-xs font-bold text-navy uppercase tracking-[0.14em] leading-tight font-outfit">
+              MAPPATURA DEL<br />DEGRADO
+            </span>
+          </div>
+
+          <div className="flex flex-col items-center justify-center text-center p-3 sm:p-4 group">
+            <svg className="w-[26px] h-[26px] text-navy mb-2 group-hover:text-gold transition-colors" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round">
+              <path d="M3 11l9-7 9 7v9a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1v-9z" />
+              <path d="M12 17v-6m-3 3l3-3 3 3" />
+            </svg>
+            <span className="text-[11px] sm:text-xs font-bold text-navy uppercase tracking-[0.14em] leading-tight font-outfit">
+              ISPEZIONI IN QUOTA
+            </span>
+          </div>
+
+          <div className="flex flex-col items-center justify-center text-center p-3 sm:p-4 group">
+            <svg className="w-[26px] h-[26px] text-navy mb-2 group-hover:text-gold transition-colors" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round">
+              <polygon points="1 6 8 2 16 6 23 2 23 18 16 22 8 18 1 22 1 6" />
+              <line x1="8" y1="2" x2="8" y2="18" />
+              <line x1="16" y1="6" x2="16" y2="22" />
+            </svg>
+            <span className="text-[11px] sm:text-xs font-bold text-navy uppercase tracking-[0.14em] leading-tight font-outfit">
+              CARTOGRAFIA E<br />ORTOFOTO
+            </span>
+          </div>
+        </div>
       </section>
 
       {/* ── 10 ATTIVITÀ E SERVIZI SPECIALISTICI ── */}
-      <section className="py-12 md:py-20 bg-bg-neutral/40 border-t border-navy/5">
+      <section className="py-16 md:py-24 bg-bg-neutral/40 border-t border-navy/5">
          <div className="max-w-7xl mx-auto px-6">
             <div className="text-center mb-12">
-               <span className="text-gold text-xs font-bold uppercase tracking-[0.4em] mb-2 block">Competenze Tecniche</span>
-               <h2 className="text-navy text-2xl sm:text-3xl font-bold uppercase tracking-tighter">
-                  Servizi di Rilievo & Digitalizzazione
+               <span className="bg-[#F5C400] text-white text-[10px] sm:text-[11px] font-bold uppercase tracking-[0.25em] px-3.5 py-1 rounded-[1px] inline-block mb-3 shadow-xs font-outfit">
+                  COMPETENZE TECNICHE
+               </span>
+               <h2 className="text-navy text-2xl sm:text-3xl md:text-4xl font-extrabold uppercase tracking-tight font-outfit">
+                  SERVIZI DI RILIEVO &amp; DIGITALIZZAZIONE
                </h2>
             </div>
 
@@ -319,20 +424,20 @@ export default function Rilievi() {
                   return (
                      <div 
                         key={item.id}
-                        className="bg-white p-6 rounded-sm border border-navy/10 hover:border-gold transition-colors flex flex-col justify-between shadow-xs"
+                        className="bg-white p-7 rounded-[1px] border border-navy/10 hover:border-gold transition-colors flex flex-col justify-between shadow-xs"
                      >
                         <div>
                            <div className="flex items-center justify-between mb-4">
-                              <span className="text-gold font-mono text-xs font-bold">{item.id}</span>
-                              <span className="text-[10px] uppercase font-bold tracking-wider px-2 py-0.5 bg-bg-neutral text-navy rounded-sm">
+                              <span className="text-gold font-mono text-sm font-bold">{item.id}</span>
+                              <span className="text-[11px] uppercase font-bold tracking-wider px-2.5 py-1 bg-bg-neutral text-navy rounded-[1px] font-outfit">
                                  {item.tag}
                               </span>
                            </div>
-                           <div className="p-3 bg-navy/5 text-gold w-fit mb-4 rounded-sm">
-                              <IconComp size={22} />
+                           <div className="p-3 bg-navy/5 text-gold w-fit mb-5 rounded-[1px]">
+                              <IconComp size={24} />
                            </div>
-                           <h3 className="text-navy text-base font-bold uppercase tracking-tight mb-2">{item.title}</h3>
-                           <p className="text-navy/70 text-xs font-light leading-relaxed">
+                           <h3 className="text-navy text-[17px] font-bold uppercase tracking-tight mb-2.5 font-outfit">{item.title}</h3>
+                           <p className="text-[#475569] text-sm sm:text-[15px] font-normal leading-relaxed font-outfit">
                               {item.desc}
                            </p>
                         </div>
@@ -344,20 +449,22 @@ export default function Rilievi() {
       </section>
 
       {/* ── GALLERIA TAVOLE PORTFOLIO LIGHTBOX ── */}
-      <section className="py-12 md:py-20 bg-white">
+      <section className="py-16 md:py-24 bg-white">
          <div className="max-w-7xl mx-auto px-6">
-            <div className="text-center mb-10">
-               <span className="text-gold text-xs font-bold uppercase tracking-[0.4em] mb-2 block">Elaborati Grafici Reali</span>
-               <h2 className="text-navy text-2xl sm:text-3xl font-bold uppercase tracking-tighter">
-                  Galleria Tavole Portfolio Rilievi
+            <div className="text-center mb-12">
+               <span className="bg-[#F5C400] text-white text-[10px] sm:text-[11px] font-bold uppercase tracking-[0.25em] px-3.5 py-1 rounded-[1px] inline-block mb-3 shadow-xs font-outfit">
+                  ELABORATI GRAFICI REALI
+               </span>
+               <h2 className="text-navy text-2xl sm:text-3xl md:text-4xl font-extrabold uppercase tracking-tight font-outfit mb-3">
+                  GALLERIA TAVOLE PORTFOLIO RILIEVI
                </h2>
-               <p className="text-navy/70 text-xs sm:text-sm font-light max-w-xl mx-auto mt-2">
+               <p className="text-navy/85 text-[15px] sm:text-[17px] font-normal max-w-2xl mx-auto leading-relaxed font-outfit">
                   Esplora le tavole di portfolio estrapolate direttamente dai nostri elaborati di cantiere. Clicca per ingrandire.
                </p>
             </div>
 
             {/* FILTRI CATEGORIA */}
-            <div className="flex flex-wrap items-center justify-center gap-2 mb-10">
+            <div className="flex flex-wrap items-center justify-center gap-2 mb-12">
                {[
                   { id: 'all', label: 'Tutte' },
                   { id: 'laser', label: 'Laser Scanner & BIM' },
@@ -368,7 +475,7 @@ export default function Rilievi() {
                   <button
                      key={f.id}
                      onClick={() => setActiveCategory(f.id)}
-                     className={`px-4 py-2 text-xs font-bold uppercase tracking-wider rounded-sm transition-all ${
+                     className={`px-5 py-2.5 text-xs font-bold uppercase tracking-wider rounded-[1px] transition-all font-outfit ${
                         activeCategory === f.id
                            ? 'bg-navy text-white border border-navy shadow-xs'
                            : 'bg-bg-neutral text-navy/70 border border-navy/10 hover:border-gold'
@@ -385,7 +492,7 @@ export default function Rilievi() {
                   <div
                      key={tavola.id}
                      onClick={() => setSelectedImage(tavola)}
-                     className="group cursor-pointer bg-white border border-navy/10 rounded-sm overflow-hidden hover:border-gold transition-all duration-300 shadow-xs hover:shadow-md flex flex-col justify-between"
+                     className="group cursor-pointer bg-white border border-navy/10 rounded-[1px] overflow-hidden hover:border-gold transition-all duration-300 shadow-xs hover:shadow-md flex flex-col justify-between"
                   >
                      <div>
                         <div className="relative aspect-[4/3] bg-neutral-100 overflow-hidden border-b border-navy/5">
@@ -395,23 +502,23 @@ export default function Rilievi() {
                               className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                            />
                            <div className="absolute inset-0 bg-navy/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
-                              <span className="bg-gold text-white text-xs font-bold uppercase tracking-wider px-3 py-1.5 rounded-sm inline-flex items-center gap-2 shadow-md">
+                              <span className="bg-gold text-white text-xs font-bold uppercase tracking-wider px-3.5 py-2 rounded-[1px] inline-flex items-center gap-2 shadow-md font-outfit">
                                  <Maximize2 size={14} /> Ingrandisci
                               </span>
                            </div>
-                           <div className="absolute top-3 left-3 bg-navy text-white font-mono font-bold text-[10px] px-2 py-0.5 rounded-sm">
+                           <div className="absolute top-3 left-3 bg-navy text-white font-mono font-bold text-xs px-2.5 py-0.5 rounded-[1px]">
                               {tavola.tavolaNum}
                            </div>
                         </div>
 
-                        <div className="p-5">
-                           <span className="text-gold text-[10px] font-bold uppercase tracking-wider block mb-1">
+                        <div className="p-6">
+                           <span className="text-gold text-xs font-bold uppercase tracking-wider block mb-1 font-outfit">
                               {tavola.categoryLabel}
                            </span>
-                           <h3 className="text-navy text-sm font-bold uppercase tracking-tight mb-2 group-hover:text-gold transition-colors leading-snug">
+                           <h3 className="text-navy text-base sm:text-[17px] font-bold uppercase tracking-tight mb-2 group-hover:text-gold transition-colors leading-snug font-outfit">
                               {tavola.title}
                            </h3>
-                           <p className="text-navy/70 text-xs font-light leading-relaxed line-clamp-2">
+                           <p className="text-[#475569] text-sm leading-relaxed line-clamp-2 font-outfit">
                               {tavola.desc}
                            </p>
                         </div>
@@ -437,7 +544,7 @@ export default function Rilievi() {
                   animate={{ scale: 1, opacity: 1 }}
                   exit={{ scale: 0.9, opacity: 0 }}
                   onClick={(e) => e.stopPropagation()}
-                  className="bg-white rounded-sm max-w-5xl w-full max-h-[90vh] overflow-y-auto border border-gold/30 shadow-2xl relative flex flex-col md:flex-row"
+                  className="bg-white rounded-[1px] max-w-5xl w-full max-h-[90vh] overflow-y-auto border border-gold/30 shadow-2xl relative flex flex-col md:flex-row"
                >
                   <button 
                      onClick={() => setSelectedImage(null)}
@@ -456,27 +563,27 @@ export default function Rilievi() {
 
                   <div className="w-full md:w-1/3 p-6 md:p-8 flex flex-col justify-between bg-white">
                      <div>
-                        <div className="inline-block bg-gold/10 border border-gold/30 text-navy font-mono font-bold text-xs px-3 py-1 rounded-sm mb-4">
+                        <div className="inline-block bg-gold/10 border border-gold/30 text-navy font-mono font-bold text-xs px-3 py-1 rounded-[1px] mb-4">
                            {selectedImage.tavolaNum} • {selectedImage.categoryLabel}
                         </div>
 
-                        <h3 className="text-navy text-lg font-bold uppercase tracking-tight mb-3 leading-snug">
+                        <h3 className="text-navy text-lg sm:text-xl font-bold uppercase tracking-tight mb-3 leading-snug font-outfit">
                            {selectedImage.title}
                         </h3>
 
-                        <p className="text-navy/70 text-xs sm:text-sm font-light leading-relaxed mb-6">
+                        <p className="text-[#475569] text-sm sm:text-base font-normal leading-relaxed mb-6 font-outfit">
                            {selectedImage.desc}
                         </p>
                      </div>
 
                      <div className="mt-6 pt-4 border-t border-navy/10">
-                        {/* TESTO PULSANTE SOSTITUITO CON RICHIEDI IL SERVIZIO */}
                         <Link 
                            to="/contatti" 
                            onClick={() => setSelectedImage(null)}
-                           className="btn-ghost-dark w-full py-3 text-xs flex items-center justify-center gap-2"
+                           className="border border-navy/30 hover:border-gold text-navy hover:text-gold px-6 py-3.5 rounded-[1px] text-xs font-bold uppercase tracking-widest transition-colors flex items-center justify-between w-full shadow-2xs group font-outfit"
                         >
-                           Richiedi il Servizio <ChevronRight size={16} />
+                           <span>Richiedi il Servizio</span>
+                           <span className="text-sm font-semibold transition-transform group-hover:translate-x-1">&gt;</span>
                         </Link>
                      </div>
                   </div>
@@ -486,12 +593,14 @@ export default function Rilievi() {
       </AnimatePresence>
 
       {/* ── STRUMENTAZIONE ED ATTREZZATURE ── */}
-      <section className="py-12 md:py-20 bg-bg-neutral/50 border-t border-navy/5">
+      <section className="py-16 md:py-24 bg-bg-neutral/50 border-t border-navy/5">
          <div className="max-w-7xl mx-auto px-6">
             <div className="text-center mb-12">
-               <span className="text-gold text-xs font-bold uppercase tracking-[0.4em] mb-2 block">Attrezzature d'Avanguardia</span>
-               <h2 className="text-navy text-2xl sm:text-3xl font-bold uppercase tracking-tighter">
-                  Hardware & Sensori
+               <span className="bg-[#F5C400] text-white text-[10px] sm:text-[11px] font-bold uppercase tracking-[0.25em] px-3.5 py-1 rounded-[1px] inline-block mb-3 shadow-xs font-outfit">
+                  ATTREZZATURE D'AVANGUARDIA
+               </span>
+               <h2 className="text-navy text-2xl sm:text-3xl md:text-4xl font-extrabold uppercase tracking-tight font-outfit">
+                  HARDWARE &amp; SENSORI
                </h2>
             </div>
 
@@ -501,16 +610,16 @@ export default function Rilievi() {
                   return (
                      <div 
                         key={device.id}
-                        className="bg-white border border-navy/10 rounded-sm overflow-hidden p-6 flex flex-col justify-between space-y-4 shadow-xs"
+                        className="bg-white border border-navy/10 rounded-[1px] overflow-hidden p-6 sm:p-7 flex flex-col justify-between space-y-4 shadow-xs"
                      >
                         <div className="flex items-center justify-between">
-                           <span className="text-gold font-mono font-bold text-xs">{device.id}</span>
-                           <IconComponent size={20} className="text-navy/60" />
+                           <span className="text-gold font-mono font-bold text-sm">{device.id}</span>
+                           <IconComponent size={22} className="text-navy/60" />
                         </div>
                         <div>
-                           <h3 className="text-navy text-sm font-bold uppercase tracking-tight mb-1">{device.title}</h3>
-                           <span className="text-navy/50 text-[10px] font-semibold uppercase tracking-wider block mb-2">{device.subtitle}</span>
-                           <p className="text-navy/70 text-xs font-light leading-relaxed">{device.desc}</p>
+                           <h3 className="text-navy text-base font-bold uppercase tracking-tight mb-1 font-outfit">{device.title}</h3>
+                           <span className="text-navy/60 text-[11px] font-bold uppercase tracking-wider block mb-2 font-outfit">{device.subtitle}</span>
+                           <p className="text-[#475569] text-sm leading-relaxed font-outfit">{device.desc}</p>
                         </div>
                      </div>
                   );
@@ -520,38 +629,51 @@ export default function Rilievi() {
       </section>
 
       {/* ── WORKFLOW IN 4 FASI ── */}
-      <section className="py-12 md:py-20 bg-white border-t border-navy/5">
+      <section className="py-16 md:py-24 bg-white border-t border-navy/5">
          <div className="max-w-7xl mx-auto px-6">
             <div className="text-center mb-12">
-               <span className="text-gold text-xs font-bold uppercase tracking-[0.4em] mb-2 block">Processo Operativo</span>
-               <h2 className="text-navy text-2xl sm:text-3xl font-bold uppercase tracking-tighter">
-                  Il Workflow del Rilievo Integrato
+               <span className="bg-[#F5C400] text-white text-[10px] sm:text-[11px] font-bold uppercase tracking-[0.25em] px-3.5 py-1 rounded-[1px] inline-block mb-3 shadow-xs font-outfit">
+                  PROCESSO OPERATIVO
+               </span>
+               <h2 className="text-navy text-2xl sm:text-3xl md:text-4xl font-extrabold uppercase tracking-tight font-outfit">
+                  IL WORKFLOW DEL RILIEVO INTEGRATO
                </h2>
             </div>
 
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
                {fasiWorkflow.map((item, index) => (
-                  <div key={index} className="bg-bg-neutral/60 p-6 border-t-2 border-navy/20 space-y-2">
-                     <span className="text-gold font-mono text-2xl font-bold block">{item.step}</span>
-                     <h3 className="text-navy text-sm font-bold uppercase tracking-tight">{item.title}</h3>
-                     <p className="text-navy/70 text-xs font-light leading-relaxed">{item.desc}</p>
+                  <div key={index} className="bg-bg-neutral/60 p-7 border-t-2 border-navy/20 space-y-3 rounded-[1px]">
+                     <span className="text-gold font-mono text-3xl font-extrabold block">{item.step}</span>
+                     <h3 className="text-navy text-base font-bold uppercase tracking-tight font-outfit">{item.title}</h3>
+                     <p className="text-[#475569] text-sm leading-relaxed font-outfit">{item.desc}</p>
                   </div>
                ))}
             </div>
          </div>
       </section>
 
-      {/* ── FINAL CTA (SENZA BLOCCO BLU) ── */}
-      <section className="py-12 md:py-20 bg-bg-neutral text-navy text-center border-t border-navy/10">
-        <div className="max-w-3xl mx-auto px-6">
-          <h2 className="text-navy text-2xl sm:text-3xl font-bold uppercase tracking-tighter leading-tight mb-4">
-             Hai Bisogno di un Rilievo 3D o Aerofotogrammetria?
-          </h2>
-          <p className="text-navy/70 text-sm font-light mb-8">
-             Richiedi un preventivo o uno studio di fattibilità per l'acquisizione metrica del tuo immobile o cantiere.
-          </p>
-          <Link to="/contatti" className="btn-ghost-dark group">
-             Richiedi il Servizio <ArrowRight size={16} className="ml-2 group-hover:translate-x-1 transition-transform inline-block" />
+      {/* ── BANNER CONTATTI ── */}
+      <section className="py-12 sm:py-16 px-6 max-w-7xl mx-auto border-t border-navy/10">
+        <div className="mb-4">
+          <span className="bg-gold text-white text-[10px] font-bold uppercase tracking-[0.25em] px-3.5 py-1 rounded-[1px] inline-block shadow-xs font-outfit">
+            CONTATTI
+          </span>
+        </div>
+        <div className="bg-[#F9FBFC] border-l-4 border-gold p-8 sm:p-10 flex flex-col md:flex-row md:items-center justify-between gap-6 shadow-xs">
+          <div>
+            <h3 className="text-navy text-xl sm:text-2xl md:text-3xl font-extrabold uppercase tracking-tight font-heading">
+              HAI BISOGNO DI UN RILIEVO 3D O AEROFOTOGRAMMETRIA?
+            </h3>
+            <p className="text-navy/75 text-sm sm:text-base font-outfit mt-2">
+              Richiedi un preventivo o uno studio di fattibilità per l'acquisizione metrica del tuo immobile o cantiere.
+            </p>
+          </div>
+          <Link
+            to="/contatti"
+            className="bg-navy text-white text-xs sm:text-sm font-bold uppercase tracking-widest px-8 py-4 hover:bg-gold transition-colors inline-flex items-center justify-center gap-4 rounded-[1px] shadow-sm shrink-0"
+          >
+            <span>CONTATTACI</span>
+            <span>&gt;</span>
           </Link>
         </div>
       </section>

@@ -413,9 +413,9 @@ export default function Gare() {
       title: "MANUTENZIONE E\nRIQUALIFICAZIONE",
       icon: (
         <svg className="w-8 h-8 text-navy" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round">
-          <path d="M14 6l4 4-8 8H6v-4l8-8z" />
-          <path d="M18 10l-2-2" />
-          <line x1="3" y1="21" x2="7" y2="21" />
+          <path d="M7 17l-4 4" />
+          <path d="M7 17l2-2" />
+          <path d="M9 15l6-9a2 2 0 012.8 0l1.4 1.4a2 2 0 010 2.8l-9 6" />
         </svg>
       )
     },
@@ -423,7 +423,10 @@ export default function Gare() {
       title: "STRUTTURE\nRICETTIVE",
       icon: (
         <svg className="w-8 h-8 text-navy" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round">
-          <path d="M3 8v13M3 16h18v5M21 12v9M6 13a2 2 0 012-2h3a2 2 0 012 2v3H6v-3z" />
+          <path d="M2 17V8" />
+          <path d="M2 14h20" />
+          <path d="M22 17v-5" />
+          <path d="M5 14v-3a1 1 0 011-1h4a1 1 0 011 1v3" />
         </svg>
       )
     },
@@ -431,9 +434,9 @@ export default function Gare() {
       title: "STRUTTURE\nPOLIVALENTI",
       icon: (
         <svg className="w-8 h-8 text-navy" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round">
-          <path d="M4 20V13a8 8 0 0116 0v7" />
-          <path d="M8 20V15a4 4 0 018 0v5" />
-          <line x1="2" y1="20" x2="22" y2="20" />
+          <path d="M4 21V12a8 8 0 0116 0v9" />
+          <path d="M9 21v-5a3 3 0 016 0v5" />
+          <line x1="2" y1="21" x2="22" y2="21" />
         </svg>
       )
     },
@@ -441,12 +444,9 @@ export default function Gare() {
       title: "EDIFICI STORICI E\nRESTAURO",
       icon: (
         <svg className="w-8 h-8 text-navy" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round">
-          <path d="M3 7l9-4 9 4v2H3V7z" />
-          <line x1="6" y1="9" x2="6" y2="19" />
-          <line x1="12" y1="9" x2="12" y2="19" />
-          <line x1="18" y1="9" x2="18" y2="19" />
-          <line x1="4" y1="19" x2="20" y2="19" />
-          <line x1="2" y1="21" x2="22" y2="21" />
+          <path d="M3 6h18M2 9h20" />
+          <path d="M5 9v9M9 9v9M15 9v9M19 9v9" />
+          <path d="M2 18h20M1 21h22" />
         </svg>
       )
     }
@@ -540,14 +540,19 @@ export default function Gare() {
 
       {/* ── 2. OFFERTE TECNICHE MIGLIORATIVE & GRAFICI ANIMATI ── */}
       <section className="py-14 sm:py-20 px-6 max-w-7xl mx-auto">
-        <h2 className="text-navy text-2xl sm:text-3xl md:text-[34px] font-bold uppercase tracking-tight font-outfit mb-8">
+        <div className="mb-4">
+          <span className="bg-gold text-white text-[10px] font-bold uppercase tracking-[0.25em] px-3.5 py-1 rounded-[1px] inline-block shadow-xs font-outfit">
+            IL SETTORE
+          </span>
+        </div>
+        <h2 className="text-navy text-2xl sm:text-3xl md:text-4xl font-extrabold uppercase tracking-tight font-heading mb-8">
           OFFERTE TECNICHE MIGLIORATIVE
         </h2>
 
         {/* Riga superiore: Descrizione a sinistra + 3 Stats animate a destra */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-14 items-start mb-14">
           <div className="lg:col-span-7 space-y-6">
-            <p className="text-[#1B2A4A]/80 text-sm sm:text-base font-normal leading-relaxed font-outfit">
+            <p className="text-[#1B2A4A]/85 text-[15px] sm:text-[17px] font-normal leading-relaxed font-outfit">
               Lo studio MBA affianca le imprese nella redazione di <strong className="font-bold text-[#1B2A4A]">offerte tecniche migliorative</strong> per gare d’appalto pubbliche aggiudicate secondo il criterio dell’<strong className="font-bold text-[#1B2A4A]">offerta economicamente più vantaggiosa (OEV)</strong>. Analizziamo disciplinari e progetti posti a base di gara per individuare con precisione i <strong className="font-bold text-[#1B2A4A]">margini di miglioramento tecnico e operativo</strong>, sviluppando proposte fondate su <strong className="font-bold text-[#1B2A4A]">metodo, chiarezza e coerenza con i criteri di valutazione</strong>, capaci di tradursi in <strong className="font-bold text-[#1B2A4A]">risultati concreti</strong> nelle procedure di gara.
             </p>
             <div className="pt-2">
@@ -561,7 +566,7 @@ export default function Gare() {
             </div>
           </div>
 
-          <div className="lg:col-span-5 flex flex-col justify-between pt-1 lg:pl-10 lg:border-l border-navy/10">
+          <div className="lg:col-span-5 flex flex-col justify-between pt-1 lg:pl-10">
             <StatCounter value="+10" label="ANNI DI ESPERIENZA" />
             <StatCounter value="63%" label="GARE SUL PODIO" />
             <StatCounter value="38%" label="GARE AGGIUDICATE" />
@@ -620,12 +625,12 @@ export default function Gare() {
               segments={[
                 { label: "1 – 5 MLN", value: 40, color: "#1B2A4A", textColor: "#FFFFFF" },
                 { label: "5 – 20 MLN", value: 30, color: "#3B5274", textColor: "#FFFFFF" },
-                { label: "< 1 MLN", value: 20, color: "#788EA7", textColor: "#FFFFFF" },
+                { label: "€ < 1 MLN", value: 20, color: "#788EA7", textColor: "#FFFFFF" },
                 { label: "> 20 MLN", value: 10, color: "#BAC7D5", textColor: "#1B2A4A" }
               ]}
               legendCol1={[
                 { label: "1 – 5 MLN", color: "#1B2A4A" },
-                { label: "< 1 MLN", color: "#788EA7" }
+                { label: "€ < 1 MLN", color: "#788EA7" }
               ]}
               legendCol2={[
                 { label: "5 – 20 MLN", color: "#3B5274" },
@@ -640,44 +645,44 @@ export default function Gare() {
       {/* ── 3. OFFERTE CHE SI LEGGONO AL PRIMO SGUARDO ── */}
       <section className="py-14 sm:py-20 bg-bg-neutral/40 border-t border-navy/10">
         <div className="max-w-7xl mx-auto px-6">
-          <div className="mb-3">
-            <span className="inline-block bg-gold text-white text-[10px] font-bold uppercase tracking-[0.2em] px-2.5 py-0.5 rounded-xs">
-              LAYOUT
+          <div className="mb-4">
+            <span className="bg-gold text-white text-[10px] font-bold uppercase tracking-[0.25em] px-3.5 py-1 rounded-[1px] inline-block shadow-xs font-outfit">
+              ELABORATI
             </span>
           </div>
-          <h2 className="text-navy text-2xl sm:text-3xl md:text-4xl font-bold uppercase tracking-tight font-heading mb-4">
+          <h2 className="text-navy text-2xl sm:text-3xl md:text-4xl font-extrabold uppercase tracking-tight font-heading mb-6">
             OFFERTE CHE SI LEGGONO AL PRIMO SGUARDO
           </h2>
-          <p className="text-navy/85 text-base sm:text-lg font-normal max-w-3xl mb-12 leading-relaxed">
-            I commissari di gara valutano decine di relazioni in tempi ridotti. Le nostre offerte tecniche trasformano concetti complessi in elaborati grafici ad alto impatto visivo e immediata comprensione.
+          <p className="text-navy/85 text-[15px] sm:text-[17px] font-normal max-w-4xl mb-12 leading-relaxed font-outfit">
+            La commissione esamina molte offerte in tempi stretti. Tavole, schemi e impaginati sono progettati perché il commissario <strong className="font-bold text-navy">trovi subito ogni miglioria</strong> e capisca <strong className="font-bold text-navy">a quale criterio risponde</strong>, senza doverla cercare nel testo.
           </p>
 
-          {/* 3 Colonne con dettagli del metodo grafico */}
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
-            <div className="space-y-2">
-              <div className="text-gold text-xs font-bold uppercase tracking-widest border-b border-gold/30 pb-1">
-                GERARCHIA VISIVA
+          {/* 3 Colonne: Chiarezza, Leggibilità, Impatto conformi al mockup */}
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-0 md:divide-x md:divide-navy/10 mb-12">
+            <div className="space-y-2 md:pr-8">
+              <div className="text-gold text-xs sm:text-[13px] font-bold uppercase tracking-[0.2em] font-outfit">
+                CHIAREZZA
               </div>
-              <p className="text-navy/80 text-sm sm:text-[15px] font-light leading-relaxed">
-                Layout editoriale rigoroso: titoli chiari, schemi logici e box informativi che guidano immediatamente il valutatore sui punti di maggior punteggio.
+              <p className="text-navy/80 text-sm sm:text-[15px] font-normal leading-relaxed font-outfit">
+                Ogni elaborato segue l'ordine dei criteri del disciplinare, con la stessa numerazione della relazione tecnica.
               </p>
             </div>
 
-            <div className="space-y-2">
-              <div className="text-gold text-xs font-bold uppercase tracking-widest border-b border-gold/30 pb-1">
-                DATI ELETTRONICI & BIM
+            <div className="space-y-2 md:px-8">
+              <div className="text-gold text-xs sm:text-[13px] font-bold uppercase tracking-[0.2em] font-outfit">
+                LEGGIBILITÀ
               </div>
-              <p className="text-navy/80 text-sm sm:text-[15px] font-light leading-relaxed">
-                Integrazione di modelli 3D, simulazioni energetiche, cronoprogrammi e schemi costruttivi che certificano il valore tecnico delle soluzioni proposte.
+              <p className="text-navy/80 text-sm sm:text-[15px] font-normal leading-relaxed font-outfit">
+                Gerarchia grafica, schemi e dati numerici al posto di descrizioni generiche: il contenuto si coglie anche in una lettura rapida.
               </p>
             </div>
 
-            <div className="space-y-2">
-              <div className="text-gold text-xs font-bold uppercase tracking-widest border-b border-gold/30 pb-1">
-                SINTESI EFFICACE
+            <div className="space-y-2 md:pl-8">
+              <div className="text-gold text-xs sm:text-[13px] font-bold uppercase tracking-[0.2em] font-outfit">
+                IMPATTO
               </div>
-              <p className="text-navy/80 text-sm sm:text-[15px] font-light leading-relaxed">
-                Nessun riempitivo verbale: testi asciutti, tecnici e precisi, supportati da rendering fotorealistici e tavole illustrative conformi al disciplinare.
+              <p className="text-navy/80 text-sm sm:text-[15px] font-normal leading-relaxed font-outfit">
+                Render e confronti tra progetto a base di gara e soluzione offerta rendono evidente il valore di ogni proposta.
               </p>
             </div>
           </div>
@@ -807,14 +812,14 @@ export default function Gare() {
           </div>
 
           {/* Dettaglio Fase Selezionata con Bordo Oro a Sinistra conforme al mockup */}
-          <div className="bg-white p-6 sm:p-8 border-l-[3px] border-gold shadow-xs rounded-xs">
-            <span className="inline-block text-gold text-[11px] sm:text-xs font-bold uppercase tracking-[0.2em] mb-1.5">
+          <div className="bg-white p-6 sm:p-9 border-l-4 border-gold shadow-xs rounded-xs">
+            <span className="inline-block text-gold text-xs sm:text-[13px] font-bold uppercase tracking-[0.2em] mb-2 font-outfit">
               {processSteps[activeStep].tag}
             </span>
-            <h3 className="text-navy text-lg sm:text-xl font-bold uppercase tracking-tight font-heading mb-2.5">
+            <h3 className="text-navy text-xl sm:text-2xl md:text-[26px] font-bold uppercase tracking-tight font-outfit mb-3">
               {processSteps[activeStep].heading}
             </h3>
-            <p className="text-navy/80 text-xs sm:text-sm md:text-[15px] font-light leading-relaxed max-w-3xl">
+            <p className="text-navy/90 text-base sm:text-[17px] md:text-[18px] font-normal leading-relaxed max-w-3xl font-outfit">
               {processSteps[activeStep].desc}
             </p>
           </div>
@@ -825,7 +830,7 @@ export default function Gare() {
       <section className="py-16 sm:py-24 bg-white border-t border-navy/10">
         <div className="max-w-7xl mx-auto px-6">
           <div className="mb-4">
-            <span className="inline-block bg-gold text-white text-[10px] font-bold uppercase tracking-[0.2em] px-3 py-1 rounded-xs">
+            <span className="bg-gold text-white text-[10px] font-bold uppercase tracking-[0.25em] px-3.5 py-1 rounded-[1px] inline-block shadow-xs font-outfit">
               AMBITI
             </span>
           </div>
@@ -834,7 +839,7 @@ export default function Gare() {
             TIPOLOGIE DI OPERE
           </h2>
           
-          <p className="text-navy/85 text-base sm:text-lg md:text-[18px] font-normal max-w-4xl mb-12 leading-relaxed">
+          <p className="text-navy/85 text-[15px] sm:text-[17px] font-normal max-w-5xl mb-12 leading-relaxed font-outfit">
             L'esperienza maturata consente allo studio di operare con competenza in ambiti diversi, dall'<strong className="font-bold text-navy">edilizia scolastica</strong> al <strong className="font-bold text-navy">restauro</strong>, dalle <strong className="font-bold text-navy">infrastrutture</strong> all'<strong className="font-bold text-navy">edilizia residenziale</strong> e alle <strong className="font-bold text-navy">strutture sportive</strong>, adottando in ogni caso un approccio tecnico fondato sull'analisi dei criteri di valutazione, del progetto a base di gara e delle esigenze operative dell'impresa.
           </p>
 
@@ -843,12 +848,12 @@ export default function Gare() {
             {tipologieOpere.map((item, idx) => (
               <div 
                 key={idx} 
-                className="border-r border-b border-navy/15 p-6 sm:py-10 sm:px-5 flex flex-col items-center justify-center text-center group hover:bg-neutral-50/80 transition-colors min-h-[175px]"
+                className="border-r border-b border-navy/15 p-6 sm:py-12 sm:px-4 flex flex-col items-center justify-center text-center group hover:bg-neutral-50/80 transition-colors min-h-[170px] sm:min-h-[185px]"
               >
                 <div className="h-10 flex items-center justify-center mb-4 transition-transform duration-200 group-hover:scale-110">
                   {item.icon}
                 </div>
-                <h3 className="text-navy text-xs sm:text-[13px] md:text-sm font-bold uppercase tracking-[0.14em] leading-snug whitespace-pre-line font-outfit">
+                <h3 className="text-navy text-xs sm:text-[12.5px] font-bold uppercase tracking-[0.14em] leading-snug whitespace-pre-line font-outfit">
                   {item.title}
                 </h3>
               </div>
@@ -864,32 +869,32 @@ export default function Gare() {
             
             {/* Colonna Sinistra: Info di Contatto */}
             <div className="lg:col-span-5 space-y-5">
-              <span className="text-gold text-xs font-bold uppercase tracking-widest block">
-                CONTATTI & INFORMAZIONI
+              <span className="bg-[#F5C400] text-white text-[10px] sm:text-[11px] font-bold uppercase tracking-[0.25em] px-3.5 py-1 rounded-[1px] inline-block shadow-xs font-outfit">
+                CONTATTI &amp; INFORMAZIONI
               </span>
-              <h3 className="text-navy text-2xl sm:text-3xl font-bold uppercase tracking-tight font-heading">
+              <h3 className="text-navy text-2xl sm:text-3xl md:text-4xl font-extrabold uppercase tracking-tight font-outfit">
                 CONTATTACI SUBITO
               </h3>
-              <p className="text-navy/70 text-xs sm:text-sm font-light leading-relaxed">
+              <p className="text-[#475569] text-base md:text-[17px] font-normal leading-[1.65] font-outfit">
                 Hai una gara in corso o in scadenza? Inviaci il bando e il disciplinare: effettueremo un'analisi preliminare di fattibilità e competitività tecnica senza impegno.
               </p>
 
-              <div className="pt-2 space-y-3 text-xs sm:text-sm text-navy/80">
+              <div className="pt-2 space-y-3 text-sm sm:text-[15px] text-navy font-outfit">
                 <div className="flex items-center gap-3">
                   <EnvelopeSimple size={18} className="text-gold shrink-0" />
-                  <a href="mailto:gare@mbaprogetti.it" className="hover:text-gold transition-colors font-medium">
-                    gare@mbaprogetti.it
+                  <a href="mailto:arch.mariobiondi@gmail.com" className="hover:text-gold transition-colors font-medium">
+                    arch.mariobiondi@gmail.com
                   </a>
                 </div>
                 <div className="flex items-center gap-3">
                   <Phone size={18} className="text-gold shrink-0" />
-                  <a href="tel:+390683917922" className="hover:text-gold transition-colors font-medium">
-                    +39 06 8391 7922
+                  <a href="tel:+393286285861" className="hover:text-gold transition-colors font-medium">
+                    328 6285861
                   </a>
                 </div>
                 <div className="flex items-center gap-3">
                   <MapPin size={18} className="text-gold shrink-0" />
-                  <span>Sede Operativa: Roma, Via Salaria</span>
+                  <span>Via Sardarulo 7, 81016 San Potito Sannitico (CE)</span>
                 </div>
               </div>
             </div>
@@ -897,12 +902,12 @@ export default function Gare() {
             {/* Colonna Destra: Modulo di Richiesta */}
             <div className="lg:col-span-7">
               {formSubmitted ? (
-                <div className="bg-white p-8 border border-navy/10 rounded-xs text-center space-y-3 shadow-xs">
+                <div className="bg-white p-8 border border-navy/10 rounded-[1px] text-center space-y-3 shadow-xs">
                   <CheckCircle size={44} className="text-gold mx-auto" />
-                  <h4 className="text-navy text-base font-bold uppercase tracking-wide">
+                  <h4 className="text-navy text-lg font-bold uppercase tracking-wide font-outfit">
                     Richiesta Inviata con Successo
                   </h4>
-                  <p className="text-navy/70 text-xs font-light">
+                  <p className="text-[#475569] text-sm leading-relaxed font-outfit">
                     Il nostro team tecnico esaminerà i dettagli della gara e ti risponderà entro 24 ore lavorative.
                   </p>
                 </div>

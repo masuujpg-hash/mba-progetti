@@ -1,23 +1,13 @@
 import { useState } from 'react';
 import { motion } from 'framer-motion';
 import { 
-  Compass, 
+  Target, 
   MagnifyingGlass, 
   ShieldCheck, 
   Users, 
   Heart, 
   Timer
 } from '@phosphor-icons/react';
-import { 
-  Crosshair, 
-  Construction, 
-  TrainFrontTunnel, 
-  Box, 
-  Landmark, 
-  FileCheck, 
-  Zap, 
-  DraftingCompass 
-} from 'lucide-react';
 
 export default function Studio() {
   interface TeamMember {
@@ -38,31 +28,31 @@ export default function Studio() {
       badge: "MC",
       name: "Massimiliano Celeste",
       role: "Architetto",
-      bio: "Massimiliano è il riferimento tecnico dello studio per l'integrazione impiantistica e la progettazione dei sistemi tecnologici. Vanta una solida esperienza nella domotica e nell'illuminotecnica, con particolare attenzione all'applicazione dei Criteri Ambientali Minimi (CAM) nelle opere pubbliche. È responsabile dell'analisi delle soluzioni impiantistiche e della definizione delle strategie di automazione degli edifici, curando l'integrazione tra sistemi ed efficienza energetica."
+      bio: "Massimiliano è il riferimento tecnico dello studio per l'integrazione impiantistica e la progettazione dei sistemi tecnologici. Vanta una solida esperienza nella domotica e nell'illuminotecnica, con particolare attenzione all'applicazione dei Criteri Ambientali Minimi (CAM) nelle opere pubbliche. È responsabile dell'analisi delle soluzioni impiantistiche e della definizione delle strategie di automazione degli edifici, curando l'integrazione tra sistemi, efficienza energetica e coerenza progettuale."
     },
     {
       badge: "CS",
       name: "Cristian Sisto",
       role: "Architetto",
-      bio: "Cristian traduce le scelte progettuali in immagini e contenuti grafici che valorizzano l'identità e la chiarezza dei progetti. All'interno dello studio si occupa della produzione dei render tridimensionali, dell'impaginazione e della redazione grafica delle relazioni migliorative, curando ogni dettaglio visivo per rendere i documenti tecnici immediatamente leggibili e di grande impatto per la commissione."
+      bio: "Cristian traduce le scelte progettuali in immagini e contenuti grafici che valorizzano l'identità e la chiarezza dei progetti. All'interno dello studio si occupa della produzione dei render, dell'impaginazione e della redazione delle relazioni migliorative, curando ogni dettaglio visivo e comunicativo. La sua competenza unisce precisione tecnica e sensibilità grafica, rendendo i documenti leggibili, coerenti e di immediata comprensione."
     },
     {
       badge: "CS",
       name: "Carmine Sarno",
       role: "Architetto",
-      bio: "Carmine collabora stabilmente con MBA Progetti come partner tecnico per la progettazione e gestione BIM, la direzione lavori e la contabilità dei lavori pubblici. Cura il coordinamento digitale dei modelli informativi e l'integrazione tra computi metrici estimativi e documentazione tecnica, garantendo coerenza e controllo rigoroso in tutte le fasi di gara e di cantiere."
+      bio: "Carmine collabora stabilmente con lo studio come partner tecnico per la progettazione e gestione BIM, la direzione lavori e la contabilità dei lavori pubblici. Cura il coordinamento digitale dei progetti e l'integrazione tra modelli, computi e documentazione tecnica, per garantire coerenza e controllo in tutte le fasi del processo."
     },
     {
       badge: "AM",
       name: "Alfonso Masulli",
       role: "Architetto",
-      bio: "Alfonso cura la modellazione 3D avanzata, la visualizzazione architettonica e la produzione BIM. Si occupa della generazione di modelli digitali parametrici, render fotorealistici e documentazione grafica a supporto delle offerte tecniche, garantendo qualità visiva e precisione informativa in ogni proposta migliorativa elaborata dallo studio."
+      bio: "Alfonso cura la modellazione 3D, la visualizzazione architettonica e la produzione BIM. Si occupa della generazione di modelli digitali, render e documentazione grafica a supporto delle offerte tecniche, garantendo qualità visiva e precisione informativa in ogni proposta."
     },
     {
       badge: "IDB",
       name: "Ilario Di Buccio",
       role: "Ingegnere Edile",
-      bio: "Ingegnere edile specializzato in rilievo integrato e progettazione strutturale, laureato presso l'Università Federico II di Napoli e certificato BIM Specialist ACCREDIA. Porta competenze avanzate in laser scanning 3D, fotogrammetria da drone e modellazione BIM, curando le attività di rilievo e le verifiche di vulnerabilità e conformità strutturale."
+      bio: "Ingegnere edile specializzato in rilievo integrato e progettazione strutturale, laureato presso la Federico II di Napoli e certificato BIM Specialist ACCREDIA. Porta competenze specialistiche in laser scanning 3D, fotogrammetria da drone e modellazione BIM. Collabora con lo studio curando le attività di rilievo e le fasi progettuali che richiedono competenze ingegneristiche strutturali."
     }
   ];
 
@@ -70,26 +60,24 @@ export default function Studio() {
     <div className="bg-white selection:bg-navy selection:text-white overflow-x-hidden">
       
       {/* ── 1. CINEMATIC HERO ── */}
-      <section className="relative min-h-[50vh] md:h-[65vh] w-full flex items-center justify-center overflow-hidden bg-navy">
+      <section className="relative min-h-[44vh] md:h-[55vh] w-full flex items-center justify-center overflow-hidden bg-navy">
         <div className="absolute inset-0 z-0">
           <img 
             src="/media/header_2.jpg" 
             alt="MBA Progetti Studio"
-            className="w-full h-full object-cover object-center grayscale contrast-125 opacity-35"
+            className="w-full h-full object-cover object-center opacity-85 contrast-105"
           />
-          <div className="absolute inset-0 bg-gradient-to-b from-navy/95 via-navy/60 to-white" />
+          {/* Sfumatura bianca verso il basso per fondersi perfettamente con la sezione successiva */}
+          <div className="absolute inset-0 bg-gradient-to-b from-navy/40 via-white/20 to-white" />
         </div>
 
-        <div className="relative z-10 text-center px-6 max-w-4xl mx-auto pt-20 pb-12">
+        <div className="relative z-10 text-center px-6 max-w-4xl mx-auto pt-16 pb-10">
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 0, y: 15 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
           >
-            <span className="text-white/80 text-[11px] font-bold uppercase tracking-[0.4em] md:tracking-[0.6em] mb-4 block">
-              CHI SIAMO
-            </span>
-            <h1 className="text-white text-3xl sm:text-5xl md:text-6xl font-bold uppercase tracking-[0.25em] md:tracking-[0.35em] leading-[1.2]">
+            <h1 className="text-white text-3xl sm:text-5xl md:text-6xl font-extrabold uppercase tracking-[0.25em] md:tracking-[0.35em] drop-shadow-md">
               LO STUDIO
             </h1>
           </motion.div>
@@ -97,37 +85,33 @@ export default function Studio() {
       </section>
 
       {/* ── 2. STORIA E METODO ── */}
-      <section className="py-16 md:py-24 bg-white">
+      <section className="py-14 md:py-20 bg-white">
         <div className="max-w-7xl mx-auto px-6">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-center">
             
             {/* Left Column: Text */}
             <div className="lg:col-span-6 space-y-6">
-              <span className="bg-gold text-white text-[10px] font-bold uppercase tracking-[0.25em] px-3.5 py-1 rounded-sm inline-block shadow-sm">
-                CHI SIAMO
-              </span>
-              <h2 className="text-navy text-2xl sm:text-3xl md:text-4xl font-bold uppercase tracking-tight leading-tight">
+              <div>
+                <span className="bg-gold text-white text-[10px] font-bold uppercase tracking-[0.25em] px-3.5 py-1 rounded-[1px] inline-block shadow-sm">
+                  CHI SIAMO
+                </span>
+              </div>
+              <h2 className="text-navy text-2xl sm:text-3xl md:text-4xl font-extrabold uppercase tracking-tight font-heading">
                 STORIA E METODO
               </h2>
-              <div className="space-y-4 text-navy/75 text-sm sm:text-base font-light leading-relaxed">
+              <div className="text-navy/85 text-[15px] sm:text-[17px] font-normal leading-relaxed">
                 <p>
-                  Dal 2019, lo studio MBA opera nel campo della progettazione e della consulenza tecnica con una specializzazione consolidata nelle gare d’appalto pubbliche e nella redazione di offerte migliorative secondo il criterio dell’offerta economicamente più vantaggiosa (OEPV).
-                </p>
-                <p>
-                  Grazie a una struttura multidisciplinare e a collaborazioni consolidate con professionisti e società specialistiche nei settori architettonico, impiantistico e strutturale, lo studio è in grado di affrontare in modo integrato tutte le fasi del processo edilizio, dalla gara alla progettazione esecutiva.
-                </p>
-                <p>
-                  L’obiettivo è coniugare rigore metodologico e sensibilità progettuale, seguendo un percorso strutturato, consolidato e condiviso, che consente di raggiungere precisione e qualità in ogni fase del lavoro.
+                  Lo studio dell'architetto Mario Biondi si occupa di progettazione e consulenza tecnica ed <strong className="font-bold text-navy">è specializzato nelle gare d'appalto di lavori pubblici</strong>, in particolare nella redazione di <strong className="font-bold text-navy">offerte migliorative</strong> secondo il criterio dell'offerta economicamente più vantaggiosa (OEV). Opera con una <strong className="font-bold text-navy">rete stabile di professionisti e società specializzate</strong> che copre ogni aspetto dell'offerta tecnica: architettura, strutture, impianti ed energetica, grafica e modellazione BIM. Ogni offerta <strong className="font-bold text-navy">è costruita insieme all'impresa</strong>, dall'analisi del disciplinare alla consegna della documentazione di gara.
                 </p>
               </div>
             </div>
 
             {/* Right Column: Building Image */}
             <div className="lg:col-span-6">
-              <div className="overflow-hidden rounded-sm border border-navy/10 shadow-lg bg-neutral-100">
+              <div className="overflow-hidden rounded-[1px] border border-navy/15 shadow-sm bg-neutral-100">
                 <img 
                   src="/media/portfolio/15_ospedale_sarteano.jpg" 
-                  alt="Progetto MBA Studio — Architettura e Territorio" 
+                  alt="Progetto MBA Studio — Ospedale di Sarteano" 
                   className="w-full h-auto object-cover hover:scale-[1.02] transition-transform duration-700"
                 />
               </div>
@@ -141,18 +125,18 @@ export default function Studio() {
       <section className="py-16 md:py-24 bg-white border-t border-navy/5">
         <div className="max-w-7xl mx-auto px-6">
           <div className="text-left mb-10">
-            <span className="bg-[#F5C400] text-white text-[11px] font-bold uppercase tracking-[0.14em] px-3.5 py-1 rounded-[1px] inline-block mb-5 shadow-sm">
+            <span className="bg-gold text-white text-[10px] font-bold uppercase tracking-[0.25em] px-3.5 py-1 rounded-[1px] inline-block mb-4 shadow-sm">
               LA RETE
             </span>
-            <h2 className="text-[#1B2A4A] text-2xl sm:text-3xl md:text-[34px] font-extrabold uppercase tracking-tight leading-tight mb-5">
+            <h2 className="text-navy text-2xl sm:text-3xl md:text-4xl font-extrabold uppercase tracking-tight font-heading mb-5">
               UN APPROCCIO MULTIDISCIPLINARE, UN UNICO OBIETTIVO
             </h2>
-            <div className="space-y-4 text-[#1B2A4A]/80 text-sm sm:text-[15px] font-normal max-w-4xl leading-relaxed mb-10">
+            <div className="space-y-4 text-navy/85 text-[15px] sm:text-[17px] font-normal max-w-4xl leading-relaxed mb-10">
               <p>
-                Ogni gara richiede competenze diverse. Lo studio costruisce attorno alla singola procedura <strong className="font-bold text-[#1B2A4A]">un gruppo di lavoro</strong> con architetti, ingegneri strutturisti e impiantisti, restauratori, specialisti BIM e grafici, coinvolti secondo le richieste del disciplinare. Il gruppo lavora sotto il <strong className="font-bold text-[#1B2A4A]">coordinamento dello studio</strong>, dall'analisi degli atti alla consegna dell'offerta.
+                Ogni gara richiede competenze diverse. Lo studio costruisce attorno alla singola procedura <strong className="font-bold text-navy">un gruppo di lavoro</strong> con architetti, ingegneri strutturisti e impiantisti, restauratori, specialisti BIM e grafici, coinvolti secondo le richieste del disciplinare. Il gruppo lavora sotto il <strong className="font-bold text-navy">coordinamento dello studio</strong>, dall'analisi degli atti alla consegna dell'offerta.
               </p>
               <p>
-                Il confronto tra le diverse competenze permette di <strong className="font-bold text-[#1B2A4A]">individuare migliorie pertinenti</strong>, verificarne la fattibilità e tradurle in <strong className="font-bold text-[#1B2A4A]">una proposta chiara e coerente</strong>.
+                Il confronto tra le diverse competenze permette di <strong className="font-bold text-navy">individuare migliorie pertinenti</strong>, verificarne la fattibilità e tradurle in <strong className="font-bold text-navy">una proposta chiara e coerente</strong>.
               </p>
             </div>
           </div>
@@ -168,21 +152,21 @@ export default function Studio() {
       <section className="py-16 md:py-24 bg-white border-t border-navy/5">
         <div className="max-w-7xl mx-auto px-6">
           <div className="text-left mb-12">
-            <span className="bg-gold text-white text-[10px] font-bold uppercase tracking-[0.25em] px-3.5 py-1 rounded-sm inline-block mb-4 shadow-sm">
-              I NOSTRI VALORI
+            <span className="bg-gold text-white text-[10px] font-bold uppercase tracking-[0.25em] px-3.5 py-1 rounded-[1px] inline-block mb-4 shadow-sm">
+              IL NOSTRO DNA
             </span>
-            <h2 className="text-navy text-2xl sm:text-3xl md:text-4xl font-bold uppercase tracking-tight leading-tight mb-4">
+            <h2 className="text-navy text-2xl sm:text-3xl md:text-4xl font-extrabold uppercase tracking-tight font-heading mb-4">
               I NOSTRI VALORI
             </h2>
-            <p className="text-navy/70 text-sm sm:text-base font-light max-w-4xl leading-relaxed">
-              Il nostro lavoro si fonda su principi che non cambiano al variare della procedura o del committente: metodo rigoroso, ricerca costante, responsabilità nei confronti del cliente e del processo costruttivo. Sono i valori che guidano ogni scelta, dalla prima analisi del disciplinare alla consegna dell'offerta.
+            <p className="text-navy/85 text-[15px] sm:text-[17px] font-normal max-w-4xl leading-relaxed">
+              Il nostro lavoro si fonda su principi che non cambiano al variare della procedura o del committente: <strong className="font-bold text-navy">metodo rigoroso</strong>, <strong className="font-bold text-navy">ricerca costante</strong>, <strong className="font-bold text-navy">responsabilità</strong> nei confronti del cliente e del processo costruttivo. Sono i valori che guidano ogni scelta, dalla prima analisi del disciplinare alla consegna dell'offerta.
             </p>
           </div>
 
           {/* 6 Value Cards */}
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             <ValueCard 
-              icon={Compass}
+              icon={Target}
               title="METODO"
               text="Un processo rigoroso guida ogni fase: dall'analisi del disciplinare alla consegna dell'offerta. Il controllo sistematico garantisce coerenza, precisione e affidabilità del risultato."
             />
@@ -222,39 +206,35 @@ export default function Studio() {
             
             {/* Left: Founder Photo / Portrait container */}
             <div className="lg:col-span-5">
-              <div className="aspect-[4/5] bg-navy/5 border border-navy/10 rounded-sm overflow-hidden flex items-center justify-center relative shadow-sm">
-                <img 
-                  src="/media/team_rilievi.jpg" 
-                  alt="Arch. Mario Biondi" 
-                  className="w-full h-full object-cover object-top"
-                />
-                <div className="absolute inset-0 bg-navy/10" />
+              <div className="aspect-[4/5] bg-[#eef1f4] border border-navy/15 rounded-[1px] overflow-hidden flex flex-col items-center justify-center text-center p-6 text-navy/50 shadow-xs relative">
+                <span className="text-xs font-bold uppercase tracking-wider text-navy/60">[FOTO]</span>
+                <span className="text-xs font-light text-navy/60 mt-1">Ritratto di Mario Biondi</span>
               </div>
             </div>
 
             {/* Right: Founder Details */}
             <div className="lg:col-span-7 space-y-6">
               <div>
-                <span className="bg-gold text-white text-[10px] font-bold uppercase tracking-[0.25em] px-3.5 py-1 rounded-sm inline-block mb-4 shadow-sm">
-                  FONDATORE E DIRETTORE
+                <span className="bg-gold text-white text-[10px] font-bold uppercase tracking-[0.25em] px-3.5 py-1 rounded-[1px] inline-block mb-4 shadow-sm">
+                  FONDATORE E TITOLARE
                 </span>
-                <h2 className="text-navy text-2xl sm:text-3xl md:text-4xl font-bold uppercase tracking-tight leading-tight">
+                <h2 className="text-navy text-2xl sm:text-3xl md:text-4xl font-extrabold uppercase tracking-tight font-heading">
                   MARIO BIONDI
                 </h2>
                 <span className="text-gold text-xs font-bold uppercase tracking-[0.25em] block mt-1">
-                  ARCHITETTO, FONDATORE
+                  ARCHITETTO, TITOLARE
                 </span>
               </div>
 
-              <div className="space-y-4 text-navy/75 text-sm sm:text-base font-light leading-relaxed">
+              <div className="space-y-4 text-navy/85 text-[15px] sm:text-[17px] font-normal leading-relaxed">
                 <p>
-                  Fondatore dello studio MBA, coordina l’attività dello studio integrando progettazione architettonica e consulenza tecnica per appalti pubblici.
+                  Titolare dello studio, coordina l'attività professionale integrando progettazione architettonica e consulenza tecnica per appalti pubblici. È specializzato nella redazione di <strong className="font-bold text-navy">offerte tecniche migliorative per gare OEV</strong> e nella definizione della strategia progettuale complessiva.
                 </p>
                 <p>
-                  È specializzato nella redazione di offerte migliorative per gare aggiudicate con il criterio dell’offerta economicamente più vantaggiosa (OEPV). Supervisiona la strategia progettuale e la produzione tecnica, assicurando coerenza, metodo e qualità in ogni fase del lavoro.
+                  Supervisiona la produzione tecnica di ogni offerta, assicurando <strong className="font-bold text-navy">coerenza metodologica e qualità documentale</strong> in tutte le fasi del lavoro. La sua competenza abbraccia la normativa CAM, la metodologia BIM e il quadro regolatorio del settore degli appalti pubblici (dal D.Lgs. 36/2023 alle Linee Guida ANAC), garantendo offerte tecniche sempre aggiornate, conformi e competitive.
                 </p>
                 <p>
-                  Ha guidato lo studio nella redazione di oltre 200 offerte tecniche su tutto il territorio nazionale, raggiungendo un tasso di successo sul podio superiore al 60%.
+                  Opera nel settore delle gare d'appalto dal 2016. Dal 2022 al 2025, <strong className="font-bold text-navy">il 63% delle procedure affidate si è concluso nelle prime tre posizioni, con un tasso di aggiudicazione del 38%</strong>.
                 </p>
               </div>
             </div>
@@ -266,32 +246,29 @@ export default function Studio() {
       {/* ── 6. UNA RETE DI PROFESSIONALITÀ ── */}
       <section className="py-16 md:py-24 bg-white border-t border-navy/5">
         <div className="max-w-7xl mx-auto px-6">
-          <div className="text-left mb-12">
-            <span className="bg-gold text-white text-[10px] font-bold uppercase tracking-[0.25em] px-3.5 py-1 rounded-sm inline-block mb-4 shadow-sm">
-              TEAM & NETWORK PROFESSIONALE
+          <div className="text-left mb-10">
+            <span className="bg-gold text-white text-[10px] font-bold uppercase tracking-[0.25em] px-3.5 py-1 rounded-[1px] inline-block mb-4 shadow-sm">
+              COMPETENZE MULTIDISCIPLINARI
             </span>
-            <h2 className="text-navy text-2xl sm:text-3xl md:text-4xl font-bold uppercase tracking-tight leading-tight mb-4">
+            <h2 className="text-navy text-2xl sm:text-3xl md:text-4xl font-extrabold uppercase tracking-tight font-heading">
               UNA RETE DI PROFESSIONALITÀ
             </h2>
-            <p className="text-navy/70 text-sm sm:text-base font-light max-w-3xl leading-relaxed">
-              Un gruppo di collaboratori e consulenti altamente qualificati che integra ogni disciplina tecnica necessaria per la gara e per il cantiere.
-            </p>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {team.map((member, index) => (
               <div 
                 key={index}
-                className="bg-bg-neutral/40 p-7 border border-navy/10 rounded-sm space-y-4 hover:border-gold/50 hover:shadow-sm transition-all"
+                className="bg-white p-7 sm:p-8 border border-navy/15 rounded-[1px] space-y-4 hover:border-gold hover:shadow-xs transition-all"
               >
-                <div className="w-10 h-10 bg-navy text-white font-mono font-bold text-xs flex items-center justify-center rounded-sm">
+                <div className="w-10 h-10 bg-navy text-white font-mono font-bold text-xs flex items-center justify-center rounded-[1px]">
                   {member.badge}
                 </div>
                 <div>
-                  <h3 className="text-navy text-base font-bold uppercase tracking-tight">{member.name}</h3>
-                  <span className="text-gold text-[10px] font-bold uppercase tracking-[0.2em] block mt-0.5">{member.role}</span>
+                  <h3 className="text-navy text-base sm:text-[17px] font-bold uppercase tracking-tight font-outfit">{member.name}</h3>
+                  <span className="text-gold text-xs font-bold uppercase tracking-[0.2em] block mt-0.5 font-outfit">{member.role}</span>
                 </div>
-                <p className="text-navy/70 text-xs font-light leading-relaxed">{member.bio}</p>
+                <p className="text-[#475569] text-sm sm:text-[15px] font-normal leading-relaxed font-outfit">{member.bio}</p>
               </div>
             ))}
           </div>
@@ -305,15 +282,91 @@ export default function Studio() {
 // ── VALUE CARD COMPONENT ──
 function ValueCard({ icon: Icon, title, text }: { icon: any; title: string; text: string }) {
   return (
-    <div className="bg-white p-7 border border-navy/10 rounded-sm space-y-3 hover:border-gold/50 hover:shadow-sm transition-all">
+    <div className="bg-white p-8 sm:p-10 border border-navy/15 rounded-[1px] space-y-4 hover:border-gold/50 hover:shadow-xs transition-all">
       <div className="text-gold">
-        <Icon size={32} weight="light" />
+        <Icon size={36} weight="light" />
       </div>
-      <h3 className="text-navy text-sm font-bold uppercase tracking-wider">{title}</h3>
-      <p className="text-navy/70 text-xs font-light leading-relaxed">{text}</p>
+      <h3 className="text-navy text-[17px] font-bold tracking-[0.05em] uppercase font-outfit">{title}</h3>
+      <p className="text-[#475569] text-[15px] font-normal leading-relaxed font-outfit">{text}</p>
     </div>
   );
 }
+
+// ── ICONE SVG NETWORK DIAGRAM ──
+const IconFluidoMeccanici = () => (
+  <svg viewBox="0 0 24 24" className="w-[18px] h-[18px]" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+    <circle cx="12" cy="12" r="5" />
+    <circle cx="12" cy="12" r="1.5" fill="currentColor" />
+    <line x1="12" y1="2" x2="12" y2="5" />
+    <line x1="12" y1="19" x2="12" y2="22" />
+    <line x1="2" y1="12" x2="5" y2="12" />
+    <line x1="19" y1="12" x2="22" y2="12" />
+  </svg>
+);
+
+const IconStrutturali = () => (
+  <svg viewBox="0 0 24 24" className="w-[18px] h-[18px]" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round">
+    <rect x="7" y="3" width="10" height="18" />
+    <line x1="7" y1="3" x2="17" y2="12" />
+    <line x1="17" y1="3" x2="7" y2="12" />
+    <line x1="7" y1="12" x2="17" y2="21" />
+    <line x1="17" y1="12" x2="7" y2="21" />
+    <line x1="7" y1="12" x2="17" y2="12" />
+  </svg>
+);
+
+const IconInfrastrutturali = () => (
+  <svg viewBox="0 0 24 24" className="w-[18px] h-[18px]" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+    <path d="M5 21V11a7 7 0 0 1 14 0v10" />
+    <line x1="12" y1="16" x2="12" y2="17.5" />
+    <line x1="12" y1="19.5" x2="12" y2="21" />
+  </svg>
+);
+
+const IconBim = () => (
+  <svg viewBox="0 0 24 24" className="w-[18px] h-[18px]" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round">
+    <path d="M12 3l8 4.5v9L12 21l-8-4.5v-9L12 3z" />
+    <line x1="12" y1="12" x2="12" y2="21" />
+    <line x1="12" y1="12" x2="20" y2="7.5" />
+    <line x1="12" y1="12" x2="4" y2="7.5" />
+  </svg>
+);
+
+const IconRestauratori = () => (
+  <svg viewBox="0 0 24 24" className="w-[18px] h-[18px]" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round">
+    <path d="M3 7l9-4 9 4v2H3V7z" />
+    <line x1="6" y1="9" x2="6" y2="18" />
+    <line x1="10" y1="9" x2="10" y2="18" />
+    <line x1="14" y1="9" x2="14" y2="18" />
+    <line x1="18" y1="9" x2="18" y2="18" />
+    <line x1="4" y1="18" x2="20" y2="18" />
+    <line x1="2" y1="21" x2="22" y2="21" />
+  </svg>
+);
+
+const IconLegali = () => (
+  <svg viewBox="0 0 24 24" className="w-[18px] h-[18px]" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round">
+    <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" />
+    <polyline points="14 2 14 8 20 8" />
+    <path d="M9 15l2 2 4-4" />
+  </svg>
+);
+
+const IconImpianti = () => (
+  <svg viewBox="0 0 24 24" className="w-[18px] h-[18px]" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round">
+    <path d="M3 10.5L12 3l9 7.5V20a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1v-9.5z" />
+    <path d="M12.5 9l-2.5 4h3l-1.5 4" />
+  </svg>
+);
+
+const IconGrafici = () => (
+  <svg viewBox="0 0 24 24" className="w-[18px] h-[18px]" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+    <circle cx="12" cy="18" r="2" />
+    <circle cx="6" cy="7" r="2" />
+    <circle cx="18" cy="7" r="2" />
+    <path d="M12 16V12M12 12L7.5 8.5M12 12l4.5-3.5" />
+  </svg>
+);
 
 // ── RADIAL NETWORK DIAGRAM COMPONENT (CLAUDE ARTIFACT EXACT PROPORTIONS) ──
 function NetworkDiagram() {
@@ -322,56 +375,56 @@ function NetworkDiagram() {
   const nodes = [
     {
       angle: -90,
-      icon: Crosshair,
+      icon: IconFluidoMeccanici,
       lines: ["CONSULENTI", "FLUIDO MECCANICI"],
       align: "top" as const,
       desc: "Progettazione termo-fluidodinamica, simulazioni energetiche avanzate e impianti speciali."
     },
     {
       angle: -45,
-      icon: Construction,
+      icon: IconStrutturali,
       lines: ["CONSULENTI", "STRUTTURALI"],
       align: "right" as const,
       desc: "Calcolo strutturale, verifiche sismiche, consolidamento statico e adeguamento edifici."
     },
     {
       angle: 0,
-      icon: TrainFrontTunnel,
+      icon: IconInfrastrutturali,
       lines: ["CONSULENTI", "INFRASTRUTTURALI"],
       align: "right" as const,
       desc: "Opere stradali, ponti, gallerie, tracciati ferroviari e infrastrutture complesse."
     },
     {
       angle: 45,
-      icon: Box,
+      icon: IconBim,
       lines: ["CONSULENTI", "PROGETTAZIONE BIM"],
       align: "right" as const,
       desc: "Modellazione informativa 4D/5D, clash detection e capitolati informativi BIM."
     },
     {
       angle: 90,
-      icon: Landmark,
+      icon: IconRestauratori,
       lines: ["RESTAURATORI"],
       align: "bottom" as const,
       desc: "Restauro conservativo, beni monumentali vincolati e diagnostica dei materiali storici."
     },
     {
       angle: 135,
-      icon: FileCheck,
+      icon: IconLegali,
       lines: ["CONSULENTI", "LEGALI"],
       align: "left" as const,
       desc: "Conformità Codice Appalti, analisi disciplinari e supporto contrattualistico di gara."
     },
     {
       angle: 180,
-      icon: Zap,
+      icon: IconImpianti,
       lines: ["CONSULENTI", "IMPIANTI"],
       align: "left" as const,
       desc: "Progettazione elettrica, termotecnica, domotica, energie rinnovabili e CAM."
     },
     {
       angle: 225,
-      icon: DraftingCompass,
+      icon: IconGrafici,
       lines: ["GRAFICI 2D E 3D"],
       align: "left" as const,
       desc: "Render fotorealistici, fotoinserimenti territoriali, video animati e infografiche di gara."
@@ -513,7 +566,7 @@ function NetworkDiagram() {
                   className="pointer-events-none"
                 >
                   <div className={`w-full h-full flex items-center justify-center transition-colors duration-300 ${isHovered ? 'text-[#1B2A4A]' : 'text-white'}`}>
-                    <NodeIcon size={18} strokeWidth={2} />
+                    <NodeIcon />
                   </div>
                 </foreignObject>
 

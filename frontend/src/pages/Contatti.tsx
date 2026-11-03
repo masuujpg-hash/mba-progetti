@@ -1,13 +1,6 @@
 import { useState, useRef } from 'react';
-import { motion } from 'framer-motion';
 import emailjs from 'emailjs-com';
 import { 
-  Phone, 
-  Envelope, 
-  MapPin, 
-  LinkedinLogo,
-  Clock,
-  ArrowRight,
   CheckCircle,
   XCircle
 } from '@phosphor-icons/react';
@@ -39,177 +32,143 @@ export default function Contatti() {
   };
 
   return (
-    <div className="bg-white selection:bg-navy selection:text-white">
+    <div className="bg-white selection:bg-navy selection:text-white pt-28 sm:pt-36 pb-20">
       
-      {/* ── HERO CON SFUMATURA ORIGINALE ── */}
-      <section className="relative min-h-[55vh] w-full flex items-center justify-center overflow-hidden bg-navy">
-        <div className="absolute inset-0 z-0">
-          <img 
-            src="/media/header_2.jpg" 
-            className="w-full h-full object-cover grayscale opacity-25" 
-            alt="MBA Progetti Contatti"
-          />
-          {/* Sfumatura blu originale */}
-          <div className="absolute inset-0 bg-gradient-to-b from-navy via-navy/60 to-white" />
+      {/* ── SEZIONE CONTATTI ELEGANTE ── */}
+      <section className="px-6 max-w-7xl mx-auto">
+        {/* Intestazione */}
+        <div className="mb-10 sm:mb-14">
+          <span className="text-navy/60 text-xs font-bold uppercase tracking-[0.25em] mb-3 block font-outfit">
+            CONTATTI
+          </span>
+          <h2 className="text-navy text-3xl sm:text-4xl md:text-5xl font-extrabold uppercase tracking-tight font-heading">
+            RICHIEDI UNA CONSULENZA
+          </h2>
         </div>
-        <div className="relative z-10 text-center px-6 max-w-4xl mx-auto py-16">
-           <motion.div
-             initial={{ opacity: 0, y: 20 }}
-             animate={{ opacity: 1, y: 0 }}
-             transition={{ duration: 0.8 }}
-           >
-             <span className="text-white text-xs font-bold uppercase tracking-[0.4em] mb-4 block opacity-90">Contattaci</span>
-             <h1 className="text-white text-3xl sm:text-4xl md:text-6xl font-bold uppercase tracking-tighter mb-4">
-                I Nostri Contatti.
-             </h1>
-             <p className="text-white/80 text-sm md:text-base font-light max-w-xl mx-auto leading-relaxed">
-                Hai bisogno di supporto per una gara d'appalto OEPV, una progettazione esecutiva o un rilievo 3D? Parla direttamente con il team di MBA Progetti.
-             </p>
-           </motion.div>
-        </div>
-      </section>
 
-      {/* ── CONTACT GRID ELEGANTE ── */}
-      <section className="py-12 md:py-20 px-6 max-w-7xl mx-auto">
-         <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16">
+        {/* 2 Colonne: Form a sinistra, Recapiti a destra */}
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-start">
+          
+          {/* Colonna Sinistra: Form minimale */}
+          <div className="lg:col-span-7">
+            <form ref={form} onSubmit={sendEmail} className="space-y-6">
+              <div>
+                <label className="block text-navy text-sm font-medium mb-2 font-outfit">
+                  Nome e impresa
+                </label>
+                <input
+                  type="text"
+                  name="user_name"
+                  required
+                  className="w-full bg-white border border-navy/25 rounded-[1px] px-4 py-3 text-navy text-[15px] font-outfit focus:outline-none focus:border-navy focus:ring-1 focus:ring-navy transition-colors"
+                />
+              </div>
+
+              <div>
+                <label className="block text-navy text-sm font-medium mb-2 font-outfit">
+                  E-mail
+                </label>
+                <input
+                  type="email"
+                  name="user_email"
+                  required
+                  className="w-full bg-white border border-navy/25 rounded-[1px] px-4 py-3 text-navy text-[15px] font-outfit focus:outline-none focus:border-navy focus:ring-1 focus:ring-navy transition-colors"
+                />
+              </div>
+
+              <div>
+                <label className="block text-navy text-sm font-medium mb-2 font-outfit">
+                  Gara o progetto
+                </label>
+                <textarea
+                  name="message"
+                  rows={5}
+                  required
+                  className="w-full bg-white border border-navy/25 rounded-[1px] px-4 py-3 text-navy text-[15px] font-outfit focus:outline-none focus:border-navy focus:ring-1 focus:ring-navy transition-colors resize-y"
+                />
+              </div>
+
+              <div>
+                <button
+                  type="submit"
+                  disabled={status === 'sending'}
+                  className="border border-navy/30 hover:border-gold text-navy hover:text-gold px-8 py-3.5 rounded-[1px] text-xs sm:text-sm font-bold uppercase tracking-widest transition-colors flex items-center justify-between min-w-[190px] shadow-2xs group"
+                >
+                  <span>{status === 'sending' ? 'INVIO...' : 'INVIA'}</span>
+                  <span className="text-sm font-semibold transition-transform group-hover:translate-x-1">&gt;</span>
+                </button>
+              </div>
+
+              {status === 'success' && (
+                <div className="flex items-center gap-2 text-emerald-700 bg-emerald-50 p-4 rounded-[1px] border border-emerald-200 text-sm font-medium font-outfit">
+                  <CheckCircle size={18} /> Messaggio inviato con successo! Ti risponderemo a breve.
+                </div>
+              )}
+
+              {status === 'error' && (
+                <div className="flex items-center gap-2 text-red-700 bg-red-50 p-4 rounded-[1px] border border-red-200 text-sm font-medium font-outfit">
+                  <XCircle size={18} /> Errore durante l'invio. Riprova o contattaci telefonicamente.
+                </div>
+              )}
+            </form>
+          </div>
+
+          {/* Colonna Destra: 4 Blocchi Contatti 2x2 */}
+          <div className="lg:col-span-5 grid grid-cols-1 sm:grid-cols-2 gap-y-10 gap-x-8 pt-2">
             
-            {/* Info Column */}
-            <div className="lg:col-span-5 space-y-8">
-               <div>
-                  <span className="text-gold text-xs font-bold uppercase tracking-[0.4em] mb-2 block">Sede Principale</span>
-                  <h2 className="text-navy text-2xl font-bold uppercase tracking-tight mb-4">MBA Progetti</h2>
-                  
-                  <div className="space-y-4 text-navy/80 text-xs sm:text-sm font-light leading-relaxed">
-                     <div className="flex items-start gap-3">
-                        <MapPin size={20} className="text-gold shrink-0 mt-0.5" />
-                        <div>
-                           <strong className="block font-bold text-navy">Indirizzo:</strong>
-                           Via Sardarulo, 7 — 81016 San Potito Sannitico (CE)
-                        </div>
-                     </div>
-
-                     <div className="flex items-start gap-3">
-                        <Phone size={20} className="text-gold shrink-0 mt-0.5" />
-                        <div>
-                           <strong className="block font-bold text-navy">Telefono / Whatsapp:</strong>
-                           <a href="tel:+393286285861" className="hover:text-gold transition-colors">+39 328 628 5861</a>
-                        </div>
-                     </div>
-
-                     <div className="flex items-start gap-3">
-                        <Envelope size={20} className="text-gold shrink-0 mt-0.5" />
-                        <div>
-                           <strong className="block font-bold text-navy">Email:</strong>
-                           <a href="mailto:info@mbaprogetti.it" className="hover:text-gold transition-colors">info@mbaprogetti.it</a>
-                        </div>
-                     </div>
-
-                     <div className="flex items-start gap-3">
-                        <Clock size={20} className="text-gold shrink-0 mt-0.5" />
-                        <div>
-                           <strong className="block font-bold text-navy">Orari Studio:</strong>
-                           Lunedì – Venerdì: 09:00 – 18:00
-                        </div>
-                     </div>
-
-                     <div className="flex items-start gap-3 pt-2">
-                        <LinkedinLogo size={20} className="text-gold shrink-0 mt-0.5" />
-                        <div>
-                           <strong className="block font-bold text-navy">Social & Network:</strong>
-                           <a href="https://linkedin.com" target="_blank" rel="noreferrer" className="hover:text-gold transition-colors underline">Seguici su LinkedIn</a>
-                        </div>
-                     </div>
-                  </div>
-               </div>
-
-               {/* Mappa Google Placeholder */}
-               <div className="aspect-video bg-bg-neutral rounded-sm border border-navy/10 overflow-hidden relative shadow-xs">
-                  <iframe 
-                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3005.123456789!2d14.3912345!3d41.3312345!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x133a8fb0bc000001%3A0x0!2sVia%20Sardarulo%2C%207%2C%2081016%20San%20Potito%20Sannitico%20CE!5e0!3m2!1sit!2sit!4v1620830000000!5m2!1sit!2sit" 
-                    width="100%" 
-                    height="100%" 
-                    style={{ border: 0 }} 
-                    allowFullScreen={true} 
-                    loading="lazy"
-                  ></iframe>
-               </div>
+            {/* Blocco 1: Studio */}
+            <div>
+              <span className="text-navy/60 text-xs font-bold uppercase tracking-[0.2em] mb-2 block font-outfit">
+                STUDIO
+              </span>
+              <p className="text-navy text-[15px] font-normal leading-relaxed font-outfit">
+                Via Sardarulo 7<br />
+                81016 San Potito Sannitico (CE)
+              </p>
             </div>
 
-            {/* Form Column */}
-            <div className="lg:col-span-7 bg-bg-neutral/60 border border-navy/10 p-6 sm:p-10 rounded-sm">
-               <span className="text-gold text-xs font-bold uppercase tracking-[0.4em] mb-2 block">Richiesta Informazioni</span>
-               <h2 className="text-navy text-2xl font-bold uppercase tracking-tight mb-6">
-                  Inviaci un Messaggio
-               </h2>
-               
-               <form ref={form} onSubmit={sendEmail} className="space-y-5">
-                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                     <InputGroup name="user_name" label="Nome e Cognome" placeholder="Mario Rossi" required />
-                     <InputGroup name="company" label="Impresa / Studio" placeholder="Impresa Costruzioni Srl" />
-                  </div>
-                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                     <InputGroup name="user_email" label="Indirizzo Email" placeholder="mario@impresa.it" type="email" required />
-                     <InputGroup name="phone" label="Recapito Telefonico" placeholder="+39 333 0000000" />
-                  </div>
-                  <InputGroup name="service" label="Servizio d'Interesse" placeholder="Es. Gare OEPV / Rilievi 3D / BIM" />
-                  
-                  <div className="space-y-1.5">
-                     <label className="text-[10px] font-bold uppercase tracking-wider text-navy/70">Messaggio / Dettagli Commessa</label>
-                     <textarea 
-                        name="message" 
-                        rows={4}
-                        placeholder="Descrivi brevemente l'opera, la procedura di gara o la tipologia di rilievo richiesta..."
-                        className="w-full bg-white border border-navy/15 rounded-sm p-3 text-navy text-xs font-light focus:outline-none focus:border-gold transition-colors"
-                        required
-                     />
-                  </div>
-
-                  <button 
-                     type="submit" 
-                     disabled={status === 'sending'}
-                     className="btn-ghost-dark w-full py-3.5 text-xs flex items-center justify-center gap-2"
-                  >
-                     {status === 'sending' ? (
-                        <span>Invio in corso...</span>
-                     ) : (
-                        <>
-                           Invia la Tua Richiesta <ArrowRight size={16} />
-                        </>
-                     )}
-                  </button>
-
-                  {status === 'success' && (
-                     <div className="flex items-center gap-2 text-emerald-600 bg-emerald-50 p-3 rounded-sm border border-emerald-200 text-xs font-medium">
-                        <CheckCircle size={18} /> Messaggio inviato con successo! Ti risponderemo a breve.
-                     </div>
-                  )}
-
-                  {status === 'error' && (
-                     <div className="flex items-center gap-2 text-red-600 bg-red-50 p-3 rounded-sm border border-red-200 text-xs font-medium">
-                        <XCircle size={18} /> Errore durante l'invio. Riprova o contattaci telefonicamente.
-                     </div>
-                  )}
-               </form>
+            {/* Blocco 2: Telefono */}
+            <div>
+              <span className="text-navy/60 text-xs font-bold uppercase tracking-[0.2em] mb-2 block font-outfit">
+                TELEFONO
+              </span>
+              <p className="text-navy text-[15px] font-normal leading-relaxed font-outfit">
+                <a href="tel:+393286285861" className="hover:text-gold transition-colors">
+                  328 6285861
+                </a>
+              </p>
             </div>
 
-         </div>
+            {/* Blocco 3: E-mail */}
+            <div>
+              <span className="text-navy/60 text-xs font-bold uppercase tracking-[0.2em] mb-2 block font-outfit">
+                E-MAIL
+              </span>
+              <p className="text-navy text-[15px] font-normal leading-relaxed font-outfit">
+                <a href="mailto:arch.mariobiondi@gmail.com" className="hover:text-gold transition-colors block">
+                  arch.mariobiondi@gmail.com
+                </a>
+                <a href="mailto:mario.biondi@archiworldpec.it" className="hover:text-gold transition-colors block">
+                  <span className="font-semibold">PEC</span> mario.biondi@archiworldpec.it
+                </a>
+              </p>
+            </div>
+
+            {/* Blocco 4: Dati */}
+            <div>
+              <span className="text-navy/60 text-xs font-bold uppercase tracking-[0.2em] mb-2 block font-outfit">
+                DATI
+              </span>
+              <p className="text-navy text-[15px] font-normal leading-relaxed font-outfit">
+                P. IVA 04274770611
+              </p>
+            </div>
+
+          </div>
+
+        </div>
       </section>
 
     </div>
   );
-}
-
-function InputGroup({ label, name, placeholder, type = "text", required = false }: any) {
-   return (
-      <div className="space-y-1.5">
-         <label className="text-[10px] font-bold uppercase tracking-wider text-navy/70">{label}</label>
-         <input 
-            type={type} 
-            name={name}
-            placeholder={placeholder}
-            required={required}
-            className="w-full bg-white border border-navy/15 rounded-sm p-3 text-navy text-xs font-light focus:outline-none focus:border-gold transition-colors"
-         />
-      </div>
-   );
 }

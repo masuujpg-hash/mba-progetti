@@ -85,68 +85,68 @@ export default function ProjectDetail() {
             {/* Rank Badge */}
             {badge && (
                <div className="mb-4">
-                  <span className={`${badge.bg} text-white text-[9px] font-bold uppercase tracking-[0.3em] px-3.5 py-1.5 rounded-sm`}>
+                  <span className={`${badge.bg} text-white text-[10px] font-bold uppercase tracking-[0.2em] px-3.5 py-1 rounded-[1px] font-outfit shadow-2xs`}>
                      {badge.label}
                   </span>
                </div>
             )}
 
             {/* Category & Title */}
-            <span className="text-gold text-xs font-bold uppercase tracking-[0.4em] mb-2 block">
+            <span className="text-gold text-xs font-bold uppercase tracking-[0.25em] mb-2 block font-outfit">
               {project.category}
             </span>
-            <h1 className="text-navy text-2xl sm:text-3xl md:text-4xl font-bold uppercase tracking-tighter leading-[1.1] mb-6">
+            <h1 className="text-navy text-2xl sm:text-3xl md:text-4xl font-extrabold uppercase tracking-tight leading-[1.15] mb-6 font-outfit">
               {project.title}
             </h1>
 
             {/* Description */}
-            <p className="text-navy/80 text-sm md:text-base font-light leading-relaxed mb-8">
+            <p className="text-[#475569] text-base md:text-[17px] font-normal leading-[1.65] mb-8 font-outfit">
               {project.description}
             </p>
 
             {/* Technical Details Grid */}
             <div className="border-t border-navy/10 pt-6 space-y-6">
-              <h3 className="text-gold text-xs font-bold uppercase tracking-[0.3em]">Specifiche di Progetto</h3>
+              <h3 className="text-gold text-xs font-bold uppercase tracking-[0.25em] font-outfit">Specifiche di Progetto</h3>
               
               <div className="space-y-5">
                 <div className="flex items-start gap-4 group">
-                  <div className="text-gold p-2.5 bg-navy/5 rounded-sm flex items-center justify-center">
+                  <div className="text-gold p-2.5 bg-navy/5 rounded-[1px] flex items-center justify-center">
                     <Buildings size={18} weight="light" />
                   </div>
                   <div>
-                    <span className="text-navy/40 text-[9px] font-bold uppercase tracking-[0.2em] block mb-0.5">Stazione Appaltante</span>
-                    <span className="text-navy text-xs font-bold uppercase tracking-wide block leading-snug">{project.client}</span>
+                    <span className="text-[#64748B] text-[10px] sm:text-[11px] font-bold uppercase tracking-[0.16em] block mb-0.5 font-outfit">Stazione Appaltante</span>
+                    <span className="text-navy text-sm sm:text-[15px] font-bold uppercase tracking-wide block leading-snug font-outfit">{project.client}</span>
                   </div>
                 </div>
 
                 <div className="flex items-start gap-4 group">
-                  <div className="text-gold p-2.5 bg-navy/5 rounded-sm flex items-center justify-center">
+                  <div className="text-gold p-2.5 bg-navy/5 rounded-[1px] flex items-center justify-center">
                     <CurrencyEur size={18} weight="light" />
                   </div>
                   <div>
-                    <span className="text-navy/40 text-[9px] font-bold uppercase tracking-[0.2em] block mb-0.5">Importo Opere</span>
-                    <span className="text-navy text-xs font-bold uppercase tracking-wide block leading-snug">{project.amount}</span>
+                    <span className="text-[#64748B] text-[10px] sm:text-[11px] font-bold uppercase tracking-[0.16em] block mb-0.5 font-outfit">Importo Opere</span>
+                    <span className="text-navy text-sm sm:text-[15px] font-bold uppercase tracking-wide block leading-snug font-outfit">{project.amount}</span>
                   </div>
                 </div>
 
                 <div className="flex items-start gap-4 group">
-                  <div className="text-gold p-2.5 bg-navy/5 rounded-sm flex items-center justify-center">
+                  <div className="text-gold p-2.5 bg-navy/5 rounded-[1px] flex items-center justify-center">
                     <Briefcase size={18} weight="light" />
                   </div>
                   <div>
-                    <span className="text-navy/40 text-[9px] font-bold uppercase tracking-[0.2em] block mb-0.5">Servizi Svolti</span>
-                    <span className="text-navy text-xs font-bold uppercase tracking-wide block leading-snug">{project.services}</span>
+                    <span className="text-[#64748B] text-[10px] sm:text-[11px] font-bold uppercase tracking-[0.16em] block mb-0.5 font-outfit">Servizi Svolti</span>
+                    <span className="text-navy text-sm sm:text-[15px] font-bold uppercase tracking-wide block leading-snug font-outfit">{project.services}</span>
                   </div>
                 </div>
 
                 {project.credits && (
                 <div className="flex items-start gap-4 group">
-                  <div className="text-gold p-2.5 bg-navy/5 rounded-sm flex items-center justify-center">
+                  <div className="text-gold p-2.5 bg-navy/5 rounded-[1px] flex items-center justify-center">
                     <Users size={18} weight="light" />
                   </div>
                   <div>
-                    <span className="text-navy/40 text-[9px] font-bold uppercase tracking-[0.2em] block mb-0.5">Credits</span>
-                    <span className="text-navy text-xs font-bold uppercase tracking-wide block leading-snug">{project.credits}</span>
+                    <span className="text-[#64748B] text-[10px] sm:text-[11px] font-bold uppercase tracking-[0.16em] block mb-0.5 font-outfit">Credits</span>
+                    <span className="text-navy text-sm sm:text-[15px] font-bold uppercase tracking-wide block leading-snug font-outfit">{project.credits}</span>
                   </div>
                 </div>
                 )}
@@ -159,12 +159,12 @@ export default function ProjectDetail() {
                   project.rank.toLowerCase().includes('secondo')
                 ) && (
                   <div className="flex items-start gap-4 group">
-                    <div className="text-gold p-2.5 bg-navy/5 rounded-sm flex items-center justify-center">
+                    <div className="text-gold p-2.5 bg-navy/5 rounded-[1px] flex items-center justify-center">
                       <Trophy size={18} weight="light" />
                     </div>
                     <div>
-                      <span className="text-navy/40 text-[9px] font-bold uppercase tracking-[0.2em] block mb-0.5">Posizione Ottenuta</span>
-                      <span className="text-navy text-xs font-bold uppercase tracking-wide block leading-snug">{project.rank}</span>
+                      <span className="text-[#64748B] text-[10px] sm:text-[11px] font-bold uppercase tracking-[0.16em] block mb-0.5 font-outfit">Posizione Ottenuta</span>
+                      <span className="text-navy text-sm sm:text-[15px] font-bold uppercase tracking-wide block leading-snug font-outfit">{project.rank}</span>
                     </div>
                   </div>
                 )}
@@ -177,17 +177,23 @@ export default function ProjectDetail() {
       </section>
 
       {/* ── 3 PROGETTI CORRELATI IN POSIZIONE PROSSIMO PROGETTO ── */}
-      <section className="py-12 md:py-20 bg-bg-neutral/60 border-t border-navy/10">
+      <section className="py-16 md:py-24 bg-bg-neutral/60 border-t border-navy/10">
         <div className="max-w-7xl mx-auto px-6">
           <div className="flex flex-col md:flex-row justify-between items-start md:items-end mb-10 gap-4">
             <div>
-              <span className="text-gold text-xs font-bold uppercase tracking-[0.4em] mb-2 block">Esplora il Portfolio</span>
-              <h2 className="text-navy text-2xl sm:text-3xl font-bold uppercase tracking-tighter">
-                Altri Progetti del Portfolio
+              <span className="bg-[#F5C400] text-white text-[10px] sm:text-[11px] font-bold uppercase tracking-[0.25em] px-3.5 py-1 rounded-[1px] inline-block mb-3 shadow-xs font-outfit">
+                ESPLORA IL PORTFOLIO
+              </span>
+              <h2 className="text-navy text-2xl sm:text-3xl md:text-4xl font-extrabold uppercase tracking-tight font-outfit">
+                ALTRI PROGETTI DEL PORTFOLIO
               </h2>
             </div>
-            <Link to="/portfolio" className="btn-ghost-dark text-xs">
-              Vedi Tutti i Progetti <ArrowRight size={14} className="ml-1 inline-block" />
+            <Link 
+              to="/portfolio" 
+              className="border border-navy/30 hover:border-gold text-navy hover:text-gold px-6 py-3 rounded-[1px] text-xs font-bold uppercase tracking-widest transition-colors inline-flex items-center gap-2 shadow-2xs group font-outfit"
+            >
+              <span>Vedi Tutti i Progetti</span>
+              <span className="text-sm font-semibold transition-transform group-hover:translate-x-1">&gt;</span>
             </Link>
           </div>
 
@@ -196,7 +202,7 @@ export default function ProjectDetail() {
               <Link 
                 key={rp.id} 
                 to={`/portfolio/${rp.id}`} 
-                className="group bg-white border border-navy/10 rounded-sm overflow-hidden shadow-xs hover:shadow-md transition-all flex flex-col justify-between"
+                className="group bg-white border border-navy/10 rounded-[1px] overflow-hidden shadow-xs hover:shadow-md transition-all flex flex-col justify-between"
               >
                 <div>
                   <div className="relative aspect-[4/3] bg-neutral-100 overflow-hidden">
@@ -206,18 +212,18 @@ export default function ProjectDetail() {
                       className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                     />
                     {rp.rank && (
-                      <div className="absolute top-3 left-3 bg-gold text-white text-[10px] font-bold uppercase tracking-wider px-2 py-0.5 rounded-sm">
+                      <div className="absolute top-3 left-3 bg-gold text-white text-[10px] font-bold uppercase tracking-wider px-2.5 py-1 rounded-[1px] font-outfit">
                         {rp.rank}
                       </div>
                     )}
                   </div>
-                  <div className="p-5">
-                    <span className="text-gold text-[10px] font-bold uppercase tracking-wider block mb-1">{rp.category} • {rp.amount}</span>
-                    <h3 className="text-navy text-sm font-bold uppercase tracking-tight mb-2 group-hover:text-gold transition-colors line-clamp-2">{rp.title}</h3>
-                    <p className="text-navy/50 text-xs font-medium">{rp.location}</p>
+                  <div className="p-5 sm:p-6">
+                    <span className="text-gold text-xs font-bold uppercase tracking-wider block mb-1 font-outfit">{rp.category} • {rp.amount}</span>
+                    <h3 className="text-navy text-base font-bold uppercase tracking-tight mb-2 group-hover:text-gold transition-colors line-clamp-2 font-outfit">{rp.title}</h3>
+                    <p className="text-[#64748B] text-xs font-normal font-outfit">{rp.location}</p>
                   </div>
                 </div>
-                <div className="p-5 pt-0 flex items-center justify-between border-t border-navy/5 pt-3">
+                <div className="p-5 sm:p-6 pt-0 flex items-center justify-between border-t border-navy/5 pt-3">
                   <span className="text-[10px] font-bold uppercase tracking-wider text-navy/60 group-hover:text-gold transition-colors">Visualizza Scheda</span>
                   <ArrowRight size={14} className="text-gold group-hover:translate-x-1 transition-transform" />
                 </div>

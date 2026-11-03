@@ -46,7 +46,7 @@ export default function Privacy() {
                <div>
                   <h3 className="text-navy text-xl font-bold uppercase tracking-tight mb-4">4. I Tuoi Diritti</h3>
                   <p>
-                     Hai il diritto di accedere, rettificare o cancellare i tuoi dati personali in nostro possesso. Per qualsiasi richiesta relativa alla privacy, puoi contattarci all'indirizzo email: <span className="text-gold font-bold">info@mbaprogetti.it</span>.
+                     Hai il diritto di accedere, rettificare o cancellare i tuoi dati personali in nostro possesso. Per qualsiasi richiesta relativa alla privacy, puoi contattarci all'indirizzo email: <a href="mailto:arch.mariobiondi@gmail.com" className="text-gold font-bold hover:underline">arch.mariobiondi@gmail.com</a>.
                   </p>
                </div>
                
