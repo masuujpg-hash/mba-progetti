@@ -25,7 +25,7 @@ L'intero sito, titoli e corpo del testo, adotta un'unica famiglia (Outfit). La d
 | `--ink` | `#1b2a4a` | Testo primario, titoli, numeri |
 | `--txt` | `#3d4a66` | Corpo del testo, paragrafi |
 | `--mute` | `#7b869d` | Occhielli, etichette, didascalie |
-| `--acc` | `#b8972a` | Accenti (oro), tag di sezione, esiti "vinta" |
+| `--acc` | `#F5C400` | Accenti (oro), tag di sezione, esiti "vinta" |
 | `--line` | `#dfe3ea` | Filetti e bordi |
 | `--bg` | `#ffffff` | Sfondo |
 

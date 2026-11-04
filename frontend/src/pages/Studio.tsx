@@ -92,7 +92,7 @@ export default function Studio() {
             {/* Left Column: Text */}
             <div className="lg:col-span-6 space-y-6">
               <div>
-                <span className="bg-[#b8972a] text-white text-[13px] font-medium uppercase tracking-[0.2em] px-2.5 py-1 rounded-[2px] inline-block shadow-sm">
+                <span className="bg-[#F5C400] text-white text-[13px] font-medium uppercase tracking-[0.2em] px-2.5 py-1 rounded-[2px] inline-block shadow-sm">
                   CHI SIAMO
                 </span>
               </div>
@@ -125,7 +125,7 @@ export default function Studio() {
       <section className="py-16 md:py-24 bg-white border-t border-[#dfe3ea]">
         <div className="max-w-7xl mx-auto px-6">
           <div className="text-left mb-10">
-            <span className="bg-[#b8972a] text-white text-[13px] font-medium uppercase tracking-[0.2em] px-2.5 py-1 rounded-[2px] inline-block mb-4 shadow-sm">
+            <span className="bg-[#F5C400] text-white text-[13px] font-medium uppercase tracking-[0.2em] px-2.5 py-1 rounded-[2px] inline-block mb-4 shadow-sm">
               LA RETE
             </span>
             <h2 className="text-[#1b2a4a] text-2xl sm:text-3xl md:text-[32px] font-bold uppercase tracking-[0.05em] leading-[1.12] mb-5">
@@ -152,7 +152,7 @@ export default function Studio() {
       <section className="py-16 md:py-24 bg-white border-t border-[#dfe3ea]">
         <div className="max-w-7xl mx-auto px-6">
           <div className="text-left mb-12">
-            <span className="bg-[#b8972a] text-white text-[13px] font-medium uppercase tracking-[0.2em] px-2.5 py-1 rounded-[2px] inline-block mb-4 shadow-sm">
+            <span className="bg-[#F5C400] text-white text-[13px] font-medium uppercase tracking-[0.2em] px-2.5 py-1 rounded-[2px] inline-block mb-4 shadow-sm">
               IL NOSTRO DNA
             </span>
             <h2 className="text-[#1b2a4a] text-2xl sm:text-3xl md:text-[32px] font-bold uppercase tracking-[0.05em] leading-[1.12] mb-4">
@@ -215,13 +215,13 @@ export default function Studio() {
             {/* Right: Founder Details */}
             <div className="lg:col-span-7 space-y-6">
               <div>
-                <span className="bg-[#b8972a] text-white text-[13px] font-medium uppercase tracking-[0.2em] px-2.5 py-1 rounded-[2px] inline-block mb-4 shadow-sm">
+                <span className="bg-[#F5C400] text-white text-[13px] font-medium uppercase tracking-[0.2em] px-2.5 py-1 rounded-[2px] inline-block mb-4 shadow-sm">
                   FONDATORE E TITOLARE
                 </span>
                 <h2 className="text-[#1b2a4a] text-2xl sm:text-3xl md:text-[32px] font-bold uppercase tracking-[0.05em] leading-[1.12]">
                   MARIO BIONDI
                 </h2>
-                <span className="text-[#b8972a] text-[11px] font-medium uppercase tracking-[0.2em] block mt-1">
+                <span className="text-[#F5C400] text-[11px] font-medium uppercase tracking-[0.2em] block mt-1">
                   ARCHITETTO, TITOLARE
                 </span>
               </div>
@@ -247,7 +247,7 @@ export default function Studio() {
       <section className="py-16 md:py-24 bg-white border-t border-[#dfe3ea]">
         <div className="max-w-7xl mx-auto px-6">
           <div className="text-left mb-10">
-            <span className="bg-[#b8972a] text-white text-[13px] font-medium uppercase tracking-[0.2em] px-2.5 py-1 rounded-[2px] inline-block mb-4 shadow-sm">
+            <span className="bg-[#F5C400] text-white text-[13px] font-medium uppercase tracking-[0.2em] px-2.5 py-1 rounded-[2px] inline-block mb-4 shadow-sm">
               COMPETENZE MULTIDISCIPLINARI
             </span>
             <h2 className="text-[#1b2a4a] text-2xl sm:text-3xl md:text-[32px] font-bold uppercase tracking-[0.05em] leading-[1.12]">
@@ -259,14 +259,14 @@ export default function Studio() {
             {team.map((member, index) => (
               <div 
                 key={index}
-                className="bg-white p-7 sm:p-8 border border-[#1b2a4a]/15 rounded-[2px] space-y-4 hover:border-[#b8972a] hover:shadow-xs transition-all"
+                className="bg-white p-7 sm:p-8 border border-[#1b2a4a]/15 rounded-[2px] space-y-4 hover:border-[#F5C400] hover:shadow-xs transition-all"
               >
                 <div className="w-10 h-10 bg-[#1b2a4a] text-white font-mono font-bold text-xs flex items-center justify-center rounded-[2px]">
                   {member.badge}
                 </div>
                 <div>
                   <h3 className="text-[#1b2a4a] text-[17px] font-semibold uppercase tracking-[0.06em]">{member.name}</h3>
-                  <span className="text-[#b8972a] text-[11px] font-medium uppercase tracking-[0.2em] block mt-0.5">{member.role}</span>
+                  <span className="text-[#F5C400] text-[11px] font-medium uppercase tracking-[0.2em] block mt-0.5">{member.role}</span>
                 </div>
                 <p className="text-[#3d4a66] text-[15px] sm:text-[16px] font-normal leading-[1.7]">{member.bio}</p>
               </div>
@@ -282,8 +282,8 @@ export default function Studio() {
 // ── VALUE CARD COMPONENT ──
 function ValueCard({ icon: Icon, title, text }: { icon: any; title: string; text: string }) {
   return (
-    <div className="bg-white p-8 sm:p-10 border border-[#1b2a4a]/15 rounded-[2px] space-y-4 hover:border-[#b8972a]/50 hover:shadow-xs transition-all">
-      <div className="text-[#b8972a]">
+    <div className="bg-white p-8 sm:p-10 border border-[#1b2a4a]/15 rounded-[2px] space-y-4 hover:border-[#F5C400]/50 hover:shadow-xs transition-all">
+      <div className="text-[#F5C400]">
         <Icon size={36} weight="light" />
       </div>
       <h3 className="text-[#1b2a4a] text-[17px] font-semibold tracking-[0.06em] uppercase">{title}</h3>

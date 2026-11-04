@@ -528,7 +528,7 @@ export default function Gare() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
           >
-            <div className="inline-block bg-[#b8972a] text-white text-[13px] font-medium uppercase tracking-[0.2em] px-2.5 py-1 rounded-[2px] mb-3 shadow-xs">
+            <div className="inline-block bg-[#F5C400] text-white text-[13px] font-medium uppercase tracking-[0.2em] px-2.5 py-1 rounded-[2px] mb-3 shadow-xs">
               SERVIZI
             </div>
             <h1 className="text-white text-[clamp(34px,4.5vw,60px)] font-medium uppercase tracking-[-0.03em] leading-[1.05] drop-shadow-sm">
@@ -541,7 +541,7 @@ export default function Gare() {
       {/* ── 2. OFFERTE TECNICHE MIGLIORATIVE & GRAFICI ANIMATI ── */}
       <section className="py-14 sm:py-20 px-6 max-w-7xl mx-auto">
         <div className="mb-4">
-          <span className="bg-[#b8972a] text-white text-[13px] font-medium uppercase tracking-[0.2em] px-2.5 py-1 rounded-[2px] inline-block shadow-xs">
+          <span className="bg-[#F5C400] text-white text-[13px] font-medium uppercase tracking-[0.2em] px-2.5 py-1 rounded-[2px] inline-block shadow-xs">
             IL SETTORE
           </span>
         </div>
@@ -558,7 +558,7 @@ export default function Gare() {
             <div className="pt-2">
               <Link 
                 to="/portfolio"
-                className="inline-flex items-center justify-between border border-[#1b2a4a]/25 hover:border-[#b8972a] text-[#1b2a4a] hover:text-[#b8972a] px-[26px] py-[15px] rounded-[2px] text-[11px] font-medium uppercase tracking-[0.2em] transition-colors min-w-[240px] group cursor-pointer"
+                className="inline-flex items-center justify-between border border-[#1b2a4a]/25 hover:border-[#F5C400] text-[#1b2a4a] hover:text-[#F5C400] px-[26px] py-[15px] rounded-[2px] text-[11px] font-medium uppercase tracking-[0.2em] transition-colors min-w-[240px] group cursor-pointer"
               >
                 <span>VEDI LE GARE SEGUITE</span>
                 <CaretRight size={13} weight="bold" className="group-hover:translate-x-0.5 transition-transform" />
@@ -646,7 +646,7 @@ export default function Gare() {
       <section className="py-14 sm:py-20 bg-bg-neutral/40 border-t border-[#dfe3ea]">
         <div className="max-w-7xl mx-auto px-6">
           <div className="mb-4">
-            <span className="bg-[#b8972a] text-white text-[13px] font-medium uppercase tracking-[0.2em] px-2.5 py-1 rounded-[2px] inline-block shadow-xs">
+            <span className="bg-[#F5C400] text-white text-[13px] font-medium uppercase tracking-[0.2em] px-2.5 py-1 rounded-[2px] inline-block shadow-xs">
               ELABORATI
             </span>
           </div>
@@ -660,7 +660,7 @@ export default function Gare() {
           {/* 3 Colonne: Chiarezza, Leggibilità, Impatto conformi al mockup */}
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-0 md:divide-x md:divide-[#dfe3ea] mb-12">
             <div className="space-y-2 md:pr-8">
-              <div className="text-[#b8972a] text-[13px] font-medium uppercase tracking-[0.2em]">
+              <div className="text-[#F5C400] text-[13px] font-medium uppercase tracking-[0.2em]">
                 CHIAREZZA
               </div>
               <p className="text-[#3d4a66] text-[15px] sm:text-[16px] font-normal leading-[1.7]">
@@ -669,7 +669,7 @@ export default function Gare() {
             </div>
 
             <div className="space-y-2 md:px-8">
-              <div className="text-[#b8972a] text-[13px] font-medium uppercase tracking-[0.2em]">
+              <div className="text-[#F5C400] text-[13px] font-medium uppercase tracking-[0.2em]">
                 LEGGIBILITÀ
               </div>
               <p className="text-[#3d4a66] text-[15px] sm:text-[16px] font-normal leading-[1.7]">
@@ -678,7 +678,7 @@ export default function Gare() {
             </div>
 
             <div className="space-y-2 md:pl-8">
-              <div className="text-[#b8972a] text-[13px] font-medium uppercase tracking-[0.2em]">
+              <div className="text-[#F5C400] text-[13px] font-medium uppercase tracking-[0.2em]">
                 IMPATTO
               </div>
               <p className="text-[#3d4a66] text-[15px] sm:text-[16px] font-normal leading-[1.7]">
@@ -765,7 +765,7 @@ export default function Gare() {
       {/* ── 4. DALLA SCELTA DELLA GARA ALLA CONSEGNA (8 FASI INTERATTIVE) ── */}
       <section className="py-14 sm:py-20 px-6 max-w-7xl mx-auto">
         <div className="mb-3">
-          <span className="inline-block bg-[#b8972a] text-white text-[13px] font-medium uppercase tracking-[0.2em] px-2.5 py-1 rounded-[2px]">
+          <span className="inline-block bg-[#F5C400] text-white text-[13px] font-medium uppercase tracking-[0.2em] px-2.5 py-1 rounded-[2px]">
             METODO
           </span>
         </div>
@@ -791,7 +791,7 @@ export default function Gare() {
                   <div 
                     className={`w-14 h-14 sm:w-16 sm:h-16 rounded-full flex items-center justify-center mb-2.5 transition-all duration-200 ${
                       isActive 
-                        ? 'p-[3px] border-2 border-[#b8972a] shadow-xs' 
+                        ? 'p-[3px] border-2 border-[#F5C400] shadow-xs' 
                         : 'border border-[#1b2a4a]/20 bg-white group-hover:border-[#1b2a4a]/40'
                     }`}
                   >
@@ -812,8 +812,8 @@ export default function Gare() {
           </div>
 
           {/* Dettaglio Fase Selezionata con Bordo Oro a Sinistra conforme al mockup */}
-          <div className="bg-white p-6 sm:p-9 border-l-4 border-[#b8972a] shadow-xs rounded-[2px]">
-            <span className="inline-block text-[#b8972a] text-[13px] font-medium uppercase tracking-[0.2em] mb-2">
+          <div className="bg-white p-6 sm:p-9 border-l-4 border-[#F5C400] shadow-xs rounded-[2px]">
+            <span className="inline-block text-[#F5C400] text-[13px] font-medium uppercase tracking-[0.2em] mb-2">
               {processSteps[activeStep].tag}
             </span>
             <h3 className="text-[#1b2a4a] text-xl sm:text-2xl md:text-[26px] font-bold uppercase tracking-tight mb-3">
@@ -830,7 +830,7 @@ export default function Gare() {
       <section className="py-16 sm:py-24 bg-white border-t border-[#dfe3ea]">
         <div className="max-w-7xl mx-auto px-6">
           <div className="mb-4">
-            <span className="bg-[#b8972a] text-white text-[13px] font-medium uppercase tracking-[0.2em] px-2.5 py-1 rounded-[2px] inline-block shadow-xs">
+            <span className="bg-[#F5C400] text-white text-[13px] font-medium uppercase tracking-[0.2em] px-2.5 py-1 rounded-[2px] inline-block shadow-xs">
               AMBITI
             </span>
           </div>
@@ -864,12 +864,12 @@ export default function Gare() {
 
       {/* ── 6. CONTATTACI SUBITO ── */}
       <section id="contattaci-sezione" className="py-14 sm:py-20 px-6 max-w-7xl mx-auto">
-        <div className="border-l-4 border-[#b8972a] bg-bg-neutral/40 p-6 sm:p-10 rounded-[2px] shadow-xs">
+        <div className="border-l-4 border-[#F5C400] bg-bg-neutral/40 p-6 sm:p-10 rounded-[2px] shadow-xs">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12">
             
             {/* Colonna Sinistra: Info di Contatto */}
             <div className="lg:col-span-5 space-y-5">
-              <span className="bg-[#b8972a] text-white text-[13px] font-medium uppercase tracking-[0.2em] px-2.5 py-1 rounded-[2px] inline-block shadow-xs">
+              <span className="bg-[#F5C400] text-white text-[13px] font-medium uppercase tracking-[0.2em] px-2.5 py-1 rounded-[2px] inline-block shadow-xs">
                 CONTATTI &amp; INFORMAZIONI
               </span>
               <h3 className="text-[#1b2a4a] text-2xl sm:text-3xl md:text-[32px] font-bold uppercase tracking-[0.05em] leading-[1.12]">
@@ -881,19 +881,19 @@ export default function Gare() {
 
               <div className="pt-2 space-y-3 text-[14px] text-[#1b2a4a]">
                 <div className="flex items-center gap-3">
-                  <EnvelopeSimple size={18} className="text-[#b8972a] shrink-0" />
-                  <a href="mailto:arch.mariobiondi@gmail.com" className="hover:text-[#b8972a] transition-colors font-medium">
+                  <EnvelopeSimple size={18} className="text-[#F5C400] shrink-0" />
+                  <a href="mailto:arch.mariobiondi@gmail.com" className="hover:text-[#F5C400] transition-colors font-medium">
                     arch.mariobiondi@gmail.com
                   </a>
                 </div>
                 <div className="flex items-center gap-3">
-                  <Phone size={18} className="text-[#b8972a] shrink-0" />
-                  <a href="tel:+393286285861" className="hover:text-[#b8972a] transition-colors font-medium">
+                  <Phone size={18} className="text-[#F5C400] shrink-0" />
+                  <a href="tel:+393286285861" className="hover:text-[#F5C400] transition-colors font-medium">
                     328 6285861
                   </a>
                 </div>
                 <div className="flex items-center gap-3">
-                  <MapPin size={18} className="text-[#b8972a] shrink-0" />
+                  <MapPin size={18} className="text-[#F5C400] shrink-0" />
                   <span>Via Sardarulo 7, 81016 San Potito Sannitico (CE)</span>
                 </div>
               </div>
@@ -903,7 +903,7 @@ export default function Gare() {
             <div className="lg:col-span-7">
               {formSubmitted ? (
                 <div className="bg-white p-8 border border-[#1b2a4a]/10 rounded-[2px] text-center space-y-3 shadow-xs">
-                  <CheckCircle size={44} className="text-[#b8972a] mx-auto" />
+                  <CheckCircle size={44} className="text-[#F5C400] mx-auto" />
                   <h4 className="text-[#1b2a4a] text-lg font-bold uppercase tracking-wide">
                     Richiesta Inviata con Successo
                   </h4>
@@ -920,14 +920,14 @@ export default function Gare() {
                       placeholder="Nome e Cognome *" 
                       value={formData.nome}
                       onChange={e => setFormData({ ...formData, nome: e.target.value })}
-                      className="w-full bg-white border border-[#1b2a4a]/15 px-3 py-2 text-xs text-[#1b2a4a] focus:outline-none focus:border-[#b8972a] rounded-[2px]"
+                      className="w-full bg-white border border-[#1b2a4a]/15 px-3 py-2 text-xs text-[#1b2a4a] focus:outline-none focus:border-[#F5C400] rounded-[2px]"
                     />
                     <input 
                       type="text" 
                       placeholder="Ragione Sociale / Impresa" 
                       value={formData.azienda}
                       onChange={e => setFormData({ ...formData, azienda: e.target.value })}
-                      className="w-full bg-white border border-[#1b2a4a]/15 px-3 py-2 text-xs text-[#1b2a4a] focus:outline-none focus:border-[#b8972a] rounded-[2px]"
+                      className="w-full bg-white border border-[#1b2a4a]/15 px-3 py-2 text-xs text-[#1b2a4a] focus:outline-none focus:border-[#F5C400] rounded-[2px]"
                     />
                   </div>
 
@@ -938,14 +938,14 @@ export default function Gare() {
                       placeholder="Email aziendale *" 
                       value={formData.email}
                       onChange={e => setFormData({ ...formData, email: e.target.value })}
-                      className="w-full bg-white border border-[#1b2a4a]/15 px-3 py-2 text-xs text-[#1b2a4a] focus:outline-none focus:border-[#b8972a] rounded-[2px]"
+                      className="w-full bg-white border border-[#1b2a4a]/15 px-3 py-2 text-xs text-[#1b2a4a] focus:outline-none focus:border-[#F5C400] rounded-[2px]"
                     />
                     <input 
                       type="tel" 
                       placeholder="Recapito Telefonico" 
                       value={formData.telefono}
                       onChange={e => setFormData({ ...formData, telefono: e.target.value })}
-                      className="w-full bg-white border border-[#1b2a4a]/15 px-3 py-2 text-xs text-[#1b2a4a] focus:outline-none focus:border-[#b8972a] rounded-[2px]"
+                      className="w-full bg-white border border-[#1b2a4a]/15 px-3 py-2 text-xs text-[#1b2a4a] focus:outline-none focus:border-[#F5C400] rounded-[2px]"
                     />
                   </div>
 
@@ -955,14 +955,14 @@ export default function Gare() {
                       placeholder="CIG o Oggetto della Gara" 
                       value={formData.cig}
                       onChange={e => setFormData({ ...formData, cig: e.target.value })}
-                      className="w-full bg-white border border-[#1b2a4a]/15 px-3 py-2 text-xs text-[#1b2a4a] focus:outline-none focus:border-[#b8972a] rounded-[2px]"
+                      className="w-full bg-white border border-[#1b2a4a]/15 px-3 py-2 text-xs text-[#1b2a4a] focus:outline-none focus:border-[#F5C400] rounded-[2px]"
                     />
                     <input 
                       type="text" 
                       placeholder="Data Scadenza Offerte" 
                       value={formData.scadenza}
                       onChange={e => setFormData({ ...formData, scadenza: e.target.value })}
-                      className="w-full bg-white border border-[#1b2a4a]/15 px-3 py-2 text-xs text-[#1b2a4a] focus:outline-none focus:border-[#b8972a] rounded-[2px]"
+                      className="w-full bg-white border border-[#1b2a4a]/15 px-3 py-2 text-xs text-[#1b2a4a] focus:outline-none focus:border-[#F5C400] rounded-[2px]"
                     />
                   </div>
 
@@ -971,7 +971,7 @@ export default function Gare() {
                     placeholder="Note sulla procedura o richieste specifiche..." 
                     value={formData.messaggio}
                     onChange={e => setFormData({ ...formData, messaggio: e.target.value })}
-                    className="w-full bg-white border border-[#1b2a4a]/15 p-3 text-xs text-[#1b2a4a] focus:outline-none focus:border-[#b8972a] rounded-[2px] resize-none"
+                    className="w-full bg-white border border-[#1b2a4a]/15 p-3 text-xs text-[#1b2a4a] focus:outline-none focus:border-[#F5C400] rounded-[2px] resize-none"
                   />
 
                   <div className="flex items-center gap-2 pt-1">
@@ -990,7 +990,7 @@ export default function Gare() {
 
                   <button 
                     type="submit" 
-                    className="bg-[#1b2a4a] hover:bg-[#b8972a] text-white px-[26px] py-[15px] text-[11px] font-medium uppercase tracking-[0.2em] transition-colors rounded-[2px] shadow-xs cursor-pointer min-w-[240px]"
+                    className="bg-[#1b2a4a] hover:bg-[#F5C400] text-white px-[26px] py-[15px] text-[11px] font-medium uppercase tracking-[0.2em] transition-colors rounded-[2px] shadow-xs cursor-pointer min-w-[240px]"
                   >
                     Invia Richiesta
                   </button>

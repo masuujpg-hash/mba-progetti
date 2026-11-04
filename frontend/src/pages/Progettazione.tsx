@@ -549,7 +549,7 @@ export default function Progettazione() {
       <section className="py-12 sm:py-16 px-6 max-w-7xl mx-auto">
         {/* Header Sezione */}
         <div className="mb-6">
-          <span className="bg-[#b8972a] text-white text-[13px] font-medium uppercase tracking-[0.2em] px-2.5 py-1 rounded-[2px] inline-block mb-3 shadow-xs">
+          <span className="bg-[#F5C400] text-white text-[13px] font-medium uppercase tracking-[0.2em] px-2.5 py-1 rounded-[2px] inline-block mb-3 shadow-xs">
             EDILIZIA E ARCHITETTURA
           </span>
           <h2 className="text-[#1b2a4a] text-2xl sm:text-3xl md:text-[32px] font-bold uppercase tracking-[0.05em] leading-[1.12]">
@@ -578,14 +578,14 @@ export default function Progettazione() {
         {/* Horizontal Strip con i 6 Punti Chiave identici al Mockup */}
         <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 divide-y sm:divide-y-0 sm:divide-x divide-[#dfe3ea] border-y border-[#dfe3ea] my-10 py-5 bg-white">
           <div className="flex flex-col items-center justify-center text-center p-3 sm:p-4 group">
-            <HouseLine size={26} weight="regular" className="text-[#1b2a4a] mb-2 group-hover:text-[#b8972a] transition-colors" />
+            <HouseLine size={26} weight="regular" className="text-[#1b2a4a] mb-2 group-hover:text-[#F5C400] transition-colors" />
             <span className="text-[11px] sm:text-[12px] font-medium text-[#1b2a4a] uppercase tracking-[0.06em] leading-tight">
               QUALITÀ<br />ARCHITETTONICA
             </span>
           </div>
 
           <div className="flex flex-col items-center justify-center text-center p-3 sm:p-4 group">
-            <svg className="w-[26px] h-[26px] text-[#1b2a4a] mb-2 group-hover:text-[#b8972a] transition-colors" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round">
+            <svg className="w-[26px] h-[26px] text-[#1b2a4a] mb-2 group-hover:text-[#F5C400] transition-colors" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round">
               <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" />
               <polyline points="14 2 14 8 20 8" />
               <path d="M9 15l2 2 4-4" />
@@ -596,28 +596,28 @@ export default function Progettazione() {
           </div>
 
           <div className="flex flex-col items-center justify-center text-center p-3 sm:p-4 group">
-            <Lightning size={26} weight="regular" className="text-[#1b2a4a] mb-2 group-hover:text-[#b8972a] transition-colors" />
+            <Lightning size={26} weight="regular" className="text-[#1b2a4a] mb-2 group-hover:text-[#F5C400] transition-colors" />
             <span className="text-[11px] sm:text-[12px] font-medium text-[#1b2a4a] uppercase tracking-[0.06em] leading-tight">
               EFFICIENZA ENERGETICA
             </span>
           </div>
 
           <div className="flex flex-col items-center justify-center text-center p-3 sm:p-4 group">
-            <Wheelchair size={26} weight="regular" className="text-[#1b2a4a] mb-2 group-hover:text-[#b8972a] transition-colors" />
+            <Wheelchair size={26} weight="regular" className="text-[#1b2a4a] mb-2 group-hover:text-[#F5C400] transition-colors" />
             <span className="text-[11px] sm:text-[12px] font-medium text-[#1b2a4a] uppercase tracking-[0.06em] leading-tight">
               ACCESSIBILITÀ
             </span>
           </div>
 
           <div className="flex flex-col items-center justify-center text-center p-3 sm:p-4 group">
-            <ArrowsClockwise size={26} weight="regular" className="text-[#1b2a4a] mb-2 group-hover:text-[#b8972a] transition-colors" />
+            <ArrowsClockwise size={26} weight="regular" className="text-[#1b2a4a] mb-2 group-hover:text-[#F5C400] transition-colors" />
             <span className="text-[11px] sm:text-[12px] font-medium text-[#1b2a4a] uppercase tracking-[0.06em] leading-tight">
               CICLO DI VITA
             </span>
           </div>
 
           <div className="flex flex-col items-center justify-center text-center p-3 sm:p-4 group">
-            <Leaf size={26} weight="regular" className="text-[#1b2a4a] mb-2 group-hover:text-[#b8972a] transition-colors" />
+            <Leaf size={26} weight="regular" className="text-[#1b2a4a] mb-2 group-hover:text-[#F5C400] transition-colors" />
             <span className="text-[11px] sm:text-[12px] font-medium text-[#1b2a4a] uppercase tracking-[0.06em] leading-tight">
               SOSTENIBILITÀ
             </span>
@@ -638,7 +638,7 @@ export default function Progettazione() {
       <section className="py-12 sm:py-16 px-6 max-w-7xl mx-auto border-t border-[#dfe3ea]">
         {/* Header Sezione */}
         <div className="mb-8">
-          <span className="bg-[#b8972a] text-white text-[13px] font-medium uppercase tracking-[0.2em] px-2.5 py-1 rounded-[2px] inline-block mb-3 shadow-xs">
+          <span className="bg-[#F5C400] text-white text-[13px] font-medium uppercase tracking-[0.2em] px-2.5 py-1 rounded-[2px] inline-block mb-3 shadow-xs">
             INFRASTRUTTURE E SPAZI PUBBLICI
           </span>
           <h2 className="text-[#1b2a4a] text-2xl sm:text-3xl md:text-[32px] font-bold uppercase tracking-[0.05em] leading-[1.12]">
@@ -673,7 +673,7 @@ export default function Progettazione() {
         {/* Horizontal Strip con le 6 Categorie conformi al mockup */}
         <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 divide-y sm:divide-y-0 sm:divide-x divide-[#dfe3ea] border-y border-[#dfe3ea] my-8 py-5 bg-white">
           <div className="flex flex-col items-center justify-center text-center p-3 sm:p-4 group">
-            <svg className="w-[26px] h-[26px] text-[#1b2a4a] mb-2 group-hover:text-[#b8972a] transition-colors" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round">
+            <svg className="w-[26px] h-[26px] text-[#1b2a4a] mb-2 group-hover:text-[#F5C400] transition-colors" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round">
               <path d="M4 22L8 2M20 22L16 2" />
               <line x1="12" y1="4" x2="12" y2="7" />
               <line x1="12" y1="11" x2="12" y2="14" />
@@ -685,7 +685,7 @@ export default function Progettazione() {
           </div>
 
           <div className="flex flex-col items-center justify-center text-center p-3 sm:p-4 group">
-            <svg className="w-[26px] h-[26px] text-[#1b2a4a] mb-2 group-hover:text-[#b8972a] transition-colors" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round">
+            <svg className="w-[26px] h-[26px] text-[#1b2a4a] mb-2 group-hover:text-[#F5C400] transition-colors" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round">
               <rect x="3" y="10" width="7" height="12" />
               <rect x="14" y="4" width="7" height="18" />
               <path d="M6 13h1M6 16h1M6 19h1M17 7h1M17 10h1M17 13h1M17 16h1M17 19h1" />
@@ -696,7 +696,7 @@ export default function Progettazione() {
           </div>
 
           <div className="flex flex-col items-center justify-center text-center p-3 sm:p-4 group">
-            <svg className="w-[26px] h-[26px] text-[#1b2a4a] mb-2 group-hover:text-[#b8972a] transition-colors" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round">
+            <svg className="w-[26px] h-[26px] text-[#1b2a4a] mb-2 group-hover:text-[#F5C400] transition-colors" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round">
               <circle cx="12" cy="4" r="2" />
               <path d="M12 6v6m0 0l-3 4m3-4l3 4m-3-6l-3-2m3 2l3-2" />
             </svg>
@@ -706,7 +706,7 @@ export default function Progettazione() {
           </div>
 
           <div className="flex flex-col items-center justify-center text-center p-3 sm:p-4 group">
-            <svg className="w-[26px] h-[26px] text-[#1b2a4a] mb-2 group-hover:text-[#b8972a] transition-colors" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round">
+            <svg className="w-[26px] h-[26px] text-[#1b2a4a] mb-2 group-hover:text-[#F5C400] transition-colors" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round">
               <rect x="4" y="4" width="16" height="16" rx="1.5" />
               <path d="M9 16V8h3.5a2.5 2.5 0 0 1 0 5H9" />
             </svg>
@@ -716,7 +716,7 @@ export default function Progettazione() {
           </div>
 
           <div className="flex flex-col items-center justify-center text-center p-3 sm:p-4 group">
-            <svg className="w-[26px] h-[26px] text-[#1b2a4a] mb-2 group-hover:text-[#b8972a] transition-colors" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round">
+            <svg className="w-[26px] h-[26px] text-[#1b2a4a] mb-2 group-hover:text-[#F5C400] transition-colors" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round">
               <path d="M9 22V7a4 4 0 0 1 4-4h2a2 2 0 0 1 2 2v2a1 1 0 0 1-1 1h-2a1 1 0 0 1-1-1" />
               <line x1="14" y1="10" x2="16" y2="10" />
             </svg>
@@ -726,7 +726,7 @@ export default function Progettazione() {
           </div>
 
           <div className="flex flex-col items-center justify-center text-center p-3 sm:p-4 group">
-            <svg className="w-[26px] h-[26px] text-[#1b2a4a] mb-2 group-hover:text-[#b8972a] transition-colors" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round">
+            <svg className="w-[26px] h-[26px] text-[#1b2a4a] mb-2 group-hover:text-[#F5C400] transition-colors" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round">
               <circle cx="12" cy="8" r="5" />
               <line x1="12" y1="13" x2="12" y2="21" />
               <line x1="9" y1="21" x2="15" y2="21" />
@@ -742,7 +742,7 @@ export default function Progettazione() {
       <section className="py-12 sm:py-16 px-6 max-w-7xl mx-auto border-t border-[#dfe3ea]">
         {/* Header Sezione */}
         <div className="mb-10">
-          <span className="bg-[#b8972a] text-white text-[13px] font-medium uppercase tracking-[0.2em] px-2.5 py-1 rounded-[2px] inline-block mb-3 shadow-xs">
+          <span className="bg-[#F5C400] text-white text-[13px] font-medium uppercase tracking-[0.2em] px-2.5 py-1 rounded-[2px] inline-block mb-3 shadow-xs">
             POST AGGIUDICAZIONE
           </span>
           <h2 className="text-[#1b2a4a] text-2xl sm:text-3xl md:text-[32px] font-bold uppercase tracking-[0.05em] leading-[1.12] mb-6">
@@ -761,7 +761,7 @@ export default function Progettazione() {
       <section className="py-12 sm:py-16 px-6 max-w-7xl mx-auto border-t border-[#dfe3ea]">
         {/* Header Sezione */}
         <div className="mb-8">
-          <span className="bg-[#b8972a] text-white text-[13px] font-medium uppercase tracking-[0.2em] px-2.5 py-1 rounded-[2px] inline-block mb-3 shadow-xs">
+          <span className="bg-[#F5C400] text-white text-[13px] font-medium uppercase tracking-[0.2em] px-2.5 py-1 rounded-[2px] inline-block mb-3 shadow-xs">
             INTERIOR DESIGN
           </span>
           <h2 className="text-[#1b2a4a] text-2xl sm:text-3xl md:text-[32px] font-bold uppercase tracking-[0.05em] leading-[1.12]">
@@ -796,7 +796,7 @@ export default function Progettazione() {
         {/* Horizontal Strip con le 6 Categorie conformi al mockup */}
         <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 divide-y sm:divide-y-0 sm:divide-x divide-[#dfe3ea] border-y border-[#dfe3ea] my-8 py-5 bg-white">
           <div className="flex flex-col items-center justify-center text-center p-3 sm:p-4 group">
-            <svg className="w-[26px] h-[26px] text-[#1b2a4a] mb-2 group-hover:text-[#b8972a] transition-colors" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round">
+            <svg className="w-[26px] h-[26px] text-[#1b2a4a] mb-2 group-hover:text-[#F5C400] transition-colors" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round">
               <rect x="3" y="3" width="18" height="18" rx="1" />
               <line x1="9" y1="3" x2="9" y2="21" />
               <line x1="9" y1="12" x2="21" y2="12" />
@@ -807,7 +807,7 @@ export default function Progettazione() {
           </div>
 
           <div className="flex flex-col items-center justify-center text-center p-3 sm:p-4 group">
-            <svg className="w-[26px] h-[26px] text-[#1b2a4a] mb-2 group-hover:text-[#b8972a] transition-colors" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round">
+            <svg className="w-[26px] h-[26px] text-[#1b2a4a] mb-2 group-hover:text-[#F5C400] transition-colors" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round">
               <rect x="3" y="3" width="7" height="7" rx="0.5" />
               <rect x="14" y="3" width="7" height="7" rx="0.5" />
               <rect x="3" y="14" width="7" height="7" rx="0.5" />
@@ -819,7 +819,7 @@ export default function Progettazione() {
           </div>
 
           <div className="flex flex-col items-center justify-center text-center p-3 sm:p-4 group">
-            <svg className="w-[26px] h-[26px] text-[#1b2a4a] mb-2 group-hover:text-[#b8972a] transition-colors" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round">
+            <svg className="w-[26px] h-[26px] text-[#1b2a4a] mb-2 group-hover:text-[#F5C400] transition-colors" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round">
               <path d="M4 11V8a3 3 0 0 1 3-3h10a3 3 0 0 1 3 3v3" />
               <rect x="2" y="11" width="20" height="7" rx="1.5" />
               <line x1="5" y1="18" x2="5" y2="21" />
@@ -831,7 +831,7 @@ export default function Progettazione() {
           </div>
 
           <div className="flex flex-col items-center justify-center text-center p-3 sm:p-4 group">
-            <svg className="w-[26px] h-[26px] text-[#1b2a4a] mb-2 group-hover:text-[#b8972a] transition-colors" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round">
+            <svg className="w-[26px] h-[26px] text-[#1b2a4a] mb-2 group-hover:text-[#F5C400] transition-colors" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round">
               <path d="M6 9l2-6h8l2 6H6z" />
               <line x1="12" y1="9" x2="12" y2="21" />
               <line x1="8" y1="21" x2="16" y2="21" />
@@ -842,7 +842,7 @@ export default function Progettazione() {
           </div>
 
           <div className="flex flex-col items-center justify-center text-center p-3 sm:p-4 group">
-            <svg className="w-[26px] h-[26px] text-[#1b2a4a] mb-2 group-hover:text-[#b8972a] transition-colors" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round">
+            <svg className="w-[26px] h-[26px] text-[#1b2a4a] mb-2 group-hover:text-[#F5C400] transition-colors" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round">
               <line x1="7" y1="17" x2="14" y2="10" strokeWidth="1.8" />
               <line x1="11" y1="7" x2="17" y2="13" strokeWidth="2.5" strokeLinecap="round" />
             </svg>
@@ -852,7 +852,7 @@ export default function Progettazione() {
           </div>
 
           <div className="flex flex-col items-center justify-center text-center p-3 sm:p-4 group">
-            <svg className="w-[26px] h-[26px] text-[#1b2a4a] mb-2 group-hover:text-[#b8972a] transition-colors" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round">
+            <svg className="w-[26px] h-[26px] text-[#1b2a4a] mb-2 group-hover:text-[#F5C400] transition-colors" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round">
               <path d="M7 3v4M17 3v4" />
               <rect x="5" y="7" width="14" height="8" rx="2" />
               <path d="M12 15v6" />
@@ -868,7 +868,7 @@ export default function Progettazione() {
       <section className="py-12 sm:py-16 px-6 max-w-7xl mx-auto border-t border-[#dfe3ea]">
         {/* Header Sezione */}
         <div className="mb-8">
-          <span className="bg-[#b8972a] text-white text-[13px] font-medium uppercase tracking-[0.2em] px-2.5 py-1 rounded-[2px] inline-block mb-3 shadow-xs">
+          <span className="bg-[#F5C400] text-white text-[13px] font-medium uppercase tracking-[0.2em] px-2.5 py-1 rounded-[2px] inline-block mb-3 shadow-xs">
             DIREZIONE LAVORI
           </span>
           <h2 className="text-[#1b2a4a] text-2xl sm:text-3xl md:text-[32px] font-bold uppercase tracking-[0.05em] leading-[1.12]">
@@ -898,7 +898,7 @@ export default function Progettazione() {
             <div className="border-t border-[#dfe3ea] pt-6 mt-8">
               <div className="grid grid-cols-3 divide-x divide-[#dfe3ea]">
                 <div className="pr-4">
-                  <span className="text-[#b8972a] text-[13px] font-medium uppercase tracking-[0.16em] block mb-1">
+                  <span className="text-[#F5C400] text-[13px] font-medium uppercase tracking-[0.16em] block mb-1">
                     TEMPI
                   </span>
                   <p className="text-[13px] text-[#3d4a66] leading-snug font-normal">
@@ -906,7 +906,7 @@ export default function Progettazione() {
                   </p>
                 </div>
                 <div className="px-4">
-                  <span className="text-[#b8972a] text-[13px] font-medium uppercase tracking-[0.16em] block mb-1">
+                  <span className="text-[#F5C400] text-[13px] font-medium uppercase tracking-[0.16em] block mb-1">
                     COSTI
                   </span>
                   <p className="text-[13px] text-[#3d4a66] leading-snug font-normal">
@@ -914,7 +914,7 @@ export default function Progettazione() {
                   </p>
                 </div>
                 <div className="pl-4">
-                  <span className="text-[#b8972a] text-[13px] font-medium uppercase tracking-[0.16em] block mb-1">
+                  <span className="text-[#F5C400] text-[13px] font-medium uppercase tracking-[0.16em] block mb-1">
                     QUALITÀ
                   </span>
                   <p className="text-[13px] text-[#3d4a66] leading-snug font-normal">
@@ -930,11 +930,11 @@ export default function Progettazione() {
       {/* ── 7. SEZIONE 6: CTA BANNER (HAI UN PROGETTO DA SVILUPPARE?) ── */}
       <section className="py-12 sm:py-16 px-6 max-w-7xl mx-auto border-t border-[#dfe3ea]">
         <div className="mb-4">
-          <span className="bg-[#b8972a] text-white text-[13px] font-medium uppercase tracking-[0.2em] px-2.5 py-1 rounded-[2px] inline-block shadow-xs">
+          <span className="bg-[#F5C400] text-white text-[13px] font-medium uppercase tracking-[0.2em] px-2.5 py-1 rounded-[2px] inline-block shadow-xs">
             CONTATTI
           </span>
         </div>
-        <div className="border-l-4 border-[#b8972a] bg-[#F9FBFC] p-6 sm:p-10 rounded-[2px] flex flex-col md:flex-row items-start md:items-center justify-between gap-6 shadow-2xs">
+        <div className="border-l-4 border-[#F5C400] bg-[#F9FBFC] p-6 sm:p-10 rounded-[2px] flex flex-col md:flex-row items-start md:items-center justify-between gap-6 shadow-2xs">
           <div className="space-y-1.5">
             <h3 className="text-[#1b2a4a] text-xl sm:text-2xl md:text-[28px] font-bold uppercase tracking-[0.05em]">
               HAI UN PROGETTO DA SVILUPPARE?
@@ -946,7 +946,7 @@ export default function Progettazione() {
 
           <Link
             to="/contatti"
-            className="flex-shrink-0 bg-[#1b2a4a] hover:bg-[#b8972a] text-white text-[11px] font-medium uppercase tracking-[0.2em] px-[26px] py-[15px] rounded-[2px] transition-all flex items-center justify-between gap-4 group shadow-xs min-w-[240px]"
+            className="flex-shrink-0 bg-[#1b2a4a] hover:bg-[#F5C400] text-white text-[11px] font-medium uppercase tracking-[0.2em] px-[26px] py-[15px] rounded-[2px] transition-all flex items-center justify-between gap-4 group shadow-xs min-w-[240px]"
           >
             <span>CONTATTACI</span>
             <CaretRight size={13} weight="bold" className="group-hover:translate-x-0.5 transition-transform" />

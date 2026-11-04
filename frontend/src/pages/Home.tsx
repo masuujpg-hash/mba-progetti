@@ -527,7 +527,7 @@ export default function Home() {
           <div className="mt-8 sm:mt-10 flex flex-row items-center justify-between gap-2 sm:gap-4">
             <Link 
               to="/risorse" 
-              className="border border-[#1B2A4A]/25 hover:border-[#b8972a] hover:text-[#b8972a] bg-white w-[260px] max-w-full h-[52px] px-[26px] py-[15px] text-[11px] tracking-[0.2em] uppercase font-medium text-[#1B2A4A] transition-all rounded-[2px] shadow-xs inline-flex items-center justify-between gap-4 group shrink-0"
+              className="border border-[#1B2A4A]/25 hover:border-[#F5C400] hover:text-[#F5C400] bg-white w-[260px] max-w-full h-[52px] px-[26px] py-[15px] text-[11px] tracking-[0.2em] uppercase font-medium text-[#1B2A4A] transition-all rounded-[2px] shadow-xs inline-flex items-center justify-between gap-4 group shrink-0"
             >
               <span>TUTTE LE NEWS</span>
               <CaretRight size={13} weight="bold" className="group-hover:translate-x-1 transition-transform shrink-0" />

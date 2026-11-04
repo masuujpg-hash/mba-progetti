@@ -22,7 +22,7 @@ export default function SimulatorePage() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
           >
-            <span className="text-[#b8972a] text-[13px] font-medium uppercase tracking-[0.2em] mb-4 block font-outfit">
+            <span className="text-[#F5C400] text-[13px] font-medium uppercase tracking-[0.2em] mb-4 block font-outfit">
               STRUMENTO GRATUITO PER LE IMPRESE
             </span>
             <h1 className="text-white text-3xl sm:text-4xl md:text-[44px] font-semibold uppercase tracking-tight leading-tight mb-4 font-outfit">

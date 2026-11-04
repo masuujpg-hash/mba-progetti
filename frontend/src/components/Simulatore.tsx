@@ -384,7 +384,7 @@ export default function Simulatore() {
             ["04", "Affina la classifica a mano o con le barre", ""],
           ].map(([n, title, desc]) => (
             <div key={n} className="text-center">
-              <div className="text-[#b8972a] text-2xl md:text-3xl font-semibold mb-2 opacity-50 font-outfit">{n}</div>
+              <div className="text-[#F5C400] text-2xl md:text-3xl font-semibold mb-2 opacity-50 font-outfit">{n}</div>
               <div className="text-[#1b2a4a] text-xs font-medium uppercase tracking-[0.15em] mb-2 leading-relaxed font-outfit">{title}</div>
               <div className="text-[#7b869d] text-[11px] leading-relaxed px-4 font-outfit">{desc}</div>
             </div>
@@ -398,7 +398,7 @@ export default function Simulatore() {
           const on = +id === formula;
           return (
             <button key={id} onClick={() => { setFormula(+id); setRighe([]); setNextId(1); setGenerato(false); }} 
-              className={`text-left p-6 transition-all duration-300 border-t-4 border rounded-[2px] ${on ? 'border-[#1b2a4a] border-t-[#b8972a] bg-[#1b2a4a]/5 shadow-inner' : 'border-[#1b2a4a]/10 border-t-transparent bg-white hover:border-[#1b2a4a]/30'}`}
+              className={`text-left p-6 transition-all duration-300 border-t-4 border rounded-[2px] ${on ? 'border-[#1b2a4a] border-t-[#F5C400] bg-[#1b2a4a]/5 shadow-inner' : 'border-[#1b2a4a]/10 border-t-transparent bg-white hover:border-[#1b2a4a]/30'}`}
             >
               <div className={`text-[10px] font-medium uppercase tracking-[0.2em] mb-4 font-outfit ${on ? 'text-[#1b2a4a]' : 'text-[#7b869d]'}`}>{f.tag}</div>
               <div className={`text-sm md:text-base font-outfit ${on ? 'text-[#1b2a4a] font-semibold' : 'text-[#1b2a4a]'}`}>{f.mini}</div>
@@ -413,7 +413,7 @@ export default function Simulatore() {
           {det.righe.map((r: any, i: number) => (<div key={i}>{r}</div>))}
         </div>
         <div className="md:border-l border-[#1b2a4a]/10 md:pl-8">
-          <div className="text-[11px] font-medium uppercase tracking-[0.2em] text-[#b8972a] mb-4 font-outfit">Legenda Variabili</div>
+          <div className="text-[11px] font-medium uppercase tracking-[0.2em] text-[#F5C400] mb-4 font-outfit">Legenda Variabili</div>
           {det.legenda.map(([sim, desc]: any) => (
             <div key={sim} className="flex gap-4 text-[11px] md:text-xs mb-3 leading-relaxed font-outfit">
               <span className="font-semibold text-[#1b2a4a] w-12 shrink-0 italic font-serif">{sim}</span>
@@ -453,7 +453,7 @@ export default function Simulatore() {
          </div>
 
          <div className="pt-8 border-t border-[#1b2a4a]/10 flex flex-col md:flex-row items-center gap-6">
-            <button onClick={genera} className="bg-[#1b2a4a] text-white hover:bg-[#b8972a] transition-colors py-[15px] px-[26px] text-[11px] font-medium uppercase tracking-[0.2em] rounded-[2px] shrink-0 w-full md:w-auto font-outfit">
+            <button onClick={genera} className="bg-[#1b2a4a] text-white hover:bg-[#F5C400] transition-colors py-[15px] px-[26px] text-[11px] font-medium uppercase tracking-[0.2em] rounded-[2px] shrink-0 w-full md:w-auto font-outfit">
               Genera ribassi e concorrenti
             </button>
             <p className="text-xs text-[#7b869d] leading-relaxed font-outfit">

@@ -50,20 +50,20 @@ export default function Risorse() {
       {/* ── INTRO / SELECTION ── */}
       <section className="py-16 md:py-24 px-6 max-w-7xl mx-auto">
          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            <div className="bg-bg-neutral p-8 sm:p-12 rounded-[2px] border border-[#1b2a4a]/10 group hover:border-[#b8972a] transition-all duration-300 shadow-xs">
-               <Calculator size={44} weight="regular" className="text-[#b8972a] mb-6 group-hover:scale-110 transition-transform" />
+            <div className="bg-bg-neutral p-8 sm:p-12 rounded-[2px] border border-[#1b2a4a]/10 group hover:border-[#F5C400] transition-all duration-300 shadow-xs">
+               <Calculator size={44} weight="regular" className="text-[#F5C400] mb-6 group-hover:scale-110 transition-transform" />
                <h3 className="text-[#1b2a4a] text-2xl sm:text-3xl font-bold uppercase tracking-[0.05em] mb-3">Calcolo Ribasso</h3>
                <p className="text-[#3d4a66] text-[16px] font-normal leading-[1.7] mb-8 max-w-[62ch]">Simula il punteggio economico ottenibile in funzione del ribasso offerto.</p>
-               <a href="#calculator" className="border border-[#1b2a4a]/25 hover:border-[#b8972a] text-[#1b2a4a] hover:text-[#b8972a] px-[26px] py-[15px] rounded-[2px] text-[11px] font-medium uppercase tracking-[0.2em] transition-colors inline-flex items-center justify-between min-w-[240px] shadow-2xs">
+               <a href="#calculator" className="border border-[#1b2a4a]/25 hover:border-[#F5C400] text-[#1b2a4a] hover:text-[#F5C400] px-[26px] py-[15px] rounded-[2px] text-[11px] font-medium uppercase tracking-[0.2em] transition-colors inline-flex items-center justify-between min-w-[240px] shadow-2xs">
                  <span>Vai allo strumento</span>
                  <span>&gt;</span>
                </a>
             </div>
-            <div className="bg-bg-neutral p-8 sm:p-12 rounded-[2px] border border-[#1b2a4a]/10 group hover:border-[#b8972a] transition-all duration-300 shadow-xs">
-               <BookOpen size={44} weight="regular" className="text-[#b8972a] mb-6 group-hover:scale-110 transition-transform" />
+            <div className="bg-bg-neutral p-8 sm:p-12 rounded-[2px] border border-[#1b2a4a]/10 group hover:border-[#F5C400] transition-all duration-300 shadow-xs">
+               <BookOpen size={44} weight="regular" className="text-[#F5C400] mb-6 group-hover:scale-110 transition-transform" />
                <h3 className="text-[#1b2a4a] text-2xl sm:text-3xl font-bold uppercase tracking-[0.05em] mb-3">Approfondimenti</h3>
                <p className="text-[#3d4a66] text-[16px] font-normal leading-[1.7] mb-8 max-w-[62ch]">Articoli e aggiornamenti su normativa, tecniche e strategie per le gare OEPV.</p>
-               <a href="#articles" className="border border-[#1b2a4a]/25 hover:border-[#b8972a] text-[#1b2a4a] hover:text-[#b8972a] px-[26px] py-[15px] rounded-[2px] text-[11px] font-medium uppercase tracking-[0.2em] transition-colors inline-flex items-center justify-between min-w-[240px] shadow-2xs">
+               <a href="#articles" className="border border-[#1b2a4a]/25 hover:border-[#F5C400] text-[#1b2a4a] hover:text-[#F5C400] px-[26px] py-[15px] rounded-[2px] text-[11px] font-medium uppercase tracking-[0.2em] transition-colors inline-flex items-center justify-between min-w-[240px] shadow-2xs">
                  <span>Leggi gli articoli</span>
                  <span>&gt;</span>
                </a>
@@ -75,7 +75,7 @@ export default function Risorse() {
       <section id="calculator" className="py-16 md:py-24 bg-white border-t border-[#dfe3ea]">
          <div className="max-w-7xl mx-auto px-6">
             <div className="mb-12 md:mb-16">
-               <span className="bg-[#b8972a] text-white text-[13px] font-medium uppercase tracking-[0.2em] px-2.5 py-1 rounded-[2px] inline-block mb-3 shadow-xs">
+               <span className="bg-[#F5C400] text-white text-[13px] font-medium uppercase tracking-[0.2em] px-2.5 py-1 rounded-[2px] inline-block mb-3 shadow-xs">
                   SIMULATORE OEPV
                </span>
                <h2 className="text-[#1b2a4a] text-2xl sm:text-3xl md:text-[32px] font-bold uppercase tracking-[0.05em] leading-[1.12] mb-4">
@@ -94,7 +94,7 @@ export default function Risorse() {
       <section id="articles" className="py-16 md:py-24 bg-bg-neutral/40 border-t border-[#dfe3ea]">
          <div className="max-w-7xl mx-auto px-6">
             <div className="mb-12 md:mb-16 text-center">
-               <span className="bg-[#b8972a] text-white text-[13px] font-medium uppercase tracking-[0.2em] px-2.5 py-1 rounded-[2px] inline-block mb-3 shadow-xs">
+               <span className="bg-[#F5C400] text-white text-[13px] font-medium uppercase tracking-[0.2em] px-2.5 py-1 rounded-[2px] inline-block mb-3 shadow-xs">
                   APPROFONDIMENTI TECNICI
                </span>
                <h2 className="text-[#1b2a4a] text-2xl sm:text-3xl md:text-[32px] font-bold uppercase tracking-[0.05em] leading-[1.12] mb-3">
@@ -150,10 +150,10 @@ export default function Risorse() {
 
               <div className="flex items-center gap-6 text-[#7b869d] text-xs font-medium uppercase tracking-[0.15em] border-y border-[#1b2a4a]/10 py-4 mb-8 font-outfit">
                 <span className="flex items-center gap-2">
-                  <CalendarBlank size={16} className="text-[#b8972a]" /> {selectedArticle.publishedAt}
+                  <CalendarBlank size={16} className="text-[#F5C400]" /> {selectedArticle.publishedAt}
                 </span>
                 <span className="flex items-center gap-2">
-                  <User size={16} className="text-[#b8972a]" /> {selectedArticle.author || 'Redazione MBA'}
+                  <User size={16} className="text-[#F5C400]" /> {selectedArticle.author || 'Redazione MBA'}
                 </span>
               </div>
 
@@ -168,7 +168,7 @@ export default function Risorse() {
               <div className="pt-6 border-t border-[#1b2a4a]/10 flex justify-end">
                 <button 
                   onClick={() => setSelectedArticle(null)}
-                  className="border border-[#1b2a4a]/30 hover:border-[#b8972a] text-[#1b2a4a] hover:text-[#b8972a] px-6 py-3 rounded-[2px] text-[11px] font-medium uppercase tracking-[0.2em] transition-colors font-outfit"
+                  className="border border-[#1b2a4a]/30 hover:border-[#F5C400] text-[#1b2a4a] hover:text-[#F5C400] px-6 py-3 rounded-[2px] text-[11px] font-medium uppercase tracking-[0.2em] transition-colors font-outfit"
                 >
                   Chiudi Articolo
                 </button>
@@ -181,11 +181,11 @@ export default function Risorse() {
       {/* ── BANNER CONTATTI ── */}
       <section className="py-12 sm:py-16 px-6 max-w-7xl mx-auto border-t border-[#1b2a4a]/10">
         <div className="mb-4">
-          <span className="bg-[#b8972a] text-white text-[13px] font-medium uppercase tracking-[0.2em] px-3.5 py-1 rounded-[2px] inline-block font-outfit">
+          <span className="bg-[#F5C400] text-white text-[13px] font-medium uppercase tracking-[0.2em] px-3.5 py-1 rounded-[2px] inline-block font-outfit">
             CONTATTI
           </span>
         </div>
-        <div className="bg-[#F9FBFC] border-l-4 border-[#b8972a] p-8 sm:p-10 flex flex-col md:flex-row md:items-center justify-between gap-6">
+        <div className="bg-[#F9FBFC] border-l-4 border-[#F5C400] p-8 sm:p-10 flex flex-col md:flex-row md:items-center justify-between gap-6">
           <div>
             <h3 className="text-[#1b2a4a] text-xl sm:text-2xl md:text-[28px] font-semibold uppercase tracking-tight font-outfit">
               HAI BISOGNO DI UN'ANALISI SPECIFICA PER UNA GARA?
@@ -196,7 +196,7 @@ export default function Risorse() {
           </div>
           <Link
             to="/contatti"
-            className="bg-[#1b2a4a] text-white text-[11px] font-medium uppercase tracking-[0.2em] px-[26px] py-[15px] min-w-[240px] hover:bg-[#b8972a] transition-colors inline-flex items-center justify-between rounded-[2px] shrink-0 font-outfit"
+            className="bg-[#1b2a4a] text-white text-[11px] font-medium uppercase tracking-[0.2em] px-[26px] py-[15px] min-w-[240px] hover:bg-[#F5C400] transition-colors inline-flex items-center justify-between rounded-[2px] shrink-0 font-outfit"
           >
             <span>PARLA CON GLI ESPERTI</span>
             <span>&gt;</span>
@@ -222,10 +222,10 @@ function ArticleCard({ article, onClick }: { article: Article; onClick: () => vo
           />
        </div>
        <div className="p-6 sm:p-7">
-          <span className="text-[#b8972a] text-[12px] font-medium uppercase tracking-[0.15em] mb-2 block font-outfit">{article.category}</span>
-          <h4 className="text-[#1b2a4a] text-[18px] font-semibold uppercase tracking-tight mb-3 group-hover:text-[#b8972a] transition-colors line-clamp-2 font-outfit">{article.title}</h4>
+          <span className="text-[#F5C400] text-[12px] font-medium uppercase tracking-[0.15em] mb-2 block font-outfit">{article.category}</span>
+          <h4 className="text-[#1b2a4a] text-[18px] font-semibold uppercase tracking-tight mb-3 group-hover:text-[#F5C400] transition-colors line-clamp-2 font-outfit">{article.title}</h4>
           <p className="text-[#3d4a66] text-[15px] font-normal leading-[1.65] mb-6 line-clamp-3 font-outfit">{article.excerpt}</p>
-          <div className="flex items-center gap-2 text-[#1b2a4a] font-medium text-[11px] uppercase tracking-[0.2em] group-hover:text-[#b8972a] transition-colors font-outfit">
+          <div className="flex items-center gap-2 text-[#1b2a4a] font-medium text-[11px] uppercase tracking-[0.2em] group-hover:text-[#F5C400] transition-colors font-outfit">
              <span>Leggi Articolo</span>
              <span className="text-sm font-semibold transition-transform group-hover:translate-x-1">&gt;</span>
           </div>

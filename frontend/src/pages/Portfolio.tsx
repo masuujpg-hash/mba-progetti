@@ -60,11 +60,11 @@ export default function Portfolio() {
       {/* ── BANNER CONTATTI ── */}
       <section className="py-12 sm:py-16 px-6 max-w-7xl mx-auto border-t border-[#dfe3ea]">
         <div className="mb-4">
-          <span className="bg-[#b8972a] text-white text-[13px] font-medium uppercase tracking-[0.2em] px-2.5 py-1 rounded-[2px] inline-block shadow-xs">
+          <span className="bg-[#F5C400] text-white text-[13px] font-medium uppercase tracking-[0.2em] px-2.5 py-1 rounded-[2px] inline-block shadow-xs">
             CONTATTI
           </span>
         </div>
-        <div className="bg-[#F9FBFC] border-l-4 border-[#b8972a] p-8 sm:p-10 flex flex-col md:flex-row md:items-center justify-between gap-6 shadow-xs rounded-[2px]">
+        <div className="bg-[#F9FBFC] border-l-4 border-[#F5C400] p-8 sm:p-10 flex flex-col md:flex-row md:items-center justify-between gap-6 shadow-xs rounded-[2px]">
           <div>
             <h3 className="text-[#1b2a4a] text-xl sm:text-2xl md:text-[28px] font-bold uppercase tracking-[0.05em] leading-[1.15]">
               VUOI PRESENTARE UN'OFFERTA MIGLIORATIVA VINCENTE?
@@ -75,7 +75,7 @@ export default function Portfolio() {
           </div>
           <Link
             to="/contatti"
-            className="bg-[#1b2a4a] text-white text-[11px] font-medium uppercase tracking-[0.2em] px-[26px] py-[15px] hover:bg-[#b8972a] transition-colors inline-flex items-center justify-between gap-4 rounded-[2px] shadow-sm shrink-0 min-w-[240px]"
+            className="bg-[#1b2a4a] text-white text-[11px] font-medium uppercase tracking-[0.2em] px-[26px] py-[15px] hover:bg-[#F5C400] transition-colors inline-flex items-center justify-between gap-4 rounded-[2px] shadow-sm shrink-0 min-w-[240px]"
           >
             <span>RICHIEDI UNA CONSULENZA</span>
             <span>&gt;</span>
@@ -110,16 +110,16 @@ function ProjectGridItem({ project }: { project: Project }) {
 
          {/* Badge solo se 1° o 2° classificato */}
          {isTopRank && (
-            <div className={`absolute top-4 left-4 ${isSecond ? 'bg-[#1b2a4a]' : 'bg-[#b8972a]'} text-white text-[11px] font-medium uppercase tracking-[0.06em] px-3 py-1 z-10 shadow-sm rounded-[2px]`}>
+            <div className={`absolute top-4 left-4 ${isSecond ? 'bg-[#1b2a4a]' : 'bg-[#F5C400]'} text-white text-[11px] font-medium uppercase tracking-[0.06em] px-3 py-1 z-10 shadow-sm rounded-[2px]`}>
                {project.rank}
             </div>
          )}
 
          {/* Gradiente scuro naturale solo in basso per leggibilità testo */}
          <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/25 to-transparent p-5 sm:p-6 flex flex-col justify-end">
-            <h3 className="text-white text-base sm:text-[18px] font-medium uppercase tracking-tight mb-1.5 group-hover:text-[#b8972a] transition-colors line-clamp-2 leading-[1.35]">{project.title}</h3>
+            <h3 className="text-white text-base sm:text-[18px] font-medium uppercase tracking-tight mb-1.5 group-hover:text-[#F5C400] transition-colors line-clamp-2 leading-[1.35]">{project.title}</h3>
             <div className="flex items-center gap-1.5 text-white/90 text-[12px] font-medium uppercase tracking-[0.06em]">
-               <MapPin size={13} className="text-[#b8972a] shrink-0" /> {project.location}
+               <MapPin size={13} className="text-[#F5C400] shrink-0" /> {project.location}
             </div>
          </div>
       </div>

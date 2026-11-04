@@ -92,7 +92,7 @@ export default function Contatti() {
                 <button
                   type="submit"
                   disabled={status === 'sending'}
-                  className="border border-[#1b2a4a]/25 hover:border-[#b8972a] text-[#1b2a4a] hover:text-[#b8972a] px-[26px] py-[15px] rounded-[2px] text-[11px] font-medium uppercase tracking-[0.2em] transition-colors flex items-center justify-between min-w-[240px] shadow-2xs group cursor-pointer"
+                  className="border border-[#1b2a4a]/25 hover:border-[#F5C400] text-[#1b2a4a] hover:text-[#F5C400] px-[26px] py-[15px] rounded-[2px] text-[11px] font-medium uppercase tracking-[0.2em] transition-colors flex items-center justify-between min-w-[240px] shadow-2xs group cursor-pointer"
                 >
                   <span>{status === 'sending' ? 'INVIO...' : 'INVIA'}</span>
                   <span className="text-sm font-semibold transition-transform group-hover:translate-x-1">&gt;</span>
@@ -133,7 +133,7 @@ export default function Contatti() {
                 TELEFONO
               </span>
               <p className="text-[#1b2a4a] text-[15px] sm:text-[16px] font-normal leading-[1.7]">
-                <a href="tel:+393286285861" className="hover:text-[#b8972a] transition-colors">
+                <a href="tel:+393286285861" className="hover:text-[#F5C400] transition-colors">
                   328 6285861
                 </a>
               </p>
@@ -145,10 +145,10 @@ export default function Contatti() {
                 E-MAIL
               </span>
               <p className="text-[#1b2a4a] text-[15px] sm:text-[16px] font-normal leading-[1.7]">
-                <a href="mailto:arch.mariobiondi@gmail.com" className="hover:text-[#b8972a] transition-colors block">
+                <a href="mailto:arch.mariobiondi@gmail.com" className="hover:text-[#F5C400] transition-colors block">
                   arch.mariobiondi@gmail.com
                 </a>
-                <a href="mailto:mario.biondi@archiworldpec.it" className="hover:text-[#b8972a] transition-colors block">
+                <a href="mailto:mario.biondi@archiworldpec.it" className="hover:text-[#F5C400] transition-colors block">
                   <span className="font-semibold">PEC</span> mario.biondi@archiworldpec.it
                 </a>
               </p>

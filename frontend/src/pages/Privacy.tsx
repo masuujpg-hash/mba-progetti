@@ -9,9 +9,9 @@ export default function Privacy() {
            animate={{ opacity: 1, y: 0 }}
            transition={{ duration: 0.8 }}
          >
-            <span className="text-[#b8972a] text-[13px] font-medium uppercase tracking-[0.2em] mb-4 block font-outfit">Legal</span>
+            <span className="text-[#F5C400] text-[13px] font-medium uppercase tracking-[0.2em] mb-4 block font-outfit">Legal</span>
             <h1 className="text-[#1b2a4a] text-3xl sm:text-4xl md:text-5xl font-semibold uppercase tracking-tight mb-12 leading-tight font-outfit">
-               Privacy & <br /> <span className="text-[#b8972a]">Cookie Policy.</span>
+               Privacy & <br /> <span className="text-[#F5C400]">Cookie Policy.</span>
             </h1>
 
             <div className="space-y-10 text-[#3d4a66] font-normal leading-[1.7] font-outfit text-base">
@@ -46,7 +46,7 @@ export default function Privacy() {
                <div>
                   <h3 className="text-[#1b2a4a] text-lg font-semibold uppercase tracking-tight mb-3 font-outfit">4. I Tuoi Diritti</h3>
                   <p className="max-w-[62ch]">
-                     Hai il diritto di accedere, rettificare o cancellare i tuoi dati personali in nostro possesso. Per qualsiasi richiesta relativa alla privacy, puoi contattarci all'indirizzo email: <a href="mailto:arch.mariobiondi@gmail.com" className="text-[#b8972a] font-medium hover:underline">arch.mariobiondi@gmail.com</a>.
+                     Hai il diritto di accedere, rettificare o cancellare i tuoi dati personali in nostro possesso. Per qualsiasi richiesta relativa alla privacy, puoi contattarci all'indirizzo email: <a href="mailto:arch.mariobiondi@gmail.com" className="text-[#F5C400] font-medium hover:underline">arch.mariobiondi@gmail.com</a>.
                   </p>
                </div>
                

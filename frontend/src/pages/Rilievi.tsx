@@ -290,8 +290,8 @@ export default function Rilievi() {
 
       {/* ── COLLABORAZIONE CON STUDIO ILARIO DI BUCCIO ── */}
       <section className="pt-12 sm:pt-16 pb-4 px-6 max-w-7xl mx-auto">
-        <div className="bg-[#f8f9fb] border-l-4 border-[#b8972a] p-6 sm:p-8 rounded-[2px] shadow-2xs">
-          <span className="text-[#b8972a] text-[11px] font-medium uppercase tracking-[0.2em] block mb-2">
+        <div className="bg-[#f8f9fb] border-l-4 border-[#F5C400] p-6 sm:p-8 rounded-[2px] shadow-2xs">
+          <span className="text-[#F5C400] text-[11px] font-medium uppercase tracking-[0.2em] block mb-2">
             COLLABORAZIONE
           </span>
           <p className="text-[#3d4a66] text-[16px] font-normal leading-[1.7] max-w-[62ch]">
@@ -303,7 +303,7 @@ export default function Rilievi() {
       {/* ── DOCUMENTARE CON PRECISIONE PER INTERVENIRE CON QUALITÀ ── */}
       <section className="py-12 sm:py-16 px-6 max-w-7xl mx-auto">
         <div className="mb-8">
-          <span className="bg-[#b8972a] text-white text-[13px] font-medium uppercase tracking-[0.2em] px-2.5 py-1 rounded-[2px] inline-block mb-3 shadow-xs">
+          <span className="bg-[#F5C400] text-white text-[13px] font-medium uppercase tracking-[0.2em] px-2.5 py-1 rounded-[2px] inline-block mb-3 shadow-xs">
             RILIEVO DIGITALE
           </span>
           <h2 className="text-[#1b2a4a] text-2xl sm:text-3xl md:text-[32px] font-bold uppercase tracking-[0.05em] leading-[1.12]">
@@ -338,7 +338,7 @@ export default function Rilievi() {
         {/* Horizontal Strip con i 6 Servizi di Rilievo conformi al mockup */}
         <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 divide-y sm:divide-y-0 sm:divide-x divide-[#dfe3ea] border-y border-[#dfe3ea] my-8 py-5 bg-white">
           <div className="flex flex-col items-center justify-center text-center p-3 sm:p-4 group">
-            <svg className="w-[26px] h-[26px] text-[#1b2a4a] mb-2 group-hover:text-[#b8972a] transition-colors" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round">
+            <svg className="w-[26px] h-[26px] text-[#1b2a4a] mb-2 group-hover:text-[#F5C400] transition-colors" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round">
               <path d="M5 8V5h3M16 5h3v3M5 16v3h3M19 16v3h-3" />
               <circle cx="12" cy="12" r="1.5" fill="currentColor" />
             </svg>
@@ -348,7 +348,7 @@ export default function Rilievi() {
           </div>
 
           <div className="flex flex-col items-center justify-center text-center p-3 sm:p-4 group">
-            <svg className="w-[26px] h-[26px] text-[#1b2a4a] mb-2 group-hover:text-[#b8972a] transition-colors" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round">
+            <svg className="w-[26px] h-[26px] text-[#1b2a4a] mb-2 group-hover:text-[#F5C400] transition-colors" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round">
               <line x1="8" y1="8" x2="16" y2="16" />
               <line x1="16" y1="8" x2="8" y2="16" />
               <circle cx="12" cy="12" r="2" fill="currentColor" />
@@ -363,7 +363,7 @@ export default function Rilievi() {
           </div>
 
           <div className="flex flex-col items-center justify-center text-center p-3 sm:p-4 group">
-            <svg className="w-[26px] h-[26px] text-[#1b2a4a] mb-2 group-hover:text-[#b8972a] transition-colors" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round">
+            <svg className="w-[26px] h-[26px] text-[#1b2a4a] mb-2 group-hover:text-[#F5C400] transition-colors" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round">
               <circle cx="12" cy="12" r="6" />
               <line x1="12" y1="2" x2="12" y2="22" />
               <line x1="2" y1="12" x2="22" y2="12" />
@@ -374,7 +374,7 @@ export default function Rilievi() {
           </div>
 
           <div className="flex flex-col items-center justify-center text-center p-3 sm:p-4 group">
-            <svg className="w-[26px] h-[26px] text-[#1b2a4a] mb-2 group-hover:text-[#b8972a] transition-colors" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round">
+            <svg className="w-[26px] h-[26px] text-[#1b2a4a] mb-2 group-hover:text-[#F5C400] transition-colors" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round">
               <rect x="4" y="3" width="16" height="18" rx="1.5" />
               <path d="M12 3l2 6-4 4 4 4-2 4" />
             </svg>
@@ -384,7 +384,7 @@ export default function Rilievi() {
           </div>
 
           <div className="flex flex-col items-center justify-center text-center p-3 sm:p-4 group">
-            <svg className="w-[26px] h-[26px] text-[#1b2a4a] mb-2 group-hover:text-[#b8972a] transition-colors" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round">
+            <svg className="w-[26px] h-[26px] text-[#1b2a4a] mb-2 group-hover:text-[#F5C400] transition-colors" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round">
               <path d="M3 11l9-7 9 7v9a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1v-9z" />
               <path d="M12 17v-6m-3 3l3-3 3 3" />
             </svg>
@@ -394,7 +394,7 @@ export default function Rilievi() {
           </div>
 
           <div className="flex flex-col items-center justify-center text-center p-3 sm:p-4 group">
-            <svg className="w-[26px] h-[26px] text-[#1b2a4a] mb-2 group-hover:text-[#b8972a] transition-colors" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round">
+            <svg className="w-[26px] h-[26px] text-[#1b2a4a] mb-2 group-hover:text-[#F5C400] transition-colors" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round">
               <polygon points="1 6 8 2 16 6 23 2 23 18 16 22 8 18 1 22 1 6" />
               <line x1="8" y1="2" x2="8" y2="18" />
               <line x1="16" y1="6" x2="16" y2="22" />
@@ -410,7 +410,7 @@ export default function Rilievi() {
       <section className="py-16 md:py-24 bg-bg-neutral/40 border-t border-[#dfe3ea]">
          <div className="max-w-7xl mx-auto px-6">
             <div className="text-center mb-12">
-               <span className="bg-[#b8972a] text-white text-[13px] font-medium uppercase tracking-[0.2em] px-2.5 py-1 rounded-[2px] inline-block mb-3 shadow-xs">
+               <span className="bg-[#F5C400] text-white text-[13px] font-medium uppercase tracking-[0.2em] px-2.5 py-1 rounded-[2px] inline-block mb-3 shadow-xs">
                   COMPETENZE TECNICHE
                </span>
                <h2 className="text-[#1b2a4a] text-2xl sm:text-3xl md:text-[32px] font-bold uppercase tracking-[0.05em] leading-[1.12]">
@@ -424,16 +424,16 @@ export default function Rilievi() {
                   return (
                      <div 
                         key={item.id}
-                        className="bg-white p-7 rounded-[2px] border border-[#1b2a4a]/10 hover:border-[#b8972a] transition-colors flex flex-col justify-between shadow-xs"
+                        className="bg-white p-7 rounded-[2px] border border-[#1b2a4a]/10 hover:border-[#F5C400] transition-colors flex flex-col justify-between shadow-xs"
                      >
                         <div>
                            <div className="flex items-center justify-between mb-4">
-                              <span className="text-[#b8972a] font-mono text-sm font-bold">{item.id}</span>
+                              <span className="text-[#F5C400] font-mono text-sm font-bold">{item.id}</span>
                               <span className="text-[11px] uppercase font-medium tracking-[0.2em] px-2.5 py-1 bg-bg-neutral text-[#1b2a4a] rounded-[2px]">
                                  {item.tag}
                               </span>
                            </div>
-                           <div className="p-3 bg-[#1b2a4a]/5 text-[#b8972a] w-fit mb-5 rounded-[2px]">
+                           <div className="p-3 bg-[#1b2a4a]/5 text-[#F5C400] w-fit mb-5 rounded-[2px]">
                               <IconComp size={24} />
                            </div>
                            <h3 className="text-[#1b2a4a] text-[17px] font-semibold uppercase tracking-[0.06em] mb-2.5">{item.title}</h3>
@@ -452,7 +452,7 @@ export default function Rilievi() {
       <section className="py-16 md:py-24 bg-white">
          <div className="max-w-7xl mx-auto px-6">
             <div className="text-center mb-12">
-               <span className="bg-[#b8972a] text-white text-[13px] font-medium uppercase tracking-[0.2em] px-2.5 py-1 rounded-[2px] inline-block mb-3 shadow-xs">
+               <span className="bg-[#F5C400] text-white text-[13px] font-medium uppercase tracking-[0.2em] px-2.5 py-1 rounded-[2px] inline-block mb-3 shadow-xs">
                   ELABORATI GRAFICI REALI
                </span>
                <h2 className="text-[#1b2a4a] text-2xl sm:text-3xl md:text-[32px] font-bold uppercase tracking-[0.05em] leading-[1.12] mb-3">
@@ -478,7 +478,7 @@ export default function Rilievi() {
                      className={`px-5 py-2.5 text-xs font-medium uppercase tracking-[0.2em] rounded-[2px] transition-all cursor-pointer ${
                         activeCategory === f.id
                            ? 'bg-[#1b2a4a] text-white border border-[#1b2a4a] shadow-xs'
-                           : 'bg-bg-neutral text-[#1b2a4a]/70 border border-[#1b2a4a]/10 hover:border-[#b8972a]'
+                           : 'bg-bg-neutral text-[#1b2a4a]/70 border border-[#1b2a4a]/10 hover:border-[#F5C400]'
                      }`}
                   >
                      {f.label}
@@ -492,7 +492,7 @@ export default function Rilievi() {
                   <div
                      key={tavola.id}
                      onClick={() => setSelectedImage(tavola)}
-                     className="group cursor-pointer bg-white border border-[#1b2a4a]/10 rounded-[2px] overflow-hidden hover:border-[#b8972a] transition-all duration-300 shadow-xs hover:shadow-md flex flex-col justify-between"
+                     className="group cursor-pointer bg-white border border-[#1b2a4a]/10 rounded-[2px] overflow-hidden hover:border-[#F5C400] transition-all duration-300 shadow-xs hover:shadow-md flex flex-col justify-between"
                   >
                      <div>
                         <div className="relative aspect-[4/3] bg-neutral-100 overflow-hidden border-b border-[#1b2a4a]/5">
@@ -502,7 +502,7 @@ export default function Rilievi() {
                               className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                            />
                            <div className="absolute inset-0 bg-[#1b2a4a]/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
-                              <span className="bg-[#b8972a] text-white text-xs font-medium uppercase tracking-[0.2em] px-3.5 py-2 rounded-[2px] inline-flex items-center gap-2 shadow-md">
+                              <span className="bg-[#F5C400] text-white text-xs font-medium uppercase tracking-[0.2em] px-3.5 py-2 rounded-[2px] inline-flex items-center gap-2 shadow-md">
                                  <Maximize2 size={14} /> Ingrandisci
                               </span>
                            </div>
@@ -512,10 +512,10 @@ export default function Rilievi() {
                         </div>
 
                         <div className="p-6">
-                           <span className="text-[#b8972a] text-[11px] font-medium uppercase tracking-[0.2em] block mb-1">
+                           <span className="text-[#F5C400] text-[11px] font-medium uppercase tracking-[0.2em] block mb-1">
                               {tavola.categoryLabel}
                            </span>
-                           <h3 className="text-[#1b2a4a] text-base sm:text-[18px] font-medium uppercase tracking-tight mb-2 group-hover:text-[#b8972a] transition-colors leading-[1.35]">
+                           <h3 className="text-[#1b2a4a] text-base sm:text-[18px] font-medium uppercase tracking-tight mb-2 group-hover:text-[#F5C400] transition-colors leading-[1.35]">
                               {tavola.title}
                            </h3>
                            <p className="text-[#3d4a66] text-[14px] leading-[1.65] line-clamp-2">
@@ -596,7 +596,7 @@ export default function Rilievi() {
       <section className="py-16 md:py-24 bg-bg-neutral/50 border-t border-[#dfe3ea]">
          <div className="max-w-7xl mx-auto px-6">
             <div className="text-center mb-12">
-               <span className="bg-[#b8972a] text-white text-[13px] font-medium uppercase tracking-[0.2em] px-2.5 py-1 rounded-[2px] inline-block mb-3 shadow-xs">
+               <span className="bg-[#F5C400] text-white text-[13px] font-medium uppercase tracking-[0.2em] px-2.5 py-1 rounded-[2px] inline-block mb-3 shadow-xs">
                   ATTREZZATURE D'AVANGUARDIA
                </span>
                <h2 className="text-[#1b2a4a] text-2xl sm:text-3xl md:text-[32px] font-bold uppercase tracking-[0.05em] leading-[1.12]">
@@ -613,7 +613,7 @@ export default function Rilievi() {
                         className="bg-white border border-[#1b2a4a]/10 rounded-[2px] overflow-hidden p-6 sm:p-7 flex flex-col justify-between space-y-4 shadow-xs"
                      >
                         <div className="flex items-center justify-between">
-                           <span className="text-[#b8972a] font-mono font-bold text-sm">{device.id}</span>
+                           <span className="text-[#F5C400] font-mono font-bold text-sm">{device.id}</span>
                            <IconComponent size={22} className="text-[#1b2a4a]/60" />
                         </div>
                         <div>
@@ -632,7 +632,7 @@ export default function Rilievi() {
       <section className="py-16 md:py-24 bg-white border-t border-[#dfe3ea]">
          <div className="max-w-7xl mx-auto px-6">
             <div className="text-center mb-12">
-               <span className="bg-[#b8972a] text-white text-[13px] font-medium uppercase tracking-[0.2em] px-2.5 py-1 rounded-[2px] inline-block mb-3 shadow-xs">
+               <span className="bg-[#F5C400] text-white text-[13px] font-medium uppercase tracking-[0.2em] px-2.5 py-1 rounded-[2px] inline-block mb-3 shadow-xs">
                   PROCESSO OPERATIVO
                </span>
                <h2 className="text-[#1b2a4a] text-2xl sm:text-3xl md:text-[32px] font-bold uppercase tracking-[0.05em] leading-[1.12]">
@@ -643,7 +643,7 @@ export default function Rilievi() {
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
                {fasiWorkflow.map((item, index) => (
                   <div key={index} className="bg-bg-neutral/60 p-7 border-t-2 border-[#1b2a4a]/20 space-y-3 rounded-[2px]">
-                     <span className="text-[#b8972a] font-mono text-3xl font-extrabold block">{item.step}</span>
+                     <span className="text-[#F5C400] font-mono text-3xl font-extrabold block">{item.step}</span>
                      <h3 className="text-[#1b2a4a] text-[16px] font-semibold uppercase tracking-[0.06em]">{item.title}</h3>
                      <p className="text-[#3d4a66] text-[14px] leading-[1.65]">{item.desc}</p>
                   </div>
@@ -655,11 +655,11 @@ export default function Rilievi() {
       {/* ── BANNER CONTATTI ── */}
       <section className="py-12 sm:py-16 px-6 max-w-7xl mx-auto border-t border-[#dfe3ea]">
         <div className="mb-4">
-          <span className="bg-[#b8972a] text-white text-[13px] font-medium uppercase tracking-[0.2em] px-2.5 py-1 rounded-[2px] inline-block shadow-xs">
+          <span className="bg-[#F5C400] text-white text-[13px] font-medium uppercase tracking-[0.2em] px-2.5 py-1 rounded-[2px] inline-block shadow-xs">
             CONTATTI
           </span>
         </div>
-        <div className="bg-[#F9FBFC] border-l-4 border-[#b8972a] p-8 sm:p-10 flex flex-col md:flex-row md:items-center justify-between gap-6 shadow-xs rounded-[2px]">
+        <div className="bg-[#F9FBFC] border-l-4 border-[#F5C400] p-8 sm:p-10 flex flex-col md:flex-row md:items-center justify-between gap-6 shadow-xs rounded-[2px]">
           <div>
             <h3 className="text-[#1b2a4a] text-xl sm:text-2xl md:text-[28px] font-bold uppercase tracking-[0.05em] leading-[1.15]">
               HAI BISOGNO DI UN RILIEVO 3D O AEROFOTOGRAMMETRIA?
@@ -670,7 +670,7 @@ export default function Rilievi() {
           </div>
           <Link
             to="/contatti"
-            className="bg-[#1b2a4a] text-white text-[11px] font-medium uppercase tracking-[0.2em] px-[26px] py-[15px] hover:bg-[#b8972a] transition-colors inline-flex items-center justify-between gap-4 rounded-[2px] shadow-sm shrink-0 min-w-[240px]"
+            className="bg-[#1b2a4a] text-white text-[11px] font-medium uppercase tracking-[0.2em] px-[26px] py-[15px] hover:bg-[#F5C400] transition-colors inline-flex items-center justify-between gap-4 rounded-[2px] shadow-sm shrink-0 min-w-[240px]"
           >
             <span>CONTATTACI</span>
             <span>&gt;</span>

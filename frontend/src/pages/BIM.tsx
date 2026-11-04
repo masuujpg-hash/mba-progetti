@@ -38,7 +38,7 @@ export default function BIM() {
       {/* ── IL MODELLO COME BASE DI CONOSCENZA DELL'EDIFICIO ── */}
       <section className="py-12 sm:py-16 px-6 max-w-7xl mx-auto">
         <div className="mb-8">
-          <span className="bg-[#b8972a] text-white text-[13px] font-medium uppercase tracking-[0.2em] px-2.5 py-1 rounded-[2px] inline-block mb-3 shadow-xs">
+          <span className="bg-[#F5C400] text-white text-[13px] font-medium uppercase tracking-[0.2em] px-2.5 py-1 rounded-[2px] inline-block mb-3 shadow-xs">
             DIGITALIZZAZIONE DEL COSTRUITO
           </span>
           <h2 className="text-[#1b2a4a] text-2xl sm:text-3xl md:text-[32px] font-bold uppercase tracking-[0.05em] leading-[1.12]">
@@ -74,7 +74,7 @@ export default function BIM() {
       {/* ── SCAN TO BIM: DALLA NUVOLA DI PUNTI AL MODELLO ── */}
       <section className="py-12 sm:py-16 px-6 max-w-7xl mx-auto border-t border-[#dfe3ea]">
         <div className="mb-4">
-          <span className="bg-[#b8972a] text-white text-[13px] font-medium uppercase tracking-[0.2em] px-2.5 py-1 rounded-[2px] inline-block shadow-xs">
+          <span className="bg-[#F5C400] text-white text-[13px] font-medium uppercase tracking-[0.2em] px-2.5 py-1 rounded-[2px] inline-block shadow-xs">
             SCAN TO BIM
           </span>
         </div>
@@ -110,7 +110,7 @@ export default function BIM() {
       {/* ── HBIM: IL PATRIMONIO STORICO IN UN MODELLO ── */}
       <section className="py-12 sm:py-16 px-6 max-w-7xl mx-auto border-t border-[#dfe3ea]">
         <div className="mb-4">
-          <span className="bg-[#b8972a] text-white text-[13px] font-medium uppercase tracking-[0.2em] px-2.5 py-1 rounded-[2px] inline-block shadow-xs">
+          <span className="bg-[#F5C400] text-white text-[13px] font-medium uppercase tracking-[0.2em] px-2.5 py-1 rounded-[2px] inline-block shadow-xs">
             HBIM
           </span>
         </div>
@@ -145,7 +145,7 @@ export default function BIM() {
       {/* ── BIM PER LA PROGETTAZIONE: UN UNICO MODELLO PER TUTTE LE DISCIPLINE ── */}
       <section className="py-12 sm:py-16 px-6 max-w-7xl mx-auto border-t border-[#dfe3ea]">
         <div className="mb-4">
-          <span className="bg-[#b8972a] text-white text-[13px] font-medium uppercase tracking-[0.2em] px-2.5 py-1 rounded-[2px] inline-block shadow-xs">
+          <span className="bg-[#F5C400] text-white text-[13px] font-medium uppercase tracking-[0.2em] px-2.5 py-1 rounded-[2px] inline-block shadow-xs">
             BIM PER LA PROGETTAZIONE
           </span>
         </div>
@@ -184,7 +184,7 @@ export default function BIM() {
       {/* ── MODELLI AS BUILT E DATI: INFORMAZIONI PRONTE PER ESSERE USATE ── */}
       <section className="py-12 sm:py-16 px-6 max-w-7xl mx-auto border-t border-[#dfe3ea]">
         <div className="mb-4">
-          <span className="bg-[#b8972a] text-white text-[13px] font-medium uppercase tracking-[0.2em] px-2.5 py-1 rounded-[2px] inline-block shadow-xs">
+          <span className="bg-[#F5C400] text-white text-[13px] font-medium uppercase tracking-[0.2em] px-2.5 py-1 rounded-[2px] inline-block shadow-xs">
             MODELLI AS BUILT E DATI
           </span>
         </div>
@@ -220,7 +220,7 @@ export default function BIM() {
       {/* ── GARE OEV: IL BIM AL SERVIZIO DELL'OFFERTA ── */}
       <section className="py-12 sm:py-16 px-6 max-w-7xl mx-auto border-t border-[#dfe3ea]">
         <div className="mb-4">
-          <span className="bg-[#b8972a] text-white text-[13px] font-medium uppercase tracking-[0.2em] px-2.5 py-1 rounded-[2px] inline-block shadow-xs">
+          <span className="bg-[#F5C400] text-white text-[13px] font-medium uppercase tracking-[0.2em] px-2.5 py-1 rounded-[2px] inline-block shadow-xs">
             GARE OEV
           </span>
         </div>
@@ -236,14 +236,14 @@ export default function BIM() {
         <div className="flex flex-wrap items-center gap-4 mb-16">
           <Link
             to="/servizi/gare"
-            className="border border-[#1b2a4a]/25 hover:border-[#b8972a] text-[#1b2a4a] hover:text-[#b8972a] px-[26px] py-[15px] rounded-[2px] text-[11px] font-medium uppercase tracking-[0.2em] transition-colors flex items-center justify-between min-w-[240px] shadow-2xs group"
+            className="border border-[#1b2a4a]/25 hover:border-[#F5C400] text-[#1b2a4a] hover:text-[#F5C400] px-[26px] py-[15px] rounded-[2px] text-[11px] font-medium uppercase tracking-[0.2em] transition-colors flex items-center justify-between min-w-[240px] shadow-2xs group"
           >
             <span>GARE OEV</span>
             <span className="text-sm font-semibold transition-transform group-hover:translate-x-1">&gt;</span>
           </Link>
           <Link
             to="/servizi/rilievi"
-            className="border border-[#1b2a4a]/25 hover:border-[#b8972a] text-[#1b2a4a] hover:text-[#b8972a] px-[26px] py-[15px] rounded-[2px] text-[11px] font-medium uppercase tracking-[0.2em] transition-colors flex items-center justify-between min-w-[240px] shadow-2xs group"
+            className="border border-[#1b2a4a]/25 hover:border-[#F5C400] text-[#1b2a4a] hover:text-[#F5C400] px-[26px] py-[15px] rounded-[2px] text-[11px] font-medium uppercase tracking-[0.2em] transition-colors flex items-center justify-between min-w-[240px] shadow-2xs group"
           >
             <span>RILIEVI</span>
             <span className="text-sm font-semibold transition-transform group-hover:translate-x-1">&gt;</span>
@@ -252,11 +252,11 @@ export default function BIM() {
 
         {/* ── BANNER CONTATTI ── */}
         <div className="mb-4">
-          <span className="bg-[#b8972a] text-white text-[13px] font-medium uppercase tracking-[0.2em] px-2.5 py-1 rounded-[2px] inline-block shadow-xs">
+          <span className="bg-[#F5C400] text-white text-[13px] font-medium uppercase tracking-[0.2em] px-2.5 py-1 rounded-[2px] inline-block shadow-xs">
             CONTATTI
           </span>
         </div>
-        <div className="bg-[#F9FBFC] border-l-4 border-[#b8972a] p-8 sm:p-10 flex flex-col md:flex-row md:items-center justify-between gap-6 shadow-xs rounded-[2px]">
+        <div className="bg-[#F9FBFC] border-l-4 border-[#F5C400] p-8 sm:p-10 flex flex-col md:flex-row md:items-center justify-between gap-6 shadow-xs rounded-[2px]">
           <div>
             <h3 className="text-[#1b2a4a] text-xl sm:text-2xl md:text-[28px] font-bold uppercase tracking-[0.05em] leading-[1.15]">
               HAI BISOGNO DI UN MODELLO BIM?
@@ -267,7 +267,7 @@ export default function BIM() {
           </div>
           <Link
             to="/contatti"
-            className="bg-[#1b2a4a] text-white text-[11px] font-medium uppercase tracking-[0.2em] px-[26px] py-[15px] hover:bg-[#b8972a] transition-colors inline-flex items-center justify-between gap-4 rounded-[2px] shadow-sm shrink-0 min-w-[240px]"
+            className="bg-[#1b2a4a] text-white text-[11px] font-medium uppercase tracking-[0.2em] px-[26px] py-[15px] hover:bg-[#F5C400] transition-colors inline-flex items-center justify-between gap-4 rounded-[2px] shadow-sm shrink-0 min-w-[240px]"
           >
             <span>CONTATTACI</span>
             <span>&gt;</span>

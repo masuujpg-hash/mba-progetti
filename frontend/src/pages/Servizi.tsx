@@ -125,7 +125,7 @@ export default function Servizi() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
           >
-            <span className="text-[#b8972a] text-[13px] font-medium uppercase tracking-[0.2em] mb-4 block">
+            <span className="text-[#F5C400] text-[13px] font-medium uppercase tracking-[0.2em] mb-4 block">
               Le Competenze di MBA Progetti
             </span>
             <h1 className="text-white text-3xl sm:text-4xl md:text-[44px] font-semibold uppercase tracking-tight mb-4 leading-tight font-outfit">
@@ -141,7 +141,7 @@ export default function Servizi() {
       {/* ── SWITCHER PULITO SENZA PULSANTI BLU SCURI ── */}
       <section className="py-16 md:py-24 px-6 max-w-7xl mx-auto">
         <div className="text-center mb-12">
-          <span className="bg-[#b8972a] text-white text-[13px] font-medium uppercase tracking-[0.2em] px-3.5 py-1 rounded-[2px] inline-block mb-3 font-outfit">
+          <span className="bg-[#F5C400] text-white text-[13px] font-medium uppercase tracking-[0.2em] px-3.5 py-1 rounded-[2px] inline-block mb-3 font-outfit">
             SELEZIONA SERVIZIO
           </span>
           <h2 className="text-[#1b2a4a] text-2xl sm:text-3xl md:text-[34px] font-semibold uppercase tracking-tight font-outfit">
@@ -160,17 +160,17 @@ export default function Servizi() {
                 onClick={() => setActiveTab(s.id)}
                 className={`p-6 rounded-[2px] text-left transition-all duration-300 border flex flex-col justify-between cursor-pointer ${
                   isActive 
-                    ? 'bg-white text-[#1b2a4a] border-[#b8972a] shadow-md ring-1 ring-[#b8972a]/40' 
+                    ? 'bg-white text-[#1b2a4a] border-[#F5C400] shadow-md ring-1 ring-[#F5C400]/40' 
                     : 'bg-neutral-50/60 text-[#3d4a66] hover:bg-white hover:text-[#1b2a4a] border-[#1b2a4a]/10'
                 }`}
               >
                 <div>
                   <div className={`p-3 rounded-[2px] w-fit mb-3.5 ${
-                    isActive ? 'bg-[#b8972a] text-white' : 'bg-[#1b2a4a]/5 text-[#1b2a4a]/70'
+                    isActive ? 'bg-[#F5C400] text-white' : 'bg-[#1b2a4a]/5 text-[#1b2a4a]/70'
                   }`}>
                     <IconComp size={22} />
                   </div>
-                  <span className="text-[11px] font-medium uppercase tracking-[0.15em] block mb-1 text-[#b8972a] font-outfit">
+                  <span className="text-[11px] font-medium uppercase tracking-[0.15em] block mb-1 text-[#F5C400] font-outfit">
                     {s.tag}
                   </span>
                   <h3 className="text-sm sm:text-base font-semibold uppercase tracking-tight leading-snug font-outfit">
@@ -181,7 +181,7 @@ export default function Servizi() {
                   <span className="text-[11px] font-medium uppercase tracking-[0.15em] text-[#7b869d]">
                     Seleziona
                   </span>
-                  <ChevronRight size={14} className={isActive ? 'text-[#b8972a]' : 'text-[#7b869d]/50'} />
+                  <ChevronRight size={14} className={isActive ? 'text-[#F5C400]' : 'text-[#7b869d]/50'} />
                 </div>
               </button>
             );
@@ -194,7 +194,7 @@ export default function Servizi() {
             
             {/* Left Content Column */}
             <div className="lg:col-span-7">
-              <span className="bg-[#b8972a] text-white text-[13px] font-medium uppercase tracking-[0.2em] px-3.5 py-1 rounded-[2px] inline-block mb-3 font-outfit">
+              <span className="bg-[#F5C400] text-white text-[13px] font-medium uppercase tracking-[0.2em] px-3.5 py-1 rounded-[2px] inline-block mb-3 font-outfit">
                 {currentService.tag}
               </span>
               <h2 className="text-[#1b2a4a] text-2xl sm:text-3xl md:text-[32px] font-semibold uppercase tracking-tight leading-tight mb-2 font-outfit">
@@ -222,7 +222,7 @@ export default function Servizi() {
               <div className="space-y-3 mb-8">
                 {currentService.features.map((feat, idx) => (
                   <div key={idx} className="flex items-start gap-3">
-                    <CheckCircle2 size={18} className="text-[#b8972a] shrink-0 mt-0.5" />
+                    <CheckCircle2 size={18} className="text-[#F5C400] shrink-0 mt-0.5" />
                     <span className="text-[#3d4a66] text-[15px] font-medium leading-snug font-outfit">{feat}</span>
                   </div>
                 ))}
@@ -232,7 +232,7 @@ export default function Servizi() {
               <div>
                 <Link 
                   to={currentService.route} 
-                  className="border border-[#1b2a4a]/30 hover:border-[#b8972a] text-[#1b2a4a] hover:text-[#b8972a] px-6 py-3 rounded-[2px] text-[11px] font-medium uppercase tracking-[0.2em] transition-colors inline-flex items-center gap-3 font-outfit group"
+                  className="border border-[#1b2a4a]/30 hover:border-[#F5C400] text-[#1b2a4a] hover:text-[#F5C400] px-6 py-3 rounded-[2px] text-[11px] font-medium uppercase tracking-[0.2em] transition-colors inline-flex items-center gap-3 font-outfit group"
                 >
                   <span>Scopri il Servizio</span>
                   <span className="text-sm font-semibold transition-transform group-hover:translate-x-1">&gt;</span>
@@ -250,7 +250,7 @@ export default function Servizi() {
                   className="w-full h-full object-cover group-hover:scale-105 transition-all duration-700"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent p-6 flex flex-col justify-end">
-                  <span className="text-[#b8972a] text-xs font-medium uppercase tracking-wider mb-1 font-outfit">MBA Progetti</span>
+                  <span className="text-[#F5C400] text-xs font-medium uppercase tracking-wider mb-1 font-outfit">MBA Progetti</span>
                   <h3 className="text-white text-lg sm:text-xl font-semibold uppercase tracking-tight font-outfit">{currentService.title}</h3>
                 </div>
               </div>
@@ -264,7 +264,7 @@ export default function Servizi() {
       <section className="py-16 md:py-24 bg-[#F9FBFC] border-t border-[#1b2a4a]/10">
         <div className="max-w-7xl mx-auto px-6">
           <div className="text-center max-w-3xl mx-auto mb-12">
-            <span className="bg-[#b8972a] text-white text-[13px] font-medium uppercase tracking-[0.2em] px-3.5 py-1 rounded-[2px] inline-block mb-3 font-outfit">
+            <span className="bg-[#F5C400] text-white text-[13px] font-medium uppercase tracking-[0.2em] px-3.5 py-1 rounded-[2px] inline-block mb-3 font-outfit">
               IL NOSTRO METODO
             </span>
             <h2 className="text-[#1b2a4a] text-2xl sm:text-3xl md:text-[34px] font-semibold uppercase tracking-tight font-outfit">
@@ -278,7 +278,7 @@ export default function Servizi() {
                 <div className="w-[50px] h-[50px] bg-[#1b2a4a] text-white flex items-center justify-center rounded-[2px] mb-7">
                   <Search size={24} />
                 </div>
-                <span className="text-[#b8972a] font-mono font-medium text-xs block mb-2 tracking-[0.15em]">FASE 01</span>
+                <span className="text-[#F5C400] font-mono font-medium text-xs block mb-2 tracking-[0.15em]">FASE 01</span>
                 <h3 className="text-[#1b2a4a] text-[17px] font-semibold tracking-[0.05em] uppercase mb-4 font-outfit">ANALIZZIAMO</h3>
                 <p className="text-[#3d4a66] text-base leading-[1.7] font-outfit">
                   Esame metodico del disciplinare e del progetto a base di gara per individuare criteri premianti e margini di miglioramento tecnico.
@@ -291,7 +291,7 @@ export default function Servizi() {
                 <div className="w-[50px] h-[50px] bg-[#1b2a4a] text-white flex items-center justify-center rounded-[2px] mb-7">
                   <Compass size={24} />
                 </div>
-                <span className="text-[#b8972a] font-mono font-medium text-xs block mb-2 tracking-[0.15em]">FASE 02</span>
+                <span className="text-[#F5C400] font-mono font-medium text-xs block mb-2 tracking-[0.15em]">FASE 02</span>
                 <h3 className="text-[#1b2a4a] text-[17px] font-semibold tracking-[0.05em] uppercase mb-4 font-outfit">PROGETTIAMO</h3>
                 <p className="text-[#3d4a66] text-base leading-[1.7] font-outfit">
                   Sviluppo di soluzioni migliorative su misura, integrando aspetti architettonici, impiantistici, strutturali e di cantiere.
@@ -304,7 +304,7 @@ export default function Servizi() {
                 <div className="w-[50px] h-[50px] bg-[#1b2a4a] text-white flex items-center justify-center rounded-[2px] mb-7">
                   <CheckSquare size={24} />
                 </div>
-                <span className="text-[#b8972a] font-mono font-medium text-xs block mb-2 tracking-[0.15em]">FASE 03</span>
+                <span className="text-[#F5C400] font-mono font-medium text-xs block mb-2 tracking-[0.15em]">FASE 03</span>
                 <h3 className="text-[#1b2a4a] text-[17px] font-semibold tracking-[0.05em] uppercase mb-4 font-outfit">VALORIZZIAMO</h3>
                 <p className="text-[#3d4a66] text-base leading-[1.7] font-outfit">
                   Produzione di documentazione chiara ed immediata per mettere in risalto il valore della proposta davanti alla commissione.
@@ -318,11 +318,11 @@ export default function Servizi() {
       {/* ── BANNER CONTATTI ── */}
       <section className="py-12 sm:py-16 px-6 max-w-7xl mx-auto border-t border-[#1b2a4a]/10">
         <div className="mb-4">
-          <span className="bg-[#b8972a] text-white text-[13px] font-medium uppercase tracking-[0.2em] px-3.5 py-1 rounded-[2px] inline-block font-outfit">
+          <span className="bg-[#F5C400] text-white text-[13px] font-medium uppercase tracking-[0.2em] px-3.5 py-1 rounded-[2px] inline-block font-outfit">
             CONTATTI
           </span>
         </div>
-        <div className="bg-[#F9FBFC] border-l-4 border-[#b8972a] p-8 sm:p-10 flex flex-col md:flex-row md:items-center justify-between gap-6">
+        <div className="bg-[#F9FBFC] border-l-4 border-[#F5C400] p-8 sm:p-10 flex flex-col md:flex-row md:items-center justify-between gap-6">
           <div>
             <h3 className="text-[#1b2a4a] text-xl sm:text-2xl md:text-[28px] font-semibold uppercase tracking-tight font-outfit">
               HAI BISOGNO DI SUPPORTO PER UNA GARA O UN PROGETTO?
@@ -333,7 +333,7 @@ export default function Servizi() {
           </div>
           <Link
             to="/contatti"
-            className="bg-[#1b2a4a] text-white text-[11px] font-medium uppercase tracking-[0.2em] px-[26px] py-[15px] min-w-[240px] hover:bg-[#b8972a] transition-colors inline-flex items-center justify-between rounded-[2px] shrink-0 font-outfit"
+            className="bg-[#1b2a4a] text-white text-[11px] font-medium uppercase tracking-[0.2em] px-[26px] py-[15px] min-w-[240px] hover:bg-[#F5C400] transition-colors inline-flex items-center justify-between rounded-[2px] shrink-0 font-outfit"
           >
             <span>CONTATTACI</span>
             <span>&gt;</span>

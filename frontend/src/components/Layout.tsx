@@ -131,7 +131,7 @@ export default function Layout() {
                       className={`inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-[2px] text-[14px] font-medium transition-colors duration-200 cursor-pointer select-none ${
                         active
                           ? 'bg-[#F4EEDB] text-[#1b2a4a]'
-                          : 'text-[#1b2a4a] group-hover/nav:bg-[#F4EEDB] hover:text-[#b8972a]'
+                          : 'text-[#1b2a4a] group-hover/nav:bg-[#F4EEDB] hover:text-[#F5C400]'
                       }`}
                     >
                       {link.name}
@@ -154,8 +154,8 @@ export default function Layout() {
                                 to={sub.path}
                                 className={`text-[14px] font-medium transition-colors py-1 block whitespace-nowrap ${
                                   subActive
-                                    ? 'text-[#b8972a] font-semibold'
-                                    : 'text-[#1b2a4a] hover:text-[#b8972a]'
+                                    ? 'text-[#F5C400] font-semibold'
+                                    : 'text-[#1b2a4a] hover:text-[#F5C400]'
                                 }`}
                               >
                                 {sub.name}
@@ -176,12 +176,12 @@ export default function Layout() {
                     className={`relative py-1.5 text-[14px] font-medium transition-colors duration-200 ${
                       active
                         ? 'text-[#1b2a4a] font-semibold'
-                        : 'text-[#1b2a4a] hover:text-[#b8972a]'
+                        : 'text-[#1b2a4a] hover:text-[#F5C400]'
                     }`}
                   >
                     {link.name}
                     {active && (
-                      <span className="absolute -bottom-1 left-0 right-0 h-[2.5px] bg-[#b8972a]" />
+                      <span className="absolute -bottom-1 left-0 right-0 h-[2.5px] bg-[#F5C400]" />
                     )}
                   </Link>
                 </div>
@@ -327,7 +327,7 @@ export default function Layout() {
                   <p className="text-white text-[22px] sm:text-[26px] font-medium uppercase tracking-[0.06em] leading-[1.15]">
                     IL TUO PROSSIMO CANTIERE
                   </p>
-                  <h3 className="text-[#b8972a] text-[clamp(30px,3vw,40px)] font-semibold uppercase tracking-[-0.02em] leading-[1.08] mt-1">
+                  <h3 className="text-[#F5C400] text-[clamp(30px,3vw,40px)] font-semibold uppercase tracking-[-0.02em] leading-[1.08] mt-1">
                     INIZIA QUI
                   </h3>
                 </div>
@@ -340,7 +340,7 @@ export default function Layout() {
               <div className="pt-2 md:pt-0">
                 <Link 
                   to="/contatti" 
-                  className="inline-flex items-center justify-between w-full max-w-[280px] px-[26px] py-[15px] border border-white/20 text-white text-[11px] font-medium uppercase tracking-[0.2em] hover:border-[#b8972a] hover:text-[#b8972a] transition-colors rounded-[2px]"
+                  className="inline-flex items-center justify-between w-full max-w-[280px] px-[26px] py-[15px] border border-white/20 text-white text-[11px] font-medium uppercase tracking-[0.2em] hover:border-[#F5C400] hover:text-[#F5C400] transition-colors rounded-[2px]"
                 >
                   <span>RICHIEDI UNA CONSULENZA</span>
                   <CaretRight size={13} weight="bold" />
@@ -407,16 +407,16 @@ export default function Layout() {
 
               {/* Social Icons spinti in basso e allineati sulla linea base */}
               <div className="flex items-center gap-4 text-white/80 pt-2 md:pt-0">
-                <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" className="hover:text-[#b8972a] transition-colors">
+                <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" className="hover:text-[#F5C400] transition-colors">
                   <LinkedinLogo size={18} weight="fill" />
                 </a>
-                <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" aria-label="Instagram" className="hover:text-[#b8972a] transition-colors">
+                <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" aria-label="Instagram" className="hover:text-[#F5C400] transition-colors">
                   <InstagramLogo size={18} weight="regular" />
                 </a>
-                <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" aria-label="Facebook" className="hover:text-[#b8972a] transition-colors">
+                <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" aria-label="Facebook" className="hover:text-[#F5C400] transition-colors">
                   <FacebookLogo size={18} weight="fill" />
                 </a>
-                <a href="https://wa.me/393286285861" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp" className="hover:text-[#b8972a] transition-colors">
+                <a href="https://wa.me/393286285861" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp" className="hover:text-[#F5C400] transition-colors">
                   <WhatsappLogo size={18} weight="regular" />
                 </a>
               </div>

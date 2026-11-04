@@ -84,7 +84,7 @@ export default function ProjectDetail() {
   const getRankBadge = (rank?: string) => {
     if (!rank) return null;
     const r = rank.toLowerCase();
-    if (r.includes('1') || r.includes('primo')) return { bg: 'bg-[#b8972a]', label: rank.includes('Posto') || rank.includes('Classificato') ? rank : '1° Classificato' };
+    if (r.includes('1') || r.includes('primo')) return { bg: 'bg-[#F5C400]', label: rank.includes('Posto') || rank.includes('Classificato') ? rank : '1° Classificato' };
     if (r.includes('2') || r.includes('secondo')) return { bg: 'bg-[#1b2a4a]', label: rank.includes('Posto') || rank.includes('Classificato') ? rank : '2° Classificato' };
     return null;
   };
@@ -122,7 +122,7 @@ export default function ProjectDetail() {
               
               {/* Location Badge Overlay */}
               <div className="absolute bottom-4 left-4 sm:bottom-8 sm:left-8 flex items-center gap-3 bg-[#1b2a4a]/80 backdrop-blur-md px-4 py-2 sm:px-5 sm:py-3 text-white text-[11px] font-medium uppercase tracking-[0.2em] rounded-[2px]">
-                <MapPin size={14} className="text-[#b8972a]" />
+                <MapPin size={14} className="text-[#F5C400]" />
                 {project.location}
               </div>
             </motion.div>
@@ -135,7 +135,7 @@ export default function ProjectDetail() {
             <div className="mb-8">
               <Link 
                 to="/portfolio" 
-                className="inline-flex items-center gap-2 text-[#7b869d] hover:text-[#b8972a] transition-colors text-[11px] font-medium uppercase tracking-[0.2em]"
+                className="inline-flex items-center gap-2 text-[#7b869d] hover:text-[#F5C400] transition-colors text-[11px] font-medium uppercase tracking-[0.2em]"
               >
                 <ArrowLeft size={14} weight="bold" /> Torna al Portfolio
               </Link>
@@ -151,7 +151,7 @@ export default function ProjectDetail() {
             )}
 
             {/* Category & Title */}
-            <span className="text-[#b8972a] text-[11px] font-medium uppercase tracking-[0.2em] mb-2 block">
+            <span className="text-[#F5C400] text-[11px] font-medium uppercase tracking-[0.2em] mb-2 block">
               {project.category}
             </span>
             <h1 className="text-[#1b2a4a] text-2xl sm:text-3xl md:text-[36px] font-bold uppercase tracking-[0.05em] leading-[1.12] mb-6">
@@ -165,11 +165,11 @@ export default function ProjectDetail() {
 
             {/* Technical Details Grid */}
             <div className="border-t border-[#dfe3ea] pt-6 space-y-6">
-              <h3 className="text-[#b8972a] text-[11px] font-medium uppercase tracking-[0.2em]">Specifiche di Progetto</h3>
+              <h3 className="text-[#F5C400] text-[11px] font-medium uppercase tracking-[0.2em]">Specifiche di Progetto</h3>
               
               <div className="space-y-5">
                 <div className="flex items-start gap-4 group">
-                  <div className="text-[#b8972a] p-2.5 bg-[#1b2a4a]/5 rounded-[2px] flex items-center justify-center">
+                  <div className="text-[#F5C400] p-2.5 bg-[#1b2a4a]/5 rounded-[2px] flex items-center justify-center">
                     <Buildings size={18} weight="light" />
                   </div>
                   <div>
@@ -179,7 +179,7 @@ export default function ProjectDetail() {
                 </div>
 
                 <div className="flex items-start gap-4 group">
-                  <div className="text-[#b8972a] p-2.5 bg-[#1b2a4a]/5 rounded-[2px] flex items-center justify-center">
+                  <div className="text-[#F5C400] p-2.5 bg-[#1b2a4a]/5 rounded-[2px] flex items-center justify-center">
                     <CurrencyEur size={18} weight="light" />
                   </div>
                   <div>
@@ -189,7 +189,7 @@ export default function ProjectDetail() {
                 </div>
 
                 <div className="flex items-start gap-4 group">
-                  <div className="text-[#b8972a] p-2.5 bg-[#1b2a4a]/5 rounded-[2px] flex items-center justify-center">
+                  <div className="text-[#F5C400] p-2.5 bg-[#1b2a4a]/5 rounded-[2px] flex items-center justify-center">
                     <Briefcase size={18} weight="light" />
                   </div>
                   <div>
@@ -200,7 +200,7 @@ export default function ProjectDetail() {
 
                 {project.credits && (
                 <div className="flex items-start gap-4 group">
-                  <div className="text-[#b8972a] p-2.5 bg-[#1b2a4a]/5 rounded-[2px] flex items-center justify-center">
+                  <div className="text-[#F5C400] p-2.5 bg-[#1b2a4a]/5 rounded-[2px] flex items-center justify-center">
                     <Users size={18} weight="light" />
                   </div>
                   <div>
@@ -218,7 +218,7 @@ export default function ProjectDetail() {
                   project.rank.toLowerCase().includes('secondo')
                 ) && (
                   <div className="flex items-start gap-4 group">
-                    <div className="text-[#b8972a] p-2.5 bg-[#1b2a4a]/5 rounded-[2px] flex items-center justify-center">
+                    <div className="text-[#F5C400] p-2.5 bg-[#1b2a4a]/5 rounded-[2px] flex items-center justify-center">
                       <Trophy size={18} weight="light" />
                     </div>
                     <div>
@@ -240,7 +240,7 @@ export default function ProjectDetail() {
         <div className="px-6 max-w-7xl mx-auto">
           {/* Section Header */}
           <div className="mb-10 text-left">
-            <span className="bg-[#b8972a] text-white text-[13px] font-medium uppercase tracking-[0.2em] px-3.5 py-1 rounded-[2px] inline-block mb-4 shadow-sm font-outfit">
+            <span className="bg-[#F5C400] text-white text-[13px] font-medium uppercase tracking-[0.2em] px-3.5 py-1 rounded-[2px] inline-block mb-4 shadow-sm font-outfit">
               PORTFOLIO COMPLETO
             </span>
             <h2 className="text-[#1b2a4a] text-2xl sm:text-3xl md:text-4xl font-semibold uppercase tracking-tight leading-tight font-outfit">
@@ -301,7 +301,7 @@ export default function ProjectDetail() {
           <div className="mt-8 sm:mt-10 flex flex-row items-center justify-between gap-2 sm:gap-4">
             <Link 
               to="/portfolio" 
-              className="border border-[#1b2a4a]/25 hover:border-[#b8972a] hover:text-[#b8972a] bg-white px-2.5 sm:px-6 py-3 sm:py-3.5 text-[9px] min-[380px]:text-[10px] sm:text-xs tracking-wider sm:tracking-widest uppercase font-medium text-[#1b2a4a] transition-all rounded-[2px] shadow-xs inline-flex items-center justify-center gap-1.5 sm:gap-3 group flex-1 min-w-0"
+              className="border border-[#1b2a4a]/25 hover:border-[#F5C400] hover:text-[#F5C400] bg-white px-2.5 sm:px-6 py-3 sm:py-3.5 text-[9px] min-[380px]:text-[10px] sm:text-xs tracking-wider sm:tracking-widest uppercase font-medium text-[#1b2a4a] transition-all rounded-[2px] shadow-xs inline-flex items-center justify-center gap-1.5 sm:gap-3 group flex-1 min-w-0"
             >
               <span className="truncate">Vedi Tutti i Progetti nel Portfolio</span>
               <ArrowRight size={14} className="group-hover:translate-x-1 transition-transform shrink-0" />
@@ -310,14 +310,14 @@ export default function ProjectDetail() {
             <div className="flex items-center justify-end gap-1.5 sm:gap-3 shrink-0">
               <button 
                 onClick={handlePrevPortfolio}
-                className="w-9 h-9 min-[380px]:w-10 min-[380px]:h-10 sm:w-11 sm:h-11 border border-[#1b2a4a]/20 text-[#1b2a4a] hover:border-[#b8972a] hover:text-[#b8972a] transition-colors bg-white rounded-[2px] shadow-xs flex items-center justify-center shrink-0 cursor-pointer"
+                className="w-9 h-9 min-[380px]:w-10 min-[380px]:h-10 sm:w-11 sm:h-11 border border-[#1b2a4a]/20 text-[#1b2a4a] hover:border-[#F5C400] hover:text-[#F5C400] transition-colors bg-white rounded-[2px] shadow-xs flex items-center justify-center shrink-0 cursor-pointer"
                 aria-label="Progetto Precedente"
               >
                 <CaretLeft size={18} />
               </button>
               <button 
                 onClick={handleNextPortfolio}
-                className="w-9 h-9 min-[380px]:w-10 min-[380px]:h-10 sm:w-11 sm:h-11 border border-[#1b2a4a]/20 text-[#1b2a4a] hover:border-[#b8972a] hover:text-[#b8972a] transition-colors bg-white rounded-[2px] shadow-xs flex items-center justify-center shrink-0 cursor-pointer"
+                className="w-9 h-9 min-[380px]:w-10 min-[380px]:h-10 sm:w-11 sm:h-11 border border-[#1b2a4a]/20 text-[#1b2a4a] hover:border-[#F5C400] hover:text-[#F5C400] transition-colors bg-white rounded-[2px] shadow-xs flex items-center justify-center shrink-0 cursor-pointer"
                 aria-label="Progetto Successivo"
               >
                 <CaretRight size={18} />
@@ -350,7 +350,7 @@ function ProjectCard({ id, title, cat, img, pos, rank, amount }: any) {
           className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
         />
         {rank && (
-          <div className="absolute top-3 left-3 bg-[#b8972a] text-white text-[10px] font-medium uppercase tracking-[0.06em] px-2.5 py-1 rounded-[2px] font-outfit shadow-xs">
+          <div className="absolute top-3 left-3 bg-[#F5C400] text-white text-[10px] font-medium uppercase tracking-[0.06em] px-2.5 py-1 rounded-[2px] font-outfit shadow-xs">
             {rank}
           </div>
         )}
@@ -361,7 +361,7 @@ function ProjectCard({ id, title, cat, img, pos, rank, amount }: any) {
             {metaLine}
           </span>
         )}
-        <h3 className="text-[#1b2a4a] text-base font-bold leading-snug group-hover:text-[#b8972a] transition-colors line-clamp-2 font-outfit">
+        <h3 className="text-[#1b2a4a] text-base font-bold leading-snug group-hover:text-[#F5C400] transition-colors line-clamp-2 font-outfit">
           {title}
         </h3>
         <p className="text-[#64748b] text-xs font-normal font-outfit">
