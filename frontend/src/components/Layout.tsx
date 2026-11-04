@@ -115,23 +115,23 @@ export default function Layout() {
                 return (
                   <div key={link.name} className="relative group/nav h-full flex items-center">
                     <div
-                      className={`inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-t-sm text-[15px] font-medium transition-colors duration-200 cursor-pointer select-none ${
+                      className={`inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-[2px] text-[14px] font-medium transition-colors duration-200 cursor-pointer select-none ${
                         active
-                          ? 'bg-[#F4EEDB] text-[#1B2A4A]'
-                          : 'text-[#1B2A4A] group-hover/nav:bg-[#F4EEDB] hover:text-[#1B2A4A]'
+                          ? 'bg-[#F4EEDB] text-[#1b2a4a]'
+                          : 'text-[#1b2a4a] group-hover/nav:bg-[#F4EEDB] hover:text-[#b8972a]'
                       }`}
                     >
                       {link.name}
                       <CaretDown
                         size={13}
                         weight="bold"
-                        className="transition-transform duration-200 group-hover/nav:rotate-180 text-[#1B2A4A]"
+                        className="transition-transform duration-200 group-hover/nav:rotate-180 text-[#1b2a4a]"
                       />
                     </div>
 
                     {/* Dropdown Card */}
                     <div className="absolute top-[calc(100%-1px)] left-0 pt-0 opacity-0 translate-y-1 pointer-events-none group-hover/nav:opacity-100 group-hover/nav:translate-y-0 group-hover/nav:pointer-events-auto transition-all duration-200 z-50 before:absolute before:-top-2.5 before:left-0 before:right-0 before:h-2.5 before:content-['']">
-                      <div className="bg-white border border-[#1B2A4A]/10 shadow-[0_12px_30px_rgba(27,42,74,0.08)] py-3 px-6 min-w-[170px]">
+                      <div className="bg-white border border-[#1b2a4a]/10 shadow-[0_12px_30px_rgba(27,42,74,0.08)] py-3 px-6 min-w-[170px] rounded-[2px]">
                         <div className="flex flex-col gap-2">
                           {link.subLinks!.map((sub) => {
                             const subActive = location.pathname === sub.path;
@@ -139,10 +139,10 @@ export default function Layout() {
                               <Link
                                 key={sub.path}
                                 to={sub.path}
-                                className={`text-[14px] sm:text-[15px] font-medium transition-colors py-1 block whitespace-nowrap ${
+                                className={`text-[14px] font-medium transition-colors py-1 block whitespace-nowrap ${
                                   subActive
-                                    ? 'text-[#F5C400] font-semibold'
-                                    : 'text-[#1B2A4A] hover:text-[#F5C400]'
+                                    ? 'text-[#b8972a] font-semibold'
+                                    : 'text-[#1b2a4a] hover:text-[#b8972a]'
                                 }`}
                               >
                                 {sub.name}
@@ -160,15 +160,15 @@ export default function Layout() {
                 <div key={link.name} className="relative h-full flex items-center">
                   <Link
                     to={link.path}
-                    className={`relative py-1.5 text-[15px] font-medium transition-colors duration-200 ${
+                    className={`relative py-1.5 text-[14px] font-medium transition-colors duration-200 ${
                       active
-                        ? 'text-[#1B2A4A] font-semibold'
-                        : 'text-[#1B2A4A] hover:text-[#F5C400]'
+                        ? 'text-[#1b2a4a] font-semibold'
+                        : 'text-[#1b2a4a] hover:text-[#b8972a]'
                     }`}
                   >
                     {link.name}
                     {active && (
-                      <span className="absolute -bottom-1 left-0 right-0 h-[2.5px] bg-[#F5C400]" />
+                      <span className="absolute -bottom-1 left-0 right-0 h-[2.5px] bg-[#b8972a]" />
                     )}
                   </Link>
                 </div>
@@ -294,27 +294,27 @@ export default function Layout() {
       </main>
 
       {/* ── FOOTER ── */}
-      <footer className="bg-[#14223d] text-white pt-16 pb-12 px-6 sm:px-10 lg:px-16 overflow-hidden relative">
+      <footer className="bg-[#1b2a4a] text-white pt-16 pb-12 px-6 sm:px-10 lg:px-16 overflow-hidden relative">
         <div className="max-w-7xl mx-auto relative z-10">
           <div className="grid grid-cols-1 md:grid-cols-12 gap-10 lg:gap-16 mb-16">
 
             {/* 1. Colonna Sinistra: Brand & CTA Cantiere */}
             <div className="md:col-span-5 lg:col-span-5 flex flex-col justify-between space-y-6 md:space-y-0">
               <div className="space-y-5">
-                <Link to="/" className="text-white text-2xl font-black tracking-wider uppercase inline-block">
+                <Link to="/" className="text-white text-[24px] font-semibold leading-none tracking-[-0.02em] uppercase inline-block">
                   MBA
                 </Link>
 
                 <div>
-                  <p className="text-white text-sm sm:text-[15px] font-bold uppercase tracking-[0.06em] leading-tight">
+                  <p className="text-white text-[22px] sm:text-[26px] font-medium uppercase tracking-[0.06em] leading-[1.15]">
                     IL TUO PROSSIMO CANTIERE
                   </p>
-                  <h3 className="text-[#F5C400] text-2xl sm:text-3xl font-black uppercase tracking-tight leading-none mt-1">
+                  <h3 className="text-[#b8972a] text-[clamp(30px,3vw,40px)] font-semibold uppercase tracking-[-0.02em] leading-[1.08] mt-1">
                     INIZIA QUI
                   </h3>
                 </div>
 
-                <p className="text-white/70 text-xs sm:text-[13px] font-normal leading-relaxed max-w-sm">
+                <p className="text-white/80 text-[14px] font-normal leading-[1.65] max-w-sm">
                   Richiedi una consulenza tecnica per la tua gara d'appalto.
                 </p>
               </div>
@@ -322,7 +322,7 @@ export default function Layout() {
               <div className="pt-2 md:pt-0">
                 <Link 
                   to="/contatti" 
-                  className="inline-flex items-center justify-between w-full max-w-[270px] px-5 py-2.5 border border-white/20 text-white text-[11px] font-bold uppercase tracking-[0.14em] hover:border-[#F5C400] hover:text-[#F5C400] transition-colors rounded-[1px]"
+                  className="inline-flex items-center justify-between w-full max-w-[280px] px-[26px] py-[15px] border border-white/20 text-white text-[11px] font-medium uppercase tracking-[0.2em] hover:border-[#b8972a] hover:text-[#b8972a] transition-colors rounded-[2px]"
                 >
                   <span>RICHIEDI UNA CONSULENZA</span>
                   <CaretRight size={13} weight="bold" />
@@ -332,10 +332,10 @@ export default function Layout() {
 
             {/* 2. Colonna Centrale: MENU */}
             <div className="md:col-span-3 lg:col-span-3">
-              <h4 className="text-white/40 text-[11px] font-bold uppercase tracking-[0.18em] mb-4">
+              <h4 className="text-white/55 text-[11px] font-medium uppercase tracking-[0.2em] mb-4">
                 MENU
               </h4>
-              <ul className="space-y-2 text-[13px] text-white/80">
+              <ul className="space-y-2 text-[14px] text-white/85 leading-[1.65]">
                 <li>
                   <Link to="/" className="hover:text-white transition-colors">Home</Link>
                 </li>
@@ -369,10 +369,10 @@ export default function Layout() {
             {/* 3. Colonna Destra: CONTATTI */}
             <div className="md:col-span-4 lg:col-span-4 flex flex-col justify-between space-y-6 md:space-y-0">
               <div>
-                <h4 className="text-white/40 text-[11px] font-bold uppercase tracking-[0.18em] mb-4">
+                <h4 className="text-white/55 text-[11px] font-medium uppercase tracking-[0.2em] mb-4">
                   CONTATTI
                 </h4>
-                <div className="space-y-1.5 text-[13px] text-white/80 leading-relaxed mb-6">
+                <div className="space-y-1.5 text-[14px] text-white/85 leading-[1.7] mb-6">
                   <p>Via Sardarulo 7, 81016 San Potito Sannitico (CE)</p>
                   <p>
                     <a href="tel:+393286285861" className="hover:text-white transition-colors">328 6285861</a>
@@ -389,16 +389,16 @@ export default function Layout() {
 
               {/* Social Icons spinti in basso e allineati sulla linea base */}
               <div className="flex items-center gap-4 text-white/80 pt-2 md:pt-0">
-                <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" className="hover:text-[#F5C400] transition-colors">
+                <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" className="hover:text-[#b8972a] transition-colors">
                   <LinkedinLogo size={18} weight="fill" />
                 </a>
-                <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" aria-label="Instagram" className="hover:text-[#F5C400] transition-colors">
+                <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" aria-label="Instagram" className="hover:text-[#b8972a] transition-colors">
                   <InstagramLogo size={18} weight="regular" />
                 </a>
-                <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" aria-label="Facebook" className="hover:text-[#F5C400] transition-colors">
+                <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" aria-label="Facebook" className="hover:text-[#b8972a] transition-colors">
                   <FacebookLogo size={18} weight="fill" />
                 </a>
-                <a href="https://wa.me/393286285861" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp" className="hover:text-[#F5C400] transition-colors">
+                <a href="https://wa.me/393286285861" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp" className="hover:text-[#b8972a] transition-colors">
                   <WhatsappLogo size={18} weight="regular" />
                 </a>
               </div>
@@ -407,11 +407,11 @@ export default function Layout() {
           </div>
 
           {/* Barra Privacy & Copyright discreta */}
-          <div className="flex flex-col sm:flex-row justify-between items-center pt-8 border-t border-white/5 text-white/30 text-[11px] gap-4">
+          <div className="flex flex-col sm:flex-row justify-between items-center pt-8 border-t border-white/5 text-white/40 text-[12px] gap-4">
             <p>© {new Date().getFullYear()} MBA Progetti. Tutti i diritti riservati.</p>
             <div className="flex gap-6">
-              <Link to="/privacy" className="hover:text-white/60 transition-colors">Privacy &amp; Cookie Policy</Link>
-              <Link to="/admin" className="hover:text-white/60 transition-colors">Admin CMS</Link>
+              <Link to="/privacy" className="hover:text-white/70 transition-colors">Privacy &amp; Cookie Policy</Link>
+              <Link to="/admin" className="hover:text-white/70 transition-colors">Admin CMS</Link>
             </div>
           </div>
         </div>

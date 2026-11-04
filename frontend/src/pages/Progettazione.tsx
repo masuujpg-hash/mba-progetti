@@ -532,13 +532,13 @@ export default function Progettazione() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
           >
-            <span className="text-white text-xs sm:text-sm font-bold uppercase tracking-[0.45em] mb-4 block drop-shadow-sm">
-              INGEGNERIA & ARCHITETTURA
+            <span className="text-white/80 text-[11px] font-medium uppercase tracking-[0.2em] mb-4 block drop-shadow-sm">
+              INGEGNERIA &amp; ARCHITETTURA
             </span>
-            <h1 className="text-white text-4xl sm:text-6xl md:text-7xl font-extrabold uppercase tracking-tight mb-4 drop-shadow-md">
+            <h1 className="text-white text-[clamp(34px,4.5vw,60px)] font-medium uppercase tracking-[-0.03em] leading-[1.05] mb-4 drop-shadow-md">
               PROGETTAZIONE
             </h1>
-            <p className="text-white/90 text-sm sm:text-base font-light max-w-2xl mx-auto leading-relaxed drop-shadow-sm">
+            <p className="text-white/86 text-[16px] font-normal max-w-[672px] mx-auto leading-[1.65] drop-shadow-sm">
               Dal concept architettonico all'esecutivo cantierabile. Sviluppiamo opere complesse, sostenibili e conformi ai requisiti CAM ed OEPV.
             </p>
           </motion.div>
@@ -549,10 +549,10 @@ export default function Progettazione() {
       <section className="py-12 sm:py-16 px-6 max-w-7xl mx-auto">
         {/* Header Sezione */}
         <div className="mb-6">
-          <span className="bg-gold text-white text-[10px] font-bold uppercase tracking-[0.25em] px-3.5 py-1 rounded-[1px] inline-block mb-3 shadow-xs font-outfit">
+          <span className="bg-[#b8972a] text-white text-[13px] font-medium uppercase tracking-[0.2em] px-2.5 py-1 rounded-[2px] inline-block mb-3 shadow-xs">
             EDILIZIA E ARCHITETTURA
           </span>
-          <h2 className="text-navy text-2xl sm:text-3xl md:text-4xl font-extrabold uppercase tracking-tight font-heading">
+          <h2 className="text-[#1b2a4a] text-2xl sm:text-3xl md:text-[32px] font-bold uppercase tracking-[0.05em] leading-[1.12]">
             EDIFICI PENSATI PER ESSERE COSTRUITI
           </h2>
         </div>
@@ -560,12 +560,12 @@ export default function Progettazione() {
         {/* 2-Column Grid: Text & Diagram */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center mb-12">
           {/* Left Description Column (Testo esatto dal mockup) */}
-          <div className="lg:col-span-6 space-y-5 text-navy/85 text-[15px] sm:text-[17px] leading-relaxed font-normal font-outfit">
+          <div className="lg:col-span-6 space-y-5 text-[#3d4a66] text-[16px] leading-[1.7] font-normal max-w-[62ch]">
             <p>
-              Affianchiamo <strong className="text-navy font-bold">committenti pubblici e privati</strong> nella progettazione di edifici, spazi e interventi di recupero. Le esigenze d’uso, le risorse disponibili e le caratteristiche del luogo guidano scelte architettoniche e costruttive orientate alla <strong className="text-navy font-bold">sostenibilità ambientale</strong>, all’<strong className="text-navy font-bold">efficienza energetica</strong> e alla qualità degli spazi.
+              Affianchiamo <strong className="text-[#1b2a4a] font-bold">committenti pubblici e privati</strong> nella progettazione di edifici, spazi e interventi di recupero. Le esigenze d’uso, le risorse disponibili e le caratteristiche del luogo guidano scelte architettoniche e costruttive orientate alla <strong className="text-[#1b2a4a] font-bold">sostenibilità ambientale</strong>, all’<strong className="text-[#1b2a4a] font-bold">efficienza energetica</strong> e alla qualità degli spazi.
             </p>
             <p>
-              I <strong className="text-navy font-bold">Criteri Ambientali Minimi (CAM)</strong> orientano la scelta dei materiali e delle soluzioni costruttive, insieme alla valutazione dei consumi energetici, della durabilità e delle esigenze di manutenzione. Ne derivano <strong className="text-navy font-bold">progetti realizzabili</strong>, <strong className="text-navy font-bold">coerenti con il budget</strong> e pensati per contenere i costi di gestione nel tempo.
+              I <strong className="text-[#1b2a4a] font-bold">Criteri Ambientali Minimi (CAM)</strong> orientano la scelta dei materiali e delle soluzioni costruttive, insieme alla valutazione dei consumi energetici, della durabilità e delle esigenze di manutenzione. Ne derivano <strong className="text-[#1b2a4a] font-bold">progetti realizzabili</strong>, <strong className="text-[#1b2a4a] font-bold">coerenti con il budget</strong> e pensati per contenere i costi di gestione nel tempo.
             </p>
           </div>
 
@@ -576,56 +576,56 @@ export default function Progettazione() {
         </div>
 
         {/* Horizontal Strip con i 6 Punti Chiave identici al Mockup */}
-        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 divide-y sm:divide-y-0 sm:divide-x divide-navy/10 border-y border-navy/15 my-10 py-5 bg-white">
+        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 divide-y sm:divide-y-0 sm:divide-x divide-[#dfe3ea] border-y border-[#dfe3ea] my-10 py-5 bg-white">
           <div className="flex flex-col items-center justify-center text-center p-3 sm:p-4 group">
-            <HouseLine size={26} weight="regular" className="text-navy mb-2 group-hover:text-gold transition-colors" />
-            <span className="text-[11px] sm:text-xs font-bold text-navy uppercase tracking-[0.14em] leading-tight font-outfit">
+            <HouseLine size={26} weight="regular" className="text-[#1b2a4a] mb-2 group-hover:text-[#b8972a] transition-colors" />
+            <span className="text-[11px] sm:text-[12px] font-medium text-[#1b2a4a] uppercase tracking-[0.06em] leading-tight">
               QUALITÀ<br />ARCHITETTONICA
             </span>
           </div>
 
           <div className="flex flex-col items-center justify-center text-center p-3 sm:p-4 group">
-            <svg className="w-[26px] h-[26px] text-navy mb-2 group-hover:text-gold transition-colors" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round">
+            <svg className="w-[26px] h-[26px] text-[#1b2a4a] mb-2 group-hover:text-[#b8972a] transition-colors" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round">
               <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" />
               <polyline points="14 2 14 8 20 8" />
               <path d="M9 15l2 2 4-4" />
             </svg>
-            <span className="text-[11px] sm:text-xs font-bold text-navy uppercase tracking-[0.14em] leading-tight font-outfit">
+            <span className="text-[11px] sm:text-[12px] font-medium text-[#1b2a4a] uppercase tracking-[0.06em] leading-tight">
               CAM
             </span>
           </div>
 
           <div className="flex flex-col items-center justify-center text-center p-3 sm:p-4 group">
-            <Lightning size={26} weight="regular" className="text-navy mb-2 group-hover:text-gold transition-colors" />
-            <span className="text-[11px] sm:text-xs font-bold text-navy uppercase tracking-[0.14em] leading-tight font-outfit">
+            <Lightning size={26} weight="regular" className="text-[#1b2a4a] mb-2 group-hover:text-[#b8972a] transition-colors" />
+            <span className="text-[11px] sm:text-[12px] font-medium text-[#1b2a4a] uppercase tracking-[0.06em] leading-tight">
               EFFICIENZA ENERGETICA
             </span>
           </div>
 
           <div className="flex flex-col items-center justify-center text-center p-3 sm:p-4 group">
-            <Wheelchair size={26} weight="regular" className="text-navy mb-2 group-hover:text-gold transition-colors" />
-            <span className="text-[11px] sm:text-xs font-bold text-navy uppercase tracking-[0.14em] leading-tight font-outfit">
+            <Wheelchair size={26} weight="regular" className="text-[#1b2a4a] mb-2 group-hover:text-[#b8972a] transition-colors" />
+            <span className="text-[11px] sm:text-[12px] font-medium text-[#1b2a4a] uppercase tracking-[0.06em] leading-tight">
               ACCESSIBILITÀ
             </span>
           </div>
 
           <div className="flex flex-col items-center justify-center text-center p-3 sm:p-4 group">
-            <ArrowsClockwise size={26} weight="regular" className="text-navy mb-2 group-hover:text-gold transition-colors" />
-            <span className="text-[11px] sm:text-xs font-bold text-navy uppercase tracking-[0.14em] leading-tight font-outfit">
+            <ArrowsClockwise size={26} weight="regular" className="text-[#1b2a4a] mb-2 group-hover:text-[#b8972a] transition-colors" />
+            <span className="text-[11px] sm:text-[12px] font-medium text-[#1b2a4a] uppercase tracking-[0.06em] leading-tight">
               CICLO DI VITA
             </span>
           </div>
 
           <div className="flex flex-col items-center justify-center text-center p-3 sm:p-4 group">
-            <Leaf size={26} weight="regular" className="text-navy mb-2 group-hover:text-gold transition-colors" />
-            <span className="text-[11px] sm:text-xs font-bold text-navy uppercase tracking-[0.14em] leading-tight font-outfit">
+            <Leaf size={26} weight="regular" className="text-[#1b2a4a] mb-2 group-hover:text-[#b8972a] transition-colors" />
+            <span className="text-[11px] sm:text-[12px] font-medium text-[#1b2a4a] uppercase tracking-[0.06em] leading-tight">
               SOSTENIBILITÀ
             </span>
           </div>
         </div>
 
         {/* Immagine Facciata a piena larghezza (Fedele al Mockup: p04_1.webp) */}
-        <div className="relative rounded-lg overflow-hidden border border-navy/10 shadow-sm group bg-[#F7F5F0]">
+        <div className="relative rounded-[2px] overflow-hidden border border-[#dfe3ea] shadow-sm group bg-[#F7F5F0]">
           <img
             src="/media/portfolio/p04_1.webp"
             alt="Edilizia Pensata per Essere Costruita - Prospetto Esecutivo"
@@ -635,13 +635,13 @@ export default function Progettazione() {
       </section>
 
       {/* ── 3. SEZIONE 2: OPERE PUBBLICHE CHE DURANO NEL TEMPO ── */}
-      <section className="py-12 sm:py-16 px-6 max-w-7xl mx-auto border-t border-navy/10">
+      <section className="py-12 sm:py-16 px-6 max-w-7xl mx-auto border-t border-[#dfe3ea]">
         {/* Header Sezione */}
         <div className="mb-8">
-          <span className="bg-gold text-white text-[10px] font-bold uppercase tracking-[0.25em] px-3.5 py-1 rounded-[1px] inline-block mb-3 shadow-xs font-outfit">
+          <span className="bg-[#b8972a] text-white text-[13px] font-medium uppercase tracking-[0.2em] px-2.5 py-1 rounded-[2px] inline-block mb-3 shadow-xs">
             INFRASTRUTTURE E SPAZI PUBBLICI
           </span>
-          <h2 className="text-navy text-2xl sm:text-3xl md:text-4xl font-extrabold uppercase tracking-tight font-heading">
+          <h2 className="text-[#1b2a4a] text-2xl sm:text-3xl md:text-[32px] font-bold uppercase tracking-[0.05em] leading-[1.12]">
             OPERE PUBBLICHE CHE DURANO NEL TEMPO
           </h2>
         </div>
@@ -650,7 +650,7 @@ export default function Progettazione() {
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center mb-12">
           {/* Left Column: Park Showcase Image */}
           <div className="lg:col-span-6">
-            <div className="relative rounded-[1px] overflow-hidden border border-navy/10 shadow-sm group">
+            <div className="relative rounded-[2px] overflow-hidden border border-[#dfe3ea] shadow-sm group">
               <img
                 src="/media/portfolio/p10_1.webp"
                 alt="Progettazione Spazi Pubblici e Percorsi Parco"
@@ -660,78 +660,78 @@ export default function Progettazione() {
           </div>
 
           {/* Right Column: Text esatto da mockup */}
-          <div className="lg:col-span-6 space-y-5 text-navy/85 text-[15px] sm:text-[17px] font-normal leading-relaxed font-outfit">
+          <div className="lg:col-span-6 space-y-5 text-[#3d4a66] text-[16px] font-normal leading-[1.7] max-w-[62ch]">
             <p>
-              Progettiamo strade, aree urbane, percorsi pedonali, parcheggi e illuminazione pubblica considerando <strong className="text-navy font-bold">come le persone attraversano e vivono questi spazi</strong>. Continuità dei percorsi, accessibilità, sicurezza e qualità della luce guidano il disegno insieme alle esigenze di mobilità e gestione dell’area.
+              Progettiamo strade, aree urbane, percorsi pedonali, parcheggi e illuminazione pubblica considerando <strong className="text-[#1b2a4a] font-bold">come le persone attraversano e vivono questi spazi</strong>. Continuità dei percorsi, accessibilità, sicurezza e qualità della luce guidano il disegno insieme alle esigenze di mobilità e gestione dell’area.
             </p>
             <p>
-              Applichiamo i <strong className="text-navy font-bold">Criteri Ambientali Minimi</strong> pertinenti e valutiamo materiali, consumi energetici e manutenzione lungo il <strong className="text-navy font-bold">ciclo di vita dell’opera</strong>. Le scelte tecniche contribuiscono così a realizzare spazi pubblici <strong className="text-navy font-bold">più fruibili, durevoli e meno onerosi da gestire</strong>.
+              Applichiamo i <strong className="text-[#1b2a4a] font-bold">Criteri Ambientali Minimi</strong> pertinenti e valutiamo materiali, consumi energetici e manutenzione lungo il <strong className="text-[#1b2a4a] font-bold">ciclo di vita dell’opera</strong>. Le scelte tecniche contribuiscono così a realizzare spazi pubblici <strong className="text-[#1b2a4a] font-bold">più fruibili, durevoli e meno onerosi da gestire</strong>.
             </p>
           </div>
         </div>
 
         {/* Horizontal Strip con le 6 Categorie conformi al mockup */}
-        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 divide-y sm:divide-y-0 sm:divide-x divide-navy/10 border-y border-navy/15 my-8 py-5 bg-white">
+        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 divide-y sm:divide-y-0 sm:divide-x divide-[#dfe3ea] border-y border-[#dfe3ea] my-8 py-5 bg-white">
           <div className="flex flex-col items-center justify-center text-center p-3 sm:p-4 group">
-            <svg className="w-[26px] h-[26px] text-navy mb-2 group-hover:text-gold transition-colors" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round">
+            <svg className="w-[26px] h-[26px] text-[#1b2a4a] mb-2 group-hover:text-[#b8972a] transition-colors" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round">
               <path d="M4 22L8 2M20 22L16 2" />
               <line x1="12" y1="4" x2="12" y2="7" />
               <line x1="12" y1="11" x2="12" y2="14" />
               <line x1="12" y1="18" x2="12" y2="21" />
             </svg>
-            <span className="text-[11px] sm:text-xs font-bold text-navy uppercase tracking-[0.14em] leading-tight font-outfit">
+            <span className="text-[11px] sm:text-[12px] font-medium text-[#1b2a4a] uppercase tracking-[0.06em] leading-tight">
               STRADE
             </span>
           </div>
 
           <div className="flex flex-col items-center justify-center text-center p-3 sm:p-4 group">
-            <svg className="w-[26px] h-[26px] text-navy mb-2 group-hover:text-gold transition-colors" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round">
+            <svg className="w-[26px] h-[26px] text-[#1b2a4a] mb-2 group-hover:text-[#b8972a] transition-colors" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round">
               <rect x="3" y="10" width="7" height="12" />
               <rect x="14" y="4" width="7" height="18" />
               <path d="M6 13h1M6 16h1M6 19h1M17 7h1M17 10h1M17 13h1M17 16h1M17 19h1" />
             </svg>
-            <span className="text-[11px] sm:text-xs font-bold text-navy uppercase tracking-[0.14em] leading-tight font-outfit">
+            <span className="text-[11px] sm:text-[12px] font-medium text-[#1b2a4a] uppercase tracking-[0.06em] leading-tight">
               AREE URBANE
             </span>
           </div>
 
           <div className="flex flex-col items-center justify-center text-center p-3 sm:p-4 group">
-            <svg className="w-[26px] h-[26px] text-navy mb-2 group-hover:text-gold transition-colors" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round">
+            <svg className="w-[26px] h-[26px] text-[#1b2a4a] mb-2 group-hover:text-[#b8972a] transition-colors" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round">
               <circle cx="12" cy="4" r="2" />
               <path d="M12 6v6m0 0l-3 4m3-4l3 4m-3-6l-3-2m3 2l3-2" />
             </svg>
-            <span className="text-[11px] sm:text-xs font-bold text-navy uppercase tracking-[0.14em] leading-tight font-outfit">
+            <span className="text-[11px] sm:text-[12px] font-medium text-[#1b2a4a] uppercase tracking-[0.06em] leading-tight">
               PERCORSI PEDONALI
             </span>
           </div>
 
           <div className="flex flex-col items-center justify-center text-center p-3 sm:p-4 group">
-            <svg className="w-[26px] h-[26px] text-navy mb-2 group-hover:text-gold transition-colors" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round">
+            <svg className="w-[26px] h-[26px] text-[#1b2a4a] mb-2 group-hover:text-[#b8972a] transition-colors" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round">
               <rect x="4" y="4" width="16" height="16" rx="1.5" />
               <path d="M9 16V8h3.5a2.5 2.5 0 0 1 0 5H9" />
             </svg>
-            <span className="text-[11px] sm:text-xs font-bold text-navy uppercase tracking-[0.14em] leading-tight font-outfit">
+            <span className="text-[11px] sm:text-[12px] font-medium text-[#1b2a4a] uppercase tracking-[0.06em] leading-tight">
               PARCHEGGI
             </span>
           </div>
 
           <div className="flex flex-col items-center justify-center text-center p-3 sm:p-4 group">
-            <svg className="w-[26px] h-[26px] text-navy mb-2 group-hover:text-gold transition-colors" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round">
+            <svg className="w-[26px] h-[26px] text-[#1b2a4a] mb-2 group-hover:text-[#b8972a] transition-colors" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round">
               <path d="M9 22V7a4 4 0 0 1 4-4h2a2 2 0 0 1 2 2v2a1 1 0 0 1-1 1h-2a1 1 0 0 1-1-1" />
               <line x1="14" y1="10" x2="16" y2="10" />
             </svg>
-            <span className="text-[11px] sm:text-xs font-bold text-navy uppercase tracking-[0.14em] leading-tight font-outfit">
+            <span className="text-[11px] sm:text-[12px] font-medium text-[#1b2a4a] uppercase tracking-[0.06em] leading-tight">
               ILLUMINAZIONE
             </span>
           </div>
 
           <div className="flex flex-col items-center justify-center text-center p-3 sm:p-4 group">
-            <svg className="w-[26px] h-[26px] text-navy mb-2 group-hover:text-gold transition-colors" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round">
+            <svg className="w-[26px] h-[26px] text-[#1b2a4a] mb-2 group-hover:text-[#b8972a] transition-colors" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round">
               <circle cx="12" cy="8" r="5" />
               <line x1="12" y1="13" x2="12" y2="21" />
               <line x1="9" y1="21" x2="15" y2="21" />
             </svg>
-            <span className="text-[11px] sm:text-xs font-bold text-navy uppercase tracking-[0.14em] leading-tight font-outfit">
+            <span className="text-[11px] sm:text-[12px] font-medium text-[#1b2a4a] uppercase tracking-[0.06em] leading-tight">
               VERDE PUBBLICO
             </span>
           </div>
@@ -739,17 +739,17 @@ export default function Progettazione() {
       </section>
 
       {/* ── 4. SEZIONE 3: DALLA GARA AL PROGETTO ESECUTIVO ── */}
-      <section className="py-12 sm:py-16 px-6 max-w-7xl mx-auto border-t border-navy/10">
+      <section className="py-12 sm:py-16 px-6 max-w-7xl mx-auto border-t border-[#dfe3ea]">
         {/* Header Sezione */}
         <div className="mb-10">
-          <span className="bg-gold text-white text-[10px] font-bold uppercase tracking-[0.25em] px-3.5 py-1 rounded-[1px] inline-block mb-3 shadow-xs font-outfit">
+          <span className="bg-[#b8972a] text-white text-[13px] font-medium uppercase tracking-[0.2em] px-2.5 py-1 rounded-[2px] inline-block mb-3 shadow-xs">
             POST AGGIUDICAZIONE
           </span>
-          <h2 className="text-navy text-2xl sm:text-3xl md:text-4xl font-extrabold uppercase tracking-tight font-heading mb-6">
+          <h2 className="text-[#1b2a4a] text-2xl sm:text-3xl md:text-[32px] font-bold uppercase tracking-[0.05em] leading-[1.12] mb-6">
             DALLA GARA AL PROGETTO ESECUTIVO
           </h2>
-          <p className="text-navy/85 text-[15px] sm:text-[17px] font-normal leading-relaxed max-w-4xl font-outfit">
-            Dopo l’aggiudicazione le migliorie offerte in gara devono diventare progetto. Lo studio sviluppa l’esecutivo in coerenza con l’offerta tecnica e con i requisiti di sostenibilità del capitolato: <strong className="text-navy font-bold">chi ha scritto le migliorie è anche chi le traduce in elaborati</strong>, senza perdite di informazione tra gara e cantiere.
+          <p className="text-[#3d4a66] text-[16px] font-normal leading-[1.7] max-w-[62ch]">
+            Dopo l’aggiudicazione le migliorie offerte in gara devono diventare progetto. Lo studio sviluppa l’esecutivo in coerenza con l’offerta tecnica e con i requisiti di sostenibilità del capitolato: <strong className="text-[#1b2a4a] font-bold">chi ha scritto le migliorie è anche chi le traduce in elaborati</strong>, senza perdite di informazione tra gara e cantiere.
           </p>
         </div>
 
@@ -758,13 +758,13 @@ export default function Progettazione() {
       </section>
 
       {/* ── 5. SEZIONE 4: SPAZI INTERNI PROGETTATI INTORNO A CHI LI VIVE ── */}
-      <section className="py-12 sm:py-16 px-6 max-w-7xl mx-auto border-t border-navy/10">
+      <section className="py-12 sm:py-16 px-6 max-w-7xl mx-auto border-t border-[#dfe3ea]">
         {/* Header Sezione */}
         <div className="mb-8">
-          <span className="bg-gold text-white text-[10px] font-bold uppercase tracking-[0.25em] px-3.5 py-1 rounded-[1px] inline-block mb-3 shadow-xs font-outfit">
+          <span className="bg-[#b8972a] text-white text-[13px] font-medium uppercase tracking-[0.2em] px-2.5 py-1 rounded-[2px] inline-block mb-3 shadow-xs">
             INTERIOR DESIGN
           </span>
-          <h2 className="text-navy text-2xl sm:text-3xl md:text-4xl font-extrabold uppercase tracking-tight font-heading">
+          <h2 className="text-[#1b2a4a] text-2xl sm:text-3xl md:text-[32px] font-bold uppercase tracking-[0.05em] leading-[1.12]">
             SPAZI INTERNI PROGETTATI INTORNO A CHI LI VIVE
           </h2>
         </div>
@@ -772,18 +772,18 @@ export default function Progettazione() {
         {/* 2-Column Grid: Testo a Sinistra, Visual a Destra */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center mb-12">
           {/* Left Column: Description */}
-          <div className="lg:col-span-6 space-y-5 text-navy/85 text-[15px] sm:text-[17px] font-normal leading-relaxed font-outfit">
+          <div className="lg:col-span-6 space-y-5 text-[#3d4a66] text-[16px] font-normal leading-[1.7] max-w-[62ch]">
             <p>
-              Progettiamo la ristrutturazione di <strong className="text-navy font-bold">abitazioni, attività commerciali e spazi per enti pubblici</strong>. Partiamo dall’uso degli ambienti e dalle esigenze di chi li abita, vi lavora o li frequenta; definiamo quindi distribuzione, materiali, arredi e illuminazione in un <strong className="text-navy font-bold">progetto coordinato</strong>, attento anche agli impianti e ai dettagli esecutivi.
+              Progettiamo la ristrutturazione di <strong className="text-[#1b2a4a] font-bold">abitazioni, attività commerciali e spazi per enti pubblici</strong>. Partiamo dall’uso degli ambienti e dalle esigenze di chi li abita, vi lavora o li frequenta; definiamo quindi distribuzione, materiali, arredi e illuminazione in un <strong className="text-[#1b2a4a] font-bold">progetto coordinato</strong>, attento anche agli impianti e ai dettagli esecutivi.
             </p>
             <p>
-              Ogni scelta considera accessibilità, <strong className="text-navy font-bold">benessere indoor</strong>, durabilità e sostenibilità ambientale. Ne derivano ambienti riconoscibili e funzionali, <strong className="text-navy font-bold">coerenti con il budget</strong> e con le esigenze di gestione nel tempo.
+              Ogni scelta considera accessibilità, <strong className="text-[#1b2a4a] font-bold">benessere indoor</strong>, durabilità e sostenibilità ambientale. Ne derivano ambienti riconoscibili e funzionali, <strong className="text-[#1b2a4a] font-bold">coerenti con il budget</strong> e con le esigenze di gestione nel tempo.
             </p>
           </div>
 
           {/* Right Column: Interior / Building Visual Card (17_museo_emozionale_isernia.jpg) */}
           <div className="lg:col-span-6">
-            <div className="relative rounded-[1px] overflow-hidden border border-navy/10 shadow-sm group">
+            <div className="relative rounded-[2px] overflow-hidden border border-[#dfe3ea] shadow-sm group">
               <img
                 src="/media/portfolio/17_museo_emozionale_isernia.jpg"
                 alt="Auditorium Spazi ed Edifici Interni"
@@ -794,70 +794,70 @@ export default function Progettazione() {
         </div>
 
         {/* Horizontal Strip con le 6 Categorie conformi al mockup */}
-        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 divide-y sm:divide-y-0 sm:divide-x divide-navy/10 border-y border-navy/15 my-8 py-5 bg-white">
+        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 divide-y sm:divide-y-0 sm:divide-x divide-[#dfe3ea] border-y border-[#dfe3ea] my-8 py-5 bg-white">
           <div className="flex flex-col items-center justify-center text-center p-3 sm:p-4 group">
-            <svg className="w-[26px] h-[26px] text-navy mb-2 group-hover:text-gold transition-colors" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round">
+            <svg className="w-[26px] h-[26px] text-[#1b2a4a] mb-2 group-hover:text-[#b8972a] transition-colors" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round">
               <rect x="3" y="3" width="18" height="18" rx="1" />
               <line x1="9" y1="3" x2="9" y2="21" />
               <line x1="9" y1="12" x2="21" y2="12" />
             </svg>
-            <span className="text-[11px] sm:text-xs font-bold text-navy uppercase tracking-[0.14em] leading-tight font-outfit">
+            <span className="text-[11px] sm:text-[12px] font-medium text-[#1b2a4a] uppercase tracking-[0.06em] leading-tight">
               DISTRIBUZIONE
             </span>
           </div>
 
           <div className="flex flex-col items-center justify-center text-center p-3 sm:p-4 group">
-            <svg className="w-[26px] h-[26px] text-navy mb-2 group-hover:text-gold transition-colors" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round">
+            <svg className="w-[26px] h-[26px] text-[#1b2a4a] mb-2 group-hover:text-[#b8972a] transition-colors" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round">
               <rect x="3" y="3" width="7" height="7" rx="0.5" />
               <rect x="14" y="3" width="7" height="7" rx="0.5" />
               <rect x="3" y="14" width="7" height="7" rx="0.5" />
               <rect x="14" y="14" width="7" height="7" rx="0.5" />
             </svg>
-            <span className="text-[11px] sm:text-xs font-bold text-navy uppercase tracking-[0.14em] leading-tight font-outfit">
+            <span className="text-[11px] sm:text-[12px] font-medium text-[#1b2a4a] uppercase tracking-[0.06em] leading-tight">
               MATERIALI
             </span>
           </div>
 
           <div className="flex flex-col items-center justify-center text-center p-3 sm:p-4 group">
-            <svg className="w-[26px] h-[26px] text-navy mb-2 group-hover:text-gold transition-colors" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round">
+            <svg className="w-[26px] h-[26px] text-[#1b2a4a] mb-2 group-hover:text-[#b8972a] transition-colors" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round">
               <path d="M4 11V8a3 3 0 0 1 3-3h10a3 3 0 0 1 3 3v3" />
               <rect x="2" y="11" width="20" height="7" rx="1.5" />
               <line x1="5" y1="18" x2="5" y2="21" />
               <line x1="19" y1="18" x2="19" y2="21" />
             </svg>
-            <span className="text-[11px] sm:text-xs font-bold text-navy uppercase tracking-[0.14em] leading-tight font-outfit">
+            <span className="text-[11px] sm:text-[12px] font-medium text-[#1b2a4a] uppercase tracking-[0.06em] leading-tight">
               ARREDI
             </span>
           </div>
 
           <div className="flex flex-col items-center justify-center text-center p-3 sm:p-4 group">
-            <svg className="w-[26px] h-[26px] text-navy mb-2 group-hover:text-gold transition-colors" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round">
+            <svg className="w-[26px] h-[26px] text-[#1b2a4a] mb-2 group-hover:text-[#b8972a] transition-colors" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round">
               <path d="M6 9l2-6h8l2 6H6z" />
               <line x1="12" y1="9" x2="12" y2="21" />
               <line x1="8" y1="21" x2="16" y2="21" />
             </svg>
-            <span className="text-[11px] sm:text-xs font-bold text-navy uppercase tracking-[0.14em] leading-tight font-outfit">
+            <span className="text-[11px] sm:text-[12px] font-medium text-[#1b2a4a] uppercase tracking-[0.06em] leading-tight">
               ILLUMINAZIONE
             </span>
           </div>
 
           <div className="flex flex-col items-center justify-center text-center p-3 sm:p-4 group">
-            <svg className="w-[26px] h-[26px] text-navy mb-2 group-hover:text-gold transition-colors" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round">
+            <svg className="w-[26px] h-[26px] text-[#1b2a4a] mb-2 group-hover:text-[#b8972a] transition-colors" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round">
               <line x1="7" y1="17" x2="14" y2="10" strokeWidth="1.8" />
               <line x1="11" y1="7" x2="17" y2="13" strokeWidth="2.5" strokeLinecap="round" />
             </svg>
-            <span className="text-[11px] sm:text-xs font-bold text-navy uppercase tracking-[0.14em] leading-tight font-outfit">
+            <span className="text-[11px] sm:text-[12px] font-medium text-[#1b2a4a] uppercase tracking-[0.06em] leading-tight">
               FINITURE
             </span>
           </div>
 
           <div className="flex flex-col items-center justify-center text-center p-3 sm:p-4 group">
-            <svg className="w-[26px] h-[26px] text-navy mb-2 group-hover:text-gold transition-colors" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round">
+            <svg className="w-[26px] h-[26px] text-[#1b2a4a] mb-2 group-hover:text-[#b8972a] transition-colors" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round">
               <path d="M7 3v4M17 3v4" />
               <rect x="5" y="7" width="14" height="8" rx="2" />
               <path d="M12 15v6" />
             </svg>
-            <span className="text-[11px] sm:text-xs font-bold text-navy uppercase tracking-[0.14em] leading-tight font-outfit">
+            <span className="text-[11px] sm:text-[12px] font-medium text-[#1b2a4a] uppercase tracking-[0.06em] leading-tight">
               IMPIANTI
             </span>
           </div>
@@ -865,13 +865,13 @@ export default function Progettazione() {
       </section>
 
       {/* ── 6. SEZIONE 5: IL PROGETTO REALIZZATO COME PREVISTO ── */}
-      <section className="py-12 sm:py-16 px-6 max-w-7xl mx-auto border-t border-navy/10">
+      <section className="py-12 sm:py-16 px-6 max-w-7xl mx-auto border-t border-[#dfe3ea]">
         {/* Header Sezione */}
         <div className="mb-8">
-          <span className="bg-gold text-white text-[10px] font-bold uppercase tracking-[0.25em] px-3.5 py-1 rounded-[1px] inline-block mb-3 shadow-xs font-outfit">
+          <span className="bg-[#b8972a] text-white text-[13px] font-medium uppercase tracking-[0.2em] px-2.5 py-1 rounded-[2px] inline-block mb-3 shadow-xs">
             DIREZIONE LAVORI
           </span>
-          <h2 className="text-navy text-2xl sm:text-3xl md:text-4xl font-extrabold uppercase tracking-tight font-heading">
+          <h2 className="text-[#1b2a4a] text-2xl sm:text-3xl md:text-[32px] font-bold uppercase tracking-[0.05em] leading-[1.12]">
             IL PROGETTO REALIZZATO COME PREVISTO
           </h2>
         </div>
@@ -885,39 +885,39 @@ export default function Progettazione() {
 
           {/* Right Column: Description & Metric Columns conformi al mockup */}
           <div className="lg:col-span-6 space-y-6">
-            <div className="space-y-4 text-navy/85 text-[15px] sm:text-[17px] font-normal leading-relaxed font-outfit">
+            <div className="space-y-4 text-[#3d4a66] text-[16px] font-normal leading-[1.7] max-w-[62ch]">
               <p>
-                La direzione lavori è svolta con la <strong className="text-navy font-bold">conoscenza diretta dei processi costruttivi</strong>, per rispettare tempi, costi e qualità esecutiva.
+                La direzione lavori è svolta con la <strong className="text-[#1b2a4a] font-bold">conoscenza diretta dei processi costruttivi</strong>, per rispettare tempi, costi e qualità esecutiva.
               </p>
               <p>
-                Il confronto costante tra committente, impresa e uffici tecnici fa sì che ogni scelta di progetto venga <strong className="text-navy font-bold">realizzata in cantiere come previsto</strong>.
+                Il confronto costante tra committente, impresa e uffici tecnici fa sì che ogni scelta di progetto venga <strong className="text-[#1b2a4a] font-bold">realizzata in cantiere come previsto</strong>.
               </p>
             </div>
 
             {/* 3 Metric Columns: TEMPI, COSTI, QUALITÀ */}
-            <div className="border-t border-navy/10 pt-6 mt-8">
-              <div className="grid grid-cols-3 divide-x divide-navy/10">
+            <div className="border-t border-[#dfe3ea] pt-6 mt-8">
+              <div className="grid grid-cols-3 divide-x divide-[#dfe3ea]">
                 <div className="pr-4">
-                  <span className="text-gold text-xs sm:text-[13px] font-bold uppercase tracking-[0.16em] block mb-1 font-outfit">
+                  <span className="text-[#b8972a] text-[13px] font-medium uppercase tracking-[0.16em] block mb-1">
                     TEMPI
                   </span>
-                  <p className="text-[11.5px] sm:text-xs text-navy/75 leading-snug font-normal font-outfit">
+                  <p className="text-[13px] text-[#3d4a66] leading-snug font-normal">
                     cronoprogramma verificato
                   </p>
                 </div>
                 <div className="px-4">
-                  <span className="text-gold text-xs sm:text-[13px] font-bold uppercase tracking-[0.16em] block mb-1 font-outfit">
+                  <span className="text-[#b8972a] text-[13px] font-medium uppercase tracking-[0.16em] block mb-1">
                     COSTI
                   </span>
-                  <p className="text-[11.5px] sm:text-xs text-navy/75 leading-snug font-normal font-outfit">
+                  <p className="text-[13px] text-[#3d4a66] leading-snug font-normal">
                     contabilità e varianti
                   </p>
                 </div>
                 <div className="pl-4">
-                  <span className="text-gold text-xs sm:text-[13px] font-bold uppercase tracking-[0.16em] block mb-1 font-outfit">
+                  <span className="text-[#b8972a] text-[13px] font-medium uppercase tracking-[0.16em] block mb-1">
                     QUALITÀ
                   </span>
-                  <p className="text-[11.5px] sm:text-xs text-navy/75 leading-snug font-normal font-outfit">
+                  <p className="text-[13px] text-[#3d4a66] leading-snug font-normal">
                     controllo delle lavorazioni
                   </p>
                 </div>
@@ -928,25 +928,25 @@ export default function Progettazione() {
       </section>
 
       {/* ── 7. SEZIONE 6: CTA BANNER (HAI UN PROGETTO DA SVILUPPARE?) ── */}
-      <section className="py-12 sm:py-16 px-6 max-w-7xl mx-auto border-t border-navy/10">
+      <section className="py-12 sm:py-16 px-6 max-w-7xl mx-auto border-t border-[#dfe3ea]">
         <div className="mb-4">
-          <span className="bg-gold text-white text-[10px] font-bold uppercase tracking-[0.25em] px-3.5 py-1 rounded-[1px] inline-block shadow-xs font-outfit">
+          <span className="bg-[#b8972a] text-white text-[13px] font-medium uppercase tracking-[0.2em] px-2.5 py-1 rounded-[2px] inline-block shadow-xs">
             CONTATTI
           </span>
         </div>
-        <div className="border-l-4 border-gold bg-[#f8f9fb] p-6 sm:p-10 rounded-[1px] flex flex-col md:flex-row items-start md:items-center justify-between gap-6 shadow-2xs">
+        <div className="border-l-4 border-[#b8972a] bg-[#F9FBFC] p-6 sm:p-10 rounded-[2px] flex flex-col md:flex-row items-start md:items-center justify-between gap-6 shadow-2xs">
           <div className="space-y-1.5">
-            <h3 className="text-navy text-xl sm:text-2xl md:text-[26px] font-extrabold uppercase tracking-tight font-heading">
+            <h3 className="text-[#1b2a4a] text-xl sm:text-2xl md:text-[28px] font-bold uppercase tracking-[0.05em]">
               HAI UN PROGETTO DA SVILUPPARE?
             </h3>
-            <p className="text-navy/75 text-sm sm:text-[15px] font-normal font-outfit">
+            <p className="text-[#3d4a66] text-[16px] font-normal leading-[1.7] max-w-[62ch]">
               Raccontaci l'intervento: ti rispondiamo entro 24 ore.
             </p>
           </div>
 
           <Link
             to="/contatti"
-            className="flex-shrink-0 bg-[#1B2A4A] hover:bg-navy/90 text-white text-xs sm:text-[13px] font-bold uppercase tracking-[0.14em] px-8 py-3.5 rounded-[1px] transition-all flex items-center gap-3 group shadow-xs font-outfit"
+            className="flex-shrink-0 bg-[#1b2a4a] hover:bg-[#b8972a] text-white text-[11px] font-medium uppercase tracking-[0.2em] px-[26px] py-[15px] rounded-[2px] transition-all flex items-center justify-between gap-4 group shadow-xs min-w-[240px]"
           >
             <span>CONTATTACI</span>
             <CaretRight size={13} weight="bold" className="group-hover:translate-x-0.5 transition-transform" />

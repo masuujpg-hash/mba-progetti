@@ -53,12 +53,12 @@ function StatCounter({ value, label }: { value: string; label: string }) {
   }, [isInView, numericValue]);
 
   return (
-    <div ref={ref} className="py-5 sm:py-6 border-b border-navy/10 last:border-b-0 first:pt-0">
+    <div ref={ref} className="py-5 sm:py-6 border-b border-[#dfe3ea] last:border-b-0 first:pt-0">
       <div className="grid grid-cols-[110px_1fr] sm:grid-cols-[130px_1fr] items-center gap-4">
-        <span className="text-[#1B2A4A] text-4xl sm:text-5xl font-bold tracking-tight font-outfit">
+        <span className="text-[#1b2a4a] text-[clamp(32px,3.4vw,48px)] font-semibold tracking-[-0.03em] tabular-nums leading-none">
           {prefix}{isInView ? count : 0}{suffix}
         </span>
-        <span className="text-[#1B2A4A]/70 text-[11px] sm:text-xs font-semibold uppercase tracking-[0.16em] font-outfit">
+        <span className="text-[#7b869d] text-[11px] font-medium uppercase tracking-[0.2em]">
           {label}
         </span>
       </div>
@@ -528,10 +528,10 @@ export default function Gare() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
           >
-            <div className="inline-block bg-gold text-white text-[11px] font-bold uppercase tracking-[0.25em] px-3.5 py-1 rounded-xs mb-3 shadow-xs">
+            <div className="inline-block bg-[#b8972a] text-white text-[13px] font-medium uppercase tracking-[0.2em] px-2.5 py-1 rounded-[2px] mb-3 shadow-xs">
               SERVIZI
             </div>
-            <h1 className="text-white text-3xl sm:text-5xl md:text-6xl font-bold uppercase tracking-tight font-heading drop-shadow-sm">
+            <h1 className="text-white text-[clamp(34px,4.5vw,60px)] font-medium uppercase tracking-[-0.03em] leading-[1.05] drop-shadow-sm">
               GARE OEPV
             </h1>
           </motion.div>
@@ -541,24 +541,24 @@ export default function Gare() {
       {/* ── 2. OFFERTE TECNICHE MIGLIORATIVE & GRAFICI ANIMATI ── */}
       <section className="py-14 sm:py-20 px-6 max-w-7xl mx-auto">
         <div className="mb-4">
-          <span className="bg-gold text-white text-[10px] font-bold uppercase tracking-[0.25em] px-3.5 py-1 rounded-[1px] inline-block shadow-xs font-outfit">
+          <span className="bg-[#b8972a] text-white text-[13px] font-medium uppercase tracking-[0.2em] px-2.5 py-1 rounded-[2px] inline-block shadow-xs">
             IL SETTORE
           </span>
         </div>
-        <h2 className="text-navy text-2xl sm:text-3xl md:text-4xl font-extrabold uppercase tracking-tight font-heading mb-8">
+        <h2 className="text-[#1b2a4a] text-2xl sm:text-3xl md:text-[32px] font-bold uppercase tracking-[0.05em] leading-[1.12] mb-8">
           OFFERTE TECNICHE MIGLIORATIVE
         </h2>
 
         {/* Riga superiore: Descrizione a sinistra + 3 Stats animate a destra */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-14 items-start mb-14">
           <div className="lg:col-span-7 space-y-6">
-            <p className="text-[#1B2A4A]/85 text-[15px] sm:text-[17px] font-normal leading-relaxed font-outfit">
-              Lo studio MBA affianca le imprese nella redazione di <strong className="font-bold text-[#1B2A4A]">offerte tecniche migliorative</strong> per gare d’appalto pubbliche aggiudicate secondo il criterio dell’<strong className="font-bold text-[#1B2A4A]">offerta economicamente più vantaggiosa (OEV)</strong>. Analizziamo disciplinari e progetti posti a base di gara per individuare con precisione i <strong className="font-bold text-[#1B2A4A]">margini di miglioramento tecnico e operativo</strong>, sviluppando proposte fondate su <strong className="font-bold text-[#1B2A4A]">metodo, chiarezza e coerenza con i criteri di valutazione</strong>, capaci di tradursi in <strong className="font-bold text-[#1B2A4A]">risultati concreti</strong> nelle procedure di gara.
+            <p className="text-[#3d4a66] text-[16px] font-normal leading-[1.7] max-w-[62ch]">
+              Lo studio MBA affianca le imprese nella redazione di <strong className="font-bold text-[#1b2a4a]">offerte tecniche migliorative</strong> per gare d’appalto pubbliche aggiudicate secondo il criterio dell’<strong className="font-bold text-[#1b2a4a]">offerta economicamente più vantaggiosa (OEV)</strong>. Analizziamo disciplinari e progetti posti a base di gara per individuare con precisione i <strong className="font-bold text-[#1b2a4a]">margini di miglioramento tecnico e operativo</strong>, sviluppando proposte fondate su <strong className="font-bold text-[#1b2a4a]">metodo, chiarezza e coerenza con i criteri di valutazione</strong>, capaci di tradursi in <strong className="font-bold text-[#1b2a4a]">risultati concreti</strong> nelle procedure di gara.
             </p>
             <div className="pt-2">
               <Link 
                 to="/portfolio"
-                className="inline-flex items-center gap-3 border border-[#1B2A4A]/60 text-[#1B2A4A] hover:bg-[#1B2A4A] hover:text-white px-6 py-2.5 text-xs font-bold uppercase tracking-[0.14em] transition-all duration-200 rounded-[1px] group cursor-pointer font-outfit"
+                className="inline-flex items-center justify-between border border-[#1b2a4a]/25 hover:border-[#b8972a] text-[#1b2a4a] hover:text-[#b8972a] px-[26px] py-[15px] rounded-[2px] text-[11px] font-medium uppercase tracking-[0.2em] transition-colors min-w-[240px] group cursor-pointer"
               >
                 <span>VEDI LE GARE SEGUITE</span>
                 <CaretRight size={13} weight="bold" className="group-hover:translate-x-0.5 transition-transform" />
@@ -643,45 +643,45 @@ export default function Gare() {
       </section>
 
       {/* ── 3. OFFERTE CHE SI LEGGONO AL PRIMO SGUARDO ── */}
-      <section className="py-14 sm:py-20 bg-bg-neutral/40 border-t border-navy/10">
+      <section className="py-14 sm:py-20 bg-bg-neutral/40 border-t border-[#dfe3ea]">
         <div className="max-w-7xl mx-auto px-6">
           <div className="mb-4">
-            <span className="bg-gold text-white text-[10px] font-bold uppercase tracking-[0.25em] px-3.5 py-1 rounded-[1px] inline-block shadow-xs font-outfit">
+            <span className="bg-[#b8972a] text-white text-[13px] font-medium uppercase tracking-[0.2em] px-2.5 py-1 rounded-[2px] inline-block shadow-xs">
               ELABORATI
             </span>
           </div>
-          <h2 className="text-navy text-2xl sm:text-3xl md:text-4xl font-extrabold uppercase tracking-tight font-heading mb-6">
+          <h2 className="text-[#1b2a4a] text-2xl sm:text-3xl md:text-[32px] font-bold uppercase tracking-[0.05em] leading-[1.12] mb-6">
             OFFERTE CHE SI LEGGONO AL PRIMO SGUARDO
           </h2>
-          <p className="text-navy/85 text-[15px] sm:text-[17px] font-normal max-w-4xl mb-12 leading-relaxed font-outfit">
-            La commissione esamina molte offerte in tempi stretti. Tavole, schemi e impaginati sono progettati perché il commissario <strong className="font-bold text-navy">trovi subito ogni miglioria</strong> e capisca <strong className="font-bold text-navy">a quale criterio risponde</strong>, senza doverla cercare nel testo.
+          <p className="text-[#3d4a66] text-[16px] font-normal max-w-[62ch] mb-12 leading-[1.7]">
+            La commissione esamina molte offerte in tempi stretti. Tavole, schemi e impaginati sono progettati perché il commissario <strong className="font-bold text-[#1b2a4a]">trovi subito ogni miglioria</strong> e capisca <strong className="font-bold text-[#1b2a4a]">a quale criterio risponde</strong>, senza doverla cercare nel testo.
           </p>
 
           {/* 3 Colonne: Chiarezza, Leggibilità, Impatto conformi al mockup */}
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-0 md:divide-x md:divide-navy/10 mb-12">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-0 md:divide-x md:divide-[#dfe3ea] mb-12">
             <div className="space-y-2 md:pr-8">
-              <div className="text-gold text-xs sm:text-[13px] font-bold uppercase tracking-[0.2em] font-outfit">
+              <div className="text-[#b8972a] text-[13px] font-medium uppercase tracking-[0.2em]">
                 CHIAREZZA
               </div>
-              <p className="text-navy/80 text-sm sm:text-[15px] font-normal leading-relaxed font-outfit">
+              <p className="text-[#3d4a66] text-[15px] sm:text-[16px] font-normal leading-[1.7]">
                 Ogni elaborato segue l'ordine dei criteri del disciplinare, con la stessa numerazione della relazione tecnica.
               </p>
             </div>
 
             <div className="space-y-2 md:px-8">
-              <div className="text-gold text-xs sm:text-[13px] font-bold uppercase tracking-[0.2em] font-outfit">
+              <div className="text-[#b8972a] text-[13px] font-medium uppercase tracking-[0.2em]">
                 LEGGIBILITÀ
               </div>
-              <p className="text-navy/80 text-sm sm:text-[15px] font-normal leading-relaxed font-outfit">
+              <p className="text-[#3d4a66] text-[15px] sm:text-[16px] font-normal leading-[1.7]">
                 Gerarchia grafica, schemi e dati numerici al posto di descrizioni generiche: il contenuto si coglie anche in una lettura rapida.
               </p>
             </div>
 
             <div className="space-y-2 md:pl-8">
-              <div className="text-gold text-xs sm:text-[13px] font-bold uppercase tracking-[0.2em] font-outfit">
+              <div className="text-[#b8972a] text-[13px] font-medium uppercase tracking-[0.2em]">
                 IMPATTO
               </div>
-              <p className="text-navy/80 text-sm sm:text-[15px] font-normal leading-relaxed font-outfit">
+              <p className="text-[#3d4a66] text-[15px] sm:text-[16px] font-normal leading-[1.7]">
                 Render e confronti tra progetto a base di gara e soluzione offerta rendono evidente il valore di ogni proposta.
               </p>
             </div>
@@ -765,19 +765,19 @@ export default function Gare() {
       {/* ── 4. DALLA SCELTA DELLA GARA ALLA CONSEGNA (8 FASI INTERATTIVE) ── */}
       <section className="py-14 sm:py-20 px-6 max-w-7xl mx-auto">
         <div className="mb-3">
-          <span className="inline-block bg-gold text-white text-[10px] font-bold uppercase tracking-[0.2em] px-2.5 py-0.5 rounded-xs">
+          <span className="inline-block bg-[#b8972a] text-white text-[13px] font-medium uppercase tracking-[0.2em] px-2.5 py-1 rounded-[2px]">
             METODO
           </span>
         </div>
-        <h2 className="text-navy text-2xl sm:text-3xl md:text-4xl font-bold uppercase tracking-tight font-heading mb-4">
+        <h2 className="text-[#1b2a4a] text-2xl sm:text-3xl md:text-[32px] font-bold uppercase tracking-[0.05em] leading-[1.12] mb-4">
           DALLA SCELTA DELLA GARA ALLA CONSEGNA
         </h2>
-        <p className="text-navy/85 text-base sm:text-lg font-normal max-w-3xl mb-12 leading-relaxed">
+        <p className="text-[#3d4a66] text-[16px] font-normal max-w-[62ch] mb-12 leading-[1.7]">
           Un percorso strutturato per affiancare l'impresa in ogni passaggio, dalla valutazione iniziale all'invio dell'offerta.
         </p>
 
         {/* Timeline a 8 step con icone circolari disposte su 2 righe da 4 conformi al mockup */}
-        <div className="bg-[#f8f9fb] p-6 sm:p-10 rounded-xs border border-navy/10 mb-6">
+        <div className="bg-[#f8f9fb] p-6 sm:p-10 rounded-[2px] border border-[#dfe3ea] mb-6">
           <div className="grid grid-cols-2 sm:grid-cols-4 gap-y-7 gap-x-3 sm:gap-x-6 mb-8">
             {processSteps.map((step, idx) => {
               const StepIcon = step.icon;
@@ -791,18 +791,18 @@ export default function Gare() {
                   <div 
                     className={`w-14 h-14 sm:w-16 sm:h-16 rounded-full flex items-center justify-center mb-2.5 transition-all duration-200 ${
                       isActive 
-                        ? 'p-[3px] border-2 border-gold shadow-xs' 
-                        : 'border border-navy/20 bg-white group-hover:border-navy/40'
+                        ? 'p-[3px] border-2 border-[#b8972a] shadow-xs' 
+                        : 'border border-[#1b2a4a]/20 bg-white group-hover:border-[#1b2a4a]/40'
                     }`}
                   >
                     <div className={`w-full h-full rounded-full flex items-center justify-center transition-colors ${
-                      isActive ? 'bg-navy text-white' : 'text-navy/80 group-hover:text-navy'
+                      isActive ? 'bg-[#1b2a4a] text-white' : 'text-[#1b2a4a]/80 group-hover:text-[#1b2a4a]'
                     }`}>
                       <StepIcon size={22} weight={isActive ? "bold" : "regular"} />
                     </div>
                   </div>
                   <span className={`text-xs sm:text-[13px] tracking-tight transition-colors line-clamp-2 max-w-[125px] leading-snug ${
-                    isActive ? 'font-bold text-navy' : 'font-normal text-navy/75 group-hover:text-navy'
+                    isActive ? 'font-bold text-[#1b2a4a]' : 'font-normal text-[#1b2a4a]/75 group-hover:text-[#1b2a4a]'
                   }`}>
                     {step.title}
                   </span>
@@ -812,14 +812,14 @@ export default function Gare() {
           </div>
 
           {/* Dettaglio Fase Selezionata con Bordo Oro a Sinistra conforme al mockup */}
-          <div className="bg-white p-6 sm:p-9 border-l-4 border-gold shadow-xs rounded-xs">
-            <span className="inline-block text-gold text-xs sm:text-[13px] font-bold uppercase tracking-[0.2em] mb-2 font-outfit">
+          <div className="bg-white p-6 sm:p-9 border-l-4 border-[#b8972a] shadow-xs rounded-[2px]">
+            <span className="inline-block text-[#b8972a] text-[13px] font-medium uppercase tracking-[0.2em] mb-2">
               {processSteps[activeStep].tag}
             </span>
-            <h3 className="text-navy text-xl sm:text-2xl md:text-[26px] font-bold uppercase tracking-tight font-outfit mb-3">
+            <h3 className="text-[#1b2a4a] text-xl sm:text-2xl md:text-[26px] font-bold uppercase tracking-tight mb-3">
               {processSteps[activeStep].heading}
             </h3>
-            <p className="text-navy/90 text-base sm:text-[17px] md:text-[18px] font-normal leading-relaxed max-w-3xl font-outfit">
+            <p className="text-[#3d4a66] text-[16px] font-normal leading-[1.7] max-w-[62ch]">
               {processSteps[activeStep].desc}
             </p>
           </div>
@@ -827,33 +827,33 @@ export default function Gare() {
       </section>
 
       {/* ── 5. TIPOLOGIE DI OPERE (ESATTAMENTE COME IL MOCKUP) ── */}
-      <section className="py-16 sm:py-24 bg-white border-t border-navy/10">
+      <section className="py-16 sm:py-24 bg-white border-t border-[#dfe3ea]">
         <div className="max-w-7xl mx-auto px-6">
           <div className="mb-4">
-            <span className="bg-gold text-white text-[10px] font-bold uppercase tracking-[0.25em] px-3.5 py-1 rounded-[1px] inline-block shadow-xs font-outfit">
+            <span className="bg-[#b8972a] text-white text-[13px] font-medium uppercase tracking-[0.2em] px-2.5 py-1 rounded-[2px] inline-block shadow-xs">
               AMBITI
             </span>
           </div>
           
-          <h2 className="text-navy text-2xl sm:text-3xl md:text-4xl font-extrabold uppercase tracking-tight font-heading mb-6">
+          <h2 className="text-[#1b2a4a] text-2xl sm:text-3xl md:text-[32px] font-bold uppercase tracking-[0.05em] leading-[1.12] mb-6">
             TIPOLOGIE DI OPERE
           </h2>
           
-          <p className="text-navy/85 text-[15px] sm:text-[17px] font-normal max-w-5xl mb-12 leading-relaxed font-outfit">
-            L'esperienza maturata consente allo studio di operare con competenza in ambiti diversi, dall'<strong className="font-bold text-navy">edilizia scolastica</strong> al <strong className="font-bold text-navy">restauro</strong>, dalle <strong className="font-bold text-navy">infrastrutture</strong> all'<strong className="font-bold text-navy">edilizia residenziale</strong> e alle <strong className="font-bold text-navy">strutture sportive</strong>, adottando in ogni caso un approccio tecnico fondato sull'analisi dei criteri di valutazione, del progetto a base di gara e delle esigenze operative dell'impresa.
+          <p className="text-[#3d4a66] text-[16px] font-normal max-w-[62ch] mb-12 leading-[1.7]">
+            L'esperienza maturata consente allo studio di operare con competenza in ambiti diversi, dall'<strong className="font-bold text-[#1b2a4a]">edilizia scolastica</strong> al <strong className="font-bold text-[#1b2a4a]">restauro</strong>, dalle <strong className="font-bold text-[#1b2a4a]">infrastrutture</strong> all'<strong className="font-bold text-[#1b2a4a]">edilizia residenziale</strong> e alle <strong className="font-bold text-[#1b2a4a]">strutture sportive</strong>, adottando in ogni caso un approccio tecnico fondato sull'analisi dei criteri di valutazione, del progetto a base di gara e delle esigenze operative dell'impresa.
           </p>
 
           {/* Griglia a 10 celle con bordi geometrici e testi potenziati */}
-          <div className="grid grid-cols-2 lg:grid-cols-5 border-t border-l border-navy/15 bg-white">
+          <div className="grid grid-cols-2 lg:grid-cols-5 border-t border-l border-[#1b2a4a]/15 bg-white">
             {tipologieOpere.map((item, idx) => (
               <div 
                 key={idx} 
-                className="border-r border-b border-navy/15 p-6 sm:py-12 sm:px-4 flex flex-col items-center justify-center text-center group hover:bg-neutral-50/80 transition-colors min-h-[170px] sm:min-h-[185px]"
+                className="border-r border-b border-[#1b2a4a]/15 p-6 sm:py-12 sm:px-4 flex flex-col items-center justify-center text-center group hover:bg-neutral-50/80 transition-colors min-h-[170px] sm:min-h-[185px]"
               >
                 <div className="h-10 flex items-center justify-center mb-4 transition-transform duration-200 group-hover:scale-110">
                   {item.icon}
                 </div>
-                <h3 className="text-navy text-xs sm:text-[12.5px] font-bold uppercase tracking-[0.14em] leading-snug whitespace-pre-line font-outfit">
+                <h3 className="text-[#1b2a4a] text-xs sm:text-[12.5px] font-bold uppercase tracking-[0.14em] leading-snug whitespace-pre-line">
                   {item.title}
                 </h3>
               </div>
@@ -864,36 +864,36 @@ export default function Gare() {
 
       {/* ── 6. CONTATTACI SUBITO ── */}
       <section id="contattaci-sezione" className="py-14 sm:py-20 px-6 max-w-7xl mx-auto">
-        <div className="border-l-4 border-gold bg-bg-neutral/40 p-6 sm:p-10 rounded-xs shadow-xs">
+        <div className="border-l-4 border-[#b8972a] bg-bg-neutral/40 p-6 sm:p-10 rounded-[2px] shadow-xs">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12">
             
             {/* Colonna Sinistra: Info di Contatto */}
             <div className="lg:col-span-5 space-y-5">
-              <span className="bg-[#F5C400] text-white text-[10px] sm:text-[11px] font-bold uppercase tracking-[0.25em] px-3.5 py-1 rounded-[1px] inline-block shadow-xs font-outfit">
+              <span className="bg-[#b8972a] text-white text-[13px] font-medium uppercase tracking-[0.2em] px-2.5 py-1 rounded-[2px] inline-block shadow-xs">
                 CONTATTI &amp; INFORMAZIONI
               </span>
-              <h3 className="text-navy text-2xl sm:text-3xl md:text-4xl font-extrabold uppercase tracking-tight font-outfit">
+              <h3 className="text-[#1b2a4a] text-2xl sm:text-3xl md:text-[32px] font-bold uppercase tracking-[0.05em] leading-[1.12]">
                 CONTATTACI SUBITO
               </h3>
-              <p className="text-[#475569] text-base md:text-[17px] font-normal leading-[1.65] font-outfit">
+              <p className="text-[#3d4a66] text-[16px] font-normal leading-[1.7] max-w-[62ch]">
                 Hai una gara in corso o in scadenza? Inviaci il bando e il disciplinare: effettueremo un'analisi preliminare di fattibilità e competitività tecnica senza impegno.
               </p>
 
-              <div className="pt-2 space-y-3 text-sm sm:text-[15px] text-navy font-outfit">
+              <div className="pt-2 space-y-3 text-[14px] text-[#1b2a4a]">
                 <div className="flex items-center gap-3">
-                  <EnvelopeSimple size={18} className="text-gold shrink-0" />
-                  <a href="mailto:arch.mariobiondi@gmail.com" className="hover:text-gold transition-colors font-medium">
+                  <EnvelopeSimple size={18} className="text-[#b8972a] shrink-0" />
+                  <a href="mailto:arch.mariobiondi@gmail.com" className="hover:text-[#b8972a] transition-colors font-medium">
                     arch.mariobiondi@gmail.com
                   </a>
                 </div>
                 <div className="flex items-center gap-3">
-                  <Phone size={18} className="text-gold shrink-0" />
-                  <a href="tel:+393286285861" className="hover:text-gold transition-colors font-medium">
+                  <Phone size={18} className="text-[#b8972a] shrink-0" />
+                  <a href="tel:+393286285861" className="hover:text-[#b8972a] transition-colors font-medium">
                     328 6285861
                   </a>
                 </div>
                 <div className="flex items-center gap-3">
-                  <MapPin size={18} className="text-gold shrink-0" />
+                  <MapPin size={18} className="text-[#b8972a] shrink-0" />
                   <span>Via Sardarulo 7, 81016 San Potito Sannitico (CE)</span>
                 </div>
               </div>
@@ -902,12 +902,12 @@ export default function Gare() {
             {/* Colonna Destra: Modulo di Richiesta */}
             <div className="lg:col-span-7">
               {formSubmitted ? (
-                <div className="bg-white p-8 border border-navy/10 rounded-[1px] text-center space-y-3 shadow-xs">
-                  <CheckCircle size={44} className="text-gold mx-auto" />
-                  <h4 className="text-navy text-lg font-bold uppercase tracking-wide font-outfit">
+                <div className="bg-white p-8 border border-[#1b2a4a]/10 rounded-[2px] text-center space-y-3 shadow-xs">
+                  <CheckCircle size={44} className="text-[#b8972a] mx-auto" />
+                  <h4 className="text-[#1b2a4a] text-lg font-bold uppercase tracking-wide">
                     Richiesta Inviata con Successo
                   </h4>
-                  <p className="text-[#475569] text-sm leading-relaxed font-outfit">
+                  <p className="text-[#3d4a66] text-[14px] leading-relaxed">
                     Il nostro team tecnico esaminerà i dettagli della gara e ti risponderà entro 24 ore lavorative.
                   </p>
                 </div>
@@ -920,14 +920,14 @@ export default function Gare() {
                       placeholder="Nome e Cognome *" 
                       value={formData.nome}
                       onChange={e => setFormData({ ...formData, nome: e.target.value })}
-                      className="w-full bg-white border border-navy/15 px-3 py-2 text-xs text-navy focus:outline-none focus:border-gold rounded-xs"
+                      className="w-full bg-white border border-[#1b2a4a]/15 px-3 py-2 text-xs text-[#1b2a4a] focus:outline-none focus:border-[#b8972a] rounded-[2px]"
                     />
                     <input 
                       type="text" 
                       placeholder="Ragione Sociale / Impresa" 
                       value={formData.azienda}
                       onChange={e => setFormData({ ...formData, azienda: e.target.value })}
-                      className="w-full bg-white border border-navy/15 px-3 py-2 text-xs text-navy focus:outline-none focus:border-gold rounded-xs"
+                      className="w-full bg-white border border-[#1b2a4a]/15 px-3 py-2 text-xs text-[#1b2a4a] focus:outline-none focus:border-[#b8972a] rounded-[2px]"
                     />
                   </div>
 
@@ -938,14 +938,14 @@ export default function Gare() {
                       placeholder="Email aziendale *" 
                       value={formData.email}
                       onChange={e => setFormData({ ...formData, email: e.target.value })}
-                      className="w-full bg-white border border-navy/15 px-3 py-2 text-xs text-navy focus:outline-none focus:border-gold rounded-xs"
+                      className="w-full bg-white border border-[#1b2a4a]/15 px-3 py-2 text-xs text-[#1b2a4a] focus:outline-none focus:border-[#b8972a] rounded-[2px]"
                     />
                     <input 
                       type="tel" 
                       placeholder="Recapito Telefonico" 
                       value={formData.telefono}
                       onChange={e => setFormData({ ...formData, telefono: e.target.value })}
-                      className="w-full bg-white border border-navy/15 px-3 py-2 text-xs text-navy focus:outline-none focus:border-gold rounded-xs"
+                      className="w-full bg-white border border-[#1b2a4a]/15 px-3 py-2 text-xs text-[#1b2a4a] focus:outline-none focus:border-[#b8972a] rounded-[2px]"
                     />
                   </div>
 
@@ -955,14 +955,14 @@ export default function Gare() {
                       placeholder="CIG o Oggetto della Gara" 
                       value={formData.cig}
                       onChange={e => setFormData({ ...formData, cig: e.target.value })}
-                      className="w-full bg-white border border-navy/15 px-3 py-2 text-xs text-navy focus:outline-none focus:border-gold rounded-xs"
+                      className="w-full bg-white border border-[#1b2a4a]/15 px-3 py-2 text-xs text-[#1b2a4a] focus:outline-none focus:border-[#b8972a] rounded-[2px]"
                     />
                     <input 
                       type="text" 
                       placeholder="Data Scadenza Offerte" 
                       value={formData.scadenza}
                       onChange={e => setFormData({ ...formData, scadenza: e.target.value })}
-                      className="w-full bg-white border border-navy/15 px-3 py-2 text-xs text-navy focus:outline-none focus:border-gold rounded-xs"
+                      className="w-full bg-white border border-[#1b2a4a]/15 px-3 py-2 text-xs text-[#1b2a4a] focus:outline-none focus:border-[#b8972a] rounded-[2px]"
                     />
                   </div>
 
@@ -971,7 +971,7 @@ export default function Gare() {
                     placeholder="Note sulla procedura o richieste specifiche..." 
                     value={formData.messaggio}
                     onChange={e => setFormData({ ...formData, messaggio: e.target.value })}
-                    className="w-full bg-white border border-navy/15 p-3 text-xs text-navy focus:outline-none focus:border-gold rounded-xs resize-none"
+                    className="w-full bg-white border border-[#1b2a4a]/15 p-3 text-xs text-[#1b2a4a] focus:outline-none focus:border-[#b8972a] rounded-[2px] resize-none"
                   />
 
                   <div className="flex items-center gap-2 pt-1">
@@ -980,17 +980,17 @@ export default function Gare() {
                       id="privacy-check"
                       checked={formData.privacy}
                       onChange={e => setFormData({ ...formData, privacy: e.target.checked })}
-                      className="accent-navy cursor-pointer"
+                      className="accent-[#1b2a4a] cursor-pointer"
                       required
                     />
-                    <label htmlFor="privacy-check" className="text-[11px] text-navy/70 cursor-pointer">
+                    <label htmlFor="privacy-check" className="text-[12px] text-[#1b2a4a]/70 cursor-pointer">
                       Dichiaro di aver preso visione dell'informativa sulla privacy
                     </label>
                   </div>
 
                   <button 
                     type="submit" 
-                    className="bg-navy hover:bg-gold text-white px-6 py-2.5 text-xs font-bold uppercase tracking-widest transition-colors rounded-xs shadow-xs cursor-pointer"
+                    className="bg-[#1b2a4a] hover:bg-[#b8972a] text-white px-[26px] py-[15px] text-[11px] font-medium uppercase tracking-[0.2em] transition-colors rounded-[2px] shadow-xs cursor-pointer min-w-[240px]"
                   >
                     Invia Richiesta
                   </button>

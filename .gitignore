@@ -54,3 +54,5 @@ yarn-error.log*
 !studio/*.mjs
 
 .vercel
+
+*.zip

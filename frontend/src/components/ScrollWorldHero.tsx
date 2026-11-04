@@ -189,14 +189,14 @@ export default function ScrollWorldHero() {
               <p className="text-white/80 text-sm sm:text-base font-light leading-relaxed max-w-[50ch] drop-shadow">
                 {SLIDES[0].desc}
               </p>
-              <div className="flex flex-wrap items-center justify-center gap-4 pt-2">
-                <Link to={SLIDES[0].link} className="btn-ghost-light px-9 py-4 group">
-                  {SLIDES[0].btn}{" "}
-                  <ArrowRight className="ml-2 group-hover:translate-x-1 transition-transform inline-block" />
+              <div className="flex flex-col sm:flex-row items-center justify-center gap-4 pt-2 w-full">
+                <Link to={SLIDES[0].link} className="btn-ghost-light w-full max-w-[270px] sm:w-[260px] h-[52px] px-[26px] py-[15px] text-[11px] font-medium tracking-[0.2em] uppercase rounded-[2px] inline-flex items-center justify-center gap-3.5 group">
+                  <span>{SLIDES[0].btn}</span>
+                  <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform inline-block shrink-0" />
                 </Link>
-                <Link to="/studio" className="btn-ghost-light px-9 py-4 group">
-                  Scopri lo Studio{" "}
-                  <ArrowRight className="ml-2 group-hover:translate-x-1 transition-transform inline-block" />
+                <Link to="/studio" className="btn-ghost-light w-full max-w-[270px] sm:w-[260px] h-[52px] px-[26px] py-[15px] text-[11px] font-medium tracking-[0.2em] uppercase rounded-[2px] inline-flex items-center justify-center gap-3.5 group">
+                  <span>Scopri lo Studio</span>
+                  <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform inline-block shrink-0" />
                 </Link>
               </div>
             </motion.div>
@@ -247,14 +247,14 @@ export default function ScrollWorldHero() {
               <p className="text-white/80 text-sm sm:text-base font-light leading-relaxed max-w-[50ch] drop-shadow">
                 {SLIDES[2].desc}
               </p>
-              <div className="flex flex-wrap items-center justify-center gap-4 pt-2">
-                <Link to={SLIDES[2].link} className="btn-ghost-light px-9 py-4 group">
-                  {SLIDES[2].btn}{" "}
-                  <ArrowRight className="ml-2 group-hover:translate-x-1 transition-transform inline-block" />
+              <div className="flex flex-col sm:flex-row items-center justify-center gap-4 pt-2 w-full">
+                <Link to={SLIDES[2].link} className="btn-ghost-light w-full max-w-[270px] sm:w-[260px] h-[52px] px-[26px] py-[15px] text-[11px] font-medium tracking-[0.2em] uppercase rounded-[2px] inline-flex items-center justify-center gap-3.5 group">
+                  <span>{SLIDES[2].btn}</span>
+                  <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform inline-block shrink-0" />
                 </Link>
-                <Link to="/studio" className="btn-ghost-light px-9 py-4 group">
-                  Scopri lo Studio{" "}
-                  <ArrowRight className="ml-2 group-hover:translate-x-1 transition-transform inline-block" />
+                <Link to="/studio" className="btn-ghost-light w-full max-w-[270px] sm:w-[260px] h-[52px] px-[26px] py-[15px] text-[11px] font-medium tracking-[0.2em] uppercase rounded-[2px] inline-flex items-center justify-center gap-3.5 group">
+                  <span>Scopri lo Studio</span>
+                  <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform inline-block shrink-0" />
                 </Link>
               </div>
             </motion.div>

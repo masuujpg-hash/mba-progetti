@@ -77,7 +77,7 @@ export default function Studio() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
           >
-            <h1 className="text-white text-3xl sm:text-5xl md:text-6xl font-extrabold uppercase tracking-[0.25em] md:tracking-[0.35em] drop-shadow-md">
+            <h1 className="text-white text-[clamp(32px,4.3vw,58px)] font-bold uppercase tracking-[0.045em] leading-[1.2] drop-shadow-md">
               LO STUDIO
             </h1>
           </motion.div>
@@ -92,23 +92,23 @@ export default function Studio() {
             {/* Left Column: Text */}
             <div className="lg:col-span-6 space-y-6">
               <div>
-                <span className="bg-gold text-white text-[10px] font-bold uppercase tracking-[0.25em] px-3.5 py-1 rounded-[1px] inline-block shadow-sm">
+                <span className="bg-[#b8972a] text-white text-[13px] font-medium uppercase tracking-[0.2em] px-2.5 py-1 rounded-[2px] inline-block shadow-sm">
                   CHI SIAMO
                 </span>
               </div>
-              <h2 className="text-navy text-2xl sm:text-3xl md:text-4xl font-extrabold uppercase tracking-tight font-heading">
+              <h2 className="text-[#1b2a4a] text-2xl sm:text-3xl md:text-[32px] font-bold uppercase tracking-[0.05em] leading-[1.12]">
                 STORIA E METODO
               </h2>
-              <div className="text-navy/85 text-[15px] sm:text-[17px] font-normal leading-relaxed">
+              <div className="text-[#3d4a66] text-[16px] font-normal leading-[1.7] max-w-[62ch]">
                 <p>
-                  Lo studio dell'architetto Mario Biondi si occupa di progettazione e consulenza tecnica ed <strong className="font-bold text-navy">è specializzato nelle gare d'appalto di lavori pubblici</strong>, in particolare nella redazione di <strong className="font-bold text-navy">offerte migliorative</strong> secondo il criterio dell'offerta economicamente più vantaggiosa (OEV). Opera con una <strong className="font-bold text-navy">rete stabile di professionisti e società specializzate</strong> che copre ogni aspetto dell'offerta tecnica: architettura, strutture, impianti ed energetica, grafica e modellazione BIM. Ogni offerta <strong className="font-bold text-navy">è costruita insieme all'impresa</strong>, dall'analisi del disciplinare alla consegna della documentazione di gara.
+                  Lo studio dell'architetto Mario Biondi si occupa di progettazione e consulenza tecnica ed <strong className="font-bold text-[#1b2a4a]">è specializzato nelle gare d'appalto di lavori pubblici</strong>, in particolare nella redazione di <strong className="font-bold text-[#1b2a4a]">offerte migliorative</strong> secondo il criterio dell'offerta economicamente più vantaggiosa (OEV). Opera con una <strong className="font-bold text-[#1b2a4a]">rete stabile di professionisti e società specializzate</strong> che copre ogni aspetto dell'offerta tecnica: architettura, strutture, impianti ed energetica, grafica e modellazione BIM. Ogni offerta <strong className="font-bold text-[#1b2a4a]">è costruita insieme all'impresa</strong>, dall'analisi del disciplinare alla consegna della documentazione di gara.
                 </p>
               </div>
             </div>
 
             {/* Right Column: Building Image */}
             <div className="lg:col-span-6">
-              <div className="overflow-hidden rounded-[1px] border border-navy/15 shadow-sm bg-neutral-100">
+              <div className="overflow-hidden rounded-[2px] border border-[#1b2a4a]/15 shadow-sm bg-neutral-100">
                 <img 
                   src="/media/portfolio/15_ospedale_sarteano.jpg" 
                   alt="Progetto MBA Studio — Ospedale di Sarteano" 
@@ -122,21 +122,21 @@ export default function Studio() {
       </section>
 
       {/* ── 3. UN APPROCCIO MULTIDISCIPLINARE, UN UNICO OBIETTIVO ── */}
-      <section className="py-16 md:py-24 bg-white border-t border-navy/5">
+      <section className="py-16 md:py-24 bg-white border-t border-[#dfe3ea]">
         <div className="max-w-7xl mx-auto px-6">
           <div className="text-left mb-10">
-            <span className="bg-gold text-white text-[10px] font-bold uppercase tracking-[0.25em] px-3.5 py-1 rounded-[1px] inline-block mb-4 shadow-sm">
+            <span className="bg-[#b8972a] text-white text-[13px] font-medium uppercase tracking-[0.2em] px-2.5 py-1 rounded-[2px] inline-block mb-4 shadow-sm">
               LA RETE
             </span>
-            <h2 className="text-navy text-2xl sm:text-3xl md:text-4xl font-extrabold uppercase tracking-tight font-heading mb-5">
+            <h2 className="text-[#1b2a4a] text-2xl sm:text-3xl md:text-[32px] font-bold uppercase tracking-[0.05em] leading-[1.12] mb-5">
               UN APPROCCIO MULTIDISCIPLINARE, UN UNICO OBIETTIVO
             </h2>
-            <div className="space-y-4 text-navy/85 text-[15px] sm:text-[17px] font-normal max-w-4xl leading-relaxed mb-10">
+            <div className="space-y-4 text-[#3d4a66] text-[16px] font-normal max-w-[62ch] leading-[1.7] mb-10">
               <p>
-                Ogni gara richiede competenze diverse. Lo studio costruisce attorno alla singola procedura <strong className="font-bold text-navy">un gruppo di lavoro</strong> con architetti, ingegneri strutturisti e impiantisti, restauratori, specialisti BIM e grafici, coinvolti secondo le richieste del disciplinare. Il gruppo lavora sotto il <strong className="font-bold text-navy">coordinamento dello studio</strong>, dall'analisi degli atti alla consegna dell'offerta.
+                Ogni gara richiede competenze diverse. Lo studio costruisce attorno alla singola procedura <strong className="font-bold text-[#1b2a4a]">un gruppo di lavoro</strong> con architetti, ingegneri strutturisti e impiantisti, restauratori, specialisti BIM e grafici, coinvolti secondo le richieste del disciplinare. Il gruppo lavora sotto il <strong className="font-bold text-[#1b2a4a]">coordinamento dello studio</strong>, dall'analisi degli atti alla consegna dell'offerta.
               </p>
               <p>
-                Il confronto tra le diverse competenze permette di <strong className="font-bold text-navy">individuare migliorie pertinenti</strong>, verificarne la fattibilità e tradurle in <strong className="font-bold text-navy">una proposta chiara e coerente</strong>.
+                Il confronto tra le diverse competenze permette di <strong className="font-bold text-[#1b2a4a]">individuare migliorie pertinenti</strong>, verificarne la fattibilità e tradurle in <strong className="font-bold text-[#1b2a4a]">una proposta chiara e coerente</strong>.
               </p>
             </div>
           </div>
@@ -149,17 +149,17 @@ export default function Studio() {
       </section>
 
       {/* ── 4. I NOSTRI VALORI ── */}
-      <section className="py-16 md:py-24 bg-white border-t border-navy/5">
+      <section className="py-16 md:py-24 bg-white border-t border-[#dfe3ea]">
         <div className="max-w-7xl mx-auto px-6">
           <div className="text-left mb-12">
-            <span className="bg-gold text-white text-[10px] font-bold uppercase tracking-[0.25em] px-3.5 py-1 rounded-[1px] inline-block mb-4 shadow-sm">
+            <span className="bg-[#b8972a] text-white text-[13px] font-medium uppercase tracking-[0.2em] px-2.5 py-1 rounded-[2px] inline-block mb-4 shadow-sm">
               IL NOSTRO DNA
             </span>
-            <h2 className="text-navy text-2xl sm:text-3xl md:text-4xl font-extrabold uppercase tracking-tight font-heading mb-4">
+            <h2 className="text-[#1b2a4a] text-2xl sm:text-3xl md:text-[32px] font-bold uppercase tracking-[0.05em] leading-[1.12] mb-4">
               I NOSTRI VALORI
             </h2>
-            <p className="text-navy/85 text-[15px] sm:text-[17px] font-normal max-w-4xl leading-relaxed">
-              Il nostro lavoro si fonda su principi che non cambiano al variare della procedura o del committente: <strong className="font-bold text-navy">metodo rigoroso</strong>, <strong className="font-bold text-navy">ricerca costante</strong>, <strong className="font-bold text-navy">responsabilità</strong> nei confronti del cliente e del processo costruttivo. Sono i valori che guidano ogni scelta, dalla prima analisi del disciplinare alla consegna dell'offerta.
+            <p className="text-[#3d4a66] text-[16px] font-normal max-w-[62ch] leading-[1.7]">
+              Il nostro lavoro si fonda su principi che non cambiano al variare della procedura o del committente: <strong className="font-bold text-[#1b2a4a]">metodo rigoroso</strong>, <strong className="font-bold text-[#1b2a4a]">ricerca costante</strong>, <strong className="font-bold text-[#1b2a4a]">responsabilità</strong> nei confronti del cliente e del processo costruttivo. Sono i valori che guidano ogni scelta, dalla prima analisi del disciplinare alla consegna dell'offerta.
             </p>
           </div>
 
@@ -200,41 +200,41 @@ export default function Studio() {
       </section>
 
       {/* ── 5. MARIO BIONDI (FONDATORE) ── */}
-      <section className="py-16 md:py-24 bg-bg-neutral/40 border-t border-navy/5">
+      <section className="py-16 md:py-24 bg-bg-neutral/40 border-t border-[#dfe3ea]">
         <div className="max-w-7xl mx-auto px-6">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-center">
             
             {/* Left: Founder Photo / Portrait container */}
             <div className="lg:col-span-5">
-              <div className="aspect-[4/5] bg-[#eef1f4] border border-navy/15 rounded-[1px] overflow-hidden flex flex-col items-center justify-center text-center p-6 text-navy/50 shadow-xs relative">
-                <span className="text-xs font-bold uppercase tracking-wider text-navy/60">[FOTO]</span>
-                <span className="text-xs font-light text-navy/60 mt-1">Ritratto di Mario Biondi</span>
+              <div className="aspect-[4/5] bg-[#eef1f4] border border-[#1b2a4a]/15 rounded-[2px] overflow-hidden flex flex-col items-center justify-center text-center p-6 text-[#1b2a4a]/50 shadow-xs relative">
+                <span className="text-[11px] font-medium uppercase tracking-[0.2em] text-[#7b869d]">[FOTO]</span>
+                <span className="text-[13px] font-light text-[#7b869d] mt-1">Ritratto di Mario Biondi</span>
               </div>
             </div>
 
             {/* Right: Founder Details */}
             <div className="lg:col-span-7 space-y-6">
               <div>
-                <span className="bg-gold text-white text-[10px] font-bold uppercase tracking-[0.25em] px-3.5 py-1 rounded-[1px] inline-block mb-4 shadow-sm">
+                <span className="bg-[#b8972a] text-white text-[13px] font-medium uppercase tracking-[0.2em] px-2.5 py-1 rounded-[2px] inline-block mb-4 shadow-sm">
                   FONDATORE E TITOLARE
                 </span>
-                <h2 className="text-navy text-2xl sm:text-3xl md:text-4xl font-extrabold uppercase tracking-tight font-heading">
+                <h2 className="text-[#1b2a4a] text-2xl sm:text-3xl md:text-[32px] font-bold uppercase tracking-[0.05em] leading-[1.12]">
                   MARIO BIONDI
                 </h2>
-                <span className="text-gold text-xs font-bold uppercase tracking-[0.25em] block mt-1">
+                <span className="text-[#b8972a] text-[11px] font-medium uppercase tracking-[0.2em] block mt-1">
                   ARCHITETTO, TITOLARE
                 </span>
               </div>
 
-              <div className="space-y-4 text-navy/85 text-[15px] sm:text-[17px] font-normal leading-relaxed">
+              <div className="space-y-4 text-[#3d4a66] text-[16px] font-normal leading-[1.7] max-w-[62ch]">
                 <p>
-                  Titolare dello studio, coordina l'attività professionale integrando progettazione architettonica e consulenza tecnica per appalti pubblici. È specializzato nella redazione di <strong className="font-bold text-navy">offerte tecniche migliorative per gare OEV</strong> e nella definizione della strategia progettuale complessiva.
+                  Titolare dello studio, coordina l'attività professionale integrando progettazione architettonica e consulenza tecnica per appalti pubblici. È specializzato nella redazione di <strong className="font-bold text-[#1b2a4a]">offerte tecniche migliorative per gare OEV</strong> e nella definizione della strategia progettuale complessiva.
                 </p>
                 <p>
-                  Supervisiona la produzione tecnica di ogni offerta, assicurando <strong className="font-bold text-navy">coerenza metodologica e qualità documentale</strong> in tutte le fasi del lavoro. La sua competenza abbraccia la normativa CAM, la metodologia BIM e il quadro regolatorio del settore degli appalti pubblici (dal D.Lgs. 36/2023 alle Linee Guida ANAC), garantendo offerte tecniche sempre aggiornate, conformi e competitive.
+                  Supervisiona la produzione tecnica di ogni offerta, assicurando <strong className="font-bold text-[#1b2a4a]">coerenza metodologica e qualità documentale</strong> in tutte le fasi del lavoro. La sua competenza abbraccia la normativa CAM, la metodologia BIM e il quadro regolatorio del settore degli appalti pubblici (dal D.Lgs. 36/2023 alle Linee Guida ANAC), garantendo offerte tecniche sempre aggiornate, conformi e competitive.
                 </p>
                 <p>
-                  Opera nel settore delle gare d'appalto dal 2016. Dal 2022 al 2025, <strong className="font-bold text-navy">il 63% delle procedure affidate si è concluso nelle prime tre posizioni, con un tasso di aggiudicazione del 38%</strong>.
+                  Opera nel settore delle gare d'appalto dal 2016. Dal 2022 al 2025, <strong className="font-bold text-[#1b2a4a]">il 63% delle procedure affidate si è concluso nelle prime tre posizioni, con un tasso di aggiudicazione del 38%</strong>.
                 </p>
               </div>
             </div>
@@ -244,13 +244,13 @@ export default function Studio() {
       </section>
 
       {/* ── 6. UNA RETE DI PROFESSIONALITÀ ── */}
-      <section className="py-16 md:py-24 bg-white border-t border-navy/5">
+      <section className="py-16 md:py-24 bg-white border-t border-[#dfe3ea]">
         <div className="max-w-7xl mx-auto px-6">
           <div className="text-left mb-10">
-            <span className="bg-gold text-white text-[10px] font-bold uppercase tracking-[0.25em] px-3.5 py-1 rounded-[1px] inline-block mb-4 shadow-sm">
+            <span className="bg-[#b8972a] text-white text-[13px] font-medium uppercase tracking-[0.2em] px-2.5 py-1 rounded-[2px] inline-block mb-4 shadow-sm">
               COMPETENZE MULTIDISCIPLINARI
             </span>
-            <h2 className="text-navy text-2xl sm:text-3xl md:text-4xl font-extrabold uppercase tracking-tight font-heading">
+            <h2 className="text-[#1b2a4a] text-2xl sm:text-3xl md:text-[32px] font-bold uppercase tracking-[0.05em] leading-[1.12]">
               UNA RETE DI PROFESSIONALITÀ
             </h2>
           </div>
@@ -259,16 +259,16 @@ export default function Studio() {
             {team.map((member, index) => (
               <div 
                 key={index}
-                className="bg-white p-7 sm:p-8 border border-navy/15 rounded-[1px] space-y-4 hover:border-gold hover:shadow-xs transition-all"
+                className="bg-white p-7 sm:p-8 border border-[#1b2a4a]/15 rounded-[2px] space-y-4 hover:border-[#b8972a] hover:shadow-xs transition-all"
               >
-                <div className="w-10 h-10 bg-navy text-white font-mono font-bold text-xs flex items-center justify-center rounded-[1px]">
+                <div className="w-10 h-10 bg-[#1b2a4a] text-white font-mono font-bold text-xs flex items-center justify-center rounded-[2px]">
                   {member.badge}
                 </div>
                 <div>
-                  <h3 className="text-navy text-base sm:text-[17px] font-bold uppercase tracking-tight font-outfit">{member.name}</h3>
-                  <span className="text-gold text-xs font-bold uppercase tracking-[0.2em] block mt-0.5 font-outfit">{member.role}</span>
+                  <h3 className="text-[#1b2a4a] text-[17px] font-semibold uppercase tracking-[0.06em]">{member.name}</h3>
+                  <span className="text-[#b8972a] text-[11px] font-medium uppercase tracking-[0.2em] block mt-0.5">{member.role}</span>
                 </div>
-                <p className="text-[#475569] text-sm sm:text-[15px] font-normal leading-relaxed font-outfit">{member.bio}</p>
+                <p className="text-[#3d4a66] text-[15px] sm:text-[16px] font-normal leading-[1.7]">{member.bio}</p>
               </div>
             ))}
           </div>
@@ -282,12 +282,12 @@ export default function Studio() {
 // ── VALUE CARD COMPONENT ──
 function ValueCard({ icon: Icon, title, text }: { icon: any; title: string; text: string }) {
   return (
-    <div className="bg-white p-8 sm:p-10 border border-navy/15 rounded-[1px] space-y-4 hover:border-gold/50 hover:shadow-xs transition-all">
-      <div className="text-gold">
+    <div className="bg-white p-8 sm:p-10 border border-[#1b2a4a]/15 rounded-[2px] space-y-4 hover:border-[#b8972a]/50 hover:shadow-xs transition-all">
+      <div className="text-[#b8972a]">
         <Icon size={36} weight="light" />
       </div>
-      <h3 className="text-navy text-[17px] font-bold tracking-[0.05em] uppercase font-outfit">{title}</h3>
-      <p className="text-[#475569] text-[15px] font-normal leading-relaxed font-outfit">{text}</p>
+      <h3 className="text-[#1b2a4a] text-[17px] font-semibold tracking-[0.06em] uppercase">{title}</h3>
+      <p className="text-[#3d4a66] text-[15px] sm:text-[16px] font-normal leading-[1.7]">{text}</p>
     </div>
   );
 }

@@ -38,10 +38,10 @@ export default function Portfolio() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
           >
-            <span className="text-white/80 text-[11px] font-bold uppercase tracking-[0.4em] md:tracking-[0.6em] mb-4 block font-outfit">
+            <span className="text-white/80 text-[11px] font-medium uppercase tracking-[0.2em] mb-4 block">
               PROGETTI SELEZIONATI
             </span>
-            <h1 className="text-white text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold uppercase tracking-[0.25em] md:tracking-[0.35em] leading-[1.2] mb-4 font-outfit">
+            <h1 className="text-white text-[clamp(34px,4.5vw,60px)] font-medium uppercase tracking-[-0.03em] leading-[1.05] mb-4">
                ARCHIVIO OPERE
             </h1>
           </motion.div>
@@ -58,24 +58,24 @@ export default function Portfolio() {
       </section>
 
       {/* ── BANNER CONTATTI ── */}
-      <section className="py-12 sm:py-16 px-6 max-w-7xl mx-auto border-t border-navy/10">
+      <section className="py-12 sm:py-16 px-6 max-w-7xl mx-auto border-t border-[#dfe3ea]">
         <div className="mb-4">
-          <span className="bg-gold text-white text-[10px] font-bold uppercase tracking-[0.25em] px-3.5 py-1 rounded-[1px] inline-block shadow-xs font-outfit">
+          <span className="bg-[#b8972a] text-white text-[13px] font-medium uppercase tracking-[0.2em] px-2.5 py-1 rounded-[2px] inline-block shadow-xs">
             CONTATTI
           </span>
         </div>
-        <div className="bg-[#F9FBFC] border-l-4 border-gold p-8 sm:p-10 flex flex-col md:flex-row md:items-center justify-between gap-6 shadow-xs">
+        <div className="bg-[#F9FBFC] border-l-4 border-[#b8972a] p-8 sm:p-10 flex flex-col md:flex-row md:items-center justify-between gap-6 shadow-xs rounded-[2px]">
           <div>
-            <h3 className="text-navy text-xl sm:text-2xl md:text-3xl font-extrabold uppercase tracking-tight font-heading">
+            <h3 className="text-[#1b2a4a] text-xl sm:text-2xl md:text-[28px] font-bold uppercase tracking-[0.05em] leading-[1.15]">
               VUOI PRESENTARE UN'OFFERTA MIGLIORATIVA VINCENTE?
             </h3>
-            <p className="text-navy/75 text-sm sm:text-base font-outfit mt-2">
+            <p className="text-[#3d4a66] text-[16px] font-normal leading-[1.7] mt-2 max-w-[62ch]">
               Richiedi uno studio di fattibilità tecnica per la tua prossima gara OEPV.
             </p>
           </div>
           <Link
             to="/contatti"
-            className="bg-navy text-white text-xs sm:text-sm font-bold uppercase tracking-widest px-8 py-4 hover:bg-gold transition-colors inline-flex items-center justify-center gap-4 rounded-[1px] shadow-sm shrink-0 font-outfit"
+            className="bg-[#1b2a4a] text-white text-[11px] font-medium uppercase tracking-[0.2em] px-[26px] py-[15px] hover:bg-[#b8972a] transition-colors inline-flex items-center justify-between gap-4 rounded-[2px] shadow-sm shrink-0 min-w-[240px]"
           >
             <span>RICHIEDI UNA CONSULENZA</span>
             <span>&gt;</span>
@@ -99,7 +99,7 @@ function ProjectGridItem({ project }: { project: Project }) {
 
   return (
     <Link to={`/portfolio/${project.id}`}>
-      <div className="group relative aspect-[4/3] sm:aspect-[4/5] overflow-hidden bg-neutral-100 cursor-pointer shadow-xs hover:shadow-md transition-all border border-navy/10 rounded-[1px]">
+      <div className="group relative aspect-[4/3] sm:aspect-[4/5] overflow-hidden bg-neutral-100 cursor-pointer shadow-xs hover:shadow-md transition-all border border-[#1b2a4a]/10 rounded-[2px]">
          {/* FOTO NATURALE A COLORI */}
          <img 
            src={project.image} 
@@ -110,16 +110,16 @@ function ProjectGridItem({ project }: { project: Project }) {
 
          {/* Badge solo se 1° o 2° classificato */}
          {isTopRank && (
-            <div className={`absolute top-4 left-4 ${isSecond ? 'bg-navy' : 'bg-[#F5C400]'} text-white text-[10px] font-bold uppercase tracking-wider px-3 py-1 z-10 shadow-sm rounded-[1px] font-outfit`}>
+            <div className={`absolute top-4 left-4 ${isSecond ? 'bg-[#1b2a4a]' : 'bg-[#b8972a]'} text-white text-[11px] font-medium uppercase tracking-[0.06em] px-3 py-1 z-10 shadow-sm rounded-[2px]`}>
                {project.rank}
             </div>
          )}
 
          {/* Gradiente scuro naturale solo in basso per leggibilità testo */}
          <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/25 to-transparent p-5 sm:p-6 flex flex-col justify-end">
-            <h3 className="text-white text-base sm:text-lg font-bold uppercase tracking-tight mb-1.5 group-hover:text-[#F5C400] transition-colors line-clamp-2 font-outfit">{project.title}</h3>
-            <div className="flex items-center gap-1.5 text-white/90 text-xs font-bold uppercase tracking-wider font-outfit">
-               <MapPin size={13} className="text-[#F5C400] shrink-0" /> {project.location}
+            <h3 className="text-white text-base sm:text-[18px] font-medium uppercase tracking-tight mb-1.5 group-hover:text-[#b8972a] transition-colors line-clamp-2 leading-[1.35]">{project.title}</h3>
+            <div className="flex items-center gap-1.5 text-white/90 text-[12px] font-medium uppercase tracking-[0.06em]">
+               <MapPin size={13} className="text-[#b8972a] shrink-0" /> {project.location}
             </div>
          </div>
       </div>

@@ -26,10 +26,14 @@ export default function Home() {
   const [portfolioIndex, setPortfolioIndex] = useState(0);
   const [itemsPerView, setItemsPerView] = useState(3);
   const [isPortfolioPaused, setIsPortfolioPaused] = useState(false);
+  const portfolioContainerRef = useRef<HTMLDivElement>(null);
+  const [portfolioWidth, setPortfolioWidth] = useState(0);
 
   // NEWS CAROUSEL STATE
   const [newsIndex, setNewsIndex] = useState(0);
   const [isNewsPaused, setIsNewsPaused] = useState(false);
+  const newsContainerRef = useRef<HTMLDivElement>(null);
+  const [newsWidth, setNewsWidth] = useState(0);
 
   useEffect(() => {
     const handleUpdate = () => {
@@ -45,7 +49,13 @@ export default function Home() {
   }, []);
 
   useEffect(() => {
-    const handleResize = () => {
+    const updateDimensions = () => {
+      if (portfolioContainerRef.current) {
+        setPortfolioWidth(portfolioContainerRef.current.clientWidth);
+      }
+      if (newsContainerRef.current) {
+        setNewsWidth(newsContainerRef.current.clientWidth);
+      }
       if (window.innerWidth < 640) {
         setItemsPerView(1);
       } else if (window.innerWidth < 1024) {
@@ -54,13 +64,42 @@ export default function Home() {
         setItemsPerView(3);
       }
     };
-    handleResize();
-    window.addEventListener('resize', handleResize);
-    return () => window.removeEventListener('resize', handleResize);
+
+    updateDimensions();
+    window.addEventListener('resize', updateDimensions);
+    const ro = new ResizeObserver(updateDimensions);
+    if (portfolioContainerRef.current) ro.observe(portfolioContainerRef.current);
+    if (newsContainerRef.current) ro.observe(newsContainerRef.current);
+
+    return () => {
+      window.removeEventListener('resize', updateDimensions);
+      ro.disconnect();
+    };
   }, []);
 
   const maxPortfolioIndex = Math.max(0, homeProjects.length - itemsPerView);
   const maxNewsIndex = Math.max(0, homeArticles.length - itemsPerView);
+
+  useEffect(() => {
+    setPortfolioIndex((prev) => Math.min(prev, maxPortfolioIndex));
+  }, [maxPortfolioIndex]);
+
+  useEffect(() => {
+    setNewsIndex((prev) => Math.min(prev, maxNewsIndex));
+  }, [maxNewsIndex]);
+
+  const gap = 24;
+  const portfolioCardWidth = portfolioWidth > 0 
+    ? (itemsPerView === 1 ? portfolioWidth : (portfolioWidth - (itemsPerView - 1) * gap) / itemsPerView)
+    : 0;
+  const portfolioStep = portfolioCardWidth + gap;
+  const portfolioX = -(portfolioIndex * portfolioStep);
+
+  const newsCardWidth = newsWidth > 0 
+    ? (itemsPerView === 1 ? newsWidth : (newsWidth - (itemsPerView - 1) * gap) / itemsPerView)
+    : 0;
+  const newsStep = newsCardWidth + gap;
+  const newsX = -(newsIndex * newsStep);
 
   // Autoplay automatico a intervallo per il carosello progetti
   useEffect(() => {
@@ -151,11 +190,19 @@ export default function Home() {
             </p>
 
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4 w-full">
-              <Link to="/servizi/gare" className="btn-ghost-white group px-8 py-3 text-xs tracking-widest uppercase font-bold">
-                Gare OEPV <ArrowRight className="ml-2 group-hover:translate-x-1 transition-transform inline-block" />
+              <Link 
+                to="/servizi/gare" 
+                className="btn-ghost-white group w-full max-w-[270px] sm:w-[260px] h-[52px] px-[26px] py-[15px] text-[11px] font-medium tracking-[0.2em] uppercase rounded-[2px] inline-flex items-center justify-center gap-3.5 transition-all shadow-2xs"
+              >
+                <span>GARE OEPV</span>
+                <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform inline-block shrink-0" />
               </Link>
-              <Link to="/studio" className="btn-ghost-white group px-8 py-3 text-xs tracking-widest uppercase font-bold">
-                Scopri lo Studio <ArrowRight className="ml-2 group-hover:translate-x-1 transition-transform inline-block" />
+              <Link 
+                to="/studio" 
+                className="btn-ghost-white group w-full max-w-[270px] sm:w-[260px] h-[52px] px-[26px] py-[15px] text-[11px] font-medium tracking-[0.2em] uppercase rounded-[2px] inline-flex items-center justify-center gap-3.5 transition-all shadow-2xs"
+              >
+                <span>SCOPRI LO STUDIO</span>
+                <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform inline-block shrink-0" />
               </Link>
             </div>
           </motion.div>
@@ -255,6 +302,7 @@ export default function Home() {
 
           {/* Slider Track with Mobile Touch Swipe and Auto-slide Pause on Hover */}
           <div 
+            ref={portfolioContainerRef}
             className="overflow-hidden relative touch-pan-y"
             onMouseEnter={() => setIsPortfolioPaused(true)}
             onMouseLeave={() => setIsPortfolioPaused(false)}
@@ -277,16 +325,14 @@ export default function Home() {
             }}
           >
             <motion.div 
-              animate={{ 
-                x: `-${portfolioIndex * (100 / itemsPerView)}%` 
-              }}
-              transition={{ ease: [0.16, 1, 0.3, 1], duration: 0.6 }}
+              animate={{ x: portfolioX }}
+              transition={{ ease: [0.16, 1, 0.3, 1], duration: 0.5 }}
               className="flex gap-6"
             >
               {homeProjects.map((p) => (
                 <div 
                   key={p.id} 
-                  style={{ width: `calc(${100 / itemsPerView}% - ${(24 * (itemsPerView - 1)) / itemsPerView}px)` }}
+                  style={{ width: portfolioCardWidth > 0 ? `${portfolioCardWidth}px` : '100%' }}
                   className="shrink-0"
                 >
                   <ProjectCard 
@@ -350,8 +396,12 @@ export default function Home() {
                 Uno strumento esclusivo sviluppato per calcolare in tempo reale il punteggio economico della tua offerta nelle gare OEPV. Inserisci ribasso, importi a base di gara e seleziona la formula di attribuzione (interdittiva, quadratica o bilineare) per simulare scenari competitivi e massimizzare la probabilità di aggiudicazione.
               </p>
               <div className="pt-2">
-                <Link to="/simulatore" className="btn-ghost-dark group px-8 py-3 text-xs tracking-widest uppercase font-bold inline-flex items-center">
-                  Accedi al Simulatore <ArrowRight className="ml-2 group-hover:translate-x-1 transition-transform" />
+                <Link 
+                  to="/simulatore" 
+                  className="btn-ghost-dark group w-full max-w-[270px] sm:w-[260px] h-[52px] px-[26px] py-[15px] text-[11px] font-medium tracking-[0.2em] uppercase rounded-[2px] inline-flex items-center justify-center gap-3.5 transition-all shadow-2xs"
+                >
+                  <span>Accedi al Simulatore</span>
+                  <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform inline-block shrink-0" />
                 </Link>
               </div>
             </div>
@@ -428,6 +478,7 @@ export default function Home() {
 
           {/* News Slider Track with Mobile Touch Swipe and Auto-slide Pause */}
           <div 
+            ref={newsContainerRef}
             className="overflow-hidden relative touch-pan-y"
             onMouseEnter={() => setIsNewsPaused(true)}
             onMouseLeave={() => setIsNewsPaused(false)}
@@ -450,16 +501,14 @@ export default function Home() {
             }}
           >
             <motion.div 
-              animate={{ 
-                x: `-${newsIndex * (100 / itemsPerView)}%` 
-              }}
-              transition={{ ease: [0.16, 1, 0.3, 1], duration: 0.6 }}
+              animate={{ x: newsX }}
+              transition={{ ease: [0.16, 1, 0.3, 1], duration: 0.5 }}
               className="flex gap-6"
             >
               {homeArticles.map((art, idx) => (
                 <div 
                   key={art.id} 
-                  style={{ width: `calc(${100 / itemsPerView}% - ${(24 * (itemsPerView - 1)) / itemsPerView}px)` }}
+                  style={{ width: newsCardWidth > 0 ? `${newsCardWidth}px` : '100%' }}
                   className="shrink-0"
                 >
                   <ArticleCard 
@@ -478,7 +527,7 @@ export default function Home() {
           <div className="mt-8 sm:mt-10 flex flex-row items-center justify-between gap-2 sm:gap-4">
             <Link 
               to="/risorse" 
-              className="border border-[#1B2A4A]/30 hover:border-[#F5C400] hover:text-[#F5C400] bg-white px-4 sm:px-8 py-3 sm:py-3.5 text-xs tracking-[0.16em] uppercase font-bold text-[#1B2A4A] transition-all rounded-[1px] shadow-xs inline-flex items-center justify-between gap-4 sm:gap-8 group flex-1 sm:flex-initial sm:min-w-[240px]"
+              className="border border-[#1B2A4A]/25 hover:border-[#b8972a] hover:text-[#b8972a] bg-white w-[260px] max-w-full h-[52px] px-[26px] py-[15px] text-[11px] tracking-[0.2em] uppercase font-medium text-[#1B2A4A] transition-all rounded-[2px] shadow-xs inline-flex items-center justify-between gap-4 group shrink-0"
             >
               <span>TUTTE LE NEWS</span>
               <CaretRight size={13} weight="bold" className="group-hover:translate-x-1 transition-transform shrink-0" />

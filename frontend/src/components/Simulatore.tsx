@@ -373,7 +373,7 @@ export default function Simulatore() {
     <div className="w-full">
       {/* Intestazione */}
       <div className="text-center mb-12">
-        <h3 className="text-navy text-2xl font-bold uppercase tracking-tighter mb-8">
+        <h3 className="text-[#1b2a4a] text-2xl font-semibold uppercase tracking-tight mb-8 font-outfit">
            Simulatore ribasso economico
         </h3>
         <div className="grid grid-cols-2 md:grid-cols-4 gap-6 max-w-4xl mx-auto">
@@ -384,9 +384,9 @@ export default function Simulatore() {
             ["04", "Affina la classifica a mano o con le barre", ""],
           ].map(([n, title, desc]) => (
             <div key={n} className="text-center">
-              <div className="text-gold text-2xl md:text-3xl font-bold mb-2 opacity-50">{n}</div>
-              <div className="text-navy text-xs font-bold uppercase tracking-widest mb-2 leading-relaxed">{title}</div>
-              <div className="text-text-main text-[11px] leading-relaxed px-4">{desc}</div>
+              <div className="text-[#b8972a] text-2xl md:text-3xl font-semibold mb-2 opacity-50 font-outfit">{n}</div>
+              <div className="text-[#1b2a4a] text-xs font-medium uppercase tracking-[0.15em] mb-2 leading-relaxed font-outfit">{title}</div>
+              <div className="text-[#7b869d] text-[11px] leading-relaxed px-4 font-outfit">{desc}</div>
             </div>
           ))}
         </div>
@@ -398,65 +398,65 @@ export default function Simulatore() {
           const on = +id === formula;
           return (
             <button key={id} onClick={() => { setFormula(+id); setRighe([]); setNextId(1); setGenerato(false); }} 
-              className={`text-left p-6 transition-all duration-300 border-t-4 border ${on ? 'border-navy border-t-gold bg-navy/5 shadow-inner' : 'border-navy/10 border-t-transparent bg-white hover:border-navy/30'}`}
+              className={`text-left p-6 transition-all duration-300 border-t-4 border rounded-[2px] ${on ? 'border-[#1b2a4a] border-t-[#b8972a] bg-[#1b2a4a]/5 shadow-inner' : 'border-[#1b2a4a]/10 border-t-transparent bg-white hover:border-[#1b2a4a]/30'}`}
             >
-              <div className={`text-[10px] font-bold uppercase tracking-[0.2em] mb-4 ${on ? 'text-navy' : 'text-navy/50'}`}>{f.tag}</div>
-              <div className={`text-sm md:text-base ${on ? 'text-navy font-bold' : 'text-navy'}`}>{f.mini}</div>
+              <div className={`text-[10px] font-medium uppercase tracking-[0.2em] mb-4 font-outfit ${on ? 'text-[#1b2a4a]' : 'text-[#7b869d]'}`}>{f.tag}</div>
+              <div className={`text-sm md:text-base font-outfit ${on ? 'text-[#1b2a4a] font-semibold' : 'text-[#1b2a4a]'}`}>{f.mini}</div>
             </button>
           );
         })}
       </div>
 
       {/* Dettagli Formula */}
-      <div className="bg-white border border-navy/10 p-6 md:p-10 mb-8 grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
-        <div className="flex flex-col gap-4 text-base md:text-xl text-navy">
+      <div className="bg-white border border-[#1b2a4a]/10 rounded-[2px] p-6 md:p-10 mb-8 grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+        <div className="flex flex-col gap-4 text-base md:text-xl text-[#1b2a4a]">
           {det.righe.map((r: any, i: number) => (<div key={i}>{r}</div>))}
         </div>
-        <div className="md:border-l border-navy/10 md:pl-8">
-          <div className="text-[10px] font-bold uppercase tracking-[0.2em] text-gold mb-4">Legenda Variabili</div>
+        <div className="md:border-l border-[#1b2a4a]/10 md:pl-8">
+          <div className="text-[11px] font-medium uppercase tracking-[0.2em] text-[#b8972a] mb-4 font-outfit">Legenda Variabili</div>
           {det.legenda.map(([sim, desc]: any) => (
-            <div key={sim} className="flex gap-4 text-[11px] md:text-xs mb-3 leading-relaxed">
-              <span className="font-bold text-navy w-12 shrink-0 italic font-serif">{sim}</span>
-              <span className="text-text-main">{desc}</span>
+            <div key={sim} className="flex gap-4 text-[11px] md:text-xs mb-3 leading-relaxed font-outfit">
+              <span className="font-semibold text-[#1b2a4a] w-12 shrink-0 italic font-serif">{sim}</span>
+              <span className="text-[#3d4a66]">{desc}</span>
             </div>
           ))}
         </div>
       </div>
 
       {/* Parametri */}
-      <div className="bg-bg-neutral p-6 md:p-10 mb-8">
+      <div className="bg-[#F9FBFC] border border-[#1b2a4a]/10 rounded-[2px] p-6 md:p-10 mb-8">
          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8 mb-8">
             <div className="flex flex-col gap-3">
-              <label className="text-[10px] font-bold uppercase tracking-[0.2em] text-navy/50">Importo a base di gara</label>
+              <label className="text-[11px] font-medium uppercase tracking-[0.2em] text-[#7b869d] font-outfit">Importo a base di gara</label>
               <ImportoInput value={importo} onChange={setImporto} />
             </div>
             <div className="flex flex-col gap-3">
-              <label className="text-[10px] font-bold uppercase tracking-[0.2em] text-navy/50">Punti massimi economici</label>
+              <label className="text-[11px] font-medium uppercase tracking-[0.2em] text-[#7b869d] font-outfit">Punti massimi economici</label>
               <DecimalInput value={pmax} onChange={setPmax} min={1} max={100} step={1} />
             </div>
             <div className="flex flex-col gap-3">
-              <label className="text-[10px] font-bold uppercase tracking-[0.2em] text-navy/50">Numero offerte attese</label>
+              <label className="text-[11px] font-medium uppercase tracking-[0.2em] text-[#7b869d] font-outfit">Numero offerte attese</label>
               <DecimalInput value={nConc} onChange={(v: any) => setNConc(Math.round(v))} min={2} max={30} step={1} />
             </div>
             {formula === 3 && (
               <div className="flex flex-col gap-3">
-                <label className="text-[10px] font-bold uppercase tracking-[0.2em] text-navy/50">Coefficiente Alfa</label>
+                <label className="text-[11px] font-medium uppercase tracking-[0.2em] text-[#7b869d] font-outfit">Coefficiente Alfa</label>
                 <DecimalInput value={alfa} onChange={setAlfa} min={0.05} max={2} step={0.05} />
               </div>
             )}
             {formula === 4 && (
               <div className="flex flex-col gap-3">
-                <label className="text-[10px] font-bold uppercase tracking-[0.2em] text-navy/50">Coefficiente X</label>
+                <label className="text-[11px] font-medium uppercase tracking-[0.2em] text-[#7b869d] font-outfit">Coefficiente X</label>
                 <DecimalInput value={X} onChange={setX} min={0.5} max={0.95} step={0.05} />
               </div>
             )}
          </div>
 
-         <div className="pt-8 border-t border-navy/10 flex flex-col md:flex-row items-center gap-6">
-            <button onClick={genera} className="bg-navy text-white hover:bg-gold transition-colors duration-500 py-4 px-8 text-xs font-bold uppercase tracking-[0.2em] shrink-0 w-full md:w-auto">
+         <div className="pt-8 border-t border-[#1b2a4a]/10 flex flex-col md:flex-row items-center gap-6">
+            <button onClick={genera} className="bg-[#1b2a4a] text-white hover:bg-[#b8972a] transition-colors py-[15px] px-[26px] text-[11px] font-medium uppercase tracking-[0.2em] rounded-[2px] shrink-0 w-full md:w-auto font-outfit">
               Genera ribassi e concorrenti
             </button>
-            <p className="text-xs text-text-main leading-relaxed">
+            <p className="text-xs text-[#7b869d] leading-relaxed font-outfit">
                La generazione dei ribassi è su base matematica, determinata dalla formula selezionata e dal peso dell'offerta economica sul totale dei punti di gara.
             </p>
          </div>

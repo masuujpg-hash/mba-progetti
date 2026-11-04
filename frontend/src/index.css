@@ -7,11 +7,19 @@
   --font-serif: 'Outfit', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
   --font-outfit: 'Outfit', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
   
-  --color-navy: #1B2A4A;
-  --color-gold: #F5C400;
-  --color-text-main: #555555;
-  --color-bg-neutral: #F4F4F4;
-  --color-bg-primary: #FFFFFF;
+  /* MBA Official Color Tokens from specifiche-tipografiche-mba.md */
+  --ink: #1b2a4a;
+  --txt: #3d4a66;
+  --mute: #7b869d;
+  --acc: #b8972a;
+  --line: #dfe3ea;
+  --bg: #ffffff;
+
+  --color-navy: #1b2a4a;
+  --color-gold: #b8972a;
+  --color-text-main: #3d4a66;
+  --color-bg-neutral: #f4f6f8;
+  --color-bg-primary: #ffffff;
 
   --transition-slow: all 0.8s cubic-bezier(0.16, 1, 0.3, 1);
   --transition-medium: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
@@ -22,18 +30,18 @@
   --accent-gold: var(--color-gold);
   --text-main: var(--color-navy);
   --text-body: var(--color-text-main);
-  --line-gold: rgba(245, 196, 0, 0.3);
+  --line-gold: rgba(184, 151, 42, 0.3);
 
-  --radius-xs: 1px;
-  --radius-sm: 1px;
-  --radius-md: 1px;
-  --radius-lg: 1px;
+  --radius-xs: 2px;
+  --radius-sm: 2px;
+  --radius-md: 2px;
+  --radius-lg: 2px;
   --radius-xl: 2px;
   --radius-2xl: 2px;
-  --radius: 1px;
+  --radius: 2px;
 
   font-family: var(--font-sans);
-  line-height: 1.5;
+  line-height: 1.7;
   font-weight: 400;
 
   color-scheme: light;
@@ -55,11 +63,16 @@
   --color-text-main: var(--color-text-main);
   --color-bg-neutral: var(--color-bg-neutral);
   --color-bg-primary: var(--color-bg-primary);
+  --color-ink: var(--ink);
+  --color-txt: var(--txt);
+  --color-mute: var(--mute);
+  --color-acc: var(--acc);
+  --color-line: var(--line);
 
-  --radius-xs: 1px;
-  --radius-sm: 1px;
-  --radius-md: 1px;
-  --radius-lg: 1px;
+  --radius-xs: 2px;
+  --radius-sm: 2px;
+  --radius-md: 2px;
+  --radius-lg: 2px;
   --radius-xl: 2px;
   --radius-2xl: 2px;
 }
@@ -180,57 +193,60 @@ h1, h2, h3, h4, .font-display {
 .btn-ghost-gold,
 .btn-ghost-dark,
 .btn-ghost-white,
+.btn-ghost-light,
 .btn-site,
 [class*="btn-ghost"],
 .btn-primary,
 .btn-secondary {
-  min-height: 50px !important;
-  min-width: 200px !important;
-  width: auto !important;
+  min-height: 52px !important;
+  min-width: 260px !important;
+  width: 260px;
   max-width: 100% !important;
-  padding: 14px 28px !important;
+  padding: 15px 26px !important;
   font-size: 11px !important;
-  font-weight: 700 !important;
+  font-weight: 500 !important;
   letter-spacing: 0.2em !important;
   text-transform: uppercase !important;
   display: inline-flex !important;
   align-items: center !important;
   justify-content: center !important;
-  border-radius: 1px !important;
-  white-space: normal !important;
+  border-radius: 2px !important;
+  white-space: nowrap !important;
   text-align: center !important;
   box-sizing: border-box !important;
   transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1) !important;
 }
 
 .btn-ghost-gold {
-  border: 1px solid var(--color-gold) !important;
-  color: var(--color-gold) !important;
+  border: 1px solid var(--acc) !important;
+  color: var(--acc) !important;
   background: transparent !important;
 }
 .btn-ghost-gold:hover {
-  background: var(--color-gold) !important;
-  color: var(--color-navy) !important;
+  background: var(--acc) !important;
+  color: var(--ink) !important;
 }
 
 .btn-ghost-dark {
-  border: 1px solid var(--color-navy) !important;
-  color: var(--color-navy) !important;
+  border: 1px solid var(--ink) !important;
+  color: var(--ink) !important;
   background: transparent !important;
 }
 .btn-ghost-dark:hover {
-  background: var(--color-navy) !important;
+  background: var(--ink) !important;
   color: #ffffff !important;
 }
 
-.btn-ghost-white {
+.btn-ghost-white,
+.btn-ghost-light {
   border: 1px solid #ffffff !important;
   color: #ffffff !important;
   background: transparent !important;
 }
-.btn-ghost-white:hover {
+.btn-ghost-white:hover,
+.btn-ghost-light:hover {
   background: #ffffff !important;
-  color: var(--color-navy) !important;
+  color: var(--ink) !important;
 }
 
 /* Glassmorphism */
@@ -325,8 +341,131 @@ h1, h2, h3, h4, .font-display {
   animation: float 4s ease-in-out infinite;
 }
 
-/* ── Custom Utilities ── */
+/* ── Custom Utilities (MBA Specifications) ── */
 @layer utilities {
+  .tabular-nums {
+    font-variant-numeric: tabular-nums;
+  }
+
+  /* MBA Typography hierarchy */
+  .hero-h1 {
+    font-size: clamp(32px, 4.3vw, 58px);
+    font-weight: 700;
+    line-height: 1.2;
+    letter-spacing: 0.045em;
+    text-transform: uppercase;
+  }
+
+  .sec-h2 {
+    font-size: clamp(24px, 2.6vw, 32px);
+    font-weight: 700;
+    line-height: 1.12;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    color: var(--ink);
+  }
+
+  .inner-h1 {
+    font-size: clamp(34px, 4.5vw, 60px);
+    font-weight: 500;
+    line-height: 1.05;
+    letter-spacing: -0.03em;
+    text-transform: uppercase;
+    color: var(--ink);
+  }
+
+  .block-title {
+    font-size: 17px;
+    font-weight: 600;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--ink);
+  }
+
+  .carousel-title {
+    font-size: 18px;
+    font-weight: 500;
+    line-height: 1.35;
+    text-transform: none;
+    color: var(--ink);
+  }
+
+  .body-std {
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 1.7;
+    color: var(--txt);
+    max-width: 62ch;
+  }
+
+  .sec-tag {
+    font-size: 13px;
+    font-weight: 500;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    background-color: var(--acc);
+    color: #ffffff;
+    padding: 4px 10px;
+    border-radius: 2px;
+    display: inline-block;
+  }
+
+  .label-mute {
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--mute);
+    display: block;
+  }
+
+  .btn-action {
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--ink);
+    padding: 15px 26px;
+    min-width: 240px;
+    border-radius: 2px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 14px;
+    border: 1px solid rgba(27, 42, 74, 0.25);
+    background-color: transparent;
+    transition: all 0.25s ease;
+  }
+  .btn-action:hover {
+    border-color: var(--acc);
+    color: var(--acc);
+  }
+
+  .stat-val {
+    font-size: clamp(32px, 3.4vw, 48px);
+    font-weight: 600;
+    line-height: 1;
+    letter-spacing: -0.03em;
+    font-variant-numeric: tabular-nums;
+    color: var(--ink);
+  }
+
+  .page-wrap {
+    padding-left: clamp(16px, 5vw, 80px);
+    padding-right: clamp(16px, 5vw, 80px);
+  }
+
+  .sec-pad {
+    padding-top: 48px;
+    padding-bottom: 88px;
+  }
+  @media (max-width: 820px) {
+    .sec-pad {
+      padding-top: 24px;
+      padding-bottom: 56px;
+    }
+  }
+
   .section-full {
     width: 100%;
     overflow: hidden;

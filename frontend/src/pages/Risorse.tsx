@@ -37,10 +37,10 @@ export default function Risorse() {
              animate={{ opacity: 1, y: 0 }}
              transition={{ duration: 0.8 }}
            >
-             <span className="text-white/80 text-[11px] font-bold uppercase tracking-[0.4em] md:tracking-[0.6em] mb-4 block font-outfit">
+             <span className="text-white/80 text-[11px] font-medium uppercase tracking-[0.2em] mb-4 block">
                TOOLBOX PER LE IMPRESE
              </span>
-             <h1 className="text-white text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold uppercase tracking-[0.25em] md:tracking-[0.35em] leading-[1.2] mb-4 font-outfit">
+             <h1 className="text-white text-[clamp(34px,4.5vw,60px)] font-medium leading-[1.05] uppercase tracking-[-0.03em] mb-4">
                 RISORSE &amp; NEWS
              </h1>
            </motion.div>
@@ -50,20 +50,20 @@ export default function Risorse() {
       {/* ── INTRO / SELECTION ── */}
       <section className="py-16 md:py-24 px-6 max-w-7xl mx-auto">
          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            <div className="bg-bg-neutral p-8 sm:p-12 rounded-[1px] border border-navy/10 group hover:border-gold transition-all duration-300 shadow-xs">
-               <Calculator size={44} weight="regular" className="text-gold mb-6 group-hover:scale-110 transition-transform" />
-               <h3 className="text-navy text-2xl sm:text-3xl font-extrabold uppercase tracking-tight mb-3 font-outfit">Calcolo Ribasso</h3>
-               <p className="text-[#475569] text-base md:text-[17px] font-normal leading-relaxed mb-8 font-outfit">Simula il punteggio economico ottenibile in funzione del ribasso offerto.</p>
-               <a href="#calculator" className="border border-navy/30 hover:border-gold text-navy hover:text-gold px-6 py-3 rounded-[1px] text-xs font-bold uppercase tracking-widest transition-colors inline-flex items-center gap-2 shadow-2xs font-outfit">
+            <div className="bg-bg-neutral p-8 sm:p-12 rounded-[2px] border border-[#1b2a4a]/10 group hover:border-[#b8972a] transition-all duration-300 shadow-xs">
+               <Calculator size={44} weight="regular" className="text-[#b8972a] mb-6 group-hover:scale-110 transition-transform" />
+               <h3 className="text-[#1b2a4a] text-2xl sm:text-3xl font-bold uppercase tracking-[0.05em] mb-3">Calcolo Ribasso</h3>
+               <p className="text-[#3d4a66] text-[16px] font-normal leading-[1.7] mb-8 max-w-[62ch]">Simula il punteggio economico ottenibile in funzione del ribasso offerto.</p>
+               <a href="#calculator" className="border border-[#1b2a4a]/25 hover:border-[#b8972a] text-[#1b2a4a] hover:text-[#b8972a] px-[26px] py-[15px] rounded-[2px] text-[11px] font-medium uppercase tracking-[0.2em] transition-colors inline-flex items-center justify-between min-w-[240px] shadow-2xs">
                  <span>Vai allo strumento</span>
                  <span>&gt;</span>
                </a>
             </div>
-            <div className="bg-bg-neutral p-8 sm:p-12 rounded-[1px] border border-navy/10 group hover:border-gold transition-all duration-300 shadow-xs">
-               <BookOpen size={44} weight="regular" className="text-gold mb-6 group-hover:scale-110 transition-transform" />
-               <h3 className="text-navy text-2xl sm:text-3xl font-extrabold uppercase tracking-tight mb-3 font-outfit">Approfondimenti</h3>
-               <p className="text-[#475569] text-base md:text-[17px] font-normal leading-relaxed mb-8 font-outfit">Articoli e aggiornamenti su normativa, tecniche e strategie per le gare OEPV.</p>
-               <a href="#articles" className="border border-navy/30 hover:border-gold text-navy hover:text-gold px-6 py-3 rounded-[1px] text-xs font-bold uppercase tracking-widest transition-colors inline-flex items-center gap-2 shadow-2xs font-outfit">
+            <div className="bg-bg-neutral p-8 sm:p-12 rounded-[2px] border border-[#1b2a4a]/10 group hover:border-[#b8972a] transition-all duration-300 shadow-xs">
+               <BookOpen size={44} weight="regular" className="text-[#b8972a] mb-6 group-hover:scale-110 transition-transform" />
+               <h3 className="text-[#1b2a4a] text-2xl sm:text-3xl font-bold uppercase tracking-[0.05em] mb-3">Approfondimenti</h3>
+               <p className="text-[#3d4a66] text-[16px] font-normal leading-[1.7] mb-8 max-w-[62ch]">Articoli e aggiornamenti su normativa, tecniche e strategie per le gare OEPV.</p>
+               <a href="#articles" className="border border-[#1b2a4a]/25 hover:border-[#b8972a] text-[#1b2a4a] hover:text-[#b8972a] px-[26px] py-[15px] rounded-[2px] text-[11px] font-medium uppercase tracking-[0.2em] transition-colors inline-flex items-center justify-between min-w-[240px] shadow-2xs">
                  <span>Leggi gli articoli</span>
                  <span>&gt;</span>
                </a>
@@ -72,16 +72,16 @@ export default function Risorse() {
       </section>
 
       {/* ── CALCULATOR ── */}
-      <section id="calculator" className="py-16 md:py-24 bg-white border-t border-navy/5">
+      <section id="calculator" className="py-16 md:py-24 bg-white border-t border-[#dfe3ea]">
          <div className="max-w-7xl mx-auto px-6">
             <div className="mb-12 md:mb-16">
-               <span className="bg-[#F5C400] text-white text-[10px] sm:text-[11px] font-bold uppercase tracking-[0.25em] px-3.5 py-1 rounded-[1px] inline-block mb-3 shadow-xs font-outfit">
+               <span className="bg-[#b8972a] text-white text-[13px] font-medium uppercase tracking-[0.2em] px-2.5 py-1 rounded-[2px] inline-block mb-3 shadow-xs">
                   SIMULATORE OEPV
                </span>
-               <h2 className="text-navy text-2xl sm:text-3xl md:text-4xl font-extrabold uppercase tracking-tight font-outfit mb-4">
+               <h2 className="text-[#1b2a4a] text-2xl sm:text-3xl md:text-[32px] font-bold uppercase tracking-[0.05em] leading-[1.12] mb-4">
                   CALCOLO DEL RIBASSO ECONOMICO
                </h2>
-               <p className="text-[#475569] text-base md:text-[17px] font-normal max-w-3xl leading-[1.65] font-outfit">
+               <p className="text-[#3d4a66] text-[16px] font-normal max-w-[62ch] leading-[1.7]">
                   Nelle gare d'appalto OEPV, il punteggio economico viene calcolato applicando formule matematiche definite dal disciplinare. Questo strumento consente di simulare il punteggio economico ottenibile in funzione del ribasso offerto, per le quattro formule più utilizzate nelle gare pubbliche italiane.
                </p>
             </div>
@@ -91,16 +91,16 @@ export default function Risorse() {
       </section>
 
       {/* ── ARTICLES (DYNAMIC FROM ARTICLES DATA STORE) ── */}
-      <section id="articles" className="py-16 md:py-24 bg-bg-neutral/40 border-t border-navy/5">
+      <section id="articles" className="py-16 md:py-24 bg-bg-neutral/40 border-t border-[#dfe3ea]">
          <div className="max-w-7xl mx-auto px-6">
             <div className="mb-12 md:mb-16 text-center">
-               <span className="bg-[#F5C400] text-white text-[10px] sm:text-[11px] font-bold uppercase tracking-[0.25em] px-3.5 py-1 rounded-[1px] inline-block mb-3 shadow-xs font-outfit">
+               <span className="bg-[#b8972a] text-white text-[13px] font-medium uppercase tracking-[0.2em] px-2.5 py-1 rounded-[2px] inline-block mb-3 shadow-xs">
                   APPROFONDIMENTI TECNICI
                </span>
-               <h2 className="text-navy text-2xl sm:text-3xl md:text-4xl font-extrabold uppercase tracking-tight font-outfit mb-3">
+               <h2 className="text-[#1b2a4a] text-2xl sm:text-3xl md:text-[32px] font-bold uppercase tracking-[0.05em] leading-[1.12] mb-3">
                   AGGIORNAMENTI DALLO STUDIO
                </h2>
-               <p className="text-navy/85 text-[15px] sm:text-[17px] font-normal max-w-2xl mx-auto leading-relaxed font-outfit">
+               <p className="text-[#3d4a66] text-[16px] font-normal max-w-[62ch] mx-auto leading-[1.7]">
                   Gare aggiudicate, novità normative sul codice dei contratti e strumenti tecnici per le imprese.
                </p>
             </div>
@@ -148,27 +148,27 @@ export default function Risorse() {
                 {selectedArticle.title}
               </h2>
 
-              <div className="flex items-center gap-6 text-navy/60 text-xs font-bold uppercase tracking-widest border-y border-navy/10 py-4 mb-8 font-outfit">
+              <div className="flex items-center gap-6 text-[#7b869d] text-xs font-medium uppercase tracking-[0.15em] border-y border-[#1b2a4a]/10 py-4 mb-8 font-outfit">
                 <span className="flex items-center gap-2">
-                  <CalendarBlank size={16} className="text-gold" /> {selectedArticle.publishedAt}
+                  <CalendarBlank size={16} className="text-[#b8972a]" /> {selectedArticle.publishedAt}
                 </span>
                 <span className="flex items-center gap-2">
-                  <User size={16} className="text-gold" /> {selectedArticle.author || 'Redazione MBA'}
+                  <User size={16} className="text-[#b8972a]" /> {selectedArticle.author || 'Redazione MBA'}
                 </span>
               </div>
 
-              <div className="aspect-video mb-8 overflow-hidden bg-neutral-100 rounded-[1px]">
+              <div className="aspect-video mb-8 overflow-hidden bg-neutral-100 rounded-[2px]">
                 <img src={selectedArticle.coverImage} alt={selectedArticle.title} className="w-full h-full object-cover" />
               </div>
 
-              <p className="text-[#475569] font-normal leading-relaxed text-base md:text-[17px] mb-8 whitespace-pre-line font-outfit">
+              <p className="text-[#3d4a66] font-normal leading-[1.7] text-base mb-8 whitespace-pre-line font-outfit">
                 {selectedArticle.content}
               </p>
 
-              <div className="pt-6 border-t border-navy/10 flex justify-end">
+              <div className="pt-6 border-t border-[#1b2a4a]/10 flex justify-end">
                 <button 
                   onClick={() => setSelectedArticle(null)}
-                  className="border border-navy/30 hover:border-gold text-navy hover:text-gold px-8 py-3 rounded-[1px] text-xs font-bold uppercase tracking-widest transition-colors font-outfit"
+                  className="border border-[#1b2a4a]/30 hover:border-[#b8972a] text-[#1b2a4a] hover:text-[#b8972a] px-6 py-3 rounded-[2px] text-[11px] font-medium uppercase tracking-[0.2em] transition-colors font-outfit"
                 >
                   Chiudi Articolo
                 </button>
@@ -179,24 +179,24 @@ export default function Risorse() {
       </AnimatePresence>
 
       {/* ── BANNER CONTATTI ── */}
-      <section className="py-12 sm:py-16 px-6 max-w-7xl mx-auto border-t border-navy/10">
+      <section className="py-12 sm:py-16 px-6 max-w-7xl mx-auto border-t border-[#1b2a4a]/10">
         <div className="mb-4">
-          <span className="bg-gold text-white text-[10px] font-bold uppercase tracking-[0.25em] px-3.5 py-1 rounded-[1px] inline-block shadow-xs font-outfit">
+          <span className="bg-[#b8972a] text-white text-[13px] font-medium uppercase tracking-[0.2em] px-3.5 py-1 rounded-[2px] inline-block font-outfit">
             CONTATTI
           </span>
         </div>
-        <div className="bg-[#F9FBFC] border-l-4 border-gold p-8 sm:p-10 flex flex-col md:flex-row md:items-center justify-between gap-6 shadow-xs">
+        <div className="bg-[#F9FBFC] border-l-4 border-[#b8972a] p-8 sm:p-10 flex flex-col md:flex-row md:items-center justify-between gap-6">
           <div>
-            <h3 className="text-navy text-xl sm:text-2xl md:text-3xl font-extrabold uppercase tracking-tight font-heading">
+            <h3 className="text-[#1b2a4a] text-xl sm:text-2xl md:text-[28px] font-semibold uppercase tracking-tight font-outfit">
               HAI BISOGNO DI UN'ANALISI SPECIFICA PER UNA GARA?
             </h3>
-            <p className="text-navy/75 text-sm sm:text-base font-outfit mt-2">
+            <p className="text-[#3d4a66] text-base font-outfit mt-2 leading-[1.7]">
               Parla con il team di MBA Progetti: valutiamo insieme bando e disciplinare.
             </p>
           </div>
           <Link
             to="/contatti"
-            className="bg-navy text-white text-xs sm:text-sm font-bold uppercase tracking-widest px-8 py-4 hover:bg-gold transition-colors inline-flex items-center justify-center gap-4 rounded-[1px] shadow-sm shrink-0 font-outfit"
+            className="bg-[#1b2a4a] text-white text-[11px] font-medium uppercase tracking-[0.2em] px-[26px] py-[15px] min-w-[240px] hover:bg-[#b8972a] transition-colors inline-flex items-center justify-between rounded-[2px] shrink-0 font-outfit"
           >
             <span>PARLA CON GLI ESPERTI</span>
             <span>&gt;</span>
@@ -212,7 +212,7 @@ function ArticleCard({ article, onClick }: { article: Article; onClick: () => vo
   return (
     <div 
       onClick={onClick}
-      className="bg-white group cursor-pointer shadow-xs hover:shadow-md transition-all duration-300 overflow-hidden border border-navy/10 rounded-[1px]"
+      className="bg-white group cursor-pointer shadow-xs hover:shadow-md transition-all duration-300 overflow-hidden border border-[#1b2a4a]/10 rounded-[2px]"
     >
        <div className="aspect-[4/3] overflow-hidden bg-neutral-100">
           <img 
@@ -222,10 +222,10 @@ function ArticleCard({ article, onClick }: { article: Article; onClick: () => vo
           />
        </div>
        <div className="p-6 sm:p-7">
-          <span className="text-gold text-xs font-bold uppercase tracking-wider mb-2 block font-outfit">{article.category}</span>
-          <h4 className="text-navy text-lg sm:text-xl font-bold uppercase tracking-tight mb-3 group-hover:text-gold transition-colors line-clamp-2 font-outfit">{article.title}</h4>
-          <p className="text-[#475569] text-sm sm:text-[15px] font-normal leading-relaxed mb-6 line-clamp-3 font-outfit">{article.excerpt}</p>
-          <div className="flex items-center gap-2 text-navy font-bold text-xs uppercase tracking-widest group-hover:text-gold transition-colors font-outfit">
+          <span className="text-[#b8972a] text-[12px] font-medium uppercase tracking-[0.15em] mb-2 block font-outfit">{article.category}</span>
+          <h4 className="text-[#1b2a4a] text-[18px] font-semibold uppercase tracking-tight mb-3 group-hover:text-[#b8972a] transition-colors line-clamp-2 font-outfit">{article.title}</h4>
+          <p className="text-[#3d4a66] text-[15px] font-normal leading-[1.65] mb-6 line-clamp-3 font-outfit">{article.excerpt}</p>
+          <div className="flex items-center gap-2 text-[#1b2a4a] font-medium text-[11px] uppercase tracking-[0.2em] group-hover:text-[#b8972a] transition-colors font-outfit">
              <span>Leggi Articolo</span>
              <span className="text-sm font-semibold transition-transform group-hover:translate-x-1">&gt;</span>
           </div>

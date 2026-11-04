@@ -38,10 +38,10 @@ export default function Contatti() {
       <section className="px-6 max-w-7xl mx-auto">
         {/* Intestazione */}
         <div className="mb-10 sm:mb-14">
-          <span className="text-navy/60 text-xs font-bold uppercase tracking-[0.25em] mb-3 block font-outfit">
+          <span className="text-[#7b869d] text-[11px] font-medium uppercase tracking-[0.2em] mb-3 block">
             CONTATTI
           </span>
-          <h2 className="text-navy text-3xl sm:text-4xl md:text-5xl font-extrabold uppercase tracking-tight font-heading">
+          <h2 className="text-[#1b2a4a] text-3xl sm:text-4xl md:text-[44px] font-bold uppercase tracking-[0.05em] leading-[1.12]">
             RICHIEDI UNA CONSULENZA
           </h2>
         </div>
@@ -53,38 +53,38 @@ export default function Contatti() {
           <div className="lg:col-span-7">
             <form ref={form} onSubmit={sendEmail} className="space-y-6">
               <div>
-                <label className="block text-navy text-sm font-medium mb-2 font-outfit">
+                <label className="block text-[#1b2a4a] text-[13px] font-medium mb-2">
                   Nome e impresa
                 </label>
                 <input
                   type="text"
                   name="user_name"
                   required
-                  className="w-full bg-white border border-navy/25 rounded-[1px] px-4 py-3 text-navy text-[15px] font-outfit focus:outline-none focus:border-navy focus:ring-1 focus:ring-navy transition-colors"
+                  className="w-full bg-white border border-[#1b2a4a]/25 rounded-[2px] px-4 py-3 text-[#1b2a4a] text-[15px] focus:outline-none focus:border-[#1b2a4a] transition-colors"
                 />
               </div>
 
               <div>
-                <label className="block text-navy text-sm font-medium mb-2 font-outfit">
+                <label className="block text-[#1b2a4a] text-[13px] font-medium mb-2">
                   E-mail
                 </label>
                 <input
                   type="email"
                   name="user_email"
                   required
-                  className="w-full bg-white border border-navy/25 rounded-[1px] px-4 py-3 text-navy text-[15px] font-outfit focus:outline-none focus:border-navy focus:ring-1 focus:ring-navy transition-colors"
+                  className="w-full bg-white border border-[#1b2a4a]/25 rounded-[2px] px-4 py-3 text-[#1b2a4a] text-[15px] focus:outline-none focus:border-[#1b2a4a] transition-colors"
                 />
               </div>
 
               <div>
-                <label className="block text-navy text-sm font-medium mb-2 font-outfit">
+                <label className="block text-[#1b2a4a] text-[13px] font-medium mb-2">
                   Gara o progetto
                 </label>
                 <textarea
                   name="message"
                   rows={5}
                   required
-                  className="w-full bg-white border border-navy/25 rounded-[1px] px-4 py-3 text-navy text-[15px] font-outfit focus:outline-none focus:border-navy focus:ring-1 focus:ring-navy transition-colors resize-y"
+                  className="w-full bg-white border border-[#1b2a4a]/25 rounded-[2px] px-4 py-3 text-[#1b2a4a] text-[15px] focus:outline-none focus:border-[#1b2a4a] transition-colors resize-y"
                 />
               </div>
 
@@ -92,7 +92,7 @@ export default function Contatti() {
                 <button
                   type="submit"
                   disabled={status === 'sending'}
-                  className="border border-navy/30 hover:border-gold text-navy hover:text-gold px-8 py-3.5 rounded-[1px] text-xs sm:text-sm font-bold uppercase tracking-widest transition-colors flex items-center justify-between min-w-[190px] shadow-2xs group"
+                  className="border border-[#1b2a4a]/25 hover:border-[#b8972a] text-[#1b2a4a] hover:text-[#b8972a] px-[26px] py-[15px] rounded-[2px] text-[11px] font-medium uppercase tracking-[0.2em] transition-colors flex items-center justify-between min-w-[240px] shadow-2xs group cursor-pointer"
                 >
                   <span>{status === 'sending' ? 'INVIO...' : 'INVIA'}</span>
                   <span className="text-sm font-semibold transition-transform group-hover:translate-x-1">&gt;</span>
@@ -100,13 +100,13 @@ export default function Contatti() {
               </div>
 
               {status === 'success' && (
-                <div className="flex items-center gap-2 text-emerald-700 bg-emerald-50 p-4 rounded-[1px] border border-emerald-200 text-sm font-medium font-outfit">
+                <div className="flex items-center gap-2 text-emerald-700 bg-emerald-50 p-4 rounded-[2px] border border-emerald-200 text-[14px] font-medium">
                   <CheckCircle size={18} /> Messaggio inviato con successo! Ti risponderemo a breve.
                 </div>
               )}
 
               {status === 'error' && (
-                <div className="flex items-center gap-2 text-red-700 bg-red-50 p-4 rounded-[1px] border border-red-200 text-sm font-medium font-outfit">
+                <div className="flex items-center gap-2 text-red-700 bg-red-50 p-4 rounded-[2px] border border-red-200 text-[14px] font-medium">
                   <XCircle size={18} /> Errore durante l'invio. Riprova o contattaci telefonicamente.
                 </div>
               )}
@@ -118,10 +118,10 @@ export default function Contatti() {
             
             {/* Blocco 1: Studio */}
             <div>
-              <span className="text-navy/60 text-xs font-bold uppercase tracking-[0.2em] mb-2 block font-outfit">
+              <span className="text-[#7b869d] text-[11px] font-medium uppercase tracking-[0.2em] mb-2 block">
                 STUDIO
               </span>
-              <p className="text-navy text-[15px] font-normal leading-relaxed font-outfit">
+              <p className="text-[#1b2a4a] text-[15px] sm:text-[16px] font-normal leading-[1.7]">
                 Via Sardarulo 7<br />
                 81016 San Potito Sannitico (CE)
               </p>
@@ -129,11 +129,11 @@ export default function Contatti() {
 
             {/* Blocco 2: Telefono */}
             <div>
-              <span className="text-navy/60 text-xs font-bold uppercase tracking-[0.2em] mb-2 block font-outfit">
+              <span className="text-[#7b869d] text-[11px] font-medium uppercase tracking-[0.2em] mb-2 block">
                 TELEFONO
               </span>
-              <p className="text-navy text-[15px] font-normal leading-relaxed font-outfit">
-                <a href="tel:+393286285861" className="hover:text-gold transition-colors">
+              <p className="text-[#1b2a4a] text-[15px] sm:text-[16px] font-normal leading-[1.7]">
+                <a href="tel:+393286285861" className="hover:text-[#b8972a] transition-colors">
                   328 6285861
                 </a>
               </p>
@@ -141,14 +141,14 @@ export default function Contatti() {
 
             {/* Blocco 3: E-mail */}
             <div>
-              <span className="text-navy/60 text-xs font-bold uppercase tracking-[0.2em] mb-2 block font-outfit">
+              <span className="text-[#7b869d] text-[11px] font-medium uppercase tracking-[0.2em] mb-2 block">
                 E-MAIL
               </span>
-              <p className="text-navy text-[15px] font-normal leading-relaxed font-outfit">
-                <a href="mailto:arch.mariobiondi@gmail.com" className="hover:text-gold transition-colors block">
+              <p className="text-[#1b2a4a] text-[15px] sm:text-[16px] font-normal leading-[1.7]">
+                <a href="mailto:arch.mariobiondi@gmail.com" className="hover:text-[#b8972a] transition-colors block">
                   arch.mariobiondi@gmail.com
                 </a>
-                <a href="mailto:mario.biondi@archiworldpec.it" className="hover:text-gold transition-colors block">
+                <a href="mailto:mario.biondi@archiworldpec.it" className="hover:text-[#b8972a] transition-colors block">
                   <span className="font-semibold">PEC</span> mario.biondi@archiworldpec.it
                 </a>
               </p>
@@ -156,10 +156,10 @@ export default function Contatti() {
 
             {/* Blocco 4: Dati */}
             <div>
-              <span className="text-navy/60 text-xs font-bold uppercase tracking-[0.2em] mb-2 block font-outfit">
+              <span className="text-[#7b869d] text-[11px] font-medium uppercase tracking-[0.2em] mb-2 block">
                 DATI
               </span>
-              <p className="text-navy text-[15px] font-normal leading-relaxed font-outfit">
+              <p className="text-[#1b2a4a] text-[15px] sm:text-[16px] font-normal leading-[1.7]">
                 P. IVA 04274770611
               </p>
             </div>
