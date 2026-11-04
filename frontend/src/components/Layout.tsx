@@ -429,7 +429,6 @@ export default function Layout() {
             <p>© {new Date().getFullYear()} MBA Progetti. Tutti i diritti riservati.</p>
             <div className="flex gap-6">
               <Link to="/privacy" className="hover:text-white/70 transition-colors">Privacy &amp; Cookie Policy</Link>
-              <Link to="/admin" className="hover:text-white/70 transition-colors">Admin CMS</Link>
             </div>
           </div>
         </div>
