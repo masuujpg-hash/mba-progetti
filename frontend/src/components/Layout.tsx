@@ -76,6 +76,8 @@ export default function Layout() {
     return location.pathname === item.path;
   };
 
+  const isDarkHeader = isMenuOpen || (isScrollWorldPage && !isScrolled);
+
   const headerBg = isMenuOpen
     ? 'bg-[#1B2A4A]'
     : isScrolled
@@ -94,15 +96,26 @@ export default function Layout() {
       >
         <div className="max-w-7xl mx-auto px-5 md:px-8 h-[74px] md:h-[80px] flex justify-between items-center">
 
-          {/* Logo */}
-          <Link to="/" className="relative z-50 flex-shrink-0">
-            <img
-              src="/logo.svg"
-              alt="MBA Progetti"
-              className={`h-[40px] md:h-[46px] w-auto transition-all duration-300 ${
-                isMenuOpen ? 'brightness-0 invert' : ''
+          {/* Logo Tipografico con font Outfit */}
+          <Link 
+            to="/" 
+            className="relative z-50 flex-shrink-0 flex items-center gap-2.5 sm:gap-3.5 group select-none"
+            aria-label="MBA Progetti e Gare d'Appalto"
+          >
+            <span
+              className={`font-outfit text-[22px] sm:text-[24px] font-semibold tracking-[-0.02em] leading-none transition-colors duration-300 ${
+                isDarkHeader ? 'text-white' : 'text-[#1b2a4a]'
               }`}
-            />
+            >
+              MBA
+            </span>
+            <span
+              className={`font-outfit text-[9px] min-[380px]:text-[10px] sm:text-[11px] font-medium tracking-[0.2em] uppercase leading-none transition-colors duration-300 ${
+                isDarkHeader ? 'text-white/65' : 'text-[#7b869d]'
+              }`}
+            >
+              PROGETTAZIONE E GARE D'APPALTO
+            </span>
           </Link>
 
           {/* ── DESKTOP NAV ── */}
@@ -301,8 +314,13 @@ export default function Layout() {
             {/* 1. Colonna Sinistra: Brand & CTA Cantiere */}
             <div className="md:col-span-5 lg:col-span-5 flex flex-col justify-between space-y-6 md:space-y-0">
               <div className="space-y-5">
-                <Link to="/" className="text-white text-[24px] font-semibold leading-none tracking-[-0.02em] uppercase inline-block">
-                  MBA
+                <Link to="/" className="inline-flex items-center gap-3 select-none">
+                  <span className="text-white text-[24px] font-semibold leading-none tracking-[-0.02em] uppercase font-outfit">
+                    MBA
+                  </span>
+                  <span className="text-white/60 text-[10px] sm:text-[11px] font-medium tracking-[0.2em] uppercase leading-none font-outfit">
+                    PROGETTAZIONE E GARE D'APPALTO
+                  </span>
                 </Link>
 
                 <div>
