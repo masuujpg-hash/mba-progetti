@@ -425,10 +425,10 @@ export default function Layout() {
           </div>
 
           {/* Barra Privacy & Copyright discreta */}
-          <div className="flex flex-col sm:flex-row justify-between items-center pt-8 border-t border-white/5 text-white/40 text-[12px] gap-4">
-            <p>© {new Date().getFullYear()} MBA Progetti. Tutti i diritti riservati.</p>
+          <div className="flex flex-col sm:flex-row justify-between items-center pt-8 border-t border-white/5 text-white/40 text-[11px] font-medium tracking-[0.2em] uppercase font-outfit gap-4">
+            <p>MBA · PROGETTAZIONE E GARE D'APPALTO</p>
             <div className="flex gap-6">
-              <Link to="/privacy" className="hover:text-white/70 transition-colors">Privacy &amp; Cookie Policy</Link>
+              <Link to="/privacy" className="hover:text-white/70 transition-colors">PRIVACY · COOKIE</Link>
             </div>
           </div>
         </div>
