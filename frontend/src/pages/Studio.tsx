@@ -1,5 +1,5 @@
-import { useState } from 'react';
-import { motion } from 'framer-motion';
+import { useState, useRef } from 'react';
+import { motion, useInView } from 'framer-motion';
 import { 
   Target, 
   MagnifyingGlass, 
@@ -9,14 +9,14 @@ import {
   Timer
 } from '@phosphor-icons/react';
 
-export default function Studio() {
-  interface TeamMember {
-    name: string;
-    role: string;
-    bio: string;
-    badge: string;
-  }
+interface TeamMember {
+  name: string;
+  role: string;
+  bio: string;
+  badge: string;
+}
 
+export default function Studio() {
   const team: TeamMember[] = [
     {
       badge: "GS",
@@ -67,17 +67,19 @@ export default function Studio() {
             alt="MBA Progetti Studio"
             className="w-full h-full object-cover object-center opacity-85 contrast-105"
           />
-          {/* Sfumatura bianca verso il basso per fondersi perfettamente con la sezione successiva */}
           <div className="absolute inset-0 bg-gradient-to-b from-navy/40 via-white/20 to-white" />
         </div>
 
         <div className="relative z-10 text-center px-6 max-w-4xl mx-auto pt-16 pb-10">
           <motion.div
-            initial={{ opacity: 0, y: 15 }}
+            initial={{ opacity: 0, y: 25 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+            transition={{ duration: 0.9, ease: [0.16, 1, 0.3, 1] }}
           >
-            <h1 className="text-white text-[clamp(32px,4.3vw,58px)] font-bold uppercase tracking-[0.045em] leading-[1.2] drop-shadow-md">
+            <span className="text-white/80 text-[11px] font-medium uppercase tracking-[0.25em] md:tracking-[0.4em] mb-4 block font-outfit drop-shadow-sm">
+              PROGETTAZIONE E GARE D'APPALTO
+            </span>
+            <h1 className="text-white text-[clamp(32px,4.3vw,58px)] font-bold uppercase tracking-[0.05em] leading-[1.2] drop-shadow-md font-outfit">
               LO STUDIO
             </h1>
           </motion.div>
@@ -85,53 +87,71 @@ export default function Studio() {
       </section>
 
       {/* ── 2. STORIA E METODO ── */}
-      <section className="py-14 md:py-20 bg-white">
+      <section className="py-16 md:py-24 bg-white">
         <div className="max-w-7xl mx-auto px-6">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-center">
             
             {/* Left Column: Text */}
-            <div className="lg:col-span-6 space-y-6">
+            <motion.div 
+              initial={{ opacity: 0, y: 24 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-60px" }}
+              transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
+              className="lg:col-span-6 space-y-5"
+            >
               <div>
-                <span className="bg-[#F5C400] text-white text-[13px] font-medium uppercase tracking-[0.2em] px-2.5 py-1 rounded-[2px] inline-block shadow-sm">
+                <span className="inline-block bg-[#F5C400] text-white text-[11px] font-medium uppercase tracking-[0.2em] px-3.5 py-1 rounded-[1px] shadow-2xs font-outfit">
                   CHI SIAMO
                 </span>
               </div>
-              <h2 className="text-[#1b2a4a] text-2xl sm:text-3xl md:text-[32px] font-bold uppercase tracking-[0.05em] leading-[1.12]">
+              <h2 className="text-[#1b2a4a] text-2xl sm:text-3xl md:text-4xl font-bold uppercase tracking-[0.04em] leading-[1.15] font-outfit">
                 STORIA E METODO
               </h2>
-              <div className="text-[#3d4a66] text-[16px] font-normal leading-[1.7] max-w-[62ch]">
+              <div className="text-[#3d4a66] text-base md:text-[17px] font-normal leading-[1.65] max-w-[62ch] font-outfit">
                 <p>
                   Lo studio dell'architetto Mario Biondi si occupa di progettazione e consulenza tecnica ed <strong className="font-bold text-[#1b2a4a]">è specializzato nelle gare d'appalto di lavori pubblici</strong>, in particolare nella redazione di <strong className="font-bold text-[#1b2a4a]">offerte migliorative</strong> secondo il criterio dell'offerta economicamente più vantaggiosa (OEV). Opera con una <strong className="font-bold text-[#1b2a4a]">rete stabile di professionisti e società specializzate</strong> che copre ogni aspetto dell'offerta tecnica: architettura, strutture, impianti ed energetica, grafica e modellazione BIM. Ogni offerta <strong className="font-bold text-[#1b2a4a]">è costruita insieme all'impresa</strong>, dall'analisi del disciplinare alla consegna della documentazione di gara.
                 </p>
               </div>
-            </div>
+            </motion.div>
 
             {/* Right Column: Building Image */}
-            <div className="lg:col-span-6">
-              <div className="overflow-hidden rounded-[2px] border border-[#1b2a4a]/15 shadow-sm bg-neutral-100">
+            <motion.div 
+              initial={{ opacity: 0, scale: 0.97 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              viewport={{ once: true, margin: "-60px" }}
+              transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+              className="lg:col-span-6"
+            >
+              <div className="overflow-hidden rounded-[1px] border border-[#1b2a4a]/15 shadow-sm bg-neutral-100">
                 <img 
                   src="/media/portfolio/15_ospedale_sarteano.jpg" 
                   alt="Progetto MBA Studio — Ospedale di Sarteano" 
                   className="w-full h-auto object-cover hover:scale-[1.02] transition-transform duration-700"
                 />
               </div>
-            </div>
+            </motion.div>
 
           </div>
         </div>
       </section>
 
-      {/* ── 3. UN APPROCCIO MULTIDISCIPLINARE, UN UNICO OBIETTIVO ── */}
+      {/* ── 3. UN APPROCCIO MULTIDISCIPLINARE, UN UNICO OBIETTIVO (LA RETE) ── */}
       <section className="py-16 md:py-24 bg-white border-t border-[#dfe3ea]">
         <div className="max-w-7xl mx-auto px-6">
-          <div className="text-left mb-10">
-            <span className="bg-[#F5C400] text-white text-[13px] font-medium uppercase tracking-[0.2em] px-2.5 py-1 rounded-[2px] inline-block mb-4 shadow-sm">
+          <motion.div 
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-60px" }}
+            transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
+            className="text-left mb-10"
+          >
+            <span className="inline-block bg-[#F5C400] text-white text-[11px] font-medium uppercase tracking-[0.2em] px-3.5 py-1 rounded-[1px] mb-4 shadow-2xs font-outfit">
               LA RETE
             </span>
-            <h2 className="text-[#1b2a4a] text-2xl sm:text-3xl md:text-[32px] font-bold uppercase tracking-[0.05em] leading-[1.12] mb-5">
+            <h2 className="text-[#1b2a4a] text-2xl sm:text-3xl md:text-4xl font-bold uppercase tracking-[0.04em] leading-[1.15] mb-5 font-outfit">
               UN APPROCCIO MULTIDISCIPLINARE, UN UNICO OBIETTIVO
             </h2>
-            <div className="space-y-4 text-[#3d4a66] text-[16px] font-normal max-w-[62ch] leading-[1.7] mb-10">
+            <div className="space-y-4 text-[#3d4a66] text-base md:text-[17px] font-normal max-w-[62ch] leading-[1.65] mb-10 font-outfit">
               <p>
                 Ogni gara richiede competenze diverse. Lo studio costruisce attorno alla singola procedura <strong className="font-bold text-[#1b2a4a]">un gruppo di lavoro</strong> con architetti, ingegneri strutturisti e impiantisti, restauratori, specialisti BIM e grafici, coinvolti secondo le richieste del disciplinare. Il gruppo lavora sotto il <strong className="font-bold text-[#1b2a4a]">coordinamento dello studio</strong>, dall'analisi degli atti alla consegna dell'offerta.
               </p>
@@ -139,10 +159,10 @@ export default function Studio() {
                 Il confronto tra le diverse competenze permette di <strong className="font-bold text-[#1b2a4a]">individuare migliorie pertinenti</strong>, verificarne la fattibilità e tradurle in <strong className="font-bold text-[#1b2a4a]">una proposta chiara e coerente</strong>.
               </p>
             </div>
-          </div>
+          </motion.div>
 
-          {/* Radial Hub Diagram */}
-          <div className="py-4 flex justify-center">
+          {/* Radial Hub Diagram - Ingrandito ed Animato con Framer Motion */}
+          <div className="py-6 sm:py-10 flex justify-center w-full">
             <NetworkDiagram />
           </div>
         </div>
@@ -151,46 +171,58 @@ export default function Studio() {
       {/* ── 4. I NOSTRI VALORI ── */}
       <section className="py-16 md:py-24 bg-white border-t border-[#dfe3ea]">
         <div className="max-w-7xl mx-auto px-6">
-          <div className="text-left mb-12">
-            <span className="bg-[#F5C400] text-white text-[13px] font-medium uppercase tracking-[0.2em] px-2.5 py-1 rounded-[2px] inline-block mb-4 shadow-sm">
+          <motion.div 
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-60px" }}
+            transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
+            className="text-left mb-12"
+          >
+            <span className="inline-block bg-[#F5C400] text-white text-[11px] font-medium uppercase tracking-[0.2em] px-3.5 py-1 rounded-[1px] mb-4 shadow-2xs font-outfit">
               IL NOSTRO DNA
             </span>
-            <h2 className="text-[#1b2a4a] text-2xl sm:text-3xl md:text-[32px] font-bold uppercase tracking-[0.05em] leading-[1.12] mb-4">
+            <h2 className="text-[#1b2a4a] text-2xl sm:text-3xl md:text-4xl font-bold uppercase tracking-[0.04em] leading-[1.15] mb-4 font-outfit">
               I NOSTRI VALORI
             </h2>
-            <p className="text-[#3d4a66] text-[16px] font-normal max-w-[62ch] leading-[1.7]">
+            <p className="text-[#3d4a66] text-base md:text-[17px] font-normal max-w-[62ch] leading-[1.65] font-outfit">
               Il nostro lavoro si fonda su principi che non cambiano al variare della procedura o del committente: <strong className="font-bold text-[#1b2a4a]">metodo rigoroso</strong>, <strong className="font-bold text-[#1b2a4a]">ricerca costante</strong>, <strong className="font-bold text-[#1b2a4a]">responsabilità</strong> nei confronti del cliente e del processo costruttivo. Sono i valori che guidano ogni scelta, dalla prima analisi del disciplinare alla consegna dell'offerta.
             </p>
-          </div>
+          </motion.div>
 
-          {/* 6 Value Cards */}
+          {/* 6 Value Cards con stagger animation */}
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             <ValueCard 
+              index={0}
               icon={Target}
               title="METODO"
               text="Un processo rigoroso guida ogni fase: dall'analisi del disciplinare alla consegna dell'offerta. Il controllo sistematico garantisce coerenza, precisione e affidabilità del risultato."
             />
             <ValueCard 
+              index={1}
               icon={MagnifyingGlass}
               title="RICERCA"
               text="Ogni offerta richiede aggiornamento continuo su normativa, materiali, tecniche costruttive e procedure di gara. La qualità nasce dalla conoscenza."
             />
             <ValueCard 
+              index={2}
               icon={ShieldCheck}
               title="RESPONSABILITÀ"
               text="Ci assumiamo la piena responsabilità del lavoro svolto: nei confronti del cliente, della stazione appaltante e della qualità del costruito."
             />
             <ValueCard 
+              index={3}
               icon={Users}
               title="COLLABORAZIONE"
               text="Il dialogo costante tra i collaboratori dello studio, l'impresa e i consulenti esterni è parte integrante del processo e condizione del risultato."
             />
             <ValueCard 
+              index={4}
               icon={Heart}
               title="PASSIONE"
               text="L'architettura e il progetto non sono solo un mestiere. Sono la motivazione che rende ogni lavoro diverso dal precedente e ogni soluzione più precisa."
             />
             <ValueCard 
+              index={5}
               icon={Timer}
               title="AFFIDABILITÀ"
               text="Rispettiamo gli impegni, i tempi e le aspettative. La fiducia dei clienti è il risultato che consideriamo più importante."
@@ -205,28 +237,40 @@ export default function Studio() {
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-center">
             
             {/* Left: Founder Photo / Portrait container */}
-            <div className="lg:col-span-5">
-              <div className="aspect-[4/5] bg-[#eef1f4] border border-[#1b2a4a]/15 rounded-[2px] overflow-hidden flex flex-col items-center justify-center text-center p-6 text-[#1b2a4a]/50 shadow-xs relative">
-                <span className="text-[11px] font-medium uppercase tracking-[0.2em] text-[#7b869d]">[FOTO]</span>
-                <span className="text-[13px] font-light text-[#7b869d] mt-1">Ritratto di Mario Biondi</span>
+            <motion.div 
+              initial={{ opacity: 0, scale: 0.96 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              viewport={{ once: true, margin: "-60px" }}
+              transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+              className="lg:col-span-5"
+            >
+              <div className="aspect-[4/5] bg-[#eef1f4] border border-[#1b2a4a]/15 rounded-[1px] overflow-hidden flex flex-col items-center justify-center text-center p-6 text-[#1b2a4a]/50 shadow-xs relative">
+                <span className="text-[11px] font-medium uppercase tracking-[0.2em] text-[#7b869d] font-outfit">[FOTO]</span>
+                <span className="text-[13px] font-light text-[#7b869d] mt-1 font-outfit">Ritratto di Mario Biondi</span>
               </div>
-            </div>
+            </motion.div>
 
             {/* Right: Founder Details */}
-            <div className="lg:col-span-7 space-y-6">
+            <motion.div 
+              initial={{ opacity: 0, y: 24 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-60px" }}
+              transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+              className="lg:col-span-7 space-y-6"
+            >
               <div>
-                <span className="bg-[#F5C400] text-white text-[13px] font-medium uppercase tracking-[0.2em] px-2.5 py-1 rounded-[2px] inline-block mb-4 shadow-sm">
+                <span className="inline-block bg-[#F5C400] text-white text-[11px] font-medium uppercase tracking-[0.2em] px-3.5 py-1 rounded-[1px] mb-4 shadow-2xs font-outfit">
                   FONDATORE E TITOLARE
                 </span>
-                <h2 className="text-[#1b2a4a] text-2xl sm:text-3xl md:text-[32px] font-bold uppercase tracking-[0.05em] leading-[1.12]">
+                <h2 className="text-[#1b2a4a] text-2xl sm:text-3xl md:text-4xl font-bold uppercase tracking-[0.04em] leading-[1.15] font-outfit">
                   MARIO BIONDI
                 </h2>
-                <span className="text-[#F5C400] text-[11px] font-medium uppercase tracking-[0.2em] block mt-1">
+                <span className="text-[#F5C400] text-[11px] font-medium uppercase tracking-[0.2em] block mt-1 font-outfit">
                   ARCHITETTO, TITOLARE
                 </span>
               </div>
 
-              <div className="space-y-4 text-[#3d4a66] text-[16px] font-normal leading-[1.7] max-w-[62ch]">
+              <div className="space-y-4 text-[#3d4a66] text-base md:text-[17px] font-normal leading-[1.65] max-w-[62ch] font-outfit">
                 <p>
                   Titolare dello studio, coordina l'attività professionale integrando progettazione architettonica e consulenza tecnica per appalti pubblici. È specializzato nella redazione di <strong className="font-bold text-[#1b2a4a]">offerte tecniche migliorative per gare OEV</strong> e nella definizione della strategia progettuale complessiva.
                 </p>
@@ -237,7 +281,7 @@ export default function Studio() {
                   Opera nel settore delle gare d'appalto dal 2016. Dal 2022 al 2025, <strong className="font-bold text-[#1b2a4a]">il 63% delle procedure affidate si è concluso nelle prime tre posizioni, con un tasso di aggiudicazione del 38%</strong>.
                 </p>
               </div>
-            </div>
+            </motion.div>
 
           </div>
         </div>
@@ -246,30 +290,40 @@ export default function Studio() {
       {/* ── 6. UNA RETE DI PROFESSIONALITÀ ── */}
       <section className="py-16 md:py-24 bg-white border-t border-[#dfe3ea]">
         <div className="max-w-7xl mx-auto px-6">
-          <div className="text-left mb-10">
-            <span className="bg-[#F5C400] text-white text-[13px] font-medium uppercase tracking-[0.2em] px-2.5 py-1 rounded-[2px] inline-block mb-4 shadow-sm">
+          <motion.div 
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-60px" }}
+            transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
+            className="text-left mb-10"
+          >
+            <span className="inline-block bg-[#F5C400] text-white text-[11px] font-medium uppercase tracking-[0.2em] px-3.5 py-1 rounded-[1px] mb-4 shadow-2xs font-outfit">
               COMPETENZE MULTIDISCIPLINARI
             </span>
-            <h2 className="text-[#1b2a4a] text-2xl sm:text-3xl md:text-[32px] font-bold uppercase tracking-[0.05em] leading-[1.12]">
+            <h2 className="text-[#1b2a4a] text-2xl sm:text-3xl md:text-4xl font-bold uppercase tracking-[0.04em] leading-[1.15] font-outfit">
               UNA RETE DI PROFESSIONALITÀ
             </h2>
-          </div>
+          </motion.div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {team.map((member, index) => (
-              <div 
+              <motion.div 
                 key={index}
-                className="bg-white p-7 sm:p-8 border border-[#1b2a4a]/15 rounded-[2px] space-y-4 hover:border-[#F5C400] hover:shadow-xs transition-all"
+                initial={{ opacity: 0, y: 25 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: "-40px" }}
+                transition={{ duration: 0.6, delay: index * 0.08, ease: [0.16, 1, 0.3, 1] }}
+                className="bg-white p-7 sm:p-8 border border-[#1b2a4a]/15 rounded-[1px] space-y-4 hover:border-[#F5C400] hover:shadow-xs transition-all group"
               >
-                <div className="w-10 h-10 bg-[#1b2a4a] text-white font-mono font-bold text-xs flex items-center justify-center rounded-[2px]">
+                <div className="w-10 h-10 bg-[#1b2a4a] group-hover:bg-[#F5C400] group-hover:text-[#1b2a4a] text-white font-mono font-bold text-xs flex items-center justify-center rounded-[1px] transition-colors shadow-2xs">
                   {member.badge}
                 </div>
                 <div>
-                  <h3 className="text-[#1b2a4a] text-[17px] font-semibold uppercase tracking-[0.06em]">{member.name}</h3>
-                  <span className="text-[#F5C400] text-[11px] font-medium uppercase tracking-[0.2em] block mt-0.5">{member.role}</span>
+                  <h3 className="text-[#1b2a4a] text-[17px] font-bold uppercase tracking-[0.05em] font-outfit group-hover:text-[#F5C400] transition-colors">{member.name}</h3>
+                  <span className="text-[#F5C400] text-[11px] font-medium uppercase tracking-[0.2em] block mt-0.5 font-outfit">{member.role}</span>
                 </div>
-                <p className="text-[#3d4a66] text-[15px] sm:text-[16px] font-normal leading-[1.7]">{member.bio}</p>
-              </div>
+                <p className="text-[#3d4a66] text-sm sm:text-[15px] font-normal leading-relaxed font-outfit">{member.bio}</p>
+              </motion.div>
             ))}
           </div>
         </div>
@@ -279,22 +333,28 @@ export default function Studio() {
   );
 }
 
-// ── VALUE CARD COMPONENT ──
-function ValueCard({ icon: Icon, title, text }: { icon: any; title: string; text: string }) {
+// ── VALUE CARD COMPONENT CON ENTRATA ANIMATA ──
+function ValueCard({ icon: Icon, title, text, index }: { icon: any; title: string; text: string; index: number }) {
   return (
-    <div className="bg-white p-8 sm:p-10 border border-[#1b2a4a]/15 rounded-[2px] space-y-4 hover:border-[#F5C400]/50 hover:shadow-xs transition-all">
-      <div className="text-[#F5C400]">
+    <motion.div 
+      initial={{ opacity: 0, y: 25 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, margin: "-40px" }}
+      transition={{ duration: 0.6, delay: index * 0.08, ease: [0.16, 1, 0.3, 1] }}
+      className="bg-white p-8 sm:p-10 border border-[#1b2a4a]/15 rounded-[1px] space-y-4 hover:border-[#F5C400] hover:shadow-xs transition-all group"
+    >
+      <div className="text-[#F5C400] transition-transform duration-300 group-hover:scale-110">
         <Icon size={36} weight="light" />
       </div>
-      <h3 className="text-[#1b2a4a] text-[17px] font-semibold tracking-[0.06em] uppercase">{title}</h3>
-      <p className="text-[#3d4a66] text-[15px] sm:text-[16px] font-normal leading-[1.7]">{text}</p>
-    </div>
+      <h3 className="text-[#1b2a4a] text-[17px] font-bold tracking-[0.05em] uppercase font-outfit group-hover:text-[#F5C400] transition-colors">{title}</h3>
+      <p className="text-[#3d4a66] text-sm sm:text-[15px] font-normal leading-relaxed font-outfit">{text}</p>
+    </motion.div>
   );
 }
 
 // ── ICONE SVG NETWORK DIAGRAM ──
 const IconFluidoMeccanici = () => (
-  <svg viewBox="0 0 24 24" className="w-[18px] h-[18px]" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+  <svg viewBox="0 0 24 24" className="w-[22px] h-[22px]" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
     <circle cx="12" cy="12" r="5" />
     <circle cx="12" cy="12" r="1.5" fill="currentColor" />
     <line x1="12" y1="2" x2="12" y2="5" />
@@ -305,7 +365,7 @@ const IconFluidoMeccanici = () => (
 );
 
 const IconStrutturali = () => (
-  <svg viewBox="0 0 24 24" className="w-[18px] h-[18px]" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round">
+  <svg viewBox="0 0 24 24" className="w-[22px] h-[22px]" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round">
     <rect x="7" y="3" width="10" height="18" />
     <line x1="7" y1="3" x2="17" y2="12" />
     <line x1="17" y1="3" x2="7" y2="12" />
@@ -316,7 +376,7 @@ const IconStrutturali = () => (
 );
 
 const IconInfrastrutturali = () => (
-  <svg viewBox="0 0 24 24" className="w-[18px] h-[18px]" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+  <svg viewBox="0 0 24 24" className="w-[22px] h-[22px]" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
     <path d="M5 21V11a7 7 0 0 1 14 0v10" />
     <line x1="12" y1="16" x2="12" y2="17.5" />
     <line x1="12" y1="19.5" x2="12" y2="21" />
@@ -324,7 +384,7 @@ const IconInfrastrutturali = () => (
 );
 
 const IconBim = () => (
-  <svg viewBox="0 0 24 24" className="w-[18px] h-[18px]" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round">
+  <svg viewBox="0 0 24 24" className="w-[22px] h-[22px]" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round">
     <path d="M12 3l8 4.5v9L12 21l-8-4.5v-9L12 3z" />
     <line x1="12" y1="12" x2="12" y2="21" />
     <line x1="12" y1="12" x2="20" y2="7.5" />
@@ -333,7 +393,7 @@ const IconBim = () => (
 );
 
 const IconRestauratori = () => (
-  <svg viewBox="0 0 24 24" className="w-[18px] h-[18px]" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round">
+  <svg viewBox="0 0 24 24" className="w-[22px] h-[22px]" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round">
     <path d="M3 7l9-4 9 4v2H3V7z" />
     <line x1="6" y1="9" x2="6" y2="18" />
     <line x1="10" y1="9" x2="10" y2="18" />
@@ -345,7 +405,7 @@ const IconRestauratori = () => (
 );
 
 const IconLegali = () => (
-  <svg viewBox="0 0 24 24" className="w-[18px] h-[18px]" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round">
+  <svg viewBox="0 0 24 24" className="w-[22px] h-[22px]" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round">
     <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" />
     <polyline points="14 2 14 8 20 8" />
     <path d="M9 15l2 2 4-4" />
@@ -353,14 +413,14 @@ const IconLegali = () => (
 );
 
 const IconImpianti = () => (
-  <svg viewBox="0 0 24 24" className="w-[18px] h-[18px]" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round">
+  <svg viewBox="0 0 24 24" className="w-[22px] h-[22px]" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round">
     <path d="M3 10.5L12 3l9 7.5V20a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1v-9.5z" />
     <path d="M12.5 9l-2.5 4h3l-1.5 4" />
   </svg>
 );
 
 const IconGrafici = () => (
-  <svg viewBox="0 0 24 24" className="w-[18px] h-[18px]" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+  <svg viewBox="0 0 24 24" className="w-[22px] h-[22px]" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
     <circle cx="12" cy="18" r="2" />
     <circle cx="6" cy="7" r="2" />
     <circle cx="18" cy="7" r="2" />
@@ -368,9 +428,11 @@ const IconGrafici = () => (
   </svg>
 );
 
-// ── RADIAL NETWORK DIAGRAM COMPONENT (CLAUDE ARTIFACT EXACT PROPORTIONS) ──
+// ── RADIAL NETWORK DIAGRAM COMPONENT (INGRANDITO ED ANIMATO ALLA COMPARSA) ──
 function NetworkDiagram() {
   const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
+  const containerRef = useRef(null);
+  const isInView = useInView(containerRef, { once: true, margin: "-60px" });
 
   const nodes = [
     {
@@ -431,23 +493,27 @@ function NetworkDiagram() {
     },
   ];
 
-  const width = 680;
-  const height = 440;
-  const cx = 340;
-  const cy = 220;
-  const centerRadius = 46;
-  const goldRingRadius = 58;
-  const orbitRadius = 132;
-  const satelliteRadius = 24;
+  // Geometria ampliata e più grande (+40%)
+  const width = 860;
+  const height = 580;
+  const cx = 430;
+  const cy = 290;
+  const centerRadius = 58;
+  const goldRingRadius = 74;
+  const orbitRadius = 180;
+  const satelliteRadius = 30;
 
   return (
-    <div className="relative w-full max-w-[920px] flex flex-col items-center justify-center select-none mx-auto">
-      <div className="relative w-full aspect-[680/440] flex items-center justify-center">
+    <div 
+      ref={containerRef}
+      className="relative w-full max-w-[1020px] flex flex-col items-center justify-center select-none mx-auto px-2"
+    >
+      <div className="relative w-full aspect-[860/580] flex items-center justify-center overflow-visible">
         <svg 
           viewBox={`0 0 ${width} ${height}`} 
           className="w-full h-full overflow-visible"
         >
-          {/* Subtle connecting rays from gold ring to satellite node border */}
+          {/* Raggi di collegamento animati dal centro verso i nodi satellite */}
           {nodes.map((node, i) => {
             const rad = (node.angle * Math.PI) / 180;
             const cos = Math.cos(rad);
@@ -461,39 +527,51 @@ function NetworkDiagram() {
             const isHovered = hoveredIndex === i;
 
             return (
-              <g key={`ray-${i}`}>
-                <line
-                  x1={x1}
-                  y1={y1}
-                  x2={x2}
-                  y2={y2}
-                  stroke={isHovered ? "#F5C400" : "#1B2A4A"}
-                  strokeOpacity={isHovered ? 0.95 : 0.28}
-                  strokeWidth={isHovered ? 2 : 1.2}
-                  className="transition-all duration-300"
-                />
-              </g>
+              <motion.line
+                key={`ray-${i}`}
+                x1={x1}
+                y1={y1}
+                x2={x2}
+                y2={y2}
+                stroke={isHovered ? "#F5C400" : "#1B2A4A"}
+                strokeOpacity={isHovered ? 0.95 : 0.28}
+                strokeWidth={isHovered ? 2.2 : 1.4}
+                initial={{ pathLength: 0, opacity: 0 }}
+                animate={isInView ? { pathLength: 1, opacity: 1 } : {}}
+                transition={{ duration: 0.6, delay: 0.2 + i * 0.05, ease: "easeOut" }}
+                className="transition-colors duration-300"
+              />
             );
           })}
 
-          {/* Central MBA Golden Ring */}
-          <circle
+          {/* Anello Aureo MBA Pulsante ed Animato */}
+          <motion.circle
             cx={cx}
             cy={cy}
             r={goldRingRadius}
             fill="none"
             stroke="#F5C400"
-            strokeWidth="1.2"
-            strokeOpacity="0.75"
+            strokeWidth="1.5"
+            strokeOpacity="0.85"
+            initial={{ scale: 0, opacity: 0 }}
+            animate={isInView ? { scale: 1, opacity: 1 } : {}}
+            transition={{ duration: 0.7, delay: 0.15, ease: [0.16, 1, 0.3, 1] }}
           />
 
-          {/* Central Hub MBA Solid Circle */}
-          <g className="cursor-default">
+          {/* Hub Centrale MBA con animazione ad espansione */}
+          <motion.g 
+            className="cursor-default"
+            initial={{ scale: 0, opacity: 0 }}
+            animate={isInView ? { scale: 1, opacity: 1 } : {}}
+            transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
+            style={{ transformOrigin: `${cx}px ${cy}px` }}
+          >
             <circle 
               cx={cx} 
               cy={cy} 
               r={centerRadius} 
               fill="#1B2A4A" 
+              className="drop-shadow-md"
             />
             <text
               x={cx}
@@ -501,16 +579,16 @@ function NetworkDiagram() {
               textAnchor="middle"
               dominantBaseline="central"
               fill="#FFFFFF"
-              fontSize="24"
+              fontSize="30"
               fontWeight="800"
               letterSpacing="0.06em"
               style={{ fontFamily: "'Outfit', ui-sans-serif, system-ui, sans-serif" }}
             >
               MBA
             </text>
-          </g>
+          </motion.g>
 
-          {/* 8 Satellite Nodes */}
+          {/* 8 Nodi Satellite con Entrata Sequenziale Staggered */}
           {nodes.map((node, i) => {
             const rad = (node.angle * Math.PI) / 180;
             const nx = cx + orbitRadius * Math.cos(rad);
@@ -518,51 +596,61 @@ function NetworkDiagram() {
             const isHovered = hoveredIndex === i;
             const NodeIcon = node.icon;
 
-            // Text positions based on alignment
+            // Coordinate del testo etichetta
             let textX = nx;
             let textY = ny;
             let textAnchor: 'middle' | 'start' | 'end' = 'middle';
 
             if (node.align === 'top') {
               textX = nx;
-              textY = ny - satelliteRadius - 12;
+              textY = ny - satelliteRadius - 14;
               textAnchor = 'middle';
             } else if (node.align === 'bottom') {
               textX = nx;
-              textY = ny + satelliteRadius + 16;
+              textY = ny + satelliteRadius + 18;
               textAnchor = 'middle';
             } else if (node.align === 'right') {
-              textX = nx + satelliteRadius + 11;
+              textX = nx + satelliteRadius + 14;
               textY = ny;
               textAnchor = 'start';
             } else if (node.align === 'left') {
-              textX = nx - satelliteRadius - 11;
+              textX = nx - satelliteRadius - 14;
               textY = ny;
               textAnchor = 'end';
             }
 
             return (
-              <g 
+              <motion.g 
                 key={i} 
                 className="cursor-pointer"
                 onMouseEnter={() => setHoveredIndex(i)}
                 onMouseLeave={() => setHoveredIndex(null)}
+                initial={{ scale: 0, opacity: 0 }}
+                animate={isInView ? { scale: 1, opacity: 1 } : {}}
+                transition={{ 
+                  duration: 0.5, 
+                  delay: 0.3 + i * 0.07, 
+                  type: "spring", 
+                  stiffness: 220, 
+                  damping: 18 
+                }}
+                style={{ transformOrigin: `${nx}px ${ny}px` }}
               >
-                {/* Node Solid Circle */}
+                {/* Cerchio del Nodo Satellite */}
                 <circle
                   cx={nx}
                   cy={ny}
                   r={satelliteRadius}
                   fill={isHovered ? "#F5C400" : "#1B2A4A"}
-                  className="transition-colors duration-300"
+                  className="transition-colors duration-300 drop-shadow-sm"
                 />
 
-                {/* Node Centered Icon */}
+                {/* Icona Centrata */}
                 <foreignObject 
-                  x={nx - 11} 
-                  y={ny - 11} 
-                  width="22" 
-                  height="22"
+                  x={nx - 14} 
+                  y={ny - 14} 
+                  width="28" 
+                  height="28"
                   className="pointer-events-none"
                 >
                   <div className={`w-full h-full flex items-center justify-center transition-colors duration-300 ${isHovered ? 'text-[#1B2A4A]' : 'text-white'}`}>
@@ -570,38 +658,44 @@ function NetworkDiagram() {
                   </div>
                 </foreignObject>
 
-                {/* External Text Label */}
+                {/* Etichetta Esterna */}
                 {node.lines.length === 1 ? (
-                  <text
+                  <motion.text
                     x={textX}
-                    y={textY + 3}
+                    y={textY + 4}
                     textAnchor={textAnchor}
                     fill={isHovered ? "#F5C400" : "#1B2A4A"}
-                    fontSize="10"
+                    fontSize="11.5"
                     fontWeight="700"
                     letterSpacing="0.08em"
                     className="uppercase select-none transition-colors duration-300"
                     style={{ fontFamily: "'Outfit', ui-sans-serif, system-ui, sans-serif" }}
+                    initial={{ opacity: 0 }}
+                    animate={isInView ? { opacity: 1 } : {}}
+                    transition={{ duration: 0.4, delay: 0.45 + i * 0.07 }}
                   >
                     {node.lines[0]}
-                  </text>
+                  </motion.text>
                 ) : (
-                  <text
+                  <motion.text
                     x={textX}
-                    y={node.align === 'top' ? textY - 6 : textY - 3}
+                    y={node.align === 'top' ? textY - 8 : textY - 4}
                     textAnchor={textAnchor}
                     fill={isHovered ? "#F5C400" : "#1B2A4A"}
-                    fontSize="10"
+                    fontSize="11.5"
                     fontWeight="700"
                     letterSpacing="0.08em"
                     className="uppercase select-none transition-colors duration-300"
                     style={{ fontFamily: "'Outfit', ui-sans-serif, system-ui, sans-serif" }}
+                    initial={{ opacity: 0 }}
+                    animate={isInView ? { opacity: 1 } : {}}
+                    transition={{ duration: 0.4, delay: 0.45 + i * 0.07 }}
                   >
                     <tspan x={textX} dy="0">{node.lines[0]}</tspan>
-                    <tspan x={textX} dy="11">{node.lines[1]}</tspan>
-                  </text>
+                    <tspan x={textX} dy="13">{node.lines[1]}</tspan>
+                  </motion.text>
                 )}
-              </g>
+              </motion.g>
             );
           })}
         </svg>
