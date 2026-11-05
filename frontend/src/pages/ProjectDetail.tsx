@@ -4,6 +4,7 @@ import { useEffect } from 'react';
 import { ArrowLeft, MapPin, CaretLeft, CaretRight } from '@phosphor-icons/react';
 import { getStoredProjects } from '../lib/contentStore';
 import type { Project } from '../data/projects';
+import GareContactForm from '../components/GareContactForm';
 
 // ─── COMPONENTE TABELLA SPECIFICHE TECNICHE & NAVIGAZIONE ───────────────────
 function ProjectSpecs({ 
@@ -171,6 +172,11 @@ export default function ProjectDetail() {
           prevProject={prevProject} 
           nextProject={nextProject} 
         />
+
+        {/* Modulo Contatto / Preventivo Gara Mobile */}
+        <div className="mt-12 sm:mt-16 pt-10 border-t border-[#dfe3ea]">
+          <GareContactForm defaultGaraName={project.title} />
+        </div>
       </div>
 
       {/* ── DESKTOP LAYOUT (>= lg): SPLIT SCREEN ELEGANTE ── */}
@@ -238,6 +244,11 @@ export default function ProjectDetail() {
           </div>
 
         </div>
+      </section>
+
+      {/* ── SEZIONE CONTATTO / PREVENTIVO GARA (DESKTOP) ── */}
+      <section className="hidden lg:block py-16 px-6 max-w-4xl mx-auto border-t border-[#dfe3ea]">
+        <GareContactForm defaultGaraName={project.title} />
       </section>
 
     </div>
