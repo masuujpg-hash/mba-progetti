@@ -104,11 +104,11 @@ export default function ProjectDetail() {
             <div className="border-t border-[#dfe3ea] mt-4">
               {/* 1. LUOGO */}
               {project.location && (
-                <div className="flex items-baseline justify-between py-3.5 border-b border-[#dfe3ea] gap-4">
+                <div className="flex flex-col sm:flex-row sm:items-baseline sm:justify-between py-3.5 sm:py-4 border-b border-[#dfe3ea] gap-1.5 sm:gap-4 text-left">
                   <span className="text-[#7b869d] text-[11px] font-medium uppercase tracking-[0.2em] shrink-0 font-outfit">
                     LUOGO
                   </span>
-                  <span className="text-[#1b2a4a] text-[14px] sm:text-[15px] font-normal text-right font-outfit">
+                  <span className="text-[#1b2a4a] text-[15px] font-medium sm:font-normal leading-snug sm:leading-relaxed text-left sm:text-right font-outfit">
                     {project.location}
                   </span>
                 </div>
@@ -116,11 +116,11 @@ export default function ProjectDetail() {
 
               {/* 2. STAZIONE APPALTANTE */}
               {project.client && (
-                <div className="flex items-baseline justify-between py-3.5 border-b border-[#dfe3ea] gap-4">
+                <div className="flex flex-col sm:flex-row sm:items-baseline sm:justify-between py-3.5 sm:py-4 border-b border-[#dfe3ea] gap-1.5 sm:gap-4 text-left">
                   <span className="text-[#7b869d] text-[11px] font-medium uppercase tracking-[0.2em] shrink-0 font-outfit">
                     STAZIONE APPALTANTE
                   </span>
-                  <span className="text-[#1b2a4a] text-[14px] sm:text-[15px] font-normal text-right font-outfit">
+                  <span className="text-[#1b2a4a] text-[15px] font-medium sm:font-normal leading-snug sm:leading-relaxed text-left sm:text-right font-outfit">
                     {project.client}
                   </span>
                 </div>
@@ -128,11 +128,11 @@ export default function ProjectDetail() {
 
               {/* 3. IMPORTO */}
               {project.amount && (
-                <div className="flex items-baseline justify-between py-3.5 border-b border-[#dfe3ea] gap-4">
+                <div className="flex flex-col sm:flex-row sm:items-baseline sm:justify-between py-3.5 sm:py-4 border-b border-[#dfe3ea] gap-1.5 sm:gap-4 text-left">
                   <span className="text-[#7b869d] text-[11px] font-medium uppercase tracking-[0.2em] shrink-0 font-outfit">
                     IMPORTO
                   </span>
-                  <span className="text-[#1b2a4a] text-[14px] sm:text-[15px] font-normal text-right tabular-nums font-outfit">
+                  <span className="text-[#1b2a4a] text-[15px] font-medium sm:font-normal leading-snug sm:leading-relaxed text-left sm:text-right tabular-nums font-outfit">
                     {project.amount}
                   </span>
                 </div>
@@ -140,32 +140,32 @@ export default function ProjectDetail() {
 
               {/* 4. SERVIZI SVOLTI */}
               {project.services && (
-                <div className="flex items-baseline justify-between py-3.5 border-b border-[#dfe3ea] gap-4">
+                <div className="flex flex-col sm:flex-row sm:items-baseline sm:justify-between py-3.5 sm:py-4 border-b border-[#dfe3ea] gap-1.5 sm:gap-4 text-left">
                   <span className="text-[#7b869d] text-[11px] font-medium uppercase tracking-[0.2em] shrink-0 font-outfit">
                     SERVIZI SVOLTI
                   </span>
-                  <span className="text-[#1b2a4a] text-[14px] sm:text-[15px] font-normal text-right font-outfit">
+                  <span className="text-[#1b2a4a] text-[15px] font-medium sm:font-normal leading-snug sm:leading-relaxed text-left sm:text-right font-outfit">
                     {project.services}
                   </span>
                 </div>
               )}
 
               {/* 5. POSIZIONE */}
-              <div className="flex items-baseline justify-between py-3.5 border-b border-[#dfe3ea] gap-4">
+              <div className="flex flex-col sm:flex-row sm:items-baseline sm:justify-between py-3.5 sm:py-4 border-b border-[#dfe3ea] gap-1.5 sm:gap-4 text-left">
                 <span className="text-[#7b869d] text-[11px] font-medium uppercase tracking-[0.2em] shrink-0 font-outfit">
                   POSIZIONE
                 </span>
-                <span className="text-[#1b2a4a] text-[14px] sm:text-[15px] font-normal text-right font-outfit">
+                <span className="text-[#1b2a4a] text-[15px] font-medium sm:font-normal leading-snug sm:leading-relaxed text-left sm:text-right font-outfit">
                   {project.rank || '—'}
                 </span>
               </div>
 
               {/* 6. CREDITS */}
-              <div className="flex items-baseline justify-between py-3.5 border-b border-[#dfe3ea] gap-4">
+              <div className="flex flex-col sm:flex-row sm:items-baseline sm:justify-between py-3.5 sm:py-4 border-b border-[#dfe3ea] gap-1.5 sm:gap-4 text-left">
                 <span className="text-[#7b869d] text-[11px] font-medium uppercase tracking-[0.2em] shrink-0 font-outfit">
                   CREDITS
                 </span>
-                <span className="text-[#1b2a4a] text-[14px] sm:text-[15px] font-normal text-right leading-relaxed max-w-[420px] font-outfit">
+                <span className="text-[#1b2a4a] text-[14px] sm:text-[15px] font-normal leading-relaxed text-left sm:text-right max-w-[420px] font-outfit">
                   {project.credits || '—'}
                 </span>
               </div>
