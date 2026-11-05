@@ -177,29 +177,29 @@ export default function Home() {
             transition={{ duration: 0.9, ease: [0.16, 1, 0.3, 1] }}
             className="flex flex-col items-center"
           >
-            <span className="text-white/80 text-[11px] font-bold uppercase tracking-[0.4em] md:tracking-[0.6em] mb-6 block">
+            <span className="text-white/80 text-[11px] font-medium uppercase tracking-[0.25em] md:tracking-[0.4em] mb-6 block font-outfit">
               PROGETTAZIONE E GARE D'APPALTO
             </span>
             
-            <h1 className="text-white text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold uppercase tracking-[0.25em] md:tracking-[0.35em] leading-[1.2] mb-6">
+            <h1 className="text-white text-3xl sm:text-4xl md:text-5xl lg:text-[56px] font-bold uppercase tracking-[0.05em] leading-[1.2] mb-6 font-outfit">
               PROGETTIAMO IL FUTURO
             </h1>
 
-            <p className="text-white/85 text-sm sm:text-base md:text-lg font-light max-w-2xl leading-relaxed mb-10">
+            <p className="text-white/85 text-base sm:text-lg font-normal max-w-2xl leading-[1.65] mb-10 font-outfit">
               In ogni gara progettiamo il futuro lavoro, insieme ai nostri clienti. Ogni aggiudicazione è continuità per l'impresa e crescita per il nostro studio, per questo curiamo ogni offerta tecnica con passione e dedizione.
             </p>
 
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4 w-full">
               <Link 
                 to="/servizi/gare" 
-                className="btn-ghost-white group w-full max-w-[270px] sm:w-[260px] h-[52px] px-[26px] py-[15px] text-[11px] font-medium tracking-[0.2em] uppercase rounded-[2px] inline-flex items-center justify-center gap-3.5 transition-all shadow-2xs"
+                className="btn-ghost-white group w-full max-w-[270px] sm:w-[260px] h-[52px] px-[26px] py-[15px] text-[11px] font-medium tracking-[0.2em] uppercase rounded-[2px] inline-flex items-center justify-center gap-3.5 transition-all shadow-2xs font-outfit"
               >
                 <span>GARE OEPV</span>
                 <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform inline-block shrink-0" />
               </Link>
               <Link 
                 to="/studio" 
-                className="btn-ghost-white group w-full max-w-[270px] sm:w-[260px] h-[52px] px-[26px] py-[15px] text-[11px] font-medium tracking-[0.2em] uppercase rounded-[2px] inline-flex items-center justify-center gap-3.5 transition-all shadow-2xs"
+                className="btn-ghost-white group w-full max-w-[270px] sm:w-[260px] h-[52px] px-[26px] py-[15px] text-[11px] font-medium tracking-[0.2em] uppercase rounded-[2px] inline-flex items-center justify-center gap-3.5 transition-all shadow-2xs font-outfit"
               >
                 <span>SCOPRI LO STUDIO</span>
                 <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform inline-block shrink-0" />
@@ -214,13 +214,13 @@ export default function Home() {
         <div className="max-w-7xl mx-auto px-6">
           {/* Section Header */}
           <div className="text-left mb-10">
-            <span className="inline-block bg-[#F5C400] text-white text-[11px] font-bold tracking-[0.08em] px-3 py-1 rounded-[1px] uppercase mb-5">
-              GARE OEV
+            <span className="inline-block bg-[#F5C400] text-white text-[11px] font-medium tracking-[0.2em] px-3.5 py-1 rounded-[1px] uppercase mb-4 shadow-2xs font-outfit">
+              GARE OEPV
             </span>
-            <h2 className="text-[#1B2A4A] text-2xl sm:text-3xl md:text-[34px] font-extrabold tracking-[0.02em] uppercase leading-tight mb-5">
+            <h2 className="text-[#1B2A4A] text-2xl sm:text-3xl md:text-4xl font-bold tracking-[0.04em] uppercase leading-[1.15] mb-5 font-outfit">
               SPECIALISTI IN OFFERTE TECNICHE MIGLIORATIVE
             </h2>
-            <p className="text-[#475569] text-base md:text-[17px] font-normal leading-[1.65]">
+            <p className="text-[#3d4a66] text-base md:text-[17px] font-normal leading-[1.65] font-outfit">
               Mettiamo al servizio dei nostri clienti <strong className="font-bold text-[#1B2A4A]">oltre dieci anni di esperienza</strong> nel settore degli appalti pubblici, traducendo competenza tecnica e visione strategica in offerte migliori, più competitive e <strong className="font-bold text-[#1B2A4A]">orientate al massimo punteggio</strong>.
             </p>
           </div>
@@ -236,7 +236,7 @@ export default function Home() {
           </div>
 
           {/* Interstitial Paragraph */}
-          <p className="text-[#475569] text-base md:text-[17px] font-normal leading-[1.65] mb-12 text-left">
+          <p className="text-[#3d4a66] text-base md:text-[17px] font-normal leading-[1.65] mb-12 text-left font-outfit">
             Lo studio adotta un <strong className="font-bold text-[#1B2A4A]">approccio selettivo</strong> nella redazione delle offerte tecniche, <strong className="font-bold text-[#1B2A4A]">orientato alla qualità della proposta e non alla produzione seriale</strong>. Ogni intervento è sviluppato con un <strong className="font-bold text-[#1B2A4A]">approfondimento progettuale mirato</strong>, finalizzato a massimizzare la coerenza e l'efficacia delle soluzioni migliorative.
           </p>
 
@@ -247,10 +247,10 @@ export default function Home() {
                 <div className="w-[50px] h-[50px] bg-[#1B2A4A] text-white flex items-center justify-center rounded-[1px] mb-7">
                   <FileMagnifyingGlass size={26} weight="regular" />
                 </div>
-                <h3 className="text-[#1B2A4A] text-[17px] font-bold tracking-[0.05em] uppercase mb-4">
+                <h3 className="text-[#1B2A4A] text-[17px] font-bold tracking-[0.05em] uppercase mb-3 font-outfit">
                   ANALIZZIAMO
                 </h3>
-                <p className="text-[#475569] text-[15px] leading-relaxed">
+                <p className="text-[#3d4a66] text-sm sm:text-[15px] font-normal leading-relaxed font-outfit">
                   Ogni disciplinare e progetto esecutivo vengono esaminati con metodo per individuare <strong className="font-bold text-[#1B2A4A]">criteri premianti, vincoli tecnici e margini di miglioramento</strong>.
                 </p>
               </div>
@@ -261,10 +261,10 @@ export default function Home() {
                 <div className="w-[50px] h-[50px] bg-[#1B2A4A] text-white flex items-center justify-center rounded-[1px] mb-7">
                   <CompassTool size={26} weight="regular" />
                 </div>
-                <h3 className="text-[#1B2A4A] text-[17px] font-bold tracking-[0.05em] uppercase mb-4">
+                <h3 className="text-[#1B2A4A] text-[17px] font-bold tracking-[0.05em] uppercase mb-3 font-outfit">
                   PROGETTIAMO
                 </h3>
-                <p className="text-[#475569] text-[15px] leading-relaxed">
+                <p className="text-[#3d4a66] text-sm sm:text-[15px] font-normal leading-relaxed font-outfit">
                   Elaboriamo soluzioni migliorative basate su <strong className="font-bold text-[#1B2A4A]">coerenza tecnica e fattibilità operativa</strong>, integrando architettura, strutture ed impianti.
                 </p>
               </div>
@@ -275,10 +275,10 @@ export default function Home() {
                 <div className="w-[50px] h-[50px] bg-[#1B2A4A] text-white flex items-center justify-center rounded-[1px] mb-7">
                   <Article size={26} weight="regular" />
                 </div>
-                <h3 className="text-[#1B2A4A] text-[17px] font-bold tracking-[0.05em] uppercase mb-4">
+                <h3 className="text-[#1B2A4A] text-[17px] font-bold tracking-[0.05em] uppercase mb-3 font-outfit">
                   VALORIZZIAMO
                 </h3>
-                <p className="text-[#475569] text-[15px] leading-relaxed">
+                <p className="text-[#3d4a66] text-sm sm:text-[15px] font-normal leading-relaxed font-outfit">
                   Trasformiamo i contenuti tecnici in <strong className="font-bold text-[#1B2A4A]">documentazione chiara e immediatamente valutabile</strong> per agevolare la commissione giudicatrice.
                 </p>
               </div>
@@ -292,10 +292,10 @@ export default function Home() {
         <div className="px-6 max-w-7xl mx-auto">
           {/* Section Header */}
           <div className="mb-10">
-            <span className="bg-[#F5C400] text-white text-[10px] font-bold uppercase tracking-[0.25em] px-3.5 py-1 rounded-[1px] inline-block mb-4 shadow-sm">
+            <span className="inline-block bg-[#F5C400] text-white text-[11px] font-medium tracking-[0.2em] px-3.5 py-1 rounded-[1px] uppercase mb-4 shadow-2xs font-outfit">
               PORTFOLIO COMPLETO
             </span>
-            <h2 className="text-navy text-2xl sm:text-3xl md:text-4xl font-bold uppercase tracking-tight leading-tight">
+            <h2 className="text-[#1B2A4A] text-2xl sm:text-3xl md:text-4xl font-bold uppercase tracking-[0.04em] leading-[1.15] font-outfit">
               I NOSTRI PROGETTI & APPALTI
             </h2>
           </div>
@@ -350,26 +350,26 @@ export default function Home() {
           </div>
 
           {/* Bottom Bar: CTA on Left, Carousel Controls on Right (Allineati sulla stessa riga anche da mobile) */}
-          <div className="mt-8 sm:mt-10 flex flex-row items-center justify-between gap-2 sm:gap-4">
+          <div className="mt-8 sm:mt-10 flex flex-row items-center justify-between gap-3 sm:gap-4">
             <Link 
               to="/portfolio" 
-              className="border border-navy/20 hover:border-[#F5C400] hover:text-[#F5C400] bg-white px-2.5 sm:px-6 py-3 sm:py-3.5 text-[9px] min-[380px]:text-[10px] sm:text-xs tracking-wider sm:tracking-widest uppercase font-bold text-navy transition-all rounded-[1px] shadow-xs inline-flex items-center justify-center gap-1.5 sm:gap-3 group flex-1 min-w-0"
+              className="border border-[#1B2A4A]/25 hover:border-[#F5C400] hover:text-[#F5C400] bg-white h-[48px] sm:h-[52px] px-3 sm:px-[26px] py-[14px] text-[11px] tracking-[0.16em] sm:tracking-[0.2em] uppercase font-medium text-[#1B2A4A] transition-all rounded-[2px] shadow-2xs inline-flex items-center justify-center gap-2 sm:gap-3 group flex-1 sm:flex-initial"
             >
-              <span className="truncate">Vedi Tutti i Progetti nel Portfolio</span>
+              <span className="truncate">TUTTI I PROGETTI</span>
               <ArrowRight size={14} className="group-hover:translate-x-1 transition-transform shrink-0" />
             </Link>
 
-            <div className="flex items-center justify-end gap-1.5 sm:gap-3 shrink-0">
+            <div className="flex items-center justify-end gap-2 sm:gap-3 shrink-0">
               <button 
                 onClick={handlePrevPortfolio}
-                className="w-9 h-9 min-[380px]:w-10 min-[380px]:h-10 sm:w-11 sm:h-11 border border-navy/20 text-navy hover:border-[#F5C400] hover:text-[#F5C400] transition-colors bg-white rounded-[1px] shadow-xs flex items-center justify-center shrink-0"
+                className="w-10 h-10 sm:w-11 sm:h-11 border border-[#1B2A4A]/20 text-[#1B2A4A] hover:border-[#F5C400] hover:text-[#F5C400] transition-colors bg-white rounded-[1px] shadow-2xs flex items-center justify-center shrink-0"
                 aria-label="Progetto Precedente"
               >
                 <CaretLeft size={18} />
               </button>
               <button 
                 onClick={handleNextPortfolio}
-                className="w-9 h-9 min-[380px]:w-10 min-[380px]:h-10 sm:w-11 sm:h-11 border border-navy/20 text-navy hover:border-[#F5C400] hover:text-[#F5C400] transition-colors bg-white rounded-[1px] shadow-xs flex items-center justify-center shrink-0"
+                className="w-10 h-10 sm:w-11 sm:h-11 border border-[#1B2A4A]/20 text-[#1B2A4A] hover:border-[#F5C400] hover:text-[#F5C400] transition-colors bg-white rounded-[1px] shadow-2xs flex items-center justify-center shrink-0"
                 aria-label="Progetto Successivo"
               >
                 <CaretRight size={18} />
@@ -386,21 +386,21 @@ export default function Home() {
             
             {/* Left Column: Text & CTA */}
             <div className="lg:col-span-6 space-y-6">
-              <span className="bg-gold text-white text-[10px] font-bold uppercase tracking-[0.25em] px-3.5 py-1 rounded-sm inline-block shadow-sm">
+              <span className="inline-block bg-[#F5C400] text-white text-[11px] font-medium tracking-[0.2em] px-3.5 py-1 rounded-[1px] uppercase shadow-2xs font-outfit">
                 IL SIMULATORE
               </span>
-              <h2 className="text-navy text-2xl sm:text-3xl md:text-4xl font-bold uppercase tracking-tight leading-tight">
+              <h2 className="text-[#1B2A4A] text-2xl sm:text-3xl md:text-4xl font-bold uppercase tracking-[0.04em] leading-[1.15] font-outfit">
                 SIMULATORE DEL PUNTEGGIO ECONOMICO
               </h2>
-              <p className="text-navy/70 text-sm sm:text-base font-light leading-relaxed">
+              <p className="text-[#3d4a66] text-base md:text-[17px] font-normal leading-[1.65] font-outfit">
                 Uno strumento esclusivo sviluppato per calcolare in tempo reale il punteggio economico della tua offerta nelle gare OEPV. Inserisci ribasso, importi a base di gara e seleziona la formula di attribuzione (interdittiva, quadratica o bilineare) per simulare scenari competitivi e massimizzare la probabilità di aggiudicazione.
               </p>
               <div className="pt-2">
                 <Link 
                   to="/simulatore" 
-                  className="btn-ghost-dark group w-full max-w-[270px] sm:w-[260px] h-[52px] px-[26px] py-[15px] text-[11px] font-medium tracking-[0.2em] uppercase rounded-[2px] inline-flex items-center justify-center gap-3.5 transition-all shadow-2xs"
+                  className="btn-ghost-dark group w-full max-w-[270px] sm:w-[260px] h-[52px] px-[26px] py-[15px] text-[11px] font-medium tracking-[0.2em] uppercase rounded-[2px] inline-flex items-center justify-center gap-3.5 transition-all shadow-2xs font-outfit"
                 >
-                  <span>Accedi al Simulatore</span>
+                  <span>ACCEDI AL SIMULATORE</span>
                   <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform inline-block shrink-0" />
                 </Link>
               </div>
@@ -426,13 +426,13 @@ export default function Home() {
       <section className="py-16 md:py-24 bg-white border-t border-navy/5">
         <div className="max-w-7xl mx-auto px-6">
           <div className="mb-12">
-            <span className="bg-gold text-white text-[10px] font-bold uppercase tracking-[0.25em] px-3.5 py-1 rounded-sm inline-block mb-4 shadow-sm">
+            <span className="inline-block bg-[#F5C400] text-white text-[11px] font-medium tracking-[0.2em] px-3.5 py-1 rounded-[1px] uppercase mb-4 shadow-2xs font-outfit">
               ALTRI SERVIZI
             </span>
-            <h2 className="text-navy text-2xl sm:text-3xl md:text-4xl font-bold uppercase tracking-tight leading-tight mb-3">
+            <h2 className="text-[#1B2A4A] text-2xl sm:text-3xl md:text-4xl font-bold uppercase tracking-[0.04em] leading-[1.15] mb-4 font-outfit">
               SOLUZIONI INTEGRATE
             </h2>
-            <p className="text-navy/70 text-sm sm:text-base font-light max-w-2xl leading-relaxed">
+            <p className="text-[#3d4a66] text-base md:text-[17px] font-normal max-w-2xl leading-[1.65] font-outfit">
               Un approccio multidisciplinare che unisce rilievo digitale, modellazione BIM e progettazione avanzata.
             </p>
           </div>
@@ -465,13 +465,13 @@ export default function Home() {
         <div className="max-w-7xl mx-auto px-6">
           {/* Section Header */}
           <div className="mb-10">
-            <span className="bg-[#F5C400] text-white text-[10px] font-bold uppercase tracking-[0.25em] px-3.5 py-1 rounded-[1px] inline-block mb-4 shadow-sm font-outfit">
+            <span className="inline-block bg-[#F5C400] text-white text-[11px] font-medium tracking-[0.2em] px-3.5 py-1 rounded-[1px] uppercase mb-4 shadow-2xs font-outfit">
               NEWS
             </span>
-            <h2 className="text-navy text-2xl sm:text-3xl md:text-4xl font-bold uppercase tracking-tight leading-tight mb-3 font-outfit">
+            <h2 className="text-[#1B2A4A] text-2xl sm:text-3xl md:text-4xl font-bold uppercase tracking-[0.04em] leading-[1.15] mb-4 font-outfit">
               AGGIORNAMENTI DALLO STUDIO
             </h2>
-            <p className="text-navy/70 text-sm sm:text-base font-light max-w-xl leading-relaxed font-outfit">
+            <p className="text-[#3d4a66] text-base md:text-[17px] font-normal max-w-xl leading-[1.65] font-outfit">
               Gare aggiudicate, novità normative sul codice dei contratti, strumenti per le imprese.
             </p>
           </div>
@@ -524,26 +524,26 @@ export default function Home() {
           </div>
 
           {/* Bottom Bar: CTA on Left, Carousel Controls on Right (Allineati sulla stessa riga anche da mobile) */}
-          <div className="mt-8 sm:mt-10 flex flex-row items-center justify-between gap-2 sm:gap-4">
+          <div className="mt-8 sm:mt-10 flex flex-row items-center justify-between gap-3 sm:gap-4">
             <Link 
               to="/risorse" 
-              className="border border-[#1B2A4A]/25 hover:border-[#F5C400] hover:text-[#F5C400] bg-white w-[260px] max-w-full h-[52px] px-[26px] py-[15px] text-[11px] tracking-[0.2em] uppercase font-medium text-[#1B2A4A] transition-all rounded-[2px] shadow-xs inline-flex items-center justify-between gap-4 group shrink-0"
+              className="border border-[#1B2A4A]/25 hover:border-[#F5C400] hover:text-[#F5C400] bg-white h-[48px] sm:h-[52px] px-3 sm:px-[26px] py-[14px] text-[11px] tracking-[0.16em] sm:tracking-[0.2em] uppercase font-medium text-[#1B2A4A] transition-all rounded-[2px] shadow-2xs inline-flex items-center justify-center gap-2 sm:gap-3 group flex-1 sm:flex-initial"
             >
-              <span>TUTTE LE NEWS</span>
-              <CaretRight size={13} weight="bold" className="group-hover:translate-x-1 transition-transform shrink-0" />
+              <span className="truncate">TUTTE LE NEWS</span>
+              <CaretRight size={14} weight="bold" className="group-hover:translate-x-1 transition-transform shrink-0" />
             </Link>
 
-            <div className="flex items-center justify-end gap-1.5 sm:gap-3 shrink-0">
+            <div className="flex items-center justify-end gap-2 sm:gap-3 shrink-0">
               <button 
                 onClick={handlePrevNews}
-                className="w-9 h-9 min-[380px]:w-10 min-[380px]:h-10 sm:w-11 sm:h-11 border border-navy/20 text-navy hover:border-[#F5C400] hover:text-[#F5C400] transition-colors bg-white rounded-[1px] shadow-xs flex items-center justify-center shrink-0"
+                className="w-10 h-10 sm:w-11 sm:h-11 border border-[#1B2A4A]/20 text-[#1B2A4A] hover:border-[#F5C400] hover:text-[#F5C400] transition-colors bg-white rounded-[1px] shadow-2xs flex items-center justify-center shrink-0"
                 aria-label="Articolo Precedente"
               >
                 <CaretLeft size={18} />
               </button>
               <button 
                 onClick={handleNextNews}
-                className="w-9 h-9 min-[380px]:w-10 min-[380px]:h-10 sm:w-11 sm:h-11 border border-navy/20 text-navy hover:border-[#F5C400] hover:text-[#F5C400] transition-colors bg-white rounded-[1px] shadow-xs flex items-center justify-center shrink-0"
+                className="w-10 h-10 sm:w-11 sm:h-11 border border-[#1B2A4A]/20 text-[#1B2A4A] hover:border-[#F5C400] hover:text-[#F5C400] transition-colors bg-white rounded-[1px] shadow-2xs flex items-center justify-center shrink-0"
                 aria-label="Articolo Successivo"
               >
                 <CaretRight size={18} />
@@ -623,10 +623,10 @@ function StatItem({ icon: Icon, value, label }: { icon: any; value: string; labe
       <div className="text-[#1B2A4A] mb-3 flex items-center justify-center h-7">
         <Icon size={26} weight="regular" />
       </div>
-      <div className="text-[#1B2A4A] text-3xl sm:text-4xl md:text-[42px] font-extrabold tracking-tight leading-none mb-2 font-outfit">
+      <div className="text-[#1B2A4A] text-3xl sm:text-4xl md:text-[42px] font-bold tracking-tight leading-none mb-2 font-outfit tabular-nums">
         {prefix}{isInView ? count : 0}{suffix}
       </div>
-      <div className="text-[#64748b] text-[10px] sm:text-[11px] font-bold uppercase tracking-[0.16em] leading-tight font-outfit">
+      <div className="text-[#7b869d] text-[11px] font-medium uppercase tracking-[0.2em] leading-tight font-outfit">
         {label}
       </div>
     </div>
@@ -646,7 +646,7 @@ function ProjectCard({ id, title, cat, img, pos, rank, amount }: any) {
   const metaLine = metaParts.join(' · ');
 
   return (
-    <Link to={`/portfolio/${id}`} className="block group bg-white border border-navy/10 rounded-[1px] overflow-hidden shadow-xs hover:shadow-md transition-all h-full">
+    <Link to={`/portfolio/${id}`} className="block group bg-white border border-[#1B2A4A]/10 rounded-[1px] overflow-hidden shadow-2xs hover:shadow-md transition-all h-full">
       <div className="relative aspect-[4/3] bg-neutral-100 overflow-hidden">
         <img 
           src={img} 
@@ -660,10 +660,10 @@ function ProjectCard({ id, title, cat, img, pos, rank, amount }: any) {
             {metaLine}
           </span>
         )}
-        <h3 className="text-[#1B2A4A] text-base font-bold leading-snug group-hover:text-[#F5C400] transition-colors line-clamp-2 font-outfit">
+        <h3 className="text-[#1B2A4A] text-base sm:text-[17px] font-bold leading-snug group-hover:text-[#F5C400] transition-colors line-clamp-2 font-outfit">
           {title}
         </h3>
-        <p className="text-[#64748B] text-xs font-normal font-outfit">
+        <p className="text-[#7b869d] text-xs sm:text-[13px] font-normal font-outfit">
           {pos}
         </p>
       </div>
@@ -673,19 +673,19 @@ function ProjectCard({ id, title, cat, img, pos, rank, amount }: any) {
 
 function ServiceBentoCard({ icon: Icon, title, link, desc }: { icon: any; title: string; link: string; desc: string }) {
   return (
-    <Link to={link} className="p-8 bg-[#F8F9FA] border border-navy/10 rounded-[1px] flex flex-col justify-between group hover:border-[#F5C400] hover:shadow-sm transition-all h-[320px]">
+    <Link to={link} className="p-8 bg-[#F8F9FA] border border-[#1B2A4A]/10 rounded-[1px] flex flex-col justify-between group hover:border-[#F5C400] hover:shadow-sm transition-all h-[320px]">
       <div>
-        <div className="w-12 h-12 bg-[#1B2A4A] text-white flex items-center justify-center rounded-[1px] mb-6 shadow-xs group-hover:bg-[#F5C400] group-hover:text-[#1B2A4A] transition-colors">
+        <div className="w-12 h-12 bg-[#1B2A4A] text-white flex items-center justify-center rounded-[1px] mb-6 shadow-2xs group-hover:bg-[#F5C400] group-hover:text-[#1B2A4A] transition-colors">
           <Icon size={22} weight="regular" />
         </div>
-        <h3 className="text-[#1B2A4A] text-lg sm:text-xl font-extrabold uppercase tracking-tight mb-3 font-outfit group-hover:text-[#F5C400] transition-colors">
+        <h3 className="text-[#1B2A4A] text-[17px] sm:text-lg font-bold uppercase tracking-[0.05em] mb-3 font-outfit group-hover:text-[#F5C400] transition-colors">
           {title}
         </h3>
-        <p className="text-[#1B2A4A]/70 text-xs sm:text-sm font-normal leading-relaxed font-outfit">
+        <p className="text-[#3d4a66] text-sm sm:text-[15px] font-normal leading-relaxed font-outfit">
           {desc}
         </p>
       </div>
-      <div className="flex items-center gap-2 text-[#F5C400] text-[11px] font-bold uppercase tracking-[0.16em] font-outfit group-hover:text-[#1B2A4A] transition-colors pt-6 border-t border-navy/10">
+      <div className="flex items-center gap-2 text-[#F5C400] text-[11px] font-medium uppercase tracking-[0.2em] font-outfit group-hover:text-[#1B2A4A] transition-colors pt-6 border-t border-[#1B2A4A]/10">
         <span>SCOPRI IL SETTORE</span>
         <CaretRight size={13} weight="bold" className="group-hover:translate-x-1 transition-transform" />
       </div>
@@ -734,14 +734,14 @@ function ArticleCard({
       </div>
       <div className="pt-4 space-y-1 text-left">
         {displayDate && (
-          <span className="text-[#64748B] text-xs font-normal block font-outfit">
+          <span className="text-[#7b869d] text-xs font-normal block font-outfit">
             {displayDate}
           </span>
         )}
-        <h3 className="text-[#1B2A4A] text-base font-bold leading-snug group-hover:text-[#F5C400] transition-colors line-clamp-2 font-outfit">
+        <h3 className="text-[#1B2A4A] text-base sm:text-[17px] font-bold leading-snug group-hover:text-[#F5C400] transition-colors line-clamp-2 font-outfit">
           {title}
         </h3>
-        <p className="text-[#64748B] text-xs sm:text-[13px] font-normal leading-relaxed line-clamp-2 font-outfit">
+        <p className="text-[#3d4a66] text-sm sm:text-[15px] font-normal leading-relaxed line-clamp-2 font-outfit">
           {excerpt}
         </p>
       </div>
