@@ -1,7 +1,7 @@
 import { useParams, Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { useEffect } from 'react';
-import { ArrowLeft, MapPin, Buildings, CurrencyEur, Briefcase, Trophy, Users, CaretLeft, CaretRight } from '@phosphor-icons/react';
+import { ArrowLeft, MapPin, CaretLeft, CaretRight } from '@phosphor-icons/react';
 import { getStoredProjects } from '../lib/contentStore';
 
 export default function ProjectDetail() {
@@ -100,72 +100,78 @@ export default function ProjectDetail() {
               {project.description}
             </p>
 
-            {/* Technical Details Grid */}
-            <div className="border-t border-[#dfe3ea] pt-6 space-y-6">
-              <h3 className="text-[#F5C400] text-[11px] font-medium uppercase tracking-[0.2em]">Specifiche di Progetto</h3>
-              
-              <div className="space-y-5">
-                <div className="flex items-start gap-4 group">
-                  <div className="text-[#F5C400] p-2.5 bg-[#1b2a4a]/5 rounded-[2px] flex items-center justify-center">
-                    <Buildings size={18} weight="light" />
-                  </div>
-                  <div>
-                    <span className="text-[#7b869d] text-[11px] font-medium uppercase tracking-[0.2em] block mb-0.5">Stazione Appaltante</span>
-                    <span className="text-[#1b2a4a] text-[15px] font-medium uppercase tracking-wide block leading-snug">{project.client}</span>
-                  </div>
+            {/* Technical Details List / Specifications Table */}
+            <div className="border-t border-[#dfe3ea] mt-4">
+              {/* 1. LUOGO */}
+              {project.location && (
+                <div className="flex items-baseline justify-between py-3.5 border-b border-[#dfe3ea] gap-4">
+                  <span className="text-[#7b869d] text-[11px] font-medium uppercase tracking-[0.2em] shrink-0 font-outfit">
+                    LUOGO
+                  </span>
+                  <span className="text-[#1b2a4a] text-[14px] sm:text-[15px] font-normal text-right font-outfit">
+                    {project.location}
+                  </span>
                 </div>
+              )}
 
-                <div className="flex items-start gap-4 group">
-                  <div className="text-[#F5C400] p-2.5 bg-[#1b2a4a]/5 rounded-[2px] flex items-center justify-center">
-                    <CurrencyEur size={18} weight="light" />
-                  </div>
-                  <div>
-                    <span className="text-[#7b869d] text-[11px] font-medium uppercase tracking-[0.2em] block mb-0.5">Importo Opere</span>
-                    <span className="text-[#1b2a4a] text-[15px] font-medium uppercase tracking-wide block leading-snug tabular-nums">{project.amount}</span>
-                  </div>
+              {/* 2. STAZIONE APPALTANTE */}
+              {project.client && (
+                <div className="flex items-baseline justify-between py-3.5 border-b border-[#dfe3ea] gap-4">
+                  <span className="text-[#7b869d] text-[11px] font-medium uppercase tracking-[0.2em] shrink-0 font-outfit">
+                    STAZIONE APPALTANTE
+                  </span>
+                  <span className="text-[#1b2a4a] text-[14px] sm:text-[15px] font-normal text-right font-outfit">
+                    {project.client}
+                  </span>
                 </div>
+              )}
 
-                <div className="flex items-start gap-4 group">
-                  <div className="text-[#F5C400] p-2.5 bg-[#1b2a4a]/5 rounded-[2px] flex items-center justify-center">
-                    <Briefcase size={18} weight="light" />
-                  </div>
-                  <div>
-                    <span className="text-[#7b869d] text-[11px] font-medium uppercase tracking-[0.2em] block mb-0.5">Servizi Svolti</span>
-                    <span className="text-[#1b2a4a] text-[15px] font-medium uppercase tracking-wide block leading-snug">{project.services}</span>
-                  </div>
+              {/* 3. IMPORTO */}
+              {project.amount && (
+                <div className="flex items-baseline justify-between py-3.5 border-b border-[#dfe3ea] gap-4">
+                  <span className="text-[#7b869d] text-[11px] font-medium uppercase tracking-[0.2em] shrink-0 font-outfit">
+                    IMPORTO
+                  </span>
+                  <span className="text-[#1b2a4a] text-[14px] sm:text-[15px] font-normal text-right tabular-nums font-outfit">
+                    {project.amount}
+                  </span>
                 </div>
+              )}
 
-                <div className="flex items-start gap-4 group">
-                  <div className="text-[#F5C400] p-2.5 bg-[#1b2a4a]/5 rounded-[2px] flex items-center justify-center">
-                    <Users size={18} weight="light" />
-                  </div>
-                  <div>
-                    <span className="text-[#7b869d] text-[11px] font-medium uppercase tracking-[0.2em] block mb-0.5">Credits</span>
-                    <span className="text-[#1b2a4a] text-[15px] font-medium uppercase tracking-wide block leading-snug">{project.credits || '—'}</span>
-                  </div>
+              {/* 4. SERVIZI SVOLTI */}
+              {project.services && (
+                <div className="flex items-baseline justify-between py-3.5 border-b border-[#dfe3ea] gap-4">
+                  <span className="text-[#7b869d] text-[11px] font-medium uppercase tracking-[0.2em] shrink-0 font-outfit">
+                    SERVIZI SVOLTI
+                  </span>
+                  <span className="text-[#1b2a4a] text-[14px] sm:text-[15px] font-normal text-right font-outfit">
+                    {project.services}
+                  </span>
                 </div>
+              )}
 
-                {/* Posizione ottenuta solo se 1° o 2° */}
-                {project.rank && (
-                  project.rank.includes('1') || 
-                  project.rank.includes('2') || 
-                  project.rank.toLowerCase().includes('primo') || 
-                  project.rank.toLowerCase().includes('secondo')
-                ) && (
-                  <div className="flex items-start gap-4 group">
-                    <div className="text-[#F5C400] p-2.5 bg-[#1b2a4a]/5 rounded-[2px] flex items-center justify-center">
-                      <Trophy size={18} weight="light" />
-                    </div>
-                    <div>
-                      <span className="text-[#7b869d] text-[11px] font-medium uppercase tracking-[0.2em] block mb-0.5">Posizione Ottenuta</span>
-                      <span className="text-[#1b2a4a] text-[15px] font-medium uppercase tracking-wide block leading-snug">{project.rank}</span>
-                    </div>
-                  </div>
-                )}
+              {/* 5. POSIZIONE */}
+              <div className="flex items-baseline justify-between py-3.5 border-b border-[#dfe3ea] gap-4">
+                <span className="text-[#7b869d] text-[11px] font-medium uppercase tracking-[0.2em] shrink-0 font-outfit">
+                  POSIZIONE
+                </span>
+                <span className="text-[#1b2a4a] text-[14px] sm:text-[15px] font-normal text-right font-outfit">
+                  {project.rank || '—'}
+                </span>
+              </div>
+
+              {/* 6. CREDITS */}
+              <div className="flex items-baseline justify-between py-3.5 border-b border-[#dfe3ea] gap-4">
+                <span className="text-[#7b869d] text-[11px] font-medium uppercase tracking-[0.2em] shrink-0 font-outfit">
+                  CREDITS
+                </span>
+                <span className="text-[#1b2a4a] text-[14px] sm:text-[15px] font-normal text-right leading-relaxed max-w-[420px] font-outfit">
+                  {project.credits || '—'}
+                </span>
               </div>
 
               {/* Navigation Controls: < >, Torna al Portfolio */}
-              <div className="pt-8 border-t border-[#dfe3ea] mt-8 flex flex-col gap-3">
+              <div className="pt-8 mt-4 flex flex-col gap-3">
                 <div className="grid grid-cols-2 gap-3">
                   <Link
                     to={`/portfolio/${prevProject?.id || ''}`}
