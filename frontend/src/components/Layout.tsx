@@ -314,12 +314,9 @@ export default function Layout() {
             {/* 1. Colonna Sinistra: Brand & CTA Cantiere */}
             <div className="md:col-span-5 lg:col-span-5 flex flex-col justify-between space-y-6 md:space-y-0">
               <div className="space-y-5">
-                <Link to="/" className="inline-flex items-center gap-3 select-none">
+                <Link to="/" className="inline-block select-none">
                   <span className="text-white text-[24px] font-semibold leading-none tracking-[-0.02em] uppercase font-outfit">
                     MBA
-                  </span>
-                  <span className="text-white/60 text-[10px] sm:text-[11px] font-medium tracking-[0.2em] uppercase leading-none font-outfit">
-                    PROGETTAZIONE E GARE D'APPALTO
                   </span>
                 </Link>
 
@@ -331,13 +328,9 @@ export default function Layout() {
                     INIZIA QUI
                   </h3>
                 </div>
-
-                <p className="text-white/80 text-[14px] font-normal leading-[1.65] max-w-sm">
-                  Richiedi una consulenza tecnica per la tua gara d'appalto.
-                </p>
               </div>
 
-              <div className="pt-2 md:pt-0">
+              <div className="pt-2 md:pt-4">
                 <Link 
                   to="/contatti" 
                   className="inline-flex items-center justify-between w-full max-w-[280px] px-[26px] py-[15px] border border-white/20 text-white text-[11px] font-medium uppercase tracking-[0.2em] hover:border-[#F5C400] hover:text-[#F5C400] transition-colors rounded-[2px]"
