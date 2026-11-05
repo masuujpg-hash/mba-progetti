@@ -6,8 +6,6 @@ import {
   CaretLeft,
   CaretRight,
   CheckCircle,
-  Phone,
-  EnvelopeSimple,
   MapPin,
   MagnifyingGlass,
   ShieldCheck,
@@ -260,14 +258,14 @@ export default function Gare() {
 
   // Form state
   const [formSubmitted, setFormSubmitted] = useState(false);
+  const [selectedFile, setSelectedFile] = useState<File | null>(null);
   const [formData, setFormData] = useState({
-    nome: '',
-    azienda: '',
-    email: '',
+    nomeImpresa: '',
+    nomeReferente: '',
     telefono: '',
-    cig: '',
-    scadenza: '',
-    messaggio: '',
+    email: '',
+    nomeGara: '',
+    scadenzaGara: '',
     privacy: false
   });
 
@@ -863,142 +861,177 @@ export default function Gare() {
       </section>
 
       {/* ── 6. CONTATTACI SUBITO ── */}
-      <section id="contattaci-sezione" className="py-14 sm:py-20 px-6 max-w-7xl mx-auto">
-        <div className="border-l-4 border-[#F5C400] bg-bg-neutral/40 p-6 sm:p-10 rounded-[2px] shadow-xs">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12">
-            
-            {/* Colonna Sinistra: Info di Contatto */}
-            <div className="lg:col-span-5 space-y-5">
-              <span className="bg-[#F5C400] text-white text-[13px] font-medium uppercase tracking-[0.2em] px-2.5 py-1 rounded-[2px] inline-block shadow-xs">
-                CONTATTI &amp; INFORMAZIONI
-              </span>
-              <h3 className="text-[#1b2a4a] text-2xl sm:text-3xl md:text-[32px] font-bold uppercase tracking-[0.05em] leading-[1.12]">
-                CONTATTACI SUBITO
-              </h3>
-              <p className="text-[#3d4a66] text-[16px] font-normal leading-[1.7] max-w-[62ch]">
-                Hai una gara in corso o in scadenza? Inviaci il bando e il disciplinare: effettueremo un'analisi preliminare di fattibilità e competitività tecnica senza impegno.
-              </p>
-
-              <div className="pt-2 space-y-3 text-[14px] text-[#1b2a4a]">
-                <div className="flex items-center gap-3">
-                  <EnvelopeSimple size={18} className="text-[#F5C400] shrink-0" />
-                  <a href="mailto:arch.mariobiondi@gmail.com" className="hover:text-[#F5C400] transition-colors font-medium">
-                    arch.mariobiondi@gmail.com
-                  </a>
-                </div>
-                <div className="flex items-center gap-3">
-                  <Phone size={18} className="text-[#F5C400] shrink-0" />
-                  <a href="tel:+393286285861" className="hover:text-[#F5C400] transition-colors font-medium">
-                    328 6285861
-                  </a>
-                </div>
-                <div className="flex items-center gap-3">
-                  <MapPin size={18} className="text-[#F5C400] shrink-0" />
-                  <span>Via Sardarulo 7, 81016 San Potito Sannitico (CE)</span>
-                </div>
-              </div>
+      <section id="contattaci-sezione" className="py-14 sm:py-20 px-4 sm:px-6 max-w-4xl mx-auto">
+        <div className="border-l-4 border-[#F5C400] bg-[#F8F9FA] p-6 sm:p-10 md:p-12 rounded-[2px] shadow-xs">
+          
+          {/* Header & Contatti Diretti */}
+          <div className="mb-6 sm:mb-8">
+            <span className="text-[#7b869d] text-[11px] sm:text-xs font-semibold uppercase tracking-[0.2em] mb-2 block font-outfit">
+              VUOI UN PREVENTIVO PER UNA GARA D'APPALTO?
+            </span>
+            <h3 className="text-[#1b2a4a] text-2xl sm:text-3xl md:text-4xl font-bold uppercase tracking-[0.04em] leading-tight mb-2.5 font-outfit">
+              CONTATTACI SUBITO
+            </h3>
+            <p className="text-[#1b2a4a] text-[15px] sm:text-base font-medium mb-3.5 font-outfit">
+              Ti rispondiamo entro 24 ore.
+            </p>
+            <div className="space-y-1">
+              <a 
+                href="tel:+393286285861" 
+                className="block text-[#1b2a4a] hover:text-[#F5C400] text-base sm:text-lg font-bold transition-colors font-outfit"
+              >
+                328 6285861
+              </a>
+              <a 
+                href="mailto:arch.mariobiondi@gmail.com" 
+                className="block text-[#1b2a4a] hover:text-[#F5C400] text-base sm:text-lg font-bold transition-colors font-outfit"
+              >
+                arch.mariobiondi@gmail.com
+              </a>
             </div>
+          </div>
 
-            {/* Colonna Destra: Modulo di Richiesta */}
-            <div className="lg:col-span-7">
-              {formSubmitted ? (
-                <div className="bg-white p-8 border border-[#1b2a4a]/10 rounded-[2px] text-center space-y-3 shadow-xs">
-                  <CheckCircle size={44} className="text-[#F5C400] mx-auto" />
-                  <h4 className="text-[#1b2a4a] text-lg font-bold uppercase tracking-wide">
-                    Richiesta Inviata con Successo
-                  </h4>
-                  <p className="text-[#3d4a66] text-[14px] leading-relaxed">
-                    Il nostro team tecnico esaminerà i dettagli della gara e ti risponderà entro 24 ore lavorative.
-                  </p>
+          {/* Form */}
+          {formSubmitted ? (
+            <div className="bg-white p-8 border border-[#1b2a4a]/10 rounded-[2px] text-center space-y-3 shadow-xs">
+              <CheckCircle size={44} className="text-[#F5C400] mx-auto" />
+              <h4 className="text-[#1b2a4a] text-lg font-bold uppercase tracking-wide font-outfit">
+                Richiesta Inviata con Successo
+              </h4>
+              <p className="text-[#3d4a66] text-[14px] leading-relaxed font-outfit">
+                Il nostro team tecnico esaminerà i dettagli della gara e ti risponderà entro 24 ore lavorative.
+              </p>
+              <button
+                type="button"
+                onClick={() => {
+                  setFormSubmitted(false);
+                  setSelectedFile(null);
+                  setFormData({
+                    nomeImpresa: '',
+                    nomeReferente: '',
+                    telefono: '',
+                    email: '',
+                    nomeGara: '',
+                    scadenzaGara: '',
+                    privacy: false
+                  });
+                }}
+                className="inline-block mt-3 text-xs uppercase tracking-wider text-[#1b2a4a] hover:text-[#F5C400] underline cursor-pointer"
+              >
+                Invia un'altra richiesta
+              </button>
+            </div>
+          ) : (
+            <form onSubmit={handleSubmit} className="space-y-3.5">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3.5">
+                <input 
+                  type="text" 
+                  required
+                  placeholder="Nome impresa" 
+                  value={formData.nomeImpresa}
+                  onChange={e => setFormData({ ...formData, nomeImpresa: e.target.value })}
+                  className="w-full bg-white border border-[#d0d7e2] hover:border-[#1b2a4a]/40 focus:border-[#F5C400] focus:outline-none h-12 px-4 text-[14px] sm:text-[15px] text-[#1b2a4a] placeholder:text-[#8a96a8] rounded-[2px] transition-colors font-outfit"
+                />
+                <input 
+                  type="text" 
+                  required
+                  placeholder="Nome referente" 
+                  value={formData.nomeReferente}
+                  onChange={e => setFormData({ ...formData, nomeReferente: e.target.value })}
+                  className="w-full bg-white border border-[#d0d7e2] hover:border-[#1b2a4a]/40 focus:border-[#F5C400] focus:outline-none h-12 px-4 text-[14px] sm:text-[15px] text-[#1b2a4a] placeholder:text-[#8a96a8] rounded-[2px] transition-colors font-outfit"
+                />
+                <input 
+                  type="tel" 
+                  required
+                  placeholder="Telefono" 
+                  value={formData.telefono}
+                  onChange={e => setFormData({ ...formData, telefono: e.target.value })}
+                  className="w-full bg-white border border-[#d0d7e2] hover:border-[#1b2a4a]/40 focus:border-[#F5C400] focus:outline-none h-12 px-4 text-[14px] sm:text-[15px] text-[#1b2a4a] placeholder:text-[#8a96a8] rounded-[2px] transition-colors font-outfit"
+                />
+                <input 
+                  type="email" 
+                  required
+                  placeholder="E-mail" 
+                  value={formData.email}
+                  onChange={e => setFormData({ ...formData, email: e.target.value })}
+                  className="w-full bg-white border border-[#d0d7e2] hover:border-[#1b2a4a]/40 focus:border-[#F5C400] focus:outline-none h-12 px-4 text-[14px] sm:text-[15px] text-[#1b2a4a] placeholder:text-[#8a96a8] rounded-[2px] transition-colors font-outfit"
+                />
+                <input 
+                  type="text" 
+                  placeholder="Nome della gara" 
+                  value={formData.nomeGara}
+                  onChange={e => setFormData({ ...formData, nomeGara: e.target.value })}
+                  className="w-full bg-white border border-[#d0d7e2] hover:border-[#1b2a4a]/40 focus:border-[#F5C400] focus:outline-none h-12 px-4 text-[14px] sm:text-[15px] text-[#1b2a4a] placeholder:text-[#8a96a8] rounded-[2px] transition-colors font-outfit"
+                />
+                <input 
+                  type="text" 
+                  placeholder="Scadenza della gara" 
+                  value={formData.scadenzaGara}
+                  onChange={e => setFormData({ ...formData, scadenzaGara: e.target.value })}
+                  className="w-full bg-white border border-[#d0d7e2] hover:border-[#1b2a4a]/40 focus:border-[#F5C400] focus:outline-none h-12 px-4 text-[14px] sm:text-[15px] text-[#1b2a4a] placeholder:text-[#8a96a8] rounded-[2px] transition-colors font-outfit"
+                />
+
+                {/* File Upload Box */}
+                <div className="sm:col-span-2">
+                  <label className="w-full bg-white border border-[#d0d7e2] hover:border-[#F5C400] h-12 px-4 flex items-center justify-center gap-2.5 cursor-pointer transition-colors rounded-[2px] group">
+                    <UploadSimple size={18} className="text-[#1b2a4a] group-hover:text-[#F5C400] transition-colors shrink-0" />
+                    <span className="text-[#1b2a4a] text-xs sm:text-[13px] font-medium uppercase tracking-[0.15em] truncate">
+                      {selectedFile ? selectedFile.name : "ALLEGA IL BANDO DI GARA (PDF)"}
+                    </span>
+                    {selectedFile && (
+                      <button
+                        type="button"
+                        onClick={(e) => {
+                          e.preventDefault();
+                          e.stopPropagation();
+                          setSelectedFile(null);
+                        }}
+                        className="ml-2 text-xs text-red-500 hover:text-red-700 underline"
+                      >
+                        Rimuovi
+                      </button>
+                    )}
+                    <input 
+                      type="file" 
+                      accept=".pdf,.zip,.rar,.doc,.docx"
+                      className="hidden" 
+                      onChange={e => {
+                        if (e.target.files && e.target.files[0]) {
+                          setSelectedFile(e.target.files[0]);
+                        }
+                      }}
+                    />
+                  </label>
                 </div>
-              ) : (
-                <form onSubmit={handleSubmit} className="space-y-3">
-                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
-                    <input 
-                      type="text" 
-                      required
-                      placeholder="Nome e Cognome *" 
-                      value={formData.nome}
-                      onChange={e => setFormData({ ...formData, nome: e.target.value })}
-                      className="w-full bg-white border border-[#1b2a4a]/15 px-3 py-2 text-xs text-[#1b2a4a] focus:outline-none focus:border-[#F5C400] rounded-[2px]"
-                    />
-                    <input 
-                      type="text" 
-                      placeholder="Ragione Sociale / Impresa" 
-                      value={formData.azienda}
-                      onChange={e => setFormData({ ...formData, azienda: e.target.value })}
-                      className="w-full bg-white border border-[#1b2a4a]/15 px-3 py-2 text-xs text-[#1b2a4a] focus:outline-none focus:border-[#F5C400] rounded-[2px]"
-                    />
-                  </div>
 
-                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
-                    <input 
-                      type="email" 
-                      required
-                      placeholder="Email aziendale *" 
-                      value={formData.email}
-                      onChange={e => setFormData({ ...formData, email: e.target.value })}
-                      className="w-full bg-white border border-[#1b2a4a]/15 px-3 py-2 text-xs text-[#1b2a4a] focus:outline-none focus:border-[#F5C400] rounded-[2px]"
-                    />
-                    <input 
-                      type="tel" 
-                      placeholder="Recapito Telefonico" 
-                      value={formData.telefono}
-                      onChange={e => setFormData({ ...formData, telefono: e.target.value })}
-                      className="w-full bg-white border border-[#1b2a4a]/15 px-3 py-2 text-xs text-[#1b2a4a] focus:outline-none focus:border-[#F5C400] rounded-[2px]"
-                    />
-                  </div>
-
-                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
-                    <input 
-                      type="text" 
-                      placeholder="CIG o Oggetto della Gara" 
-                      value={formData.cig}
-                      onChange={e => setFormData({ ...formData, cig: e.target.value })}
-                      className="w-full bg-white border border-[#1b2a4a]/15 px-3 py-2 text-xs text-[#1b2a4a] focus:outline-none focus:border-[#F5C400] rounded-[2px]"
-                    />
-                    <input 
-                      type="text" 
-                      placeholder="Data Scadenza Offerte" 
-                      value={formData.scadenza}
-                      onChange={e => setFormData({ ...formData, scadenza: e.target.value })}
-                      className="w-full bg-white border border-[#1b2a4a]/15 px-3 py-2 text-xs text-[#1b2a4a] focus:outline-none focus:border-[#F5C400] rounded-[2px]"
-                    />
-                  </div>
-
-                  <textarea 
-                    rows={3} 
-                    placeholder="Note sulla procedura o richieste specifiche..." 
-                    value={formData.messaggio}
-                    onChange={e => setFormData({ ...formData, messaggio: e.target.value })}
-                    className="w-full bg-white border border-[#1b2a4a]/15 p-3 text-xs text-[#1b2a4a] focus:outline-none focus:border-[#F5C400] rounded-[2px] resize-none"
+                {/* Privacy checkbox */}
+                <div className="sm:col-span-2 flex items-center gap-2.5 pt-1">
+                  <input 
+                    type="checkbox" 
+                    id="privacy-check"
+                    checked={formData.privacy}
+                    onChange={e => setFormData({ ...formData, privacy: e.target.checked })}
+                    className="accent-[#1b2a4a] cursor-pointer w-4 h-4 rounded-[1px]"
+                    required
                   />
+                  <label htmlFor="privacy-check" className="text-xs text-[#3d4a66] cursor-pointer select-none">
+                    Dichiaro di aver preso visione dell'informativa sulla privacy
+                  </label>
+                </div>
 
-                  <div className="flex items-center gap-2 pt-1">
-                    <input 
-                      type="checkbox" 
-                      id="privacy-check"
-                      checked={formData.privacy}
-                      onChange={e => setFormData({ ...formData, privacy: e.target.checked })}
-                      className="accent-[#1b2a4a] cursor-pointer"
-                      required
-                    />
-                    <label htmlFor="privacy-check" className="text-[12px] text-[#1b2a4a]/70 cursor-pointer">
-                      Dichiaro di aver preso visione dell'informativa sulla privacy
-                    </label>
-                  </div>
-
+                {/* Submit Button */}
+                <div className="sm:col-span-2 pt-1">
                   <button 
                     type="submit" 
-                    className="bg-[#1b2a4a] hover:bg-[#F5C400] text-white px-[26px] py-[15px] text-[11px] font-medium uppercase tracking-[0.2em] transition-colors rounded-[2px] shadow-xs cursor-pointer min-w-[240px]"
+                    className="w-full bg-[#1b2a4a] hover:bg-[#F5C400] text-white hover:text-[#1b2a4a] h-[52px] px-[26px] py-[15px] text-[11px] font-medium uppercase tracking-[0.2em] transition-all rounded-[2px] shadow-xs cursor-pointer font-outfit"
                   >
-                    Invia Richiesta
+                    INVIA RICHIESTA
                   </button>
-                </form>
-              )}
-            </div>
+                </div>
+              </div>
+            </form>
+          )}
 
-          </div>
         </div>
       </section>
 
