@@ -203,3 +203,4 @@ export default function GareContactForm({ defaultGaraName = '', className = '' }
     </div>
   );
 }
+
