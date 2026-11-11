@@ -24,7 +24,8 @@ export default function Home() {
   const [homeArticles, setHomeArticles] = useState(getHomeArticles);
 
   const [portfolioIndex, setPortfolioIndex] = useState(0);
-  const [itemsPerView, setItemsPerView] = useState(3);
+  const [portfolioItemsPerView, setPortfolioItemsPerView] = useState(2);
+  const [newsItemsPerView, setNewsItemsPerView] = useState(3);
   const [isPortfolioPaused, setIsPortfolioPaused] = useState(false);
   const portfolioContainerRef = useRef<HTMLDivElement>(null);
   const [portfolioWidth, setPortfolioWidth] = useState(0);
@@ -56,12 +57,21 @@ export default function Home() {
       if (newsContainerRef.current) {
         setNewsWidth(newsContainerRef.current.clientWidth);
       }
+
+      // Portfolio: 1 su mobile, 2 su desktop e tablet per mostrare schede più grandi e impattanti
       if (window.innerWidth < 640) {
-        setItemsPerView(1);
-      } else if (window.innerWidth < 1024) {
-        setItemsPerView(2);
+        setPortfolioItemsPerView(1);
       } else {
-        setItemsPerView(3);
+        setPortfolioItemsPerView(2);
+      }
+
+      // News: 1 su mobile, 2 su tablet, 3 su desktop
+      if (window.innerWidth < 640) {
+        setNewsItemsPerView(1);
+      } else if (window.innerWidth < 1024) {
+        setNewsItemsPerView(2);
+      } else {
+        setNewsItemsPerView(3);
       }
     };
 
@@ -77,8 +87,8 @@ export default function Home() {
     };
   }, []);
 
-  const maxPortfolioIndex = Math.max(0, homeProjects.length - itemsPerView);
-  const maxNewsIndex = Math.max(0, homeArticles.length - itemsPerView);
+  const maxPortfolioIndex = Math.max(0, homeProjects.length - portfolioItemsPerView);
+  const maxNewsIndex = Math.max(0, homeArticles.length - newsItemsPerView);
 
   useEffect(() => {
     setPortfolioIndex((prev) => Math.min(prev, maxPortfolioIndex));
@@ -90,38 +100,38 @@ export default function Home() {
 
   const gap = 24;
   const portfolioCardWidth = portfolioWidth > 0 
-    ? (itemsPerView === 1 ? portfolioWidth : (portfolioWidth - (itemsPerView - 1) * gap) / itemsPerView)
+    ? (portfolioItemsPerView === 1 ? portfolioWidth : (portfolioWidth - (portfolioItemsPerView - 1) * gap) / portfolioItemsPerView)
     : 0;
   const portfolioStep = portfolioCardWidth + gap;
   const portfolioX = -(portfolioIndex * portfolioStep);
 
   const newsCardWidth = newsWidth > 0 
-    ? (itemsPerView === 1 ? newsWidth : (newsWidth - (itemsPerView - 1) * gap) / itemsPerView)
+    ? (newsItemsPerView === 1 ? newsWidth : (newsWidth - (newsItemsPerView - 1) * gap) / newsItemsPerView)
     : 0;
   const newsStep = newsCardWidth + gap;
   const newsX = -(newsIndex * newsStep);
 
   // Autoplay automatico a intervallo per il carosello progetti
   useEffect(() => {
-    if (isPortfolioPaused || homeProjects.length <= itemsPerView) return;
+    if (isPortfolioPaused || homeProjects.length <= portfolioItemsPerView) return;
 
     const interval = setInterval(() => {
       setPortfolioIndex((prev) => (prev >= maxPortfolioIndex ? 0 : prev + 1));
-    }, 4000);
-
-    return () => clearInterval(interval);
-  }, [isPortfolioPaused, homeProjects.length, itemsPerView, maxPortfolioIndex]);
-
-  // Autoplay automatico a intervallo per il carosello news
-  useEffect(() => {
-    if (isNewsPaused || homeArticles.length <= itemsPerView) return;
-
-    const interval = setInterval(() => {
-      setNewsIndex((prev) => (prev >= maxNewsIndex ? 0 : prev + 1));
     }, 4500);
 
     return () => clearInterval(interval);
-  }, [isNewsPaused, homeArticles.length, itemsPerView, maxNewsIndex]);
+  }, [isPortfolioPaused, homeProjects.length, portfolioItemsPerView, maxPortfolioIndex]);
+
+  // Autoplay automatico a intervallo per il carosello news
+  useEffect(() => {
+    if (isNewsPaused || homeArticles.length <= newsItemsPerView) return;
+
+    const interval = setInterval(() => {
+      setNewsIndex((prev) => (prev >= maxNewsIndex ? 0 : prev + 1));
+    }, 5000);
+
+    return () => clearInterval(interval);
+  }, [isNewsPaused, homeArticles.length, newsItemsPerView, maxNewsIndex]);
 
   const handleNextPortfolio = () => {
     setPortfolioIndex((prev) => (prev >= maxPortfolioIndex ? 0 : prev + 1));
@@ -635,9 +645,9 @@ function StatItem({ icon: Icon, value, label }: { icon: any; value: string; labe
 
 
 function ProjectCard({ id, title, cat, img, pos, rank, amount }: any) {
-  // Linea 1 dettagliata (es. "3,4 MLN · 2° CLASSIFICATO")
+  // Linea 1 dettagliata (es. "3,4 MLN · 1° CLASSIFICATO")
   const metaParts: string[] = [];
-  if (amount) metaParts.push(amount);
+  if (amount) metaParts.push(amount.startsWith('€') ? amount : `€ ${amount}`);
   if (rank) {
     metaParts.push(rank.toUpperCase());
   } else if (cat) {
@@ -647,23 +657,23 @@ function ProjectCard({ id, title, cat, img, pos, rank, amount }: any) {
 
   return (
     <Link to={`/portfolio/${id}`} className="block group bg-white border border-[#1B2A4A]/10 rounded-[1px] overflow-hidden shadow-2xs hover:shadow-md transition-all h-full">
-      <div className="relative aspect-[4/3] bg-neutral-100 overflow-hidden">
+      <div className="relative aspect-[16/10] sm:aspect-[16/10] bg-neutral-100 overflow-hidden">
         <img 
           src={img} 
           alt={title}
           className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
         />
       </div>
-      <div className="p-5 space-y-2">
+      <div className="p-6 sm:p-7 space-y-2.5">
         {metaLine && (
-          <span className="text-[#1B2A4A] text-xs font-bold uppercase tracking-[0.12em] block font-outfit">
+          <span className="text-[#1B2A4A] text-xs sm:text-[13px] font-bold uppercase tracking-[0.14em] block font-outfit">
             {metaLine}
           </span>
         )}
-        <h3 className="text-[#1B2A4A] text-base sm:text-[17px] font-bold leading-snug group-hover:text-[#F5C400] transition-colors line-clamp-2 font-outfit">
+        <h3 className="text-[#1B2A4A] text-lg sm:text-xl lg:text-[22px] font-bold leading-snug group-hover:text-[#F5C400] transition-colors line-clamp-2 font-outfit uppercase">
           {title}
         </h3>
-        <p className="text-[#7b869d] text-xs sm:text-[13px] font-normal font-outfit">
+        <p className="text-[#7b869d] text-xs sm:text-sm font-normal font-outfit">
           {pos}
         </p>
       </div>
