@@ -378,14 +378,14 @@ export default function Home() {
             <div className="flex items-center justify-end gap-2 sm:gap-3 shrink-0">
               <button 
                 onClick={handlePrevPortfolio}
-                className="w-10 h-10 sm:w-11 sm:h-11 border border-[#1B2A4A]/20 text-[#1B2A4A] hover:border-[#F5C400] hover:text-[#F5C400] transition-colors bg-white rounded-[1px] shadow-2xs flex items-center justify-center shrink-0"
+                className="w-[48px] h-[48px] sm:w-[52px] sm:h-[52px] border border-[#1B2A4A]/20 text-[#1B2A4A] hover:border-[#F5C400] hover:text-[#F5C400] transition-colors bg-white rounded-[2px] shadow-2xs flex items-center justify-center shrink-0 cursor-pointer"
                 aria-label="Progetto Precedente"
               >
                 <CaretLeft size={18} />
               </button>
               <button 
                 onClick={handleNextPortfolio}
-                className="w-10 h-10 sm:w-11 sm:h-11 border border-[#1B2A4A]/20 text-[#1B2A4A] hover:border-[#F5C400] hover:text-[#F5C400] transition-colors bg-white rounded-[1px] shadow-2xs flex items-center justify-center shrink-0"
+                className="w-[48px] h-[48px] sm:w-[52px] sm:h-[52px] border border-[#1B2A4A]/20 text-[#1B2A4A] hover:border-[#F5C400] hover:text-[#F5C400] transition-colors bg-white rounded-[2px] shadow-2xs flex items-center justify-center shrink-0 cursor-pointer"
                 aria-label="Progetto Successivo"
               >
                 <CaretRight size={18} />
