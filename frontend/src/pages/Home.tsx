@@ -167,52 +167,54 @@ export default function Home() {
     <div className="bg-white selection:bg-navy selection:text-white overflow-x-hidden">
       
       {/* ── 1. CINEMATIC HERO ── */}
-      <section className="relative min-h-[92vh] md:h-screen w-full flex items-center justify-center overflow-hidden bg-navy">
-        {/* Background image with soft overlay and gradient fade to white */}
+      <section className="relative min-h-[92vh] md:min-h-screen w-full flex items-center justify-center overflow-hidden bg-[#1B2A4A]">
+        {/* Background image with navy overlay and smooth fade to white at bottom */}
         <div className="absolute inset-0 z-0">
           <img 
             src="/media/header_2.jpg" 
-            alt="MBA Progetti Studio"
-            className="w-full h-full object-cover object-center grayscale contrast-125 opacity-35 scale-100"
+            alt="MBA Progetti Studio Tecnico"
+            className="w-full h-full object-cover object-center"
           />
-          {/* Blue gradient overlay fading to white at the bottom as shown in the mockup */}
-          <div className="absolute inset-0 bg-gradient-to-b from-navy/95 via-navy/60 to-white" />
+          {/* Deep Navy Color Tint */}
+          <div className="absolute inset-0 bg-[#1B2A4A]/60 mix-blend-multiply" />
+          {/* Vertical gradient: navy at top fading to clean white at bottom */}
+          <div className="absolute inset-0 bg-gradient-to-b from-[#1B2A4A]/85 via-[#1B2A4A]/55 to-white" />
         </div>
 
         {/* Hero Content */}
-        <div className="relative z-10 text-center px-6 max-w-5xl mx-auto pt-24 pb-16">
+        <div className="relative z-10 text-center px-6 max-w-4xl mx-auto pt-28 sm:pt-36 pb-20 sm:pb-28 flex flex-col items-center">
           <motion.div
             initial={{ opacity: 0, y: 25 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.9, ease: [0.16, 1, 0.3, 1] }}
-            className="flex flex-col items-center"
+            className="flex flex-col items-center w-full"
           >
-            <span className="text-white/80 text-[11px] font-medium uppercase tracking-[0.25em] md:tracking-[0.4em] mb-6 block font-outfit">
-              PROGETTAZIONE E GARE D'APPALTO
-            </span>
-            
-            <h1 className="text-white text-3xl sm:text-4xl md:text-5xl lg:text-[56px] font-bold uppercase tracking-[0.05em] leading-[1.2] mb-6 font-outfit">
-              PROGETTIAMO IL FUTURO
+            {/* Titolo su 2 righe con tracking ampio e font geometrico leggero */}
+            <h1 className="text-white text-3xl sm:text-5xl md:text-6xl lg:text-[70px] font-extralight uppercase tracking-[0.22em] sm:tracking-[0.28em] leading-[1.2] mb-6 sm:mb-8 font-outfit text-center">
+              <span className="block">PROGETTIAMO</span>
+              <span className="block mt-1 sm:mt-2">IL FUTURO</span>
             </h1>
 
-            <p className="text-white/85 text-base sm:text-lg font-normal max-w-2xl leading-[1.65] mb-10 font-outfit">
-              In ogni gara progettiamo il futuro lavoro, insieme ai nostri clienti. Ogni aggiudicazione è continuità per l'impresa e crescita per il nostro studio, per questo curiamo ogni offerta tecnica con passione e dedizione.
+            {/* Sottotitolo / Paragrafo */}
+            <p className="text-white/95 text-[15px] sm:text-[17px] md:text-[18px] font-normal max-w-2xl leading-[1.65] mb-8 sm:mb-10 font-outfit text-center">
+              Affianchiamo le imprese nella costruzione di offerte tecniche capaci di generare nuove opportunità di lavoro. Ogni aggiudicazione è il risultato di un percorso costruito insieme e un nuovo punto di partenza per crescere.
             </p>
 
-            <div className="flex flex-col sm:flex-row items-center justify-center gap-4 w-full">
-              <Link 
-                to="/servizi/gare" 
-                className="btn-ghost-white group w-full max-w-[270px] sm:w-[260px] h-[52px] px-[26px] py-[15px] text-[11px] font-medium tracking-[0.2em] uppercase rounded-[2px] inline-flex items-center justify-center gap-3.5 transition-all shadow-2xs font-outfit"
-              >
-                <span>GARE OEPV</span>
-                <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform inline-block shrink-0" />
-              </Link>
+            {/* Pulsanti CTA impilati verticalmente */}
+            <div className="flex flex-col items-center gap-3 w-full max-w-[340px] sm:max-w-[380px]">
               <Link 
                 to="/studio" 
-                className="btn-ghost-white group w-full max-w-[270px] sm:w-[260px] h-[52px] px-[26px] py-[15px] text-[11px] font-medium tracking-[0.2em] uppercase rounded-[2px] inline-flex items-center justify-center gap-3.5 transition-all shadow-2xs font-outfit"
+                className="w-full h-[48px] sm:h-[50px] border border-white/60 hover:border-white hover:bg-white/10 text-white px-5 sm:px-6 rounded-[2px] flex items-center justify-between text-[11px] sm:text-[12px] font-medium tracking-[0.2em] uppercase transition-all shadow-2xs group font-outfit"
               >
-                <span>SCOPRI LO STUDIO</span>
-                <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform inline-block shrink-0" />
+                <span>LO STUDIO</span>
+                <CaretRight size={16} className="group-hover:translate-x-1 transition-transform opacity-90" />
+              </Link>
+              <Link 
+                to="/servizi/gare" 
+                className="w-full h-[48px] sm:h-[50px] border border-white/60 hover:border-white hover:bg-white/10 text-white px-5 sm:px-6 rounded-[2px] flex items-center justify-between text-[11px] sm:text-[12px] font-medium tracking-[0.2em] uppercase transition-all shadow-2xs group font-outfit"
+              >
+                <span>GARE OEV</span>
+                <CaretRight size={16} className="group-hover:translate-x-1 transition-transform opacity-90" />
               </Link>
             </div>
           </motion.div>
