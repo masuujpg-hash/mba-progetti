@@ -694,9 +694,9 @@ export default function Gare() {
             </div>
           </div>
 
-          {/* Viewer Tavola Ingegnerizzata a Grande Formato con Didascalia Overlay */}
+          {/* Viewer Tavola Ingegnerizzata a Grande Formato */}
           <div 
-            className="relative w-full aspect-[16/10.5] sm:aspect-[16/10] bg-[#eef1f4] border border-navy/15 overflow-hidden shadow-sm mb-5 group touch-pan-y"
+            className="relative w-full aspect-[16/10.5] sm:aspect-[16/10] bg-[#eef1f4] border border-navy/15 overflow-hidden shadow-sm mb-3 group touch-pan-y"
             onMouseEnter={() => setIsPlateHovered(true)}
             onMouseLeave={() => setIsPlateHovered(false)}
             onTouchStart={(e) => {
@@ -738,11 +738,16 @@ export default function Gare() {
             >
               <CaretRight size={22} weight="regular" />
             </button>
+          </div>
 
-            {/* Didascalia Overlay in basso a sinistra conforme all'immagine */}
-            <div className="absolute bottom-0 left-0 bg-[#2b3544]/90 text-white px-4 sm:px-6 py-2.5 sm:py-3 text-xs sm:text-sm font-normal tracking-wide max-w-full sm:max-w-3xl select-none backdrop-blur-xs">
+          {/* Didascalia pulita sotto l'immagine (senza sovrapporsi alle tavole) */}
+          <div className="flex items-center justify-between gap-4 px-1 py-2.5 mb-5 border-b border-[#dfe3ea] font-outfit">
+            <p className="text-[#1B2A4A] text-xs sm:text-sm font-medium leading-snug">
               {plates[currentIndex].caption}
-            </div>
+            </p>
+            <span className="text-[#7b869d] text-[11px] font-medium tabular-nums shrink-0 tracking-wider">
+              {currentIndex + 1} / {plates.length}
+            </span>
           </div>
 
           {/* Miniature di navigazione rapida sottostanti */}
