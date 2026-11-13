@@ -177,7 +177,7 @@ export default function ProjectDetail() {
 
         {/* ── 5. MODULO CONTATTO PREVENTIVO GARA A FONDO PAGINA ── */}
         <div className="mt-14 sm:mt-20 pt-10 sm:pt-14 border-t border-[#dfe3ea] max-w-4xl mx-auto">
-          <GareContactForm defaultGaraName={project.title} />
+          <GareContactForm />
         </div>
 
       </div>
