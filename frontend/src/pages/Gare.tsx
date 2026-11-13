@@ -739,46 +739,47 @@ export default function Gare() {
       </section>
 
       {/* ── 4. DALLA SCELTA DELLA GARA ALLA CONSEGNA (8 FASI INTERATTIVE) ── */}
-      <section className="py-14 sm:py-20 px-6 max-w-7xl mx-auto">
-        <div className="mb-3">
-          <span className="inline-block bg-[#F5C400] text-white text-[13px] font-medium uppercase tracking-[0.2em] px-2.5 py-1 rounded-[2px]">
+      <section className="py-14 sm:py-20 px-4 sm:px-6 max-w-7xl mx-auto font-outfit">
+        <div className="mb-4">
+          <span className="inline-block bg-[#F5C400] text-white text-[11px] font-medium uppercase tracking-[0.2em] px-3.5 py-1 rounded-[1px] shadow-2xs">
             METODO
           </span>
         </div>
-        <h2 className="text-[#1b2a4a] text-2xl sm:text-3xl md:text-[32px] font-bold uppercase tracking-[0.05em] leading-[1.12] mb-4">
+        <h2 className="text-[#1B2A4A] text-2xl sm:text-3xl md:text-4xl font-bold uppercase tracking-[0.04em] leading-[1.15] mb-4">
           DALLA SCELTA DELLA GARA ALLA CONSEGNA
         </h2>
-        <p className="text-[#3d4a66] text-[16px] font-normal max-w-[62ch] mb-12 leading-[1.7]">
+        <p className="text-[#3d4a66] text-base md:text-[17px] font-normal max-w-[62ch] mb-10 leading-[1.65]">
           Un percorso strutturato per affiancare l'impresa in ogni passaggio, dalla valutazione iniziale all'invio dell'offerta.
         </p>
 
         {/* Timeline a 8 step con icone circolari disposte su 2 righe da 4 conformi al mockup */}
-        <div className="bg-[#f8f9fb] p-6 sm:p-10 rounded-[2px] border border-[#dfe3ea] mb-6">
-          <div className="grid grid-cols-2 sm:grid-cols-4 gap-y-7 gap-x-3 sm:gap-x-6 mb-8">
+        <div className="bg-[#f4f6f9] p-4 sm:p-8 md:p-10 rounded-[2px] border border-[#dfe3ea]">
+          <div className="grid grid-cols-4 gap-y-6 sm:gap-y-9 gap-x-2 sm:gap-x-6 lg:gap-x-8 mb-8 sm:mb-10">
             {processSteps.map((step, idx) => {
               const StepIcon = step.icon;
               const isActive = activeStep === idx;
               return (
                 <button
                   key={step.id}
+                  type="button"
                   onClick={() => setActiveStep(idx)}
                   className="flex flex-col items-center text-center group cursor-pointer focus:outline-none"
                 >
                   <div 
-                    className={`w-14 h-14 sm:w-16 sm:h-16 rounded-full flex items-center justify-center mb-2.5 transition-all duration-200 ${
+                    className={`w-14 h-14 min-[400px]:w-16 min-[400px]:h-16 sm:w-20 sm:h-20 md:w-[88px] md:h-[88px] rounded-full flex items-center justify-center mb-2.5 sm:mb-3 transition-all duration-200 ${
                       isActive 
-                        ? 'p-[3px] border-2 border-[#F5C400] shadow-xs' 
-                        : 'border border-[#1b2a4a]/20 bg-white group-hover:border-[#1b2a4a]/40'
+                        ? 'p-[3px] sm:p-[4px] bg-white border-[3px] border-[#F5C400] shadow-sm' 
+                        : 'border-[1.5px] border-[#1B2A4A]/75 bg-white group-hover:border-[#1B2A4A]'
                     }`}
                   >
                     <div className={`w-full h-full rounded-full flex items-center justify-center transition-colors ${
-                      isActive ? 'bg-[#1b2a4a] text-white' : 'text-[#1b2a4a]/80 group-hover:text-[#1b2a4a]'
+                      isActive ? 'bg-[#1B2A4A] text-white' : 'text-[#1B2A4A]'
                     }`}>
-                      <StepIcon size={22} weight={isActive ? "bold" : "regular"} />
+                      <StepIcon className="w-6 h-6 sm:w-7 sm:h-7 md:w-8 md:h-8" weight={isActive ? "regular" : "regular"} />
                     </div>
                   </div>
-                  <span className={`text-xs sm:text-[13px] tracking-tight transition-colors line-clamp-2 max-w-[125px] leading-snug ${
-                    isActive ? 'font-bold text-[#1b2a4a]' : 'font-normal text-[#1b2a4a]/75 group-hover:text-[#1b2a4a]'
+                  <span className={`text-[11px] min-[400px]:text-xs sm:text-sm leading-tight max-w-[140px] transition-colors ${
+                    isActive ? 'font-bold text-[#1B2A4A]' : 'font-normal text-[#1B2A4A]/85 group-hover:text-[#1B2A4A]'
                   }`}>
                     {step.title}
                   </span>
@@ -788,14 +789,14 @@ export default function Gare() {
           </div>
 
           {/* Dettaglio Fase Selezionata con Bordo Oro a Sinistra conforme al mockup */}
-          <div className="bg-white p-6 sm:p-9 border-l-4 border-[#F5C400] shadow-xs rounded-[2px]">
-            <span className="inline-block text-[#F5C400] text-[13px] font-medium uppercase tracking-[0.2em] mb-2">
+          <div className="bg-white p-5 sm:p-8 md:p-10 border-l-4 border-[#F5C400] shadow-xs rounded-[2px]">
+            <span className="inline-block text-[#F5C400] text-xs sm:text-[13px] font-semibold uppercase tracking-[0.2em] mb-2">
               {processSteps[activeStep].tag}
             </span>
-            <h3 className="text-[#1b2a4a] text-xl sm:text-2xl md:text-[26px] font-bold uppercase tracking-tight mb-3">
+            <h3 className="text-[#1B2A4A] text-xl sm:text-2xl md:text-[26px] font-bold uppercase tracking-[0.02em] leading-snug mb-3">
               {processSteps[activeStep].heading}
             </h3>
-            <p className="text-[#3d4a66] text-[16px] font-normal leading-[1.7] max-w-[62ch]">
+            <p className="text-[#3d4a66] text-[15px] sm:text-[17px] font-normal leading-[1.65] max-w-[64ch]">
               {processSteps[activeStep].desc}
             </p>
           </div>
