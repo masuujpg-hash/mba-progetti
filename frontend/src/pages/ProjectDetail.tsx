@@ -149,25 +149,25 @@ export default function ProjectDetail() {
         )}
 
         {/* ── 4. BARRA DI NAVIGAZIONE INFERIORE: [ TORNA AL PORTFOLIO ] a SX, [ < ] [ > ] a DX ── */}
-        <div className="flex flex-col-reverse sm:flex-row justify-between items-stretch sm:items-center gap-4 pt-6 border-t border-[#dfe3ea]">
+        <div className="flex flex-row items-center justify-between gap-3 sm:gap-4 pt-6 border-t border-[#dfe3ea]">
           <Link
             to="/portfolio"
-            className="border border-[#1b2a4a]/25 text-[#1b2a4a] hover:border-[#F5C400] hover:text-[#F5C400] bg-white h-[44px] px-6 text-[11px] font-medium tracking-[0.2em] uppercase rounded-[2px] inline-flex items-center justify-center transition-all shadow-2xs cursor-pointer font-outfit"
+            className="border border-[#1b2a4a]/25 text-[#1b2a4a] hover:border-[#F5C400] hover:text-[#F5C400] bg-white h-[44px] sm:h-[48px] px-4 sm:px-6 text-[10.5px] sm:text-[11px] font-medium tracking-[0.16em] sm:tracking-[0.2em] uppercase rounded-[2px] inline-flex items-center justify-center transition-all shadow-2xs cursor-pointer font-outfit flex-1 sm:flex-initial truncate"
           >
             TORNA AL PORTFOLIO
           </Link>
 
-          <div className="flex items-center justify-end gap-2.5">
+          <div className="flex items-center justify-end gap-2 shrink-0">
             <Link
               to={`/portfolio/${prevProject?.id || ''}`}
-              className="w-12 h-[44px] border border-[#1b2a4a]/25 text-[#1b2a4a] hover:border-[#F5C400] hover:text-[#F5C400] bg-white rounded-[2px] flex items-center justify-center transition-all shadow-2xs group cursor-pointer"
+              className="w-11 h-[44px] sm:w-12 sm:h-[48px] border border-[#1b2a4a]/25 text-[#1b2a4a] hover:border-[#F5C400] hover:text-[#F5C400] bg-white rounded-[2px] flex items-center justify-center transition-all shadow-2xs group cursor-pointer shrink-0"
               aria-label="Progetto Precedente"
             >
               <CaretLeft size={18} className="group-hover:-translate-x-0.5 transition-transform" />
             </Link>
             <Link
               to={`/portfolio/${nextProject?.id || ''}`}
-              className="w-12 h-[44px] border border-[#1b2a4a]/25 text-[#1b2a4a] hover:border-[#F5C400] hover:text-[#F5C400] bg-white rounded-[2px] flex items-center justify-center transition-all shadow-2xs group cursor-pointer"
+              className="w-11 h-[44px] sm:w-12 sm:h-[48px] border border-[#1b2a4a]/25 text-[#1b2a4a] hover:border-[#F5C400] hover:text-[#F5C400] bg-white rounded-[2px] flex items-center justify-center transition-all shadow-2xs group cursor-pointer shrink-0"
               aria-label="Progetto Successivo"
             >
               <CaretRight size={18} className="group-hover:translate-x-0.5 transition-transform" />
