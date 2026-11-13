@@ -14,6 +14,7 @@ import Admin from './pages/Admin';
 // New Service Sub-pages
 import Gare from './pages/Gare';
 import Progettazione from './pages/Progettazione';
+import RilieviEBim from './pages/RilieviEBim';
 import Rilievi from './pages/Rilievi';
 import BIM from './pages/BIM';
 import Privacy from './pages/Privacy';
@@ -30,6 +31,7 @@ function App() {
           <Route path="servizi" element={<Servizi />} />
           <Route path="servizi/gare" element={<Gare />} />
           <Route path="servizi/progettazione" element={<Progettazione />} />
+          <Route path="servizi/rilievi-e-bim" element={<RilieviEBim />} />
           <Route path="servizi/rilievi" element={<Rilievi />} />
           <Route path="servizi/bim" element={<BIM />} />
           <Route path="portfolio" element={<Portfolio />} />

@@ -47,7 +47,7 @@ export default function Layout() {
     { name: 'Progettazione', path: '/servizi/progettazione' },
     {
       name: 'Rilievi e BIM',
-      path: '/servizi/rilievi',
+      path: '/servizi/rilievi-e-bim',
       subLinks: [
         { name: 'Rilievi', path: '/servizi/rilievi' },
         { name: 'Servizi BIM', path: '/servizi/bim' },
@@ -70,7 +70,10 @@ export default function Layout() {
   const isLinkActive = (item: NavItem) => {
     if (item.path === '/') return location.pathname === '/';
     if (item.subLinks) {
-      return item.subLinks.some((sub) => location.pathname === sub.path);
+      return (
+        location.pathname === item.path ||
+        item.subLinks.some((sub) => location.pathname === sub.path)
+      );
     }
     if (item.path === '/portfolio') return location.pathname.startsWith('/portfolio');
     return location.pathname === item.path;
@@ -127,8 +130,9 @@ export default function Layout() {
               if (hasSub) {
                 return (
                   <div key={link.name} className="relative group/nav h-full flex items-center">
-                    <div
-                      className={`inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-[2px] text-[14px] font-medium transition-colors duration-200 cursor-pointer select-none ${
+                    <Link
+                      to={link.path}
+                      className={`inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-[2px] text-[14px] font-medium transition-colors duration-200 select-none ${
                         active
                           ? 'bg-[#F4EEDB] text-[#1b2a4a]'
                           : 'text-[#1b2a4a] group-hover/nav:bg-[#F4EEDB] hover:text-[#F5C400]'
@@ -140,7 +144,7 @@ export default function Layout() {
                         weight="bold"
                         className="transition-transform duration-200 group-hover/nav:rotate-180 text-[#1b2a4a]"
                       />
-                    </div>
+                    </Link>
 
                     {/* Dropdown Card */}
                     <div className="absolute top-[calc(100%-1px)] left-0 pt-0 opacity-0 translate-y-1 pointer-events-none group-hover/nav:opacity-100 group-hover/nav:translate-y-0 group-hover/nav:pointer-events-auto transition-all duration-200 z-50 before:absolute before:-top-2.5 before:left-0 before:right-0 before:h-2.5 before:content-['']">
@@ -245,18 +249,32 @@ export default function Layout() {
                 >
                   {link.subLinks ? (
                     <div className="flex flex-col gap-2">
-                      <button
-                        type="button"
-                        onClick={() => setOpenSubmenu((v) => (v === link.name ? null : link.name))}
-                        className="inline-flex items-center justify-center gap-2 text-2xl font-bold text-white hover:text-[#F5C400] transition-colors"
-                      >
-                        {link.name}
-                        <CaretDown
-                          size={18}
-                          weight="bold"
-                          className={`transition-transform duration-300 ${openSubmenu === link.name ? 'rotate-180' : ''}`}
-                        />
-                      </button>
+                      <div className="inline-flex items-center justify-center gap-2">
+                        <Link
+                          to={link.path}
+                          onClick={() => {
+                            setIsMenuOpen(false);
+                            setOpenSubmenu(null);
+                          }}
+                          className={`text-2xl font-bold transition-colors ${
+                            location.pathname === link.path ? 'text-[#F5C400]' : 'text-white hover:text-[#F5C400]'
+                          }`}
+                        >
+                          {link.name}
+                        </Link>
+                        <button
+                          type="button"
+                          onClick={() => setOpenSubmenu((v) => (v === link.name ? null : link.name))}
+                          aria-label={`Apri sottomenu ${link.name}`}
+                          className="p-1.5 text-white hover:text-[#F5C400] transition-colors"
+                        >
+                          <CaretDown
+                            size={18}
+                            weight="bold"
+                            className={`transition-transform duration-300 ${openSubmenu === link.name ? 'rotate-180' : ''}`}
+                          />
+                        </button>
+                      </div>
                       <AnimatePresence>
                         {openSubmenu === link.name && (
                           <motion.div
