@@ -22,25 +22,27 @@ export default function Risorse() {
     <div className="bg-white selection:bg-navy selection:text-white">
       
       {/* ── HERO ── */}
-      <section className="relative min-h-[50vh] md:h-[55vh] w-full flex items-center justify-center overflow-hidden bg-navy">
+      <section className="relative h-[44vh] min-h-[320px] sm:h-[52vh] w-full flex items-center justify-center overflow-hidden bg-[#1B2A4A] font-outfit">
         <div className="absolute inset-0 z-0">
           <img 
             src="https://images.unsplash.com/photo-1434626881859-194d67b2b86f?q=80&w=2070&auto=format&fit=crop" 
-            className="w-full h-full object-cover grayscale opacity-25" 
-            alt="Resources"
+            className="w-full h-full object-cover object-center" 
+            alt="Risorse e News MBA Progetti"
           />
-          <div className="absolute inset-0 bg-gradient-to-b from-navy via-navy/60 to-white" />
+          <div className="absolute inset-0 bg-[#1B2A4A]/60 mix-blend-multiply" />
+          <div className="absolute inset-0 bg-gradient-to-b from-[#1B2A4A]/80 via-[#1B2A4A]/40 to-transparent" />
+          <div className="absolute inset-x-0 bottom-0 h-16 sm:h-24 bg-gradient-to-b from-transparent via-white/40 to-white pointer-events-none" />
         </div>
-        <div className="relative z-10 text-center px-6 max-w-4xl mx-auto py-16">
+        <div className="relative z-10 text-center px-6 max-w-4xl mx-auto">
            <motion.div
-             initial={{ opacity: 0, y: 20 }}
+             initial={{ opacity: 0, y: 18 }}
              animate={{ opacity: 1, y: 0 }}
              transition={{ duration: 0.8 }}
            >
-             <span className="text-white/80 text-[11px] font-medium uppercase tracking-[0.2em] mb-4 block">
+             <span className="text-white/95 text-xs sm:text-[13px] font-medium uppercase tracking-[0.25em] mb-2.5 block">
                TOOLBOX PER LE IMPRESE
              </span>
-             <h1 className="text-white text-[clamp(34px,4.5vw,60px)] font-medium leading-[1.05] uppercase tracking-[-0.03em] mb-4">
+             <h1 className="text-white text-4xl sm:text-5xl md:text-[56px] font-bold uppercase tracking-[0.04em] leading-[1.05] drop-shadow-sm">
                 RISORSE &amp; NEWS
              </h1>
            </motion.div>
