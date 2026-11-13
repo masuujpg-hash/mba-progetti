@@ -2,7 +2,6 @@ import { motion, useInView } from 'framer-motion';
 import { useState, useEffect, useRef } from 'react';
 import { Link } from 'react-router-dom';
 import { 
-  ArrowRight, 
   CaretLeft,
   CaretRight,
   Buildings,
@@ -367,10 +366,10 @@ export default function Home() {
           <div className="mt-8 sm:mt-10 flex flex-row items-center justify-between gap-3 sm:gap-4">
             <Link 
               to="/portfolio" 
-              className="border border-[#1B2A4A]/25 hover:border-[#F5C400] hover:text-[#F5C400] bg-white h-[48px] sm:h-[52px] px-3 sm:px-[26px] py-[14px] text-[11px] tracking-[0.16em] sm:tracking-[0.2em] uppercase font-medium text-[#1B2A4A] transition-all rounded-[2px] shadow-2xs inline-flex items-center justify-center gap-2 sm:gap-3 group flex-1 sm:flex-initial"
+              className="border border-[#1B2A4A]/25 hover:border-[#F5C400] hover:text-[#F5C400] bg-white h-[48px] sm:h-[52px] px-4 sm:px-[26px] py-[14px] text-[11px] tracking-[0.16em] sm:tracking-[0.2em] uppercase font-medium text-[#1B2A4A] transition-all rounded-[2px] shadow-2xs inline-flex items-center justify-between gap-4 sm:min-w-[240px] group flex-1 sm:flex-initial"
             >
               <span className="truncate">TUTTI I PROGETTI</span>
-              <ArrowRight size={14} className="group-hover:translate-x-1 transition-transform shrink-0" />
+              <CaretRight size={15} className="group-hover:translate-x-1 transition-transform shrink-0" />
             </Link>
 
             <div className="flex items-center justify-end gap-2 sm:gap-3 shrink-0">
@@ -412,10 +411,10 @@ export default function Home() {
               <div className="pt-2">
                 <Link 
                   to="/simulatore" 
-                  className="btn-ghost-dark group w-full max-w-[270px] sm:w-[260px] h-[52px] px-[26px] py-[15px] text-[11px] font-medium tracking-[0.2em] uppercase rounded-[2px] inline-flex items-center justify-center gap-3.5 transition-all shadow-2xs font-outfit"
+                  className="btn-ghost-dark group w-full max-w-[280px] sm:w-[270px] h-[52px] px-[26px] py-[15px] text-[11px] font-medium tracking-[0.2em] uppercase rounded-[2px] inline-flex items-center justify-between gap-4 transition-all shadow-2xs font-outfit"
                 >
                   <span>ACCEDI AL SIMULATORE</span>
-                  <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform inline-block shrink-0" />
+                  <CaretRight size={16} className="group-hover:translate-x-1 transition-transform inline-block shrink-0" />
                 </Link>
               </div>
             </div>
@@ -541,10 +540,10 @@ export default function Home() {
           <div className="mt-8 sm:mt-10 flex flex-row items-center justify-between gap-3 sm:gap-4">
             <Link 
               to="/risorse" 
-              className="border border-[#1B2A4A]/25 hover:border-[#F5C400] hover:text-[#F5C400] bg-white h-[48px] sm:h-[52px] px-3 sm:px-[26px] py-[14px] text-[11px] tracking-[0.16em] sm:tracking-[0.2em] uppercase font-medium text-[#1B2A4A] transition-all rounded-[2px] shadow-2xs inline-flex items-center justify-center gap-2 sm:gap-3 group flex-1 sm:flex-initial"
+              className="border border-[#1B2A4A]/25 hover:border-[#F5C400] hover:text-[#F5C400] bg-white h-[48px] sm:h-[52px] px-4 sm:px-[26px] py-[14px] text-[11px] tracking-[0.16em] sm:tracking-[0.2em] uppercase font-medium text-[#1B2A4A] transition-all rounded-[2px] shadow-2xs inline-flex items-center justify-between gap-4 sm:min-w-[240px] group flex-1 sm:flex-initial"
             >
               <span className="truncate">TUTTE LE NEWS</span>
-              <CaretRight size={14} weight="bold" className="group-hover:translate-x-1 transition-transform shrink-0" />
+              <CaretRight size={15} className="group-hover:translate-x-1 transition-transform shrink-0" />
             </Link>
 
             <div className="flex items-center justify-end gap-2 sm:gap-3 shrink-0">
