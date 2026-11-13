@@ -515,21 +515,21 @@ export default function Gare() {
       </section>
 
       {/* ── 2. OFFERTE TECNICHE MIGLIORATIVE & GRAFICI ANIMATI ── */}
-      <section className="py-14 sm:py-20 px-6 max-w-7xl mx-auto">
+      <section className="py-14 sm:py-20 px-6 max-w-7xl mx-auto font-outfit">
         <div className="mb-4">
-          <span className="bg-[#F5C400] text-white text-[13px] font-medium uppercase tracking-[0.2em] px-2.5 py-1 rounded-[2px] inline-block shadow-xs">
+          <span className="bg-[#F5C400] text-white text-[11px] font-medium tracking-[0.2em] px-3.5 py-1 rounded-[1px] uppercase inline-block shadow-2xs">
             IL SETTORE
           </span>
         </div>
-        <h2 className="text-[#1b2a4a] text-2xl sm:text-3xl md:text-[32px] font-bold uppercase tracking-[0.05em] leading-[1.12] mb-8">
+        <h2 className="text-[#1B2A4A] text-2xl sm:text-3xl md:text-4xl font-bold tracking-[0.04em] uppercase leading-[1.15] mb-5">
           OFFERTE TECNICHE MIGLIORATIVE
         </h2>
 
         {/* Riga superiore: Descrizione a sinistra + 3 Stats animate a destra */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-14 items-start mb-14">
           <div className="lg:col-span-7 space-y-6">
-            <p className="text-[#3d4a66] text-[16px] font-normal leading-[1.7] max-w-[62ch]">
-              Lo studio MBA affianca le imprese nella redazione di <strong className="font-bold text-[#1b2a4a]">offerte tecniche migliorative</strong> per gare d’appalto pubbliche aggiudicate secondo il criterio dell’<strong className="font-bold text-[#1b2a4a]">offerta economicamente più vantaggiosa (OEV)</strong>. Analizziamo disciplinari e progetti posti a base di gara per individuare con precisione i <strong className="font-bold text-[#1b2a4a]">margini di miglioramento tecnico e operativo</strong>, sviluppando proposte fondate su <strong className="font-bold text-[#1b2a4a]">metodo, chiarezza e coerenza con i criteri di valutazione</strong>, capaci di tradursi in <strong className="font-bold text-[#1b2a4a]">risultati concreti</strong> nelle procedure di gara.
+            <p className="text-[#3d4a66] text-base md:text-[17px] font-normal leading-[1.65] max-w-[62ch]">
+              Lo studio MBA affianca le imprese nella redazione di <strong className="font-semibold text-[#1B2A4A]">offerte tecniche migliorative</strong> per gare d’appalto pubbliche aggiudicate secondo il criterio dell’offerta economicamente più vantaggiosa (OEV). Analizziamo disciplinari e progetti posti a base di gara per individuare con precisione i margini di miglioramento tecnico e operativo, sviluppando proposte fondate su metodo, chiarezza e coerenza con i criteri di valutazione, capaci di tradursi in risultati concreti nelle procedure di gara.
             </p>
             <div className="pt-2">
               <Link 
