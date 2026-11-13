@@ -255,22 +255,34 @@ export default function Gare() {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isPlateHovered, setIsPlateHovered] = useState(false);
   const [activeStep, setActiveStep] = useState(0);
-  const [isMethodHovered, setIsMethodHovered] = useState(false);
   const methodSectionRef = useRef<HTMLElement | null>(null);
-  const isMethodInView = useInView(methodSectionRef, { amount: 0.25 });
-  const manualPauseUntilRef = useRef<number>(0);
+  const isMethodInView = useInView(methodSectionRef, { once: true, amount: 0.25 });
+  const hasUserInteractedRef = useRef(false);
 
   useEffect(() => {
-    if (!isMethodInView || isMethodHovered) return;
+    if (!isMethodInView || hasUserInteractedRef.current) return;
+
+    let step = 0;
+    setActiveStep(0);
+
     const timer = window.setInterval(() => {
-      if (Date.now() < manualPauseUntilRef.current) return;
-      setActiveStep((prev) => (prev + 1) % 8);
-    }, 2200);
+      if (hasUserInteractedRef.current) {
+        window.clearInterval(timer);
+        return;
+      }
+      step += 1;
+      if (step >= 8) {
+        window.clearInterval(timer);
+        return;
+      }
+      setActiveStep(step);
+    }, 380);
+
     return () => window.clearInterval(timer);
-  }, [isMethodInView, isMethodHovered]);
+  }, [isMethodInView]);
 
   const handleSelectStep = (idx: number) => {
-    manualPauseUntilRef.current = Date.now() + 8000;
+    hasUserInteractedRef.current = true;
     setActiveStep(idx);
   };
 
@@ -771,11 +783,7 @@ export default function Gare() {
         </p>
 
         {/* Timeline a 8 step con icone circolari disposte su 2 righe da 4 conformi al mockup */}
-        <div
-          className="bg-[#f4f6f9] p-4 sm:p-8 md:p-10 rounded-[2px] border border-[#dfe3ea]"
-          onMouseEnter={() => setIsMethodHovered(true)}
-          onMouseLeave={() => setIsMethodHovered(false)}
-        >
+        <div className="bg-[#f4f6f9] p-4 sm:p-8 md:p-10 rounded-[2px] border border-[#dfe3ea]">
           <div className="grid grid-cols-4 gap-y-6 sm:gap-y-9 gap-x-2 sm:gap-x-6 lg:gap-x-8 mb-8 sm:mb-10">
             {processSteps.map((step, idx) => {
               const StepIcon = step.icon;
