@@ -255,6 +255,24 @@ export default function Gare() {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isPlateHovered, setIsPlateHovered] = useState(false);
   const [activeStep, setActiveStep] = useState(0);
+  const [isMethodHovered, setIsMethodHovered] = useState(false);
+  const methodSectionRef = useRef<HTMLElement | null>(null);
+  const isMethodInView = useInView(methodSectionRef, { amount: 0.25 });
+  const manualPauseUntilRef = useRef<number>(0);
+
+  useEffect(() => {
+    if (!isMethodInView || isMethodHovered) return;
+    const timer = window.setInterval(() => {
+      if (Date.now() < manualPauseUntilRef.current) return;
+      setActiveStep((prev) => (prev + 1) % 8);
+    }, 2200);
+    return () => window.clearInterval(timer);
+  }, [isMethodInView, isMethodHovered]);
+
+  const handleSelectStep = (idx: number) => {
+    manualPauseUntilRef.current = Date.now() + 8000;
+    setActiveStep(idx);
+  };
 
   // 8 Fasi di lavoro conformi al mockup
   const processSteps = [
@@ -739,7 +757,7 @@ export default function Gare() {
       </section>
 
       {/* ── 4. DALLA SCELTA DELLA GARA ALLA CONSEGNA (8 FASI INTERATTIVE) ── */}
-      <section className="py-14 sm:py-20 px-4 sm:px-6 max-w-7xl mx-auto font-outfit">
+      <section ref={methodSectionRef} className="py-14 sm:py-20 px-4 sm:px-6 max-w-7xl mx-auto font-outfit">
         <div className="mb-4">
           <span className="inline-block bg-[#F5C400] text-white text-[11px] font-medium uppercase tracking-[0.2em] px-3.5 py-1 rounded-[1px] shadow-2xs">
             METODO
@@ -753,7 +771,11 @@ export default function Gare() {
         </p>
 
         {/* Timeline a 8 step con icone circolari disposte su 2 righe da 4 conformi al mockup */}
-        <div className="bg-[#f4f6f9] p-4 sm:p-8 md:p-10 rounded-[2px] border border-[#dfe3ea]">
+        <div
+          className="bg-[#f4f6f9] p-4 sm:p-8 md:p-10 rounded-[2px] border border-[#dfe3ea]"
+          onMouseEnter={() => setIsMethodHovered(true)}
+          onMouseLeave={() => setIsMethodHovered(false)}
+        >
           <div className="grid grid-cols-4 gap-y-6 sm:gap-y-9 gap-x-2 sm:gap-x-6 lg:gap-x-8 mb-8 sm:mb-10">
             {processSteps.map((step, idx) => {
               const StepIcon = step.icon;
@@ -762,23 +784,25 @@ export default function Gare() {
                 <button
                   key={step.id}
                   type="button"
-                  onClick={() => setActiveStep(idx)}
+                  onClick={() => handleSelectStep(idx)}
                   className="flex flex-col items-center text-center group cursor-pointer focus:outline-none"
                 >
-                  <div 
-                    className={`w-14 h-14 min-[400px]:w-16 min-[400px]:h-16 sm:w-20 sm:h-20 md:w-[88px] md:h-[88px] rounded-full flex items-center justify-center mb-2.5 sm:mb-3 transition-all duration-200 ${
+                  <motion.div
+                    animate={{ scale: isActive ? 1.07 : 1 }}
+                    transition={{ type: "spring", stiffness: 320, damping: 24 }}
+                    className={`w-14 h-14 min-[400px]:w-16 min-[400px]:h-16 sm:w-20 sm:h-20 md:w-[88px] md:h-[88px] rounded-full flex items-center justify-center mb-2.5 sm:mb-3 transition-colors duration-300 ${
                       isActive 
-                        ? 'p-[3px] sm:p-[4px] bg-white border-[3px] border-[#F5C400] shadow-sm' 
+                        ? 'p-[3px] sm:p-[4px] bg-white border-[3px] border-[#F5C400] shadow-md' 
                         : 'border-[1.5px] border-[#1B2A4A]/75 bg-white group-hover:border-[#1B2A4A]'
                     }`}
                   >
-                    <div className={`w-full h-full rounded-full flex items-center justify-center transition-colors ${
+                    <div className={`w-full h-full rounded-full flex items-center justify-center transition-colors duration-300 ${
                       isActive ? 'bg-[#1B2A4A] text-white' : 'text-[#1B2A4A]'
                     }`}>
-                      <StepIcon className="w-6 h-6 sm:w-7 sm:h-7 md:w-8 md:h-8" weight={isActive ? "regular" : "regular"} />
+                      <StepIcon className="w-6 h-6 sm:w-7 sm:h-7 md:w-8 md:h-8" weight="regular" />
                     </div>
-                  </div>
-                  <span className={`text-[11px] min-[400px]:text-xs sm:text-sm leading-tight max-w-[140px] transition-colors ${
+                  </motion.div>
+                  <span className={`text-[11px] min-[400px]:text-xs sm:text-sm leading-tight max-w-[140px] transition-colors duration-300 ${
                     isActive ? 'font-bold text-[#1B2A4A]' : 'font-normal text-[#1B2A4A]/85 group-hover:text-[#1B2A4A]'
                   }`}>
                     {step.title}
@@ -790,15 +814,22 @@ export default function Gare() {
 
           {/* Dettaglio Fase Selezionata con Bordo Oro a Sinistra conforme al mockup */}
           <div className="bg-white p-5 sm:p-8 md:p-10 border-l-4 border-[#F5C400] shadow-xs rounded-[2px]">
-            <span className="inline-block text-[#F5C400] text-xs sm:text-[13px] font-semibold uppercase tracking-[0.2em] mb-2">
-              {processSteps[activeStep].tag}
-            </span>
-            <h3 className="text-[#1B2A4A] text-xl sm:text-2xl md:text-[26px] font-bold uppercase tracking-[0.02em] leading-snug mb-3">
-              {processSteps[activeStep].heading}
-            </h3>
-            <p className="text-[#3d4a66] text-[15px] sm:text-[17px] font-normal leading-[1.65] max-w-[64ch]">
-              {processSteps[activeStep].desc}
-            </p>
+            <motion.div
+              key={activeStep}
+              initial={{ opacity: 0, y: 6 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.28, ease: "easeOut" }}
+            >
+              <span className="inline-block text-[#F5C400] text-xs sm:text-[13px] font-semibold uppercase tracking-[0.2em] mb-2">
+                {processSteps[activeStep].tag}
+              </span>
+              <h3 className="text-[#1B2A4A] text-xl sm:text-2xl md:text-[26px] font-bold uppercase tracking-[0.02em] leading-snug mb-3">
+                {processSteps[activeStep].heading}
+              </h3>
+              <p className="text-[#3d4a66] text-[15px] sm:text-[17px] font-normal leading-[1.65] max-w-[64ch]">
+                {processSteps[activeStep].desc}
+              </p>
+            </motion.div>
           </div>
         </div>
       </section>
