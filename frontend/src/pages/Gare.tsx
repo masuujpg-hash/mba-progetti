@@ -516,29 +516,29 @@ export default function Gare() {
   return (
     <div className="bg-white text-navy selection:bg-navy selection:text-white">
       
-      {/* ── 1. HERO CON SFUMATURA ORIGINALE BIANCA VERSO IL BASSO ── */}
-      <section className="relative h-[48vh] sm:h-[55vh] w-full flex items-center justify-center overflow-hidden bg-navy">
+      {/* ── 1. HERO ── */}
+      <section className="relative h-[44vh] min-h-[320px] sm:h-[52vh] w-full flex items-center justify-center overflow-hidden bg-[#1B2A4A] font-outfit">
         <div className="absolute inset-0 z-0">
           <img 
             src="/media/portfolio/03_carabinieri_viterbo.jpg" 
-            className="w-full h-full object-cover object-top opacity-35" 
-            alt="MBA Progetti Gare OEPV"
+            className="w-full h-full object-cover object-center" 
+            alt="MBA Progetti Gare OEV"
           />
-          {/* Sfumatura: parte da navy semitrasparente in alto e degrada dolcemente a bianco puro */}
-          <div className="absolute inset-0 bg-gradient-to-b from-navy/80 via-navy/40 to-white" />
+          <div className="absolute inset-0 bg-[#1B2A4A]/65" />
+          <div className="absolute inset-x-0 bottom-0 h-16 sm:h-24 bg-gradient-to-t from-white via-white/75 to-transparent" />
         </div>
         
-        <div className="relative z-10 text-center px-6 max-w-4xl mx-auto pt-8">
+        <div className="relative z-10 text-center px-6 max-w-4xl mx-auto">
           <motion.div
             initial={{ opacity: 0, y: 18 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
           >
-            <div className="inline-block bg-[#F5C400] text-white text-[13px] font-medium uppercase tracking-[0.2em] px-2.5 py-1 rounded-[2px] mb-3 shadow-xs">
-              SERVIZI
+            <div className="text-white/95 text-xs sm:text-[13px] font-medium uppercase tracking-[0.25em] mb-2.5">
+              CORE BUSINESS
             </div>
-            <h1 className="text-white text-[clamp(34px,4.5vw,60px)] font-medium uppercase tracking-[-0.03em] leading-[1.05] drop-shadow-sm">
-              GARE OEPV
+            <h1 className="text-white text-4xl sm:text-5xl md:text-[56px] font-bold uppercase tracking-[0.04em] leading-[1.05] drop-shadow-sm">
+              GARE OEV
             </h1>
           </motion.div>
         </div>
