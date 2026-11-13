@@ -67,8 +67,9 @@ export default function Studio() {
             alt="MBA Progetti Studio"
             className="w-full h-full object-cover object-center"
           />
-          <div className="absolute inset-0 bg-[#1B2A4A]/60" />
-          <div className="absolute inset-x-0 bottom-0 h-16 sm:h-24 bg-gradient-to-t from-white via-white/75 to-transparent" />
+          <div className="absolute inset-0 bg-[#1B2A4A]/60 mix-blend-multiply" />
+          <div className="absolute inset-0 bg-gradient-to-b from-[#1B2A4A]/80 via-[#1B2A4A]/40 to-transparent" />
+          <div className="absolute inset-x-0 bottom-0 h-16 sm:h-24 bg-gradient-to-b from-transparent via-white/40 to-white pointer-events-none" />
         </div>
 
         <div className="relative z-10 text-center px-6 max-w-4xl mx-auto">
