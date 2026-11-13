@@ -116,7 +116,7 @@ export default function Studio() {
               </div>
             </motion.div>
 
-            {/* Right Column: Building Image */}
+            {/* Right Column: 3 Studio Photos Grid */}
             <motion.div 
               initial={{ opacity: 0, scale: 0.97 }}
               whileInView={{ opacity: 1, scale: 1 }}
@@ -124,12 +124,28 @@ export default function Studio() {
               transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
               className="lg:col-span-6"
             >
-              <div className="overflow-hidden rounded-[1px] border border-[#1b2a4a]/15 shadow-sm bg-neutral-100">
-                <img 
-                  src="/media/portfolio/15_ospedale_sarteano.jpg" 
-                  alt="Progetto MBA Studio — Ospedale di Sarteano" 
-                  className="w-full h-auto object-cover hover:scale-[1.02] transition-transform duration-700"
-                />
+              <div className="grid grid-cols-2 gap-3 sm:gap-4">
+                <div className="col-span-2 overflow-hidden rounded-[2px] border border-[#1b2a4a]/15 shadow-sm bg-neutral-100 aspect-[16/10]">
+                  <img 
+                    src="/media/studio-a.jpg" 
+                    alt="MBA Studio — Sede e spazi di lavoro" 
+                    className="w-full h-full object-cover hover:scale-[1.02] transition-transform duration-700"
+                  />
+                </div>
+                <div className="overflow-hidden rounded-[2px] border border-[#1b2a4a]/15 shadow-sm bg-neutral-100 aspect-[4/3]">
+                  <img 
+                    src="/media/studio-b.jpg" 
+                    alt="MBA Studio — Team e progettazione" 
+                    className="w-full h-full object-cover hover:scale-[1.03] transition-transform duration-700"
+                  />
+                </div>
+                <div className="overflow-hidden rounded-[2px] border border-[#1b2a4a]/15 shadow-sm bg-neutral-100 aspect-[4/3]">
+                  <img 
+                    src="/media/studio-c.jpg" 
+                    alt="MBA Studio — Dettaglio operativo" 
+                    className="w-full h-full object-cover hover:scale-[1.03] transition-transform duration-700"
+                  />
+                </div>
               </div>
             </motion.div>
 
