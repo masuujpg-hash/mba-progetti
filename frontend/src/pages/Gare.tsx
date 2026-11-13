@@ -1,5 +1,5 @@
 import { motion, useInView } from 'framer-motion';
-import { useRef, useState, useEffect, type ReactNode } from 'react';
+import { useRef, useState, useEffect, useId, type ReactNode } from 'react';
 import { Link } from 'react-router-dom';
 import { 
   FileText,
@@ -97,6 +97,7 @@ function AnimatedDonutChart({
   const containerRef = useRef<HTMLDivElement>(null);
   const isInView = useInView(containerRef, { once: true, margin: "-60px" });
   const [hoveredIdx, setHoveredIdx] = useState<number | null>(null);
+  const maskId = useId().replace(/:/g, '');
 
   // Geometria SVG Donut maggiorata
   const size = 280;
@@ -121,6 +122,7 @@ function AnimatedDonutChart({
     const labelX = cx + textRadius * Math.cos(rad);
     const labelY = cy + textRadius * Math.sin(rad);
 
+    const midPercent = accumulatedPercent + seg.value / 2;
     accumulatedPercent += seg.value;
 
     return {
@@ -128,21 +130,47 @@ function AnimatedDonutChart({
       startAngle,
       dashLength,
       labelX,
-      labelY
+      labelY,
+      midPercent
     };
   });
 
   return (
     <div ref={containerRef} className="flex flex-col items-center group w-full max-w-[340px]">
-      {/* Container SVG maggiorato con animazioni */}
+      {/* Container SVG maggiorato con animazione sweep fluida a 60fps */}
       <div className="relative w-64 h-64 sm:w-72 sm:h-72 lg:w-[300px] lg:h-[300px] mb-3 flex items-center justify-center">
         <svg 
           width="100%" 
           height="100%" 
           viewBox={`0 0 ${size} ${size}`} 
-          className="transform rotate-0 filter drop-shadow-xs overflow-visible"
+          className="overflow-visible"
         >
-          {/* Cerchio di fondo bianco / neutro sottilissimo */}
+          <defs>
+            <mask id={`donut-sweep-${maskId}`}>
+              <motion.circle
+                cx={cx}
+                cy={cy}
+                r={radius}
+                fill="none"
+                stroke="#FFFFFF"
+                strokeWidth={strokeWidth + 12}
+                strokeLinecap="butt"
+                transform={`rotate(-90 ${cx} ${cy})`}
+                initial={{ strokeDasharray: `0 ${circumference}` }}
+                animate={
+                  isInView
+                    ? { strokeDasharray: `${circumference} ${circumference}` }
+                    : { strokeDasharray: `0 ${circumference}` }
+                }
+                transition={{
+                  duration: 1.05,
+                  ease: [0.22, 1, 0.36, 1]
+                }}
+              />
+            </mask>
+          </defs>
+
+          {/* Cerchio di fondo neutro sottilissimo */}
           <circle
             cx={cx}
             cy={cy}
@@ -152,16 +180,13 @@ function AnimatedDonutChart({
             strokeWidth={strokeWidth}
           />
 
-          {/* Segmenti della ciambella */}
-          {segmentData.map((seg, idx) => {
-            const isHovered = hoveredIdx === idx;
-            return (
-              <g 
-                key={idx} 
-                onMouseEnter={() => setHoveredIdx(idx)} 
-                onMouseLeave={() => setHoveredIdx(null)}
-              >
-                <motion.circle
+          {/* Segmenti della ciambella rivelati da un unico sweep continuo */}
+          <g mask={`url(#donut-sweep-${maskId})`}>
+            {segmentData.map((seg, idx) => {
+              const isHovered = hoveredIdx === idx;
+              return (
+                <circle
+                  key={idx}
                   cx={cx}
                   cy={cy}
                   r={radius}
@@ -171,39 +196,38 @@ function AnimatedDonutChart({
                   strokeDasharray={`${seg.dashLength} ${circumference - seg.dashLength}`}
                   transform={`rotate(${seg.startAngle} ${cx} ${cy})`}
                   strokeLinecap="butt"
-                  initial={{ strokeDashoffset: circumference, opacity: 0.2 }}
-                  animate={isInView ? { strokeDashoffset: 0, opacity: 1 } : { strokeDashoffset: circumference, opacity: 0.2 }}
-                  transition={{
-                    duration: 1.2,
-                    delay: idx * 0.12,
-                    ease: [0.16, 1, 0.3, 1]
-                  }}
-                  className="cursor-pointer transition-all duration-200"
-                  style={{
-                    filter: isHovered ? 'drop-shadow(0 4px 12px rgba(27,42,74,0.25))' : 'none'
-                  }}
+                  onMouseEnter={() => setHoveredIdx(idx)}
+                  onMouseLeave={() => setHoveredIdx(null)}
+                  className="cursor-pointer transition-[stroke-width] duration-200"
                 />
+              );
+            })}
+          </g>
 
-                {/* Etichetta % all'interno della fetta */}
-                <motion.text
-                  x={seg.labelX}
-                  y={seg.labelY}
-                  textAnchor="middle"
-                  dominantBaseline="central"
-                  fill={seg.textColor || (seg.value <= 10 ? '#1B2A4A' : '#FFFFFF')}
-                  fontSize={seg.value <= 5 ? "10.5" : "12.5"}
-                  fontWeight="700"
-                  className="pointer-events-none select-none"
-                  style={{ fontFamily: "'Outfit', ui-sans-serif, system-ui, sans-serif" }}
-                  initial={{ opacity: 0, scale: 0 }}
-                  animate={isInView ? { opacity: 1, scale: 1 } : { opacity: 0, scale: 0 }}
-                  transition={{ duration: 0.4, delay: 0.7 + idx * 0.1 }}
-                >
-                  {seg.value}%
-                </motion.text>
-              </g>
-            );
-          })}
+          {/* Etichette % sincronizzate con lo sweep */}
+          {segmentData.map((seg, idx) => (
+            <motion.text
+              key={`label-${idx}`}
+              x={seg.labelX}
+              y={seg.labelY}
+              textAnchor="middle"
+              dominantBaseline="central"
+              fill={seg.textColor || (seg.value <= 10 ? '#1B2A4A' : '#FFFFFF')}
+              fontSize={seg.value <= 5 ? "10.5" : "12.5"}
+              fontWeight="700"
+              className="pointer-events-none select-none"
+              style={{ fontFamily: "'Outfit', ui-sans-serif, system-ui, sans-serif" }}
+              initial={{ opacity: 0 }}
+              animate={isInView ? { opacity: 1 } : { opacity: 0 }}
+              transition={{
+                duration: 0.35,
+                delay: 0.2 + (seg.midPercent / 100) * 0.75,
+                ease: "easeOut"
+              }}
+            >
+              {seg.value}%
+            </motion.text>
+          ))}
 
           {/* Cerchio centrale bianco (foro della ciambella) */}
           <circle
