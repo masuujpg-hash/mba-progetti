@@ -167,8 +167,8 @@ export default function Home() {
     <div className="bg-white selection:bg-navy selection:text-white overflow-x-hidden">
       
       {/* ── 1. CINEMATIC HERO ── */}
-      <section className="relative min-h-[92vh] md:min-h-screen w-full flex items-center justify-center overflow-hidden bg-[#1B2A4A]">
-        {/* Background image with navy overlay and smooth fade to white at bottom */}
+      <section className="relative min-h-[85vh] sm:min-h-[90vh] md:min-h-screen w-full flex items-center justify-center overflow-hidden bg-[#1B2A4A]">
+        {/* Background image con overlay navy e sfumatura corta solo a filo inferiore */}
         <div className="absolute inset-0 z-0">
           <img 
             src="/media/header_2.jpg" 
@@ -177,31 +177,33 @@ export default function Home() {
           />
           {/* Deep Navy Color Tint */}
           <div className="absolute inset-0 bg-[#1B2A4A]/60 mix-blend-multiply" />
-          {/* Vertical gradient: navy at top fading to clean white at bottom */}
-          <div className="absolute inset-0 bg-gradient-to-b from-[#1B2A4A]/85 via-[#1B2A4A]/55 to-white" />
+          {/* Sfumatura morbida navy dall'alto */}
+          <div className="absolute inset-0 bg-gradient-to-b from-[#1B2A4A]/80 via-[#1B2A4A]/40 to-transparent" />
+          {/* Sfumatura bianca corta solo a filo inferiore (h-20 su mobile per evitare l'effetto nebbia alto) */}
+          <div className="absolute bottom-0 left-0 right-0 h-20 sm:h-28 md:h-36 bg-gradient-to-b from-transparent via-white/40 to-white pointer-events-none" />
         </div>
 
         {/* Hero Content */}
-        <div className="relative z-10 text-center px-6 max-w-4xl mx-auto pt-28 sm:pt-36 pb-20 sm:pb-28 flex flex-col items-center">
+        <div className="relative z-10 text-center px-5 sm:px-6 max-w-4xl mx-auto pt-24 sm:pt-32 pb-14 sm:pb-20 flex flex-col items-center">
           <motion.div
             initial={{ opacity: 0, y: 25 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.9, ease: [0.16, 1, 0.3, 1] }}
             className="flex flex-col items-center w-full"
           >
-            {/* Titolo su 2 righe con tracking ampio e font geometrico leggero */}
-            <h1 className="text-white text-3xl sm:text-5xl md:text-6xl lg:text-[70px] font-extralight uppercase tracking-[0.22em] sm:tracking-[0.28em] leading-[1.2] mb-6 sm:mb-8 font-outfit text-center">
+            {/* Titolo su 2 righe: più grande, arioso e d'impatto su mobile */}
+            <h1 className="text-white text-[34px] min-[380px]:text-[40px] sm:text-5xl md:text-6xl lg:text-[72px] font-light uppercase tracking-[0.16em] sm:tracking-[0.24em] md:tracking-[0.28em] leading-[1.12] mb-5 sm:mb-7 font-outfit text-center">
               <span className="block">PROGETTIAMO</span>
               <span className="block mt-1 sm:mt-2">IL FUTURO</span>
             </h1>
 
             {/* Sottotitolo / Paragrafo */}
-            <p className="text-white/95 text-[15px] sm:text-[17px] md:text-[18px] font-normal max-w-2xl leading-[1.65] mb-8 sm:mb-10 font-outfit text-center">
+            <p className="text-white/95 text-[14.5px] sm:text-[17px] md:text-[18px] font-normal max-w-[340px] sm:max-w-xl md:max-w-2xl leading-[1.6] mb-8 sm:mb-9 font-outfit text-center">
               Affianchiamo le imprese nella costruzione di offerte tecniche capaci di generare nuove opportunità di lavoro. Ogni aggiudicazione è il risultato di un percorso costruito insieme e un nuovo punto di partenza per crescere.
             </p>
 
             {/* Pulsanti CTA impilati verticalmente */}
-            <div className="flex flex-col items-center gap-3 w-full max-w-[340px] sm:max-w-[380px]">
+            <div className="flex flex-col items-center gap-3 w-full max-w-[320px] sm:max-w-[360px]">
               <Link 
                 to="/studio" 
                 className="w-full h-[48px] sm:h-[50px] border border-white/60 hover:border-white hover:bg-white/10 text-white px-5 sm:px-6 rounded-[2px] flex items-center justify-between text-[11px] sm:text-[12px] font-medium tracking-[0.2em] uppercase transition-all shadow-2xs group font-outfit"
