@@ -60,26 +60,27 @@ export default function Studio() {
     <div className="bg-white selection:bg-navy selection:text-white overflow-x-hidden">
       
       {/* ── 1. CINEMATIC HERO ── */}
-      <section className="relative min-h-[44vh] md:h-[55vh] w-full flex items-center justify-center overflow-hidden bg-navy">
+      <section className="relative h-[44vh] min-h-[320px] sm:h-[52vh] w-full flex items-center justify-center overflow-hidden bg-[#1B2A4A] font-outfit">
         <div className="absolute inset-0 z-0">
           <img 
             src="/media/header_2.jpg" 
             alt="MBA Progetti Studio"
-            className="w-full h-full object-cover object-center opacity-85 contrast-105"
+            className="w-full h-full object-cover object-center"
           />
-          <div className="absolute inset-0 bg-gradient-to-b from-navy/40 via-white/20 to-white" />
+          <div className="absolute inset-0 bg-[#1B2A4A]/60" />
+          <div className="absolute inset-x-0 bottom-0 h-16 sm:h-24 bg-gradient-to-t from-white via-white/75 to-transparent" />
         </div>
 
-        <div className="relative z-10 text-center px-6 max-w-4xl mx-auto pt-16 pb-10">
+        <div className="relative z-10 text-center px-6 max-w-4xl mx-auto">
           <motion.div
-            initial={{ opacity: 0, y: 25 }}
+            initial={{ opacity: 0, y: 18 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.9, ease: [0.16, 1, 0.3, 1] }}
+            transition={{ duration: 0.8 }}
           >
-            <span className="text-white/80 text-[11px] font-medium uppercase tracking-[0.25em] md:tracking-[0.4em] mb-4 block font-outfit drop-shadow-sm">
-              PROGETTAZIONE E GARE D'APPALTO
-            </span>
-            <h1 className="text-white text-[clamp(32px,4.3vw,58px)] font-bold uppercase tracking-[0.05em] leading-[1.2] drop-shadow-md font-outfit">
+            <div className="text-white/95 text-xs sm:text-[13px] font-medium uppercase tracking-[0.25em] mb-2.5">
+              COMPETENZA E VISIONE
+            </div>
+            <h1 className="text-white text-4xl sm:text-5xl md:text-[56px] font-bold uppercase tracking-[0.04em] leading-[1.05] drop-shadow-sm">
               LO STUDIO
             </h1>
           </motion.div>
