@@ -306,11 +306,14 @@ export default function Home() {
           {/* Section Header */}
           <div className="mb-10">
             <span className="inline-block bg-[#F5C400] text-white text-[11px] font-medium tracking-[0.2em] px-3.5 py-1 rounded-[1px] uppercase mb-4 shadow-2xs font-outfit">
-              PORTFOLIO COMPLETO
+              ALCUNI RISULTATI
             </span>
-            <h2 className="text-[#1B2A4A] text-2xl sm:text-3xl md:text-4xl font-bold uppercase tracking-[0.04em] leading-[1.15] font-outfit">
-              I NOSTRI PROGETTI & APPALTI
+            <h2 className="text-[#1B2A4A] text-2xl sm:text-3xl md:text-4xl font-bold uppercase tracking-[0.04em] leading-[1.15] mb-4 font-outfit">
+              I NOSTRI PROGETTI &amp; APPALTI
             </h2>
+            <p className="text-[#3d4a66] text-base md:text-[17px] font-normal leading-[1.65] max-w-[62ch] font-outfit">
+              Esplora le <strong className="font-semibold text-[#1B2A4A]">offerte migliorative</strong> ed i progetti firmati dallo studio.
+            </p>
           </div>
 
           {/* Slider Track with Mobile Touch Swipe and Auto-slide Pause on Hover */}
