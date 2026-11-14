@@ -511,25 +511,23 @@ function NetworkDiagram() {
     },
   ];
 
-  // Geometria ampliata e più grande (+40%)
-  const width = 860;
-  const height = 580;
+  // Geometria ottimizzata per riempire bene anche su mobile
   const cx = 430;
   const cy = 290;
-  const centerRadius = 58;
-  const goldRingRadius = 74;
-  const orbitRadius = 180;
-  const satelliteRadius = 30;
+  const centerRadius = 60;
+  const goldRingRadius = 76;
+  const orbitRadius = 176;
+  const satelliteRadius = 32;
 
   return (
     <div 
       ref={containerRef}
-      className="relative w-full max-w-[1020px] flex flex-col items-center justify-center select-none mx-auto px-0 sm:px-2"
+      className="relative w-[calc(100%+2.5rem)] -mx-5 sm:w-full sm:mx-auto max-w-[1020px] flex flex-col items-center justify-center select-none"
     >
       {/* Diagramma radiale orbitale (Desktop & Mobile) */}
-      <div className="flex relative w-full aspect-[860/580] items-center justify-center overflow-visible">
+      <div className="flex relative w-full aspect-[724/500] items-center justify-center overflow-visible">
         <svg 
-          viewBox={`0 0 ${width} ${height}`} 
+          viewBox="68 40 724 500" 
           className="w-full h-full overflow-visible"
         >
           {/* Raggi di collegamento animati dal centro verso i nodi satellite */}
@@ -684,9 +682,9 @@ function NetworkDiagram() {
                     y={textY + 4}
                     textAnchor={textAnchor}
                     fill={isHovered ? "#F5C400" : "#1B2A4A"}
-                    fontSize="11.5"
+                    fontSize="12.5"
                     fontWeight="700"
-                    letterSpacing="0.08em"
+                    letterSpacing="0.06em"
                     className="uppercase select-none transition-colors duration-300"
                     style={{ fontFamily: "'Outfit', ui-sans-serif, system-ui, sans-serif" }}
                     initial={{ opacity: 0 }}
@@ -698,12 +696,12 @@ function NetworkDiagram() {
                 ) : (
                   <motion.text
                     x={textX}
-                    y={node.align === 'top' ? textY - 8 : textY - 4}
+                    y={node.align === 'top' ? textY - 10 : textY - 5}
                     textAnchor={textAnchor}
                     fill={isHovered ? "#F5C400" : "#1B2A4A"}
-                    fontSize="11.5"
+                    fontSize="12.5"
                     fontWeight="700"
-                    letterSpacing="0.08em"
+                    letterSpacing="0.06em"
                     className="uppercase select-none transition-colors duration-300"
                     style={{ fontFamily: "'Outfit', ui-sans-serif, system-ui, sans-serif" }}
                     initial={{ opacity: 0 }}
@@ -711,7 +709,7 @@ function NetworkDiagram() {
                     transition={{ duration: 0.4, delay: 0.45 + i * 0.07 }}
                   >
                     <tspan x={textX} dy="0">{node.lines[0]}</tspan>
-                    <tspan x={textX} dy="13">{node.lines[1]}</tspan>
+                    <tspan x={textX} dy="14">{node.lines[1]}</tspan>
                   </motion.text>
                 )}
               </motion.g>
