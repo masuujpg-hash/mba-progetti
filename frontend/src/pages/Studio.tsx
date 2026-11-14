@@ -524,34 +524,10 @@ function NetworkDiagram() {
   return (
     <div 
       ref={containerRef}
-      className="relative w-full max-w-[1020px] flex flex-col items-center justify-center select-none mx-auto px-2"
+      className="relative w-full max-w-[1020px] flex flex-col items-center justify-center select-none mx-auto px-0 sm:px-2"
     >
-      {/* Mobile: Griglia 2x4 di cerchi navy con icona bianca e titolo sotto */}
-      <div className="grid grid-cols-2 md:hidden gap-x-5 gap-y-8 w-full max-w-md mx-auto py-2">
-        {nodes.map((node, i) => {
-          const NodeIcon = node.icon;
-          return (
-            <motion.div
-              key={`mobile-node-${i}`}
-              initial={{ opacity: 0, y: 12 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-40px" }}
-              transition={{ duration: 0.4, delay: i * 0.04 }}
-              className="flex flex-col items-center text-center"
-            >
-              <div className="w-16 h-16 rounded-full bg-[#1B2A4A] text-white flex items-center justify-center shadow-sm mb-3">
-                <NodeIcon />
-              </div>
-              <span className="text-[#1B2A4A] text-[11px] font-medium uppercase tracking-[0.12em] leading-snug font-outfit">
-                {node.lines.join(' ')}
-              </span>
-            </motion.div>
-          );
-        })}
-      </div>
-
-      {/* Desktop / Tablet: Diagramma radiale orbitale */}
-      <div className="hidden md:flex relative w-full aspect-[860/580] items-center justify-center overflow-visible">
+      {/* Diagramma radiale orbitale (Desktop & Mobile) */}
+      <div className="flex relative w-full aspect-[860/580] items-center justify-center overflow-visible">
         <svg 
           viewBox={`0 0 ${width} ${height}`} 
           className="w-full h-full overflow-visible"
